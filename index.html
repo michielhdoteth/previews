@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4M Labs — Previews</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #0f1117;
+      color: #e4e6ed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 640px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+    .subtitle {
+      color: #8b8fa3;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #1e2030;
+      padding-bottom: 1rem;
+    }
+    .card {
+      background: #161822;
+      border: 1px solid #1e2030;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .card:hover {
+      border-color: #3b82f6;
+      transform: translateY(-2px);
+    }
+    .card a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+    .card-desc {
+      font-size: 0.8rem;
+      color: #8b8fa3;
+    }
+    .arrow {
+      color: #3b82f6;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #5a5d70;
+    }
+    .badge {
+      display: inline-block;
+      background: #3b82f6;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Previews</h1>
+    <div class="subtitle">4M Labs landing page previews</div>
+
+    <div class="card">
+      <a href="./soporte/">
+        <div>
+          <div class="card-title">Soporte Juridico Laboral</div>
+          <div class="card-desc">Defensa laboral estrategica en Guadalajara</div>
+        </div>
+        <div class="arrow">&rarr;</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="./breysa/">
+        <div>
+          <div class="card-title">BREYSA Constructora</div>
+          <div class="card-desc">Proyecto de construccion en Guadalajara</div>
+        </div>
+        <div class="arrow">&rarr;</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="./503medical/">
+        <div>
+          <div class="card-title">503 Medical Center</div>
+          <div class="card-desc">Clinica Multiespecialidad en Tampico</div>
+        </div>
+        <div class="arrow">&rarr;</div>
+      </a>
+    </div>
+
+    <div class="footer">
+      4M Labs &mdash; GitHub Pages
+    </div>
+  </div>
+</body>
+</html>
