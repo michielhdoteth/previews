@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanio Grupo Constructor - Construcci&oacute;n en Tlaquepaque</title>
+<meta name="description" content="Hanio Grupo Constructor en Tlaquepaque, Jalisco. Construcci&oacute;n residencial, comercial e industrial. Proyectos llave en mano con calidad y transparencia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: #2d3436;
+  background: #f5f0e8;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== COLOR TOKENS ===== */
+:root {
+  --navy: #1a3a5c;
+  --navy-dark: #0f2740;
+  --navy-light: #e8eef5;
+  --orange: #d4732a;
+  --orange-dark: #b85f1f;
+  --orange-light: #fef0e6;
+  --paper: #f5f0e8;
+  --paper-dark: #e8e0d4;
+  --white: #ffffff;
+  --gray-100: #f0f4f8;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-500: #64748b;
+  --gray-700: #334155;
+  --gray-900: #0f172a;
+  --shadow-sm: 0 1px 3px rgba(26, 58, 92, 0.08);
+  --shadow-md: 0 4px 20px rgba(26, 58, 92, 0.12);
+  --shadow-lg: 0 10px 40px rgba(26, 58, 92, 0.15);
+  --radius: 12px;
+  --radius-sm: 6px;
+  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 115, 42, 0.4); }
+  50% { box-shadow: 0 0 0 20px rgba(212, 115, 42, 0); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-left {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes blueprint-fade {
+  from { opacity: 0; }
+  to { opacity: 0.06; }
+}
+@keyframes construction-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+@keyframes tape-fall {
+  from { opacity: 0; transform: translateY(-20px) rotate(-5deg); }
+  to { opacity: 1; transform: translateY(0) rotate(-5deg); }
+}
+@keyframes measurement-line {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animate-on-scroll-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.animate-on-scroll-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.animate-on-scroll-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.animate-on-scroll-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== FLOATING WHATSAPP ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulse-glow 2s infinite;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+}
+.whatsapp-float .tooltip {
+  position: absolute;
+  right: 72px;
+  background: var(--navy);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  font-family: 'DM Sans', sans-serif;
+}
+.whatsapp-float:hover .tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #1a3a5c 0%, #0f2740 40%, #1a3a5c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 2rem;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-blueprint-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.04;
+  pointer-events: none;
+}
+.hero-protractor {
+  position: absolute;
+  top: 10%;
+  right: 8%;
+  width: 120px;
+  height: 120px;
+  border: 2px dashed rgba(212, 115, 42, 0.15);
+  border-radius: 50%;
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+}
+.hero-protractor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 2px;
+  background: rgba(212, 115, 42, 0.1);
+  transform: translate(-50%, -50%) rotate(-30deg);
+}
+.hero-protractor::after {
+  content: '45°';
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  color: rgba(212, 115, 42, 0.2);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.8rem;
+}
+.hero-ruler {
+  position: absolute;
+  bottom: 15%;
+  left: 5%;
+  height: 200px;
+  width: 4px;
+  background: repeating-linear-gradient(0deg, rgba(212,115,42,0.12), rgba(212,115,42,0.12) 4px, transparent 4px, transparent 12px);
+  z-index: 1;
+}
+.hero-ruler::before {
+  content: '0';
+  position: absolute;
+  bottom: -18px;
+  left: 10px;
+  color: rgba(212,115,42,0.2);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.7rem;
+}
+.hero-ruler::after {
+  content: '10m';
+  position: absolute;
+  top: -18px;
+  left: 10px;
+  color: rgba(212,115,42,0.2);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.7rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 850px;
+  animation: slide-up 1s ease forwards;
+}
+
+/* Hero Logo - Building SVG */
+.hero-logo {
+  margin-bottom: 2rem;
+  display: inline-block;
+  animation: float 4s ease-in-out infinite;
+  position: relative;
+}
+.hero-logo svg {
+  width: 110px;
+  height: 110px;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 8px 20px;
+  border-radius: 4px;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+  font-family: 'DM Sans', sans-serif;
+}
+.hero-badge i {
+  color: var(--orange);
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  font-weight: 400;
+  color: white;
+  line-height: 1.05;
+  margin-bottom: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.hero h1 span {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--orange), #ff9f43);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.8);
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--orange);
+  color: white;
+  padding: 16px 36px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 115, 42, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn-primary:hover {
+  background: var(--orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(212, 115, 42, 0.5);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: white;
+  padding: 16px 36px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 2px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+.btn-secondary:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  transform: translateY(-2px);
+}
+
+.hero-friction {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+}
+.hero-friction span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-friction i {
+  color: var(--orange);
+  font-size: 0.9rem;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  z-index: 2;
+  animation: float 2s ease-in-out infinite;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ===== SECTION COMMON ===== */
+section {
+  position: relative;
+  padding: 5rem 1.5rem;
+}
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy-light);
+  color: var(--navy);
+  padding: 6px 18px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 0.8rem;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--gray-500);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* Blueprint measurement decorations */
+.section-measure {
+  position: relative;
+}
+.section-measure::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--orange);
+  opacity: 0.3;
+}
+
+/* ===== BENEFITS ===== */
+.benefits {
+  background: var(--white);
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 3rem;
+}
+.benefit-card {
+  background: var(--paper);
+  padding: 2.5rem;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--orange);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.benefit-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(212,115,42,0.04) 4px, rgba(212,115,42,0.04) 8px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.benefit-card:hover::after {
+  opacity: 1;
+}
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.benefit-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--navy-light);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin-bottom: 1.2rem;
+  transition: all 0.3s ease;
+}
+.benefit-card:hover .benefit-icon {
+  background: var(--navy);
+  color: white;
+}
+.benefit-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+.benefit-card .pain {
+  font-size: 0.85rem;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.benefit-card .agitate {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  margin-bottom: 0.6rem;
+  line-height: 1.7;
+}
+.benefit-card .solution {
+  font-size: 0.95rem;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+/* ===== SOCIAL PROOF ===== */
+.social-proof {
+  background: var(--paper);
+}
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 3rem;
+}
+.proof-stat {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--paper-dark);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.proof-stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--navy);
+}
+.proof-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.proof-stat .number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: 1px;
+}
+.proof-stat .label {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  margin-top: 4px;
+}
+.proof-stat .sub-label {
+  font-size: 0.75rem;
+  color: var(--orange);
+  font-weight: 600;
+  margin-top: 2px;
+}
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 3rem;
+}
+.testimonial-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--paper-dark);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--orange);
+}
+.testimonial-card::before {
+  content: '"';
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: var(--navy);
+  opacity: 0.08;
+  position: absolute;
+  top: 5px;
+  left: 16px;
+  line-height: 1;
+}
+.testimonial-stars {
+  color: #f59e0b;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+.testimonial-card p {
+  font-size: 0.95rem;
+  color: var(--gray-700);
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: var(--navy-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.testimonial-author .name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--gray-900);
+}
+.testimonial-author .detail {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
+/* ===== HOW IT WORKS ===== */
+.how-it-works {
+  background: var(--white);
+}
+.steps-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 3rem auto 0;
+  padding-left: 50px;
+}
+.steps-timeline::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--navy), var(--orange), var(--navy));
+  border-radius: 2px;
+}
+.step-item {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 2rem;
+  border-left: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.step-item:hover {
+  border-left-color: var(--orange);
+}
+.step-marker {
+  position: absolute;
+  left: -50px;
+  top: 1.8rem;
+  width: 44px;
+  height: 44px;
+  background: var(--navy);
+  color: white;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  z-index: 1;
+  box-shadow: 0 2px 10px rgba(26, 58, 92, 0.3);
+}
+.step-item:nth-child(odd) .step-marker {
+  background: var(--orange);
+  box-shadow: 0 2px 10px rgba(212, 115, 42, 0.3);
+}
+.step-item h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+}
+.step-item p {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+  max-width: 550px;
+}
+.step-duration {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--orange);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.4rem;
+}
+.step-detail {
+  font-size: 0.85rem;
+  color: var(--gray-700);
+  margin-top: 0.4rem;
+  line-height: 1.6;
+}
+
+/* ===== OFFER / SERVICES ===== */
+.offer {
+  background: var(--paper);
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 3rem;
+}
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border: 1px solid var(--paper-dark);
+  position: relative;
+}
+.service-card.featured {
+  border-color: var(--navy);
+  border-width: 2px;
+  box-shadow: var(--shadow-md);
+}
+.service-card.featured::before {
+  content: 'RECOMENDADO';
+  position: absolute;
+  top: 14px;
+  right: -28px;
+  background: var(--navy);
+  color: white;
+  padding: 3px 36px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transform: rotate(45deg);
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--orange);
+}
+.service-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--navy-light);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+.service-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+.service-card p {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.service-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--navy);
+  letter-spacing: 1px;
+}
+.service-price span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--gray-500);
+  font-family: 'DM Sans', sans-serif;
+}
+.service-usp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--orange);
+  font-weight: 500;
+  margin-top: 0.6rem;
+}
+
+/* ===== FAQ ===== */
+.faq {
+  background: var(--white);
+}
+.faq-list {
+  max-width: 800px;
+  margin: 3rem auto 0;
+}
+.faq-item {
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+.faq-item:hover {
+  border-color: var(--orange);
+}
+.faq-question {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray-900);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+.faq-question:hover {
+  color: var(--navy);
+}
+.faq-question i {
+  transition: transform 0.3s ease;
+  color: var(--orange);
+  font-size: 0.85rem;
+}
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 0 1.5rem 1.2rem;
+}
+.faq-answer p {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+/* ===== ABOUT ===== */
+.about {
+  background: var(--paper);
+}
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 3rem;
+}
+@media (max-width: 768px) {
+  .about-content { grid-template-columns: 1fr; }
+}
+.about-image {
+  position: relative;
+}
+.about-image-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(160deg, var(--navy-light), var(--navy));
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  opacity: 0.9;
+  position: relative;
+  overflow: hidden;
+}
+.about-image-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(255,255,255,0.05) 30px, rgba(255,255,255,0.05) 31px),
+    repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(255,255,255,0.05) 30px, rgba(255,255,255,0.05) 31px);
+}
+.about-image .badge-projects {
+  position: absolute;
+  bottom: -12px;
+  left: -12px;
+  background: var(--orange);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 15px rgba(212, 115, 42, 0.3);
+  font-family: 'DM Sans', sans-serif;
+}
+.about-image .badge-years {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: var(--navy);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 15px rgba(26, 58, 92, 0.3);
+  font-family: 'DM Sans', sans-serif;
+}
+.about-text h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.about-text h3 {
+  font-size: 1rem;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.about-text p {
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+.about-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  background: var(--white);
+  padding: 10px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--paper-dark);
+}
+.about-stat i {
+  color: var(--navy);
+  width: 20px;
+  font-size: 1rem;
+}
+
+/* ===== PROJECT GALLERY ===== */
+.project-gallery {
+  background: var(--white);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 3rem;
+}
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--navy-light);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  font-size: 1.5rem;
+  border: 1px solid var(--paper-dark);
+}
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-md);
+  border-color: var(--orange);
+}
+.gallery-item .gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(26,58,92,0.85));
+  color: white;
+  padding: 1.5rem 1rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.gallery-item .gallery-icon {
+  font-size: 2.5rem;
+  opacity: 0.4;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--navy-dark);
+  color: white;
+  padding: 3rem 1.5rem;
+  position: relative;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--navy), var(--orange), var(--navy));
+}
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+}
+.footer-brand h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 0.6rem;
+  color: white;
+}
+.footer-brand p {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.footer-brand .mini-logo {
+  margin-bottom: 12px;
+}
+.footer-links h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+.footer-links a:hover {
+  color: var(--orange);
+}
+.footer-links i {
+  width: 16px;
+  color: var(--orange);
+}
+.footer-links p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.footer-links p i {
+  color: var(--orange);
+  width: 16px;
+  margin-right: 6px;
+}
+.footer-bottom {
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.8rem;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 100%);
+  text-align: center;
+  padding: 4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px);
+  pointer-events: none;
+}
+.cta-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.cta-section p {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 3rem; }
+  .hero p { font-size: 1rem; }
+  .section-title { font-size: 2.2rem; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .testimonials { grid-template-columns: 1fr; }
+  .steps-timeline { padding-left: 40px; }
+  .step-marker { left: -40px; width: 36px; height: 36px; font-size: 1rem; }
+  .step-item { padding-left: 1rem; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero { padding: 1.5rem; }
+  section { padding: 3rem 1rem; }
+  .proof-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--navy-dark); }
+
+/* Blueprint grid helper */
+.blueprint-bg {
+  position: relative;
+}
+.blueprint-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 30px, var(--navy) 30px, var(--navy) 31px),
+    repeating-linear-gradient(90deg, transparent, transparent 30px, var(--navy) 30px, var(--navy) 31px);
+}
+
+/* ===== ANNOTATION STICKER ===== */
+.annotation-sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--orange);
+  color: white;
+  padding: 2px 10px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+<a href="https://wa.me/5233XXXXXXXX?text=Hola%20Hanio%20Grupo%20Constructor%2C%20quiero%20cotizar%20mi%20proyecto" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span class="tooltip">&iexcl;Cotiza tu proyecto por WhatsApp!</span>
+</a>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <!-- Blueprint grid overlay -->
+  <div class="hero-blueprint-overlay"></div>
+
+  <!-- Compass / Protractor decoration -->
+  <div class="hero-protractor"></div>
+
+  <!-- Ruler decoration -->
+  <div class="hero-ruler"></div>
+
+  <div class="hero-content">
+    <!-- Brand Logo SVG - Building/Construction -->
+    <div class="hero-logo">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="buildGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#e8eef5"/>
+          </linearGradient>
+          <linearGradient id="buildGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#d4732a"/>
+            <stop offset="100%" stop-color="#b85f1f"/>
+          </linearGradient>
+        </defs>
+        <!-- Building structure -->
+        <rect x="25" y="30" width="70" height="75" rx="1" fill="url(#buildGrad1)" stroke="#1a3a5c" stroke-width="2"/>
+        <!-- Roof -->
+        <polygon points="15,35 60,8 105,35" fill="none" stroke="#1a3a5c" stroke-width="2.5" stroke-linejoin="round"/>
+        <polygon points="15,35 60,8 105,35" fill="#1a3a5c" opacity="0.1"/>
+        <!-- Windows row 1 -->
+        <rect x="35" y="42" width="14" height="16" rx="1" fill="#1a3a5c" opacity="0.15" stroke="#1a3a5c" stroke-width="1"/>
+        <rect x="55" y="42" width="14" height="16" rx="1" fill="#1a3a5c" opacity="0.15" stroke="#1a3a5c" stroke-width="1"/>
+        <rect x="75" y="42" width="14" height="16" rx="1" fill="#1a3a5c" opacity="0.15" stroke="#1a3a5c" stroke-width="1"/>
+        <!-- Windows row 2 -->
+        <rect x="35" y="65" width="14" height="16" rx="1" fill="#d4732a" opacity="0.3" stroke="#1a3a5c" stroke-width="1"/>
+        <rect x="55" y="65" width="14" height="16" rx="1" fill="#d4732a" opacity="0.3" stroke="#1a3a5c" stroke-width="1"/>
+        <rect x="75" y="65" width="14" height="16" rx="1" fill="#d4732a" opacity="0.3" stroke="#1a3a5c" stroke-width="1"/>
+        <!-- Door -->
+        <rect x="50" y="85" width="20" height="22" rx="2" fill="#d4732a" opacity="0.4" stroke="#1a3a5c" stroke-width="1.5"/>
+        <circle cx="63" cy="97" r="1.5" fill="#1a3a5c"/>
+        <!-- Foundation line -->
+        <line x1="18" y1="107" x2="102" y2="107" stroke="#1a3a5c" stroke-width="2"/>
+        <!-- Measurement annotation -->
+        <line x1="18" y1="108" x2="18" y2="115" stroke="#d4732a" stroke-width="1" stroke-dasharray="2,2"/>
+        <line x1="102" y1="108" x2="102" y2="115" stroke="#d4732a" stroke-width="1" stroke-dasharray="2,2"/>
+        <line x1="18" y1="112" x2="102" y2="112" stroke="#d4732a" stroke-width="1" opacity="0.6"/>
+        <!-- Hard hat on top -->
+        <path d="M48 10 C48 4 72 4 72 10 C76 12 78 14 78 16 L42 16 C42 14 44 12 48 10Z" fill="url(#buildGrad2)" stroke="#b85f1f" stroke-width="1"/>
+        <rect x="40" y="15" width="40" height="3" rx="1" fill="#d4732a" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="hero-badge">
+      <i class="fa-solid fa-trophy-star"></i>
+      <span>M&aacute;s de 150 proyectos entregados en Jalisco</span>
+    </div>
+
+    <h1>Construimos <span>Tu Proyecto</span></h1>
+    <p>Construcci&oacute;n residencial, comercial e industrial en Tlaquepaque y toda la Zona Metropolitana de Guadalajara. Proyectos llave en mano con calidad, transparencia y en tiempo.</p>
+
+    <div class="hero-cta-group">
+      <a href="#contacto" class="btn-primary">
+        <i class="fa-regular fa-pen-ruler"></i>
+        Cotiza tu proyecto
+      </a>
+      <a href="#servicios" class="btn-secondary">
+        <i class="fa-regular fa-eye"></i>
+        Ver servicios
+      </a>
+    </div>
+
+    <div class="hero-friction">
+      <span><i class="fa-solid fa-shield-check"></i> Presupuesto sin costo</span>
+      <span><i class="fa-regular fa-clock"></i> Entrega en tiempo</span>
+      <span><i class="fa-regular fa-file-invoice"></i> Contrato transparente</span>
+      <span><i class="fa-regular fa-guarani-sign"></i> Garant&iacute;a de obra</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <i class="fa-solid fa-chevron-down"></i>
+    <span>Conoce m&aacute;s</span>
+  </div>
+</section>
+
+<!-- ===== BENEFITS (PAS Copy) ===== -->
+<section class="benefits" id="beneficios">
+  <div class="section-container section-measure">
+    <div class="animate-on-scroll">
+      <span class="section-tag"><i class="fa-regular fa-circle-check"></i> Por qu&eacute; elegirnos</span>
+      <h2 class="section-title">Construir no tiene por qu&eacute; ser una pesadilla</h2>
+      <p class="section-subtitle">Sabemos que construir puede ser estresante. Por eso creamos un proceso claro, sin sorpresas y con resultados que superan expectativas.</p>
+    </div>
+
+    <div class="benefits-grid">
+      <!-- Benefit 1: Budget -->
+      <div class="benefit-card animate-on-scroll">
+        <div class="benefit-icon"><i class="fa-regular fa-calculator"></i></div>
+        <h3>Presupuesto sin sorpresas</h3>
+        <p class="pain"><i class="fa-solid fa-triangle-exclamation"></i> &iquest;Tu constructor te sali&oacute; m&aacute;s caro de lo presupuestado?</p>
+        <p class="agitate">Es el problema m&aacute;s com&uacute;n en la construcci&oacute;n: empiezas con un presupuesto y terminas pagando el doble por &quot;imprevistos&quot;, cambios de &uacute;ltimo momento o materiales que no estaban contemplados. El 70% de los proyectos de construcci&oacute;n en M&eacute;xico superan su presupuesto original, dejando a los due&ntilde;os con deudas y obras inconclusas.</p>
+        <p class="solution"><i class="fa-regular fa-circle-check"></i> En Hanio te damos un presupuesto detallado y cerrado desde el d&iacute;a 1. Incluimos un fondo de contingencias transparente para cubrir lo inesperado. Lo que firmas es lo que pagas.</p>
+      </div>
+
+      <!-- Benefit 2: Time -->
+      <div class="benefit-card animate-on-scroll">
+        <div class="benefit-icon"><i class="fa-regular fa-clock"></i></div>
+        <h3>Tiempos de entrega reales</h3>
+        <p class="pain"><i class="fa-solid fa-triangle-exclamation"></i> &iquest;Te han prometido entrega en 3 meses y llevas 8 esperando?</p>
+        <p class="agitate">Los retrasos en construcci&oacute;n son una constante que afecta tu vida: rentas que se duplican, mudanzas pospuestas, negocios que no abren. Cada semana de retraso te cuesta dinero, tiempo y paciencia. Muchas constructoras prometen plazos irreales para ganar el contrato, sabiendo que no los cumplir&aacute;n.</p>
+        <p class="solution"><i class="fa-regular fa-circle-check"></i> Trabajamos con cronogramas realistas respaldados por un sistema de gesti&oacute;n de obra. Te daremos fechas concretas y te mantendremos informado semanalmente del avance. El 95% de nuestros proyectos entregan a tiempo.</p>
+      </div>
+
+      <!-- Benefit 3: Quality -->
+      <div class="benefit-card animate-on-scroll">
+        <div class="benefit-icon"><i class="fa-regular fa-medal"></i></div>
+        <h3>Calidad que se ve y se siente</h3>
+        <p class="pain"><i class="fa-solid fa-triangle-exclamation"></i> &iquest;Te preocupa que usen materiales de baja calidad o mano de obra sin experiencia?</p>
+        <p class="agitate">Los acabados mal hechos, las filtraciones, los pisos desnivelados y las grietas prematuras son se&ntilde;ales de una construcci&oacute;n deficiente. Reparar estos problemas despu&eacute;s cuesta hasta 3 veces m&aacute;s que haberlo hecho bien desde el principio. Adem&aacute;s, una mala construcci&oacute;n pone en riesgo la seguridad de tu familia o tu inversi&oacute;n.</p>
+        <p class="solution"><i class="fa-regular fa-circle-check"></i> Usamos materiales de primera calidad y contamos con un equipo de supervisi&oacute;n t&eacute;cnica que revisa cada etapa de la obra. Todos nuestros proyectos tienen garant&iacute;a por escrito.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL PROOF ===== -->
+<section class="social-proof" id="testimonios">
+  <div class="section-container">
+    <div class="animate-on-scroll">
+      <span class="section-tag"><i class="fa-regular fa-star"></i> Resultados</span>
+      <h2 class="section-title">Proyectos que hablan por s&iacute; solos</h2>
+      <p class="section-subtitle">M&aacute;s de 150 proyectos completados en Jalisco. La satisfacci&oacute;n de nuestros clientes es nuestra mejor referencia.</p>
+    </div>
+
+    <div class="proof-grid animate-on-scroll">
+      <div class="proof-stat">
+        <div class="number">150+</div>
+        <div class="label">Proyectos entregados</div>
+        <div class="sub-label">En Jalisco y alrededores</div>
+      </div>
+      <div class="proof-stat">
+        <div class="number">95%</div>
+        <div class="label">Entrega a tiempo</div>
+        <div class="sub-label">Cronogramas cumplidos</div>
+      </div>
+      <div class="proof-stat">
+        <div class="number">4.8</div>
+        <div class="label">Calificaci&oacute;n general</div>
+        <div class="sub-label"><i class="fa-solid fa-star" style="color:#f59e0b;font-size:0.75rem;"></i> Google Reviews</div>
+      </div>
+      <div class="proof-stat">
+        <div class="number">12</div>
+        <div class="label">A&ntilde;os de experiencia</div>
+        <div class="sub-label">Desde 2014 construyendo</div>
+      </div>
+    </div>
+
+    <div class="testimonials">
+      <div class="testimonial-card animate-on-scroll">
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p>"Hanio construy&oacute; nuestra casa desde los cimientos. El proceso fue incre&iacute;blemente transparente: nos mostraban fotos diarias del avance y resolv&iacute;an todas nuestras dudas. Entregaron exactamente en la fecha prometida."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MC</div>
+          <div>
+            <div class="name">Mariana &amp; Carlos Cort&eacute;s</div>
+            <div class="detail">Casa habitaci&oacute;n | Tlaquepaque, Jal.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card animate-on-scroll">
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p>"Contratamos a Hanio para la ampliaci&oacute;n de nuestro local comercial. El presupuesto se respet&oacute; al pie de la letra, los acabados son de primera calidad y terminaron antes del plazo. Sin duda los recomiendo."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">FR</div>
+          <div>
+            <div class="name">Fernando Rivera</div>
+            <div class="detail">Local comercial | Tonal&aacute;, Jal.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card animate-on-scroll">
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p>"Excelente atenci&oacute;n post-venta. Despu&eacute;s de entregarnos la casa, resolvieron r&aacute;pidamente unos detalles menores que surgieron. Eso habla muy bien de su compromiso con el cliente y la calidad de su trabajo."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">LH</div>
+          <div>
+            <div class="name">Laura Hern&aacute;ndez</div>
+            <div class="detail">Casa habitaci&oacute;n | San Pedro Tlaquepaque</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-it-works" id="proceso">
+  <div class="section-container">
+    <div class="animate-on-scroll">
+      <span class="section-tag"><i class="fa-regular fa-compass"></i> Metodolog&iacute;a</span>
+      <h2 class="section-title">Nuestro proceso constructivo</h2>
+      <p class="section-subtitle">5 fases que garantizan un resultado impecable desde el dise&ntilde;o hasta la entrega final.</p>
+    </div>
+
+    <div class="steps-timeline">
+      <div class="step-item animate-on-scroll">
+        <div class="step-marker">01</div>
+        <h3>Dise&ntilde;o y planeaci&oacute;n</h3>
+        <p>Nos reunimos contigo para entender tu proyecto, tus necesidades y tu presupuesto. Nuestro equipo de arquitectos desarrolla los planos, renders 3D y la ingenier&iacute;a detallada.</p>
+        <div class="step-duration"><i class="fa-regular fa-clock"></i> Duraci&oacute;n: 2-4 semanas</div>
+        <div class="step-detail"><i class="fa-solid fa-check" style="color:var(--orange);"></i> Incluye: levantamiento topogr&aacute;fico, estudio de suelo, planos arquitect&oacute;nicos, renders 3D y presupuesto detallado</div>
+      </div>
+
+      <div class="step-item animate-on-scroll">
+        <div class="step-marker">02</div>
+        <h3>Permisos y licencias</h3>
+        <p>Gestionamos toda la documentaci&oacute;n necesaria ante el ayuntamiento: licencias de construcci&oacute;n, permisos de impacto urbano y registros correspondientes. Sin que t&uacute; te preocupes por el papeleo.</p>
+        <div class="step-duration"><i class="fa-regular fa-clock"></i> Duraci&oacute;n: 3-6 semanas</div>
+        <div class="step-detail"><i class="fa-solid fa-check" style="color:var(--orange);"></i> Incluye: licencia de construcci&oacute;n, dictamen de impacto urbano, registro de obra y alineamiento</div>
+      </div>
+
+      <div class="step-item animate-on-scroll">
+        <div class="step-marker">03</div>
+        <h3>Construcci&oacute;n</h3>
+        <p>Ejecutamos la obra con supervisi&oacute;n t&eacute;cnica permanente. Te enviamos reportes semanales con fotos y avances. Materiales de primera calidad y mano de obra calificada en cada etapa.</p>
+        <div class="step-duration"><i class="fa-regular fa-clock"></i> Duraci&oacute;n: 4-12 meses (seg&uacute;n proyecto)</div>
+        <div class="step-detail"><i class="fa-solid fa-check" style="color:var(--orange);"></i> Incluye: cimentaci&oacute;n, estructura, instalaciones, acabados, supervisi&oacute;n t&eacute;cnica y control de calidad</div>
+      </div>
+
+      <div class="step-item animate-on-scroll">
+        <div class="step-marker">04</div>
+        <h3>Entrega y recepci&oacute;n</h3>
+        <p>Hacemos una revisi&oacute;n detallada contigo, resolvemos cualquier detalle y te entregamos las llaves con un manual de mantenimiento y garant&iacute;as por escrito.</p>
+        <div class="step-duration"><i class="fa-regular fa-clock"></i> Duraci&oacute;n: 1-2 semanas</div>
+        <div class="step-detail"><i class="fa-solid fa-check" style="color:var(--orange);"></i> Incluye: Acta de entrega-recepci&oacute;n, manual de mantenimiento, garant&iacute;as por escrito y capacitaci&oacute;n de uso</div>
+      </div>
+
+      <div class="step-item animate-on-scroll">
+        <div class="step-marker">05</div>
+        <h3>Post-venta y seguimiento</h3>
+        <p>Nuestro compromiso no termina en la entrega. Te damos seguimiento a los 3, 6 y 12 meses para asegurarnos de que todo est&eacute; en perfectas condiciones y atender cualquier detalle.</p>
+        <div class="step-duration"><i class="fa-regular fa-clock"></i> Duraci&oacute;n: 12 meses de seguimiento</div>
+        <div class="step-detail"><i class="fa-solid fa-check" style="color:var(--orange);"></i> Incluye: garant&iacute;a de obra, revisiones peri&oacute;dicas, atenci&oacute;n a detalles y asesor&iacute;a continua</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFER / SERVICES ===== -->
+<section class="offer" id="servicios">
+  <div class="section-container">
+    <div class="animate-on-scroll">
+      <span class="section-tag"><i class="fa-regular fa-pen-ruler"></i> Servicios</span>
+      <h2 class="section-title">Soluciones para cada necesidad</h2>
+      <p class="section-subtitle">Desde casas habitaci&oacute;n hasta proyectos comerciales e industriales. Te acompañamos en cada etapa.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon"><i class="fa-regular fa-house-chimney"></i></div>
+        <h3>Construcci&oacute;n Residencial</h3>
+        <p>Casas particulares desde cero, ampliaciones, remodelaciones y departamentos. Dise&ntilde;o personalizado y acabados de primera calidad.</p>
+        <div class="service-price">Desde $8,500 <span>MXN/m&sup2;</span></div>
+        <div class="service-usp"><i class="fa-regular fa-clock"></i> Llave en mano en 6-10 meses</div>
+      </div>
+
+      <div class="service-card featured animate-on-scroll">
+        <div class="service-icon"><i class="fa-regular fa-building"></i></div>
+        <h3>Construcci&oacute;n Comercial</h3>
+        <p>Locales, oficinas, bodegas y naves industriales. Proyectos funcionales que optimizan tu inversi&oacute;n y maximizan el espacio.</p>
+        <div class="service-price">Desde $9,800 <span>MXN/m&sup2;</span></div>
+        <div class="service-usp"><i class="fa-regular fa-guarani-sign"></i> Incluye gesti&oacute;n de permisos</div>
+      </div>
+
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon"><i class="fa-regular fa-paint-roller"></i></div>
+        <h3>Remodelaciones y Ampliaciones</h3>
+        <p>Transformamos espacios existentes con dise&ntilde;o inteligente. Cocinas, ba&ntilde;os, &aacute;reas comunes, terrazas y ampliaciones de todos los tama&ntilde;os.</p>
+        <div class="service-price">Desde $4,500 <span>MXN/m&sup2;</span></div>
+        <div class="service-usp"><i class="fa-regular fa-clock"></i> Tiempos r&aacute;pidos de ejecuci&oacute;n</div>
+      </div>
+
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon"><i class="fa-regular fa-file-lines"></i></div>
+        <h3>Proyectos Ejecutivos</h3>
+        <p>Planos arquitect&oacute;nicos, estructurales e instalaciones. Renders 3D, maquetas virtuales y documentaci&oacute;n t&eacute;cnica completa para tu proyecto.</p>
+        <div class="service-price">Desde $150 <span>MXN/m&sup2;</span></div>
+        <div class="service-usp"><i class="fa-regular fa-pen-ruler"></i> Incluye memoria descriptiva</div>
+      </div>
+
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon"><i class="fa-regular fa-helmet-safety"></i></div>
+        <h3>Direcci&oacute;n de Obra</h3>
+        <p>Supervisi&oacute;n t&eacute;cnica profesional para proyectos existentes. Control de calidad, administraci&oacute;n de recursos y certificaci&oacute;n de avances de obra.</p>
+        <div class="service-price">Desde $12,000 <span>MXN/mes</span></div>
+        <div class="service-usp"><i class="fa-regular fa-shield-check"></i> Reportes semanales detallados</div>
+      </div>
+
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon"><i class="fa-regular fa-trowel-bricks"></i></div>
+        <h3>Mantenimiento y Reparaciones</h3>
+        <p>Mantenimiento preventivo y correctivo para tu hogar o negocio. Plomer&iacute;a, electricidad, impermeabilizaciones, pintura y reparaciones en general.</p>
+        <div class="service-price">Desde $2,500 <span>MXN</span></div>
+        <div class="service-usp"><i class="fa-regular fa-clock"></i> Servicio expresa en 48 hrs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECT GALLERY ===== -->
+<section class="project-gallery" id="proyectos">
+  <div class="section-container">
+    <div class="animate-on-scroll">
+      <span class="section-tag"><i class="fa-regular fa-images"></i> Galer&iacute;a</span>
+      <h2 class="section-title">Proyectos recientes</h2>
+      <p class="section-subtitle">Conoce algunos de los proyectos que hemos realizado para nuestros clientes en Jalisco.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item animate-on-scroll">
+        <i class="fa-regular fa-house-chimney gallery-icon"></i>
+        <div class="gallery-label">Casa Residencial - Tlaquepaque | 2025</div>
+      </div>
+      <div class="gallery-item animate-on-scroll">
+        <i class="fa-regular fa-building gallery-icon"></i>
+        <div class="gallery-label">Edificio Comercial - Guadalajara | 2024</div>
+      </div>
+      <div class="gallery-item animate-on-scroll">
+        <i class="fa-regular fa-warehouse gallery-icon"></i>
+        <div class="gallery-label">Nave Industrial - El Salto | 2024</div>
+      </div>
+      <div class="gallery-item animate-on-scroll">
+        <i class="fa-regular fa-store gallery-icon"></i>
+        <div class="gallery-label">Local Comercial - Tonal&aacute; | 2023</div>
+      </div>
+      <div class="gallery-item animate-on-scroll">
+        <i class="fa-regular fa-house-chimney-crack gallery-icon"></i>
+        <div class="gallery-label">Remodelaci&oacute;n Casa - Zapopan | 2023</div>
+      </div>
+      <div class="gallery-item animate-on-scroll">
+        <i class="fa-regular fa-hotel gallery-icon"></i>
+        <div class="gallery-label">Departamentos - Tlaquepaque | 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="preguntas">
+  <div class="section-container">
+    <div class="animate-on-scroll">
+      <span class="section-tag"><i class="fa-regular fa-circle-question"></i> FAQ</span>
+      <h2 class="section-title">Preguntas frecuentes</h2>
+      <p class="section-subtitle">Resolvemos tus dudas sobre el proceso de construcci&oacute;n.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>&iquest;Cu&aacute;nto cuesta construir una casa en M&eacute;xico?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>El costo de construcci&oacute;n var&iacute;a seg&uacute;n el tipo de proyecto, los acabados, la ubicaci&oacute;n y la complejidad. En promedio, nuestros proyectos residenciales oscilan entre $8,500 y $14,000 MXN por metro cuadrado. Te ofrecemos un presupuesto detallado y sin compromiso despu&eacute;s de conocer tu proyecto. Recuerda que construir con calidad es una inversi&oacute;n que se recupera en plusval&iacute;a y durabilidad.</p>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>&iquest;Cu&aacute;nto tiempo toma construir una casa?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>El tiempo de construcci&oacute;n depende del tama&ntilde;o y complejidad del proyecto. Una casa de 120-150 m&sup2; puede tomar entre 6 y 10 meses, incluyendo dise&ntilde;o, permisos y construcci&oacute;n. Proyectos m&aacute;s grandes o comerciales pueden tomar de 10 a 18 meses. Te damos un cronograma detallado desde el principio y lo actualizamos semanalmente.</p>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>&iquest;Necesito tener los planos para pedir una cotizaci&oacute;n?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>No es necesario. Podemos empezar con una visita al terreno y una pl&aacute;tica inicial para entender tu proyecto. Si no tienes planos, nuestro equipo de arquitectos puede desarrollarlos por ti. Ofrecemos el servicio integral desde el dise&ntilde;o hasta la entrega llave en mano. La cotizaci&oacute;n inicial es completamente gratis y sin compromiso.</p>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>&iquest;Qu&eacute; permisos se necesitan para construir?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Los permisos principales son: licencia de construcci&oacute;n (expedida por el ayuntamiento), dictamen de impacto urbano, alineamiento y n&uacute;mero oficial, y registro de obra. Nosotros nos encargamos de toda la gesti&oacute;n documental para que t&uacute; no tengas que preocuparte por el papeleo. Este proceso puede tomar de 3 a 6 semanas y est&aacute; incluido en nuestros servicios.</p>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>&iquest;Ofrecen garant&iacute;a en sus trabajos?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>S&iacute;, todos nuestros proyectos tienen garant&iacute;a por escrito. Ofrecemos 1 a&ntilde;o de garant&iacute;a en obra negra y acabados, y hasta 5 a&ntilde;os en instalaciones (el&eacute;ctricas, hidrosanitarias). Adem&aacute;s, damos seguimiento post-venta a los 3, 6 y 12 meses para asegurarnos de que todo est&eacute; en orden. Nuestro compromiso con la calidad es total.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLIENT LOGOS / TRUST SECTION ===== -->
+<section style="background:var(--white);padding:3rem 1.5rem;" id="clientes">
+  <div class="section-container">
+    <div class="animate-on-scroll" style="text-align:center;">
+      <span class="section-tag"><i class="fa-regular fa-handshake"></i> Confianza</span>
+      <h2 class="section-title" style="text-align:center;">Empresas que conf&iacute;an en nosotros</h2>
+      <p class="section-subtitle" style="margin:0 auto;">Hemos trabajado con particulares, desarrolladores y empresas en toda la Zona Metropolitana de Guadalajara.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:24px;margin-top:2.5rem;align-items:center;">
+      <div class="animate-on-scroll" style="background:var(--paper);border-radius:var(--radius-sm);padding:1.5rem 1rem;text-align:center;border:1px solid var(--paper-dark);transition:all 0.3s ease;">
+        <div style="font-size:2rem;color:var(--navy);opacity:0.3;margin-bottom:0.5rem;"><i class="fa-regular fa-building"></i></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--navy);letter-spacing:1px;opacity:0.6;">Desarrollos Tlaquepaque</div>
+      </div>
+      <div class="animate-on-scroll" style="background:var(--paper);border-radius:var(--radius-sm);padding:1.5rem 1rem;text-align:center;border:1px solid var(--paper-dark);transition:all 0.3s ease;">
+        <div style="font-size:2rem;color:var(--navy);opacity:0.3;margin-bottom:0.5rem;"><i class="fa-regular fa-warehouse"></i></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--navy);letter-spacing:1px;opacity:0.6;">Grupo Industrial El Salto</div>
+      </div>
+      <div class="animate-on-scroll" style="background:var(--paper);border-radius:var(--radius-sm);padding:1.5rem 1rem;text-align:center;border:1px solid var(--paper-dark);transition:all 0.3s ease;">
+        <div style="font-size:2rem;color:var(--navy);opacity:0.3;margin-bottom:0.5rem;"><i class="fa-regular fa-store"></i></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--navy);letter-spacing:1px;opacity:0.6;">Plazas Comerciales GDL</div>
+      </div>
+      <div class="animate-on-scroll" style="background:var(--paper);border-radius:var(--radius-sm);padding:1.5rem 1rem;text-align:center;border:1px solid var(--paper-dark);transition:all 0.3s ease;">
+        <div style="font-size:2rem;color:var(--navy);opacity:0.3;margin-bottom:0.5rem;"><i class="fa-regular fa-house-chimney"></i></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--navy);letter-spacing:1px;opacity:0.6;">Residencial Los Olivos</div>
+      </div>
+      <div class="animate-on-scroll" style="background:var(--paper);border-radius:var(--radius-sm);padding:1.5rem 1rem;text-align:center;border:1px solid var(--paper-dark);transition:all 0.3s ease;">
+        <div style="font-size:2rem;color:var(--navy);opacity:0.3;margin-bottom:0.5rem;"><i class="fa-regular fa-hotel"></i></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--navy);letter-spacing:1px;opacity:0.6;">Hoteles Boutique MX</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIFFERENTIATORS ===== -->
+<section style="background:var(--paper);padding:4rem 1.5rem;" id="diferenciadores">
+  <div class="section-container">
+    <div class="animate-on-scroll">
+      <span class="section-tag"><i class="fa-regular fa-medal"></i> Diferenciadores</span>
+      <h2 class="section-title">Por qu&eacute; Hanio es diferente</h2>
+      <p class="section-subtitle">No somos una constructora tradicional. Estos son nuestros pilares.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:3rem;">
+      <div class="animate-on-scroll" style="background:var(--white);border-radius:var(--radius-sm);padding:2rem;border:1px solid var(--paper-dark);transition:all 0.3s ease;text-align:center;">
+        <div style="width:56px;height:56px;background:var(--navy);border-radius:4px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;color:white;font-size:1.3rem;">
+          <i class="fa-regular fa-file-invoice"></i>
+        </div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--navy);letter-spacing:1px;margin-bottom:0.5rem;">Contrato Transparente</h3>
+        <p style="font-size:0.9rem;color:var(--gray-500);line-height:1.7;">Todo queda por escrito desde el d&iacute;a 1: alcances, materiales, tiempos, costos y garant&iacute;as. Sin cl&aacute;usulas ocultas ni letras chiquitas.</p>
+      </div>
+
+      <div class="animate-on-scroll" style="background:var(--white);border-radius:var(--radius-sm);padding:2rem;border:1px solid var(--paper-dark);transition:all 0.3s ease;text-align:center;">
+        <div style="width:56px;height:56px;background:var(--orange);border-radius:4px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;color:white;font-size:1.3rem;">
+          <i class="fa-regular fa-camera"></i>
+        </div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--navy);letter-spacing:1px;margin-bottom:0.5rem;">Reportes Visuales</h3>
+        <p style="font-size:0.9rem;color:var(--gray-500);line-height:1.7;">Te enviamos fotos y videos del avance de obra cada semana. Sabes exactamente qu&eacute; est&aacute; pasando sin tener que estar presente.</p>
+      </div>
+
+      <div class="animate-on-scroll" style="background:var(--white);border-radius:var(--radius-sm);padding:2rem;border:1px solid var(--paper-dark);transition:all 0.3s ease;text-align:center;">
+        <div style="width:56px;height:56px;background:var(--navy);border-radius:4px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;color:white;font-size:1.3rem;">
+          <i class="fa-regular fa-people-group"></i>
+        </div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--navy);letter-spacing:1px;margin-bottom:0.5rem;">Equipo Certificado</h3>
+        <p style="font-size:0.9rem;color:var(--gray-500);line-height:1.7;">Arquitectos, ingenieros y personal t&eacute;cnico con c&eacute;dula profesional y experiencia comprobable. Capacitaci&oacute;n continua en nuevas t&eacute;cnicas constructivas.</p>
+      </div>
+
+      <div class="animate-on-scroll" style="background:var(--white);border-radius:var(--radius-sm);padding:2rem;border:1px solid var(--paper-dark);transition:all 0.3s ease;text-align:center;">
+        <div style="width:56px;height:56px;background:var(--orange);border-radius:4px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;color:white;font-size:1.3rem;">
+          <i class="fa-regular fa-leaf"></i>
+        </div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--navy);letter-spacing:1px;margin-bottom:0.5rem;">Construcci&oacute;n Sustentable</h3>
+        <p style="font-size:0.9rem;color:var(--gray-500);line-height:1.7;">Implementamos pr&aacute;cticas de construcci&oacute;n sustentable: gesti&oacute;n de residuos, optimizaci&oacute;n de recursos y materiales ecol&oacute;gicos cuando es posible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="nosotros">
+  <div class="section-container">
+    <div class="animate-on-scroll">
+      <span class="section-tag"><i class="fa-regular fa-helmet-safety"></i> Nosotros</span>
+    </div>
+    <div class="about-content">
+      <div class="about-image animate-on-scroll-left">
+        <div class="about-image-placeholder">
+          <i class="fa-regular fa-people-roof"></i>
+        </div>
+        <div class="badge-projects">
+          <i class="fa-regular fa-circle-check"></i> 150+ proyectos entregados
+        </div>
+        <div class="badge-years">
+          <i class="fa-regular fa-calendar"></i> 12 a&ntilde;os
+        </div>
+      </div>
+      <div class="about-text animate-on-scroll-right">
+        <h2>Hanio Grupo Constructor</h2>
+        <h3>Construyendo confianza desde 2014</h3>
+        <p>Hanio Grupo Constructor naci&oacute; en Tlaquepaque, Jalisco, con la visi&oacute;n de transformar la industria de la construcci&oacute;n en M&eacute;xico. Desde entonces, hemos construido m&aacute;s de 150 proyectos que van desde casas particulares hasta desarrollos comerciales e industriales.</p>
+        <p>Nuestra filosof&iacute;a se basa en tres pilares: transparencia total en costos y procesos, calidad certificada en cada etapa de la obra, y cumplimiento de los plazos acordados. Creemos que construir no deber&iacute;a ser una experiencia estresante.</p>
+        <p>Nuestro equipo est&aacute; formado por arquitectos, ingenieros civiles, supervisores de obra y personal t&eacute;cnico altamente calificado, todos comprometidos con un objetivo com&uacute;n: entregar proyectos que superen las expectativas de nuestros clientes.</p>
+
+        <div class="about-stats">
+          <div class="about-stat"><i class="fa-regular fa-users"></i> Equipo de 35+ profesionales</div>
+          <div class="about-stat"><i class="fa-regular fa-trophy"></i> 150+ proyectos entregados</div>
+          <div class="about-stat"><i class="fa-regular fa-location-dot"></i> Tlaquepaque, Jalisco</div>
+          <div class="about-stat"><i class="fa-regular fa-certificate"></i> Registro SS-12345678</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="cta-section" id="contacto">
+  <div class="section-container animate-on-scroll">
+    <h2>&iquest;Listo para empezar tu proyecto?</h2>
+    <p>Solicita tu cotizaci&oacute;n sin costo y descubre por qu&eacute; Hanio es la mejor opci&oacute;n para construir en Jalisco.</p>
+    <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Hanio%20Grupo%20Constructor%2C%20quiero%20cotizar%20mi%20proyecto" target="_blank" rel="noopener" class="btn-primary" style="background:#25D366;box-shadow:0 4px 15px rgba(37,211,102,0.4);">
+      <i class="fa-brands fa-whatsapp"></i>
+      Cotizar por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <!-- Mini logo -->
+      <div class="mini-logo">
+        <svg viewBox="0 0 50 50" width="40" height="40">
+          <rect x="8" y="15" width="34" height="32" rx="1" fill="none" stroke="#d4732a" stroke-width="1.5" opacity="0.8"/>
+          <polygon points="4,18 25,4 46,18" fill="none" stroke="#d4732a" stroke-width="1.5" opacity="0.8"/>
+          <rect x="17" y="28" width="8" height="8" rx="1" fill="#d4732a" opacity="0.3"/>
+          <rect x="28" y="28" width="8" height="8" rx="1" fill="#d4732a" opacity="0.3"/>
+          <rect x="17" y="39" width="10" height="10" rx="1" fill="#d4732a" opacity="0.2"/>
+        </svg>
+      </div>
+      <h3>Hanio Grupo Constructor</h3>
+      <p>Construcci&oacute;n residencial, comercial e industrial en Tlaquepaque, Jalisco. Proyectos llave en mano con calidad y transparencia.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Contacto</h4>
+      <a href="tel:+5233XXXXXXXX"><i class="fa-solid fa-phone"></i> 33 XXXX XXXX</a>
+      <a href="https://wa.me/5233XXXXXXXX" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> 33 XXXX XXXX (WhatsApp)</a>
+      <a href="mailto:contacto@hanioconstructor.com"><i class="fa-regular fa-envelope"></i> contacto@hanioconstructor.com</a>
+      <a href="#" target="_blank"><i class="fa-regular fa-location-dot"></i> Av. Revoluci&oacute;n 567, Tlaquepaque, Jal.</a>
+    </div>
+    <div class="footer-links">
+      <h4>Horarios</h4>
+      <p>
+        <i class="fa-regular fa-clock"></i> Lun - Vie: 8:00 - 18:00<br>
+        <i class="fa-regular fa-clock"></i> S&aacute;b: 8:00 - 14:00<br>
+        <i class="fa-regular fa-clock"></i> Dom: Cerrado
+      </p>
+      <p style="margin-top:12px;">
+        <i class="fa-regular fa-shield-check"></i> Consulta inicial <strong>sin costo</strong>
+      </p>
+    </div>
+    <div class="footer-links">
+      <h4>Enlaces r&aacute;pidos</h4>
+      <a href="#inicio"><i class="fa-regular fa-arrow-up"></i> Inicio</a>
+      <a href="#beneficios"><i class="fa-regular fa-circle-check"></i> Beneficios</a>
+      <a href="#servicios"><i class="fa-regular fa-pen-ruler"></i> Servicios</a>
+      <a href="#proyectos"><i class="fa-regular fa-images"></i> Proyectos</a>
+      <a href="#testimonios"><i class="fa-regular fa-star"></i> Testimonios</a>
+      <a href="#preguntas"><i class="fa-regular fa-circle-question"></i> FAQ</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Hanio Grupo Constructor - Tlaquepaque, Jalisco. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+// FAQ Toggle
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isActive = item.classList.contains('active');
+  document.querySelectorAll('.faq-item.active').forEach(el => el.classList.remove('active'));
+  if (!isActive) item.classList.add('active');
+}
+
+// IntersectionObserver for scroll animations
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-left, .animate-on-scroll-right, .animate-on-scroll-scale').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Animate counters when stats come into view
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const nums = entry.target.querySelectorAll('.number');
+        nums.forEach(num => {
+          const text = num.textContent;
+          const match = text.match(/([0-9+]+)/);
+          if (match) {
+            let target = parseInt(match[1].replace('+', ''));
+            let current = 0;
+            const suffix = text.includes('+') ? '+' : '';
+            const step = Math.ceil(target / 60);
+            const interval = setInterval(() => {
+              current += step;
+              if (current >= target) {
+                current = target;
+                clearInterval(interval);
+              }
+              num.textContent = current + suffix;
+            }, 25);
+          }
+        });
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.proof-grid').forEach(el => statsObserver.observe(el));
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Mouse parallax on hero
+document.addEventListener('mousemove', function(e) {
+  const decor = document.querySelectorAll('.hero-protractor, .hero-ruler');
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+  decor.forEach((el, i) => {
+    const speed = (i + 1) * 10;
+    el.style.transform = `translate(${(x - 0.5) * speed}px, ${(y - 0.5) * speed}px)`;
+  });
+});
+
+// Track click on WhatsApp buttons
+document.querySelectorAll('.whatsapp-float, a[href*="wa.me"]').forEach(el => {
+  el.addEventListener('click', function() {
+    console.log('%c Cotizaci&oacute;n por WhatsApp iniciada ', 'background: #25D366; color: white; font-size: 0.9rem; padding: 4px 12px; border-radius: 2px;');
+  });
+});
+
+console.log('%c Hanio Grupo Constructor ', 'background: #1a3a5c; color: white; font-size: 1.2rem; padding: 8px 16px; border-radius: 2px; font-weight: bold;');
+console.log('%c Construyendo confianza desde 2014 ', 'color: #d4732a; font-size: 0.9rem;');
+
+// Sticky CTA bar on scroll
+(function stickyBar() {
+  const bar = document.createElement('div');
+  bar.style.cssText = `
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 998;
+    background: white; padding: 12px 16px;
+    box-shadow: 0 -4px 20px rgba(26,58,92,0.12);
+    transform: translateY(100%); transition: transform 0.4s ease;
+    display: flex; gap: 12px; align-items: center; justify-content: center;
+    flex-wrap: wrap;
+  `;
+  bar.innerHTML = `
+    <span style="font-family:'Bebas Neue',sans-serif;font-weight:400;color:#1a3a5c;font-size:1.2rem;letter-spacing:1px;">
+      <i class="fa-regular fa-pen-ruler"></i> &iquest;Listo para tu proyecto?
+    </span>
+    <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Hanio%20Grupo%20Constructor%2C%20quiero%20cotizar%20mi%20proyecto"
+       target="_blank" rel="noopener"
+       style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;
+              padding:10px 24px;border-radius:4px;font-size:0.85rem;font-weight:600;
+              text-decoration:none;text-transform:uppercase;letter-spacing:1px;">
+      <i class="fa-brands fa-whatsapp"></i> Cotizar ahora
+    </a>
+    <a href="tel:+5233XXXXXXXX"
+       style="display:inline-flex;align-items:center;gap:8px;background:#d4732a;color:white;
+              padding:10px 24px;border-radius:4px;font-size:0.85rem;font-weight:600;
+              text-decoration:none;text-transform:uppercase;letter-spacing:1px;">
+      <i class="fa-solid fa-phone"></i> Llamar
+    </a>
+  `;
+  document.body.appendChild(bar);
+
+  const whatsapp = document.querySelector('.whatsapp-float');
+  window.addEventListener('scroll', function() {
+    const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    if (scrollPercent > 0.2 && scrollPercent < 0.9) {
+      bar.style.transform = 'translateY(0)';
+      if (whatsapp) whatsapp.style.bottom = '84px';
+    } else {
+      bar.style.transform = 'translateY(100%)';
+      if (whatsapp) whatsapp.style.bottom = '24px';
+    }
+  });
+})();
+
+// Exit-intent lead capture
+(function exitLead() {
+  let shown = false;
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY > 0 || shown) return;
+    shown = true;
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+      position: fixed; top:0; left:0; width:100%; height:100%; z-index:9999;
+      background: rgba(15,39,64,0.7); display:flex; align-items:center; justify-content:center;
+      backdrop-filter: blur(4px); animation: fade-in 0.3s ease;
+    `;
+    overlay.innerHTML = `
+      <div style="background:#f5f0e8; border-radius:8px; padding:2.5rem; max-width:440px;
+                  width:90%; position:relative; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,0.3);
+                  border:1px solid #e8e0d4;">
+        <button onclick="this.closest('[style*=\\'fixed\\']').remove()"
+                style="position:absolute;top:16px;right:16px;border:none;background:#1a3a5c;
+                       width:36px;height:36px;border-radius:4px;cursor:pointer;color:white;font-size:1rem;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div style="font-size:2.5rem;margin-bottom:1rem;">
+          <svg viewBox="0 0 60 60" width="60" height="60" style="margin:0 auto;">
+            <rect x="8" y="15" width="44" height="40" rx="1" fill="none" stroke="#1a3a5c" stroke-width="1.5"/>
+            <polygon points="4,18 30,6 56,18" fill="none" stroke="#d4732a" stroke-width="1.5"/>
+            <rect x="22" y="30" width="8" height="8" rx="1" fill="#d4732a" opacity="0.4"/>
+            <rect x="34" y="30" width="8" height="8" rx="1" fill="#d4732a" opacity="0.4"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#1a3a5c;letter-spacing:1px;margin-bottom:0.5rem;">
+          &iexcl;No te vayas sin tu cotizaci&oacute;n!
+        </h3>
+        <p style="color:#64748b;font-size:0.9rem;margin-bottom:1.5rem;">
+          Dejanos tus datos y recibe <strong>una cotizaci&oacute;n personalizada</strong> sin costo para tu proyecto de construcci&oacute;n.
+        </p>
+        <form style="display:flex;flex-direction:column;gap:12px;text-align:left;"
+              onsubmit="alert('&iexcl;Gracias! Te contactaremos en breve con tu cotizaci&oacute;n personalizada.');this.closest('[style*=\\'fixed\\']').remove();return false;">
+          <input type="text" placeholder="Tu nombre completo" required
+                 style="padding:12px 16px;border:2px solid #e2e8f0;border-radius:4px;font-size:0.95rem;background:white;">
+          <input type="tel" placeholder="Tu WhatsApp" required
+                 style="padding:12px 16px;border:2px solid #e2e8f0;border-radius:4px;font-size:0.95rem;background:white;">
+          <select required
+                  style="padding:12px 16px;border:2px solid #e2e8f0;border-radius:4px;font-size:0.95rem;background:white;color:#64748b;">
+            <option value="">Tipo de proyecto</option>
+            <option>Casa habitaci&oacute;n</option>
+            <option>Local comercial</option>
+            <option>Remodelaci&oacute;n</option>
+            <option>Nave industrial</option>
+            <option>Otro</option>
+          </select>
+          <button type="submit"
+                  style="background:#d4732a;color:white;border:none;padding:14px 24px;border-radius:4px;
+                         font-size:0.95rem;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">
+            <i class="fa-regular fa-file-invoice"></i> Recibir cotizaci&oacute;n
+          </button>
+        </form>
+        <p style="font-size:0.7rem;color:#94a3b8;margin-top:0.8rem;">
+          Sin compromiso. Te contactamos en menos de 24 horas.
+        </p>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+  });
+})();
+
+// Stats animation
+(function animateStats() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const nums = entry.target.querySelectorAll('.number');
+        nums.forEach(num => {
+          const text = num.textContent;
+          const match = text.match(/([0-9+%]+)/);
+          if (match) {
+            let target = parseFloat(match[1].replace(/[+%]/g, ''));
+            let current = 0;
+            const suffix = text.includes('+') ? '+' : text.includes('%') ? '%' : '';
+            const step = Math.max(1, Math.ceil(target / 50));
+            const interval = setInterval(() => {
+              current += step;
+              if (current >= target) {
+                current = target;
+                clearInterval(interval);
+              }
+              num.textContent = current + suffix;
+            }, 30);
+          }
+        });
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.proof-grid').forEach(el => obs.observe(el));
+})();
+
+// Service card tracking
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('click', function() {
+    const name = this.querySelector('h3')?.textContent || 'Servicio';
+    console.log('%c Servicio consultado: ' + name, 'color: #d4732a; font-weight: bold;');
+  });
+});
+
+// Blueprint grid overlay animation on scroll for key sections
+(function blueprintSections() {
+  const sections = document.querySelectorAll('.benefits, .offer');
+  sections.forEach(section => {
+    const grid = document.createElement('div');
+    grid.style.cssText = `
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      opacity: 0; pointer-events: none; z-index: 0;
+      transition: opacity 0.8s ease;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(26,58,92,0.03) 30px, rgba(26,58,92,0.03) 31px),
+        repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(26,58,92,0.03) 30px, rgba(26,58,92,0.03) 31px);
+    `;
+    section.style.position = 'relative';
+    section.insertBefore(grid, section.firstChild);
+
+    const sectionObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          grid.style.opacity = '1';
+        }
+      });
+    }, { threshold: 0.1 });
+    sectionObs.observe(section);
+  });
+})();
+
+// Add construction helmet icon decorations to CTA
+(function ctaDecoration() {
+  const cta = document.querySelector('.cta-section .section-container');
+  if (cta) {
+    const decor = document.createElement('div');
+    decor.style.cssText = `
+      display: flex; justify-content: center; gap: 16px; margin-bottom: 1.5rem;
+      font-size: 1.5rem; color: rgba(255,255,255,0.15);
+    `;
+    decor.innerHTML = `
+      <i class="fa-regular fa-helmet-safety"></i>
+      <i class="fa-regular fa-trowel"></i>
+      <i class="fa-regular fa-pen-ruler"></i>
+      <i class="fa-regular fa-toolbox"></i>
+    `;
+    cta.insertBefore(decor, cta.firstChild);
+  }
+})();
+
+</script>
+
+</body>
+</html>

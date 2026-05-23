@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angel Contador &mdash; Contador P&uacute;blico en Guadalajara</title>
+  <meta name="description" content="Servicios contables, fiscales y de contabilidad para peque&ntilde;os negocios en Guadalajara. SAT, declaraciones, facturaci&oacute;n y m&aacute;s.">
+  <meta name="theme-color" content="#1a2744">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 (Free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    /* ============================================================
+       CSS RESET & BASE
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --navy: #1a2744;
+      --navy-dark: #0f1a2f;
+      --navy-light: #2a3d64;
+      --emerald: #2d8a4e;
+      --emerald-light: #3ba85f;
+      --emerald-dark: #22703d;
+      --gold: #c9a84c;
+      --gold-light: #dfc16a;
+      --gold-dark: #b08e32;
+      --white: #ffffff;
+      --off-white: #f8f9fc;
+      --gray-50: #f0f2f6;
+      --gray-100: #e2e5ec;
+      --gray-200: #c4c9d4;
+      --gray-400: #8b92a2;
+      --gray-600: #5a6070;
+      --gray-800: #2c3142;
+      --shadow-sm: 0 2px 8px rgba(26,39,68,0.08);
+      --shadow-md: 0 8px 32px rgba(26,39,68,0.12);
+      --shadow-lg: 0 16px 56px rgba(26,39,68,0.18);
+      --shadow-xl: 0 24px 80px rgba(26,39,68,0.22);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      --container: 1200px;
+    }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    body {
+      font-family: var(--font-body);
+      color: var(--gray-800);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section {
+      padding: 90px 0;
+    }
+    .section-label {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--emerald);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .section-title .highlight {
+      color: var(--emerald);
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray-600);
+      max-width: 640px;
+      margin-top: 16px;
+      line-height: 1.8;
+    }
+    .text-center { text-align: center; }
+    .text-center .section-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ============================================================
+       REVEAL ANIMATIONS (IntersectionObserver)
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity var(--transition-slow), transform var(--transition-slow);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity var(--transition-slow), transform var(--transition-slow);
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity var(--transition-slow), transform var(--transition-slow);
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity var(--transition-slow), transform var(--transition-slow);
+    }
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 16px 36px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary {
+      background: var(--emerald);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(45,138,78,0.35);
+    }
+    .btn-primary:hover {
+      background: var(--emerald-dark);
+      box-shadow: 0 8px 32px rgba(45,138,78,0.45);
+      transform: translateY(-2px);
+    }
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+    }
+    .btn-gold:hover {
+      background: var(--gold-dark);
+      box-shadow: 0 8px 32px rgba(201,168,76,0.5);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,76,0.1);
+      transform: translateY(-2px);
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    }
+    .btn-whatsapp:hover {
+      background: #1da851;
+      box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+      transform: translateY(-2px);
+    }
+    .btn-sm {
+      padding: 12px 28px;
+      font-size: 0.9rem;
+    }
+    .btn .fa-arrow-right,
+    .btn .fa-whatsapp {
+      font-size: 1.1em;
+      transition: transform var(--transition);
+    }
+    .btn:hover .fa-arrow-right {
+      transform: translateX(4px);
+    }
+
+    /* ============================================================
+       HERO SECTION
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(165deg, var(--navy-dark) 0%, var(--navy) 40%, var(--navy-light) 100%);
+      overflow: hidden;
+      padding: 120px 0 100px;
+    }
+    /* Animated floating elements */
+    .hero-floating {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .float-item {
+      position: absolute;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: rgba(255,255,255,0.04);
+      font-size: clamp(2rem, 6vw, 6rem);
+      animation: floatDrift 18s ease-in-out infinite;
+      user-select: none;
+      line-height: 1;
+    }
+    .float-item:nth-child(1) { top: 8%; left: 5%; animation-delay: 0s; }
+    .float-item:nth-child(2) { top: 20%; right: 8%; animation-delay: -3s; font-size: clamp(3rem, 8vw, 8rem); }
+    .float-item:nth-child(3) { bottom: 15%; left: 10%; animation-delay: -6s; }
+    .float-item:nth-child(4) { bottom: 25%; right: 5%; animation-delay: -9s; }
+    .float-item:nth-child(5) { top: 45%; left: 2%; animation-delay: -12s; font-size: clamp(1.5rem, 4vw, 4rem); }
+    .float-item:nth-child(6) { top: 60%; right: 3%; animation-delay: -15s; font-size: clamp(2.5rem, 5vw, 5rem); }
+
+    @keyframes floatDrift {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-24px) rotate(3deg); }
+      50% { transform: translateY(8px) rotate(-2deg); }
+      75% { transform: translateY(-16px) rotate(1deg); }
+    }
+
+    /* Floating SVG Calculator */
+    .float-calc {
+      position: absolute;
+      opacity: 0.06;
+      animation: floatCalc 22s ease-in-out infinite;
+    }
+    .float-calc svg {
+      width: clamp(120px, 20vw, 280px);
+      height: auto;
+    }
+    .float-calc:nth-child(7) { top: 12%; right: 12%; animation-delay: -2s; }
+    .float-calc:nth-child(8) { bottom: 18%; left: 15%; animation-delay: -10s; }
+    .float-calc:nth-child(8) svg { width: clamp(80px, 14vw, 180px); }
+
+    @keyframes floatCalc {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      33% { transform: translateY(-18px) rotate(4deg) scale(1.03); }
+      66% { transform: translateY(10px) rotate(-3deg) scale(0.97); }
+    }
+
+    /* Decorative gradient spheres */
+    .hero-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .hero-glow-1 {
+      width: 600px; height: 600px;
+      background: var(--emerald);
+      top: -200px; right: -200px;
+      animation: glowPulse 8s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+      width: 400px; height: 400px;
+      background: var(--gold);
+      bottom: -150px; left: -150px;
+      animation: glowPulse 8s ease-in-out infinite;
+      animation-delay: -4s;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.08; transform: scale(1); }
+      50% { opacity: 0.18; transform: scale(1.1); }
+    }
+
+    /* Hero content */
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 8px 20px 8px 12px;
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-badge i {
+      font-size: 0.75rem;
+    }
+    .hero-badge-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--emerald);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero h1 .underline-gold {
+      background: linear-gradient(to right, var(--gold), var(--gold-light));
+      background-size: 100% 3px;
+      background-repeat: no-repeat;
+      background-position: bottom 2px left;
+      padding-bottom: 4px;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .hero-friction {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .hero-friction span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .hero-friction span i {
+      color: var(--emerald);
+      font-size: 0.75rem;
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .hero-logo-shield {
+      width: clamp(280px, 28vw, 420px);
+      height: clamp(280px, 28vw, 420px);
+      animation: shieldFloat 6s ease-in-out infinite;
+    }
+    @keyframes shieldFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-16px); }
+    }
+    .hero-stats-ring {
+      position: absolute;
+      bottom: 10%;
+      right: 0;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      padding: 16px 24px;
+      display: flex;
+      gap: 28px;
+      animation: fadeSlideUp 1s ease 0.6s forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .hero-stat-item {
+      text-align: center;
+    }
+    .hero-stat-item .num {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      display: block;
+      line-height: 1;
+    }
+    .hero-stat-item .label {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+    @keyframes fadeSlideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       BENEFITS SECTION (PAS Copy)
+       ============================================================ */
+    .benefits {
+      background: var(--off-white);
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .benefit-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 40px 32px;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: var(--emerald);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .benefit-card:hover::before {
+      transform: scaleX(1);
+    }
+    .benefit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gray-100);
+    }
+    .benefit-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 1.6rem;
+    }
+    .benefit-icon.emerald {
+      background: rgba(45,138,78,0.1);
+      color: var(--emerald);
+    }
+    .benefit-icon.navy {
+      background: rgba(26,39,68,0.08);
+      color: var(--navy);
+    }
+    .benefit-icon.gold {
+      background: rgba(201,168,76,0.12);
+      color: var(--gold-dark);
+    }
+    .benefit-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .benefit-card p {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .benefit-pas {
+      max-width: 800px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .benefit-pas p {
+      font-size: 1.1rem;
+      color: var(--gray-600);
+      line-height: 1.9;
+    }
+    .benefit-pas .pas-problem {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .benefit-pas .pas-agitate {
+      color: #b91c1c;
+      font-style: italic;
+    }
+    .benefit-pas .pas-solution {
+      color: var(--emerald);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       SOCIAL PROOF
+       ============================================================ */
+    .social-proof {
+      background: var(--white);
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .testimonial-card {
+      background: var(--off-white);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      border: 1px solid var(--gray-100);
+      transition: all var(--transition);
+    }
+    .testimonial-card:hover {
+      border-color: var(--gold-light);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .testimonial-card blockquote {
+      font-style: italic;
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .testimonial-card blockquote::before {
+      content: '\201C';
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--gold);
+      line-height: 0;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .testimonial-author .name {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.95rem;
+    }
+    .testimonial-author .role {
+      font-size: 0.8rem;
+      color: var(--gray-400);
+    }
+
+    /* Trust bar */
+    .trust-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 56px;
+      padding: 28px 0;
+      border-top: 1px solid var(--gray-100);
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gray-600);
+      font-size: 0.9rem;
+    }
+    .trust-item i, .trust-item svg {
+      font-size: 1.4rem;
+      color: var(--navy);
+    }
+
+    /* ============================================================
+       HOW IT WORKS
+       ============================================================ */
+    .how-it-works {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .how-it-works .section-title {
+      color: var(--white);
+    }
+    .how-it-works .section-subtitle {
+      color: rgba(255,255,255,0.65);
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 56px;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 56px;
+      left: 16%;
+      right: 16%;
+      height: 2px;
+      background: linear-gradient(to right, var(--emerald), var(--gold), var(--emerald));
+      opacity: 0.3;
+    }
+    .step-card {
+      text-align: center;
+      position: relative;
+    }
+    .step-number {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(45,138,78,0.15);
+      border: 2px solid var(--emerald);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--emerald);
+      transition: all var(--transition);
+    }
+    .step-card:hover .step-number {
+      background: var(--emerald);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+    .step-icon {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .step-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+    .step-card p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       OFFER / PRICING
+       ============================================================ */
+    .offer {
+      background: var(--off-white);
+    }
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .offer-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 40px 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-100);
+      transition: all var(--transition);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .offer-card.featured {
+      border: 2px solid var(--gold);
+      box-shadow: var(--shadow-lg);
+      transform: scale(1.03);
+      z-index: 2;
+    }
+    .offer-card.featured:hover {
+      transform: scale(1.04) translateY(-4px);
+    }
+    .offer-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .offer-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 20px;
+      border-radius: 50px;
+    }
+    .offer-name {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .offer-price {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--emerald);
+      margin-bottom: 4px;
+      font-family: var(--font-heading);
+    }
+    .offer-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--gray-400);
+    }
+    .offer-desc {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    .offer-features {
+      list-style: none;
+      margin-bottom: 28px;
+      flex-grow: 1;
+    }
+    .offer-features li {
+      padding: 8px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      border-bottom: 1px solid var(--gray-50);
+    }
+    .offer-features li:last-child {
+      border-bottom: none;
+    }
+    .offer-features li i {
+      color: var(--emerald);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+    .offer-usps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+      justify-content: center;
+    }
+    .offer-usps span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(45,138,78,0.08);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--emerald-dark);
+    }
+    .offer-scarcity {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background: rgba(201,168,76,0.1);
+      border: 1px dashed var(--gold);
+      border-radius: var(--radius-md);
+    }
+    .offer-scarcity p {
+      font-size: 0.95rem;
+      color: var(--navy);
+    }
+    .offer-scarcity strong {
+      color: var(--emerald);
+    }
+
+    /* ============================================================
+       FAQ SECTION
+       ============================================================ */
+    .faq {
+      background: var(--white);
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 48px auto 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-100);
+      padding: 8px 0;
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--navy);
+      text-align: left;
+      transition: color var(--transition);
+    }
+    .faq-question:hover {
+      color: var(--emerald);
+    }
+    .faq-question i {
+      font-size: 0.8rem;
+      color: var(--gray-400);
+      transition: transform var(--transition), color var(--transition);
+      flex-shrink: 0;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+      color: var(--emerald);
+    }
+    .faq-item.active .faq-question {
+      color: var(--emerald);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition), padding var(--transition);
+      padding: 0 0;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 400px;
+      padding: 0 0 20px;
+    }
+    .faq-answer p {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* ============================================================
+       ABOUT SECTION
+       ============================================================ */
+    .about {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .about .section-title {
+      color: var(--white);
+    }
+    .about .section-subtitle {
+      color: rgba(255,255,255,0.65);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 48px;
+    }
+    .about-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .about-visual-inner {
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-visual-inner::before {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(45,138,78,0.08);
+      top: -60px; right: -60px;
+    }
+    .about-visual-inner::after {
+      content: '';
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.06);
+      bottom: -50px; left: -50px;
+    }
+    .about-avatar-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--emerald), var(--ember-dark, #1a5c34));
+      border: 3px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--white);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .about-visual-inner h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      position: relative;
+      z-index: 1;
+    }
+    .about-visual-inner .title {
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+    .about-years {
+      display: flex;
+      gap: 40px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .about-years .num {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--gold);
+      display: block;
+    }
+    .about-years .label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .about-text h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+    .about-text p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.9;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+    .about-text .about-mission {
+      border-left: 3px solid var(--gold);
+      padding-left: 20px;
+      margin-top: 24px;
+    }
+    .about-text .about-mission p {
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 1.05rem;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 60px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+    }
+    .footer-brand .logo-small {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      max-width: 340px;
+      line-height: 1.8;
+    }
+    .footer h4 {
+      font-family: var(--font-heading);
+      color: var(--white);
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+    .footer-links li {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      transition: color var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+    .footer-links a i {
+      width: 16px;
+      color: var(--emerald);
+    }
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+    }
+
+    /* ============================================================
+       FLOATING WHATSAPP BUTTON
+       ============================================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .whatsapp-float-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.4);
+      transition: all var(--transition);
+      position: relative;
+      animation: whatsappPulse 2.5s ease-in-out infinite;
+    }
+    .whatsapp-float-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 40px rgba(37,211,102,0.55);
+    }
+    .whatsapp-float-label {
+      font-size: 0.7rem;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .whatsapp-float:hover .whatsapp-float-label {
+      opacity: 1;
+    }
+    @keyframes whatsappPulse {
+      0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 6px 48px rgba(37,211,102,0.7); }
+    }
+
+    /* ============================================================
+       BACK TO TOP
+       ============================================================ */
+    .back-to-top {
+      position: fixed;
+      bottom: 100px;
+      right: 28px;
+      z-index: 998;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: var(--emerald);
+      transform: translateY(-4px);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .hero-friction {
+        justify-content: center;
+      }
+      .hero-stats-ring {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        justify-content: center;
+        margin-top: 32px;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+    }
+    @media (max-width: 768px) {
+      .section {
+        padding: 64px 0;
+      }
+      .hero {
+        padding: 100px 0 60px;
+        min-height: auto;
+      }
+      .benefits-grid,
+      .proof-grid,
+      .offer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .steps-grid::before {
+        display: none;
+      }
+      .steps-grid::before { content: none; }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      .trust-bar {
+        gap: 20px;
+      }
+      .offer-card.featured {
+        transform: none;
+      }
+      .offer-card.featured:hover {
+        transform: translateY(-6px);
+      }
+      .whatsapp-float-btn {
+        width: 52px;
+        height: 52px;
+        font-size: 1.5rem;
+      }
+      .back-to-top {
+        bottom: 80px;
+        right: 24px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .hero-friction {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-stats-ring {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 14px 18px;
+      }
+      .benefit-card {
+        padding: 28px 24px;
+      }
+      .offer-card {
+        padding: 28px 24px;
+      }
+      .testimonial-card {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <!-- Floating background elements -->
+    <div class="hero-floating">
+      <span class="float-item">10%</span>
+      <span class="float-item">SAT</span>
+      <span class="float-item">$</span>
+      <span class="float-item">CFDI</span>
+      <span class="float-item">IVA</span>
+      <span class="float-item">ISR</span>
+
+      <!-- Calculator SVG floaters -->
+      <div class="float-calc">
+        <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="5" width="80" height="110" rx="8" stroke="currentColor" stroke-width="2"/>
+          <rect x="18" y="15" width="64" height="24" rx="4" fill="currentColor" opacity="0.3"/>
+          <text x="28" y="31" font-size="12" fill="currentColor" opacity="0.5">1234</text>
+          <rect x="18" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="42" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="66" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="18" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="42" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="66" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="18" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="42" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="66" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+        </svg>
+      </div>
+      <div class="float-calc">
+        <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="5" width="80" height="110" rx="8" stroke="currentColor" stroke-width="2"/>
+          <rect x="18" y="15" width="64" height="24" rx="4" fill="currentColor" opacity="0.3"/>
+          <rect x="18" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="42" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="66" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="18" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="42" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="66" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <line x1="22" y1="72" x2="78" y2="72" stroke="currentColor" opacity="0.1" stroke-width="1"/>
+          <rect x="18" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="42" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+          <rect x="66" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Decorative glow spheres -->
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-badge reveal" style="transition-delay:0.1s">
+            <span class="hero-badge-dot"></span>
+            Contador P&uacute;blico en <strong>Guadalajara</strong>
+          </div>
+
+          <h1 class="reveal" style="transition-delay:0.2s">
+            Tu <span class="underline-gold">Contador de Confianza</span><br>
+            en Guadalajara
+          </h1>
+
+          <p class="reveal" style="transition-delay:0.3s">
+            Olv&iacute;date de las multas del SAT y los dolores de cabeza con las declaraciones.
+            Te ayudo a mantener tus impuestos en orden, tu contabilidad al d&iacute;a y tu
+            negocio creciendo sin riesgos fiscales.
+          </p>
+
+          <div class="hero-actions reveal" style="transition-delay:0.4s">
+            <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20agendar%20una%20consulta%20gratuita" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Agenda tu consulta gratis
+            </a>
+            <a href="#benefits" class="btn btn-outline">
+              Conoce m&aacute;s <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="hero-friction reveal" style="transition-delay:0.5s">
+            <span><i class="fa-solid fa-circle-check"></i> Sin costo</span>
+            <span><i class="fa-solid fa-circle-check"></i> 100% confidencial</span>
+            <span><i class="fa-solid fa-circle-check"></i> Sin compromiso</span>
+            <span><i class="fa-solid fa-circle-check"></i> RESICO / Personas F&iacute;sicas</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Custom SVG Logo: Shield + Book + Calculator -->
+          <svg class="hero-logo-shield" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2d8a4e"/>
+                <stop offset="100%" stop-color="#1a5c34"/>
+              </linearGradient>
+              <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#c9a84c"/>
+                <stop offset="100%" stop-color="#dfc16a"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Shield outer -->
+            <path d="M150 30 L260 80 L260 150 C260 220 150 270 150 270 C150 270 40 220 40 150 L40 80 Z"
+                  fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="3" opacity="0.15"/>
+
+            <!-- Shield inner -->
+            <path d="M150 50 L245 92 L245 145 C245 205 150 248 150 248 C150 248 55 205 55 145 L55 92 Z"
+                  fill="rgba(26,39,68,0.6)" stroke="rgba(201,168,76,0.3)" stroke-width="1.5"/>
+
+            <!-- Book open -->
+            <path d="M120 110 Q150 130 150 130 Q150 130 180 110 L180 180 Q150 160 150 160 Q150 160 120 180 Z"
+                  fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+
+            <!-- Book left page -->
+            <path d="M120 110 Q135 120 145 125 L145 175 Q135 170 120 180 Z"
+                  fill="rgba(45,138,78,0.25)"/>
+
+            <!-- Book right page -->
+            <path d="M180 110 Q165 120 155 125 L155 175 Q165 170 180 180 Z"
+                  fill="rgba(45,138,78,0.25)"/>
+
+            <!-- Center line (book spine) -->
+            <line x1="150" y1="115" x2="150" y2="165" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"/>
+
+            <!-- Text lines on left page -->
+            <line x1="130" y1="133" x2="145" y2="138" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <line x1="130" y1="140" x2="145" y2="145" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <line x1="130" y1="147" x2="143" y2="151" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+            <!-- Text lines on right page -->
+            <line x1="155" y1="138" x2="170" y2="133" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <line x1="155" y1="145" x2="170" y2="140" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <line x1="157" y1="151" x2="170" y2="147" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+            <!-- Calculator overlay -->
+            <rect x="133" y="175" width="34" height="24" rx="3" fill="rgba(201,168,76,0.2)" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
+            <rect x="137" y="179" width="26" height="6" rx="1" fill="rgba(201,168,76,0.15)"/>
+            <rect x="137" y="189" width="7" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
+            <rect x="147" y="189" width="7" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
+            <rect x="157" y="189" width="7" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
+
+            <!-- Feather / pen quill -->
+            <path d="M150 115 Q155 95 165 80 Q160 90 155 100 Z"
+                  fill="rgba(201,168,76,0.3)" stroke="rgba(201,168,76,0.5)" stroke-width="0.8"/>
+
+            <!-- Dollar sign accent -->
+            <text x="150" y="105" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(201,168,76,0.25)" font-family="Georgia, serif">$</text>
+
+            <!-- Bottom text -->
+            <text x="150" y="225" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.5)" font-family="Georgia, serif" letter-spacing="3">CONTADOR</text>
+            <text x="150" y="240" text-anchor="middle" font-size="8" fill="rgba(201,168,76,0.4)" font-family="sans-serif" letter-spacing="2">PUBLICO</text>
+          </svg>
+
+          <!-- Stats ring -->
+          <div class="hero-stats-ring">
+            <div class="hero-stat-item">
+              <span class="num">12+</span>
+              <span class="label">A&ntilde;os exp.</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="num">500+</span>
+              <span class="label">Clientes</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="num">98%</span>
+              <span class="label">Satisfacci&oacute;n</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BENEFITS SECTION (PAS Copy)
+       ============================================================ -->
+  <section class="section benefits" id="benefits">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Beneficios</span>
+        <h2 class="section-title">Contabilidad sin <span class="highlight">dolor de cabeza</span></h2>
+      </div>
+
+      <div class="benefit-pas reveal" style="transition-delay:0.1s">
+        <p>
+          <span class="pas-problem"><i class="fa-solid fa-circle-exclamation"></i> PROBLEMA:</span>
+          Cada mes, miles de peque&ntilde;os empresarios en Guadalajara enfrentan multas del SAT,
+          declaraciones tard&iacute;as y facturaci&oacute;n incorrecta. Un error fiscal puede costarte
+          desde $2,000 hasta $50,000 pesos en multas.
+        </p>
+        <p style="margin-top:12px">
+          <span class="pas-agitate"><i class="fa-solid fa-triangle-exclamation"></i> Y LO PEOR:</span>
+          El SAT est&aacute; auditando m&aacute;s que nunca. Sin un contador profesional, expones
+          tu negocio a embargos, recargos y p&eacute;rdida de facturaci&oacute;n. El estr&eacute;s
+          fiscal no vale la pena.
+        </p>
+        <p style="margin-top:12px">
+          <span class="pas-solution"><i class="fa-solid fa-check-circle"></i> SOLUCI&Oacute;N:</span>
+          Con Angel Contador, tu contabilidad est&aacute; en manos de un profesional
+          con m&aacute;s de 12 a&ntilde;os de experiencia. Olv&iacute;date del SAT y ded&iacute;cate
+          a hacer crecer tu negocio. Nosotros nos encargamos del resto.
+        </p>
+      </div>
+
+      <div class="benefits-grid reveal-stagger" style="transition-delay:0.2s">
+        <!-- Benefit 1 -->
+        <div class="benefit-card">
+          <div class="benefit-icon emerald">
+            <i class="fa-solid fa-file-shield"></i>
+          </div>
+          <h3>Declaraciones sin errores</h3>
+          <p>
+            Presentamos tus declaraciones mensuales y anuales ante el SAT con total precisi&oacute;n.
+            Evita multas, recargos y auditor&iacute;as con un servicio que revisa cada detalle.
+            Trabajamos con RESICO, Personas F&iacute;sicas y Actividad Empresarial.
+          </p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="benefit-card">
+          <div class="benefit-icon navy">
+            <!-- Custom SVG icon mixed with Font Awesome -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="18" rx="2"/>
+              <line x1="6" y1="9" x2="18" y2="9"/>
+              <line x1="6" y1="13" x2="18" y2="13"/>
+              <line x1="6" y1="17" x2="12" y2="17"/>
+            </svg>
+          </div>
+          <h3>Contabilidad al d&iacute;a</h3>
+          <p>
+            Llevamos tu contabilidad de forma ordenada y puntual. Facturaci&oacute;n electr&oacute;nica
+            (CFDI 4.0), c&aacute;lculo de impuestos, balanzas y p&oacute;lizas. Todo listo para
+            cuando lo necesites, sin rezagos ni sorpresas de &uacute;ltimo momento.
+          </p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="benefit-card">
+          <div class="benefit-icon gold">
+            <i class="fa-regular fa-handshake"></i>
+          </div>
+          <h3>Asesor&iacute;a fiscal personalizada</h3>
+          <p>
+            No solo hacemos tu contabilidad: te explicamos todo en espa&ntilde;ol claro.
+            Saber cu&aacute;nto pagar, cu&aacute;ndo y c&oacute;mo deducir gastos legalmente
+            te da tranquilidad y control sobre tu negocio. Estamos para ayudarte.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOCIAL PROOF
+       ============================================================ -->
+  <section class="section social-proof" id="testimonials">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Testimonios</span>
+        <h2 class="section-title">Lo que dicen <span class="highlight">mis clientes</span></h2>
+        <p class="section-subtitle">
+          M&aacute;s de 500 peque&ntilde;os empresarios en Guadalajara conf&iacute;an en
+          mi servicio. Estos son algunos de sus comentarios.
+        </p>
+      </div>
+
+      <div class="proof-grid reveal-stagger">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <blockquote>
+            Desde que trabajo con Angel, ya no me preocupo por el SAT. Me resolvi&oacute;
+            una deuda fiscal que ten&iacute;a de a&ntilde;os anteriores y ahora todo est&aacute;
+            en orden. Super recomendado.
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <div class="name">Mar&iacute;a Rosales</div>
+              <div class="role">Due&ntilde;a de Boutique, &nbsp;Gdl</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <blockquote>
+            Angel me explic&oacute; todo lo que necesitaba saber sobre RESICO y c&oacute;mo
+            pagar menos impuestos legalmente. Su atenci&oacute;n es incre&iacute;ble y
+            siempre responde r&aacute;pido. Un contador de verdad.
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PL</div>
+            <div>
+              <div class="name">Pedro L&oacute;pez</div>
+              <div class="role">Taller Mec&aacute;nico, Zapopan</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <blockquote>
+                Llegu&eacute; con mi contabilidad hecha un desastre y Angel me ayud&oacute; a
+            ponerme al d&iacute;a en menos de un mes. Ahora todo fluye, facturo sin problemas
+            y duermo tranquilo. Es mi contador de por vida.
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">CG</div>
+            <div>
+              <div class="name">Carlos Guti&eacute;rrez</div>
+              <div class="role">Constructor, Tlaquepaque</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust bar -->
+      <div class="trust-bar reveal">
+        <div class="trust-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d8a4e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          12+ a&ntilde;os de experiencia
+        </div>
+        <div class="trust-item">
+          <i class="fa-regular fa-building" style="color:#1a2744;"></i>
+          Basado en Guadalajara
+        </div>
+        <div class="trust-item">
+          <i class="fa-regular fa-circle-check" style="color:#2d8a4e;"></i>
+          Registrado ante el SAT
+        </div>
+        <div class="trust-item">
+          <i class="fa-regular fa-face-smile" style="color:#c9a84c;"></i>
+          98% clientes satisfechos
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW IT WORKS
+       ============================================================ -->
+  <section class="section how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label" style="color:var(--gold)">Proceso</span>
+        <h2 class="section-title" style="color:var(--white)">C&oacute;mo <span style="color:var(--gold)">trabajamos</span></h2>
+        <p class="section-subtitle">
+          Empezar es sencillo. En tres pasos tendr&aacute;s tu contabilidad en orden
+          y una persona real encarg&aacute;ndose de tus impuestos.
+        </p>
+      </div>
+
+      <div class="steps-grid reveal-stagger">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon">
+            <i class="fa-regular fa-calendar-check"></i>
+          </div>
+          <h3>Agenda tu consulta</h3>
+          <p>
+            Cont&aacute;ctanos por WhatsApp o tel&eacute;fono. Platicamos 15 minutos
+            sin costo para entender tu situaci&oacute;n fiscal y resolver tus dudas
+            iniciales.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#c9a84c">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3>Recibimos tus documentos</h3>
+          <p>
+            Nos env&iacute;as tus facturas, CFDI, estados de cuenta y lo que tengas.
+            Nosotros organizamos todo y te pedimos lo que haga falta. Sin estr&eacute;s.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon">
+            <i class="fa-regular fa-face-smile"></i>
+          </div>
+          <h3>Nosotros nos encargamos</h3>
+          <p>
+            Preparamos y presentamos tus declaraciones, facturamos por ti y te mantenemos
+            al tanto de todo. T&uacute; solo revisas y apruebas. As&iacute; de simple.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center reveal" style="margin-top:48px">
+        <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20agendar%20mi%20consulta%20gratuita" target="_blank" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> Quiero empezar ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OFFER SECTION (Packages)
+       ============================================================ -->
+  <section class="section offer" id="services">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Servicios</span>
+        <h2 class="section-title">Planes para tu <span class="highlight">negocio</span></h2>
+        <p class="section-subtitle">
+          Elige el plan que mejor se adapte a tu negocio. Todos incluyen atenci&oacute;n
+          personalizada y absoluta confidencialidad.
+        </p>
+      </div>
+
+      <div class="offer-grid reveal-stagger">
+        <!-- Plan 1: Basico -->
+        <div class="offer-card">
+          <div class="offer-name">B&aacute;sico</div>
+          <div class="offer-price">$999 <span>/mes</span></div>
+          <div class="offer-desc">Ideal para profesionistas y freelancers</div>
+          <ul class="offer-features">
+            <li><i class="fa-solid fa-check"></i> Declaraciones mensuales (IVA, ISR)</li>
+            <li><i class="fa-solid fa-check"></i> Declaraci&oacute;n anual</li>
+            <li><i class="fa-solid fa-check"></i> Facturaci&oacute;n electr&oacute;nica (CFDI 4.0)</li>
+            <li><i class="fa-solid fa-check"></i> C&aacute;lculo de impuestos</li>
+            <li><i class="fa-solid fa-check"></i> Asesor&iacute;a por WhatsApp</li>
+            <li><i class="fa-regular fa-circle" style="color:var(--gray-200);"></i> Contabilidad completa</li>
+            <li><i class="fa-regular fa-circle" style="color:var(--gray-200);"></i> Balanzas mensuales</li>
+          </ul>
+          <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20el%20plan%20BASICO%20de%20contabilidad" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">
+            <i class="fa-brands fa-whatsapp"></i> Lo quiero
+          </a>
+        </div>
+
+        <!-- Plan 2: Profesional (FEATURED) -->
+        <div class="offer-card featured">
+          <div class="offer-badge">M&aacute;s popular</div>
+          <div class="offer-name">Profesional</div>
+          <div class="offer-price">$1,899 <span>/mes</span></div>
+          <div class="offer-desc">Perfecto para peque&ntilde;os negocios y tiendas</div>
+          <ul class="offer-features">
+            <li><i class="fa-solid fa-check"></i> Todo lo del plan B&aacute;sico</li>
+            <li><i class="fa-solid fa-check"></i> Contabilidad completa</li>
+            <li><i class="fa-solid fa-check"></i> Balanzas mensuales y p&oacute;lizas</li>
+            <li><i class="fa-solid fa-check"></i> Estado de resultados</li>
+            <li><i class="fa-solid fa-check"></i> Facturaci&oacute;n ilimitada</li>
+            <li><i class="fa-solid fa-check"></i> Representaci&oacute;n ante el SAT</li>
+            <li><i class="fa-solid fa-check"></i> Atenci&oacute;n prioritaria</li>
+          </ul>
+          <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20el%20plan%20PROFESIONAL%20de%20contabilidad" target="_blank" class="btn btn-gold" style="width:100%;justify-content:center;">
+            <i class="fa-brands fa-whatsapp"></i> Lo quiero
+          </a>
+        </div>
+
+        <!-- Plan 3: Empresarial -->
+        <div class="offer-card">
+          <div class="offer-name">Empresarial</div>
+          <div class="offer-price">$3,499 <span>/mes</span></div>
+          <div class="offer-desc">Para empresas en crecimiento</div>
+          <ul class="offer-features">
+            <li><i class="fa-solid fa-check"></i> Todo lo del plan Profesional</li>
+            <li><i class="fa-solid fa-check"></i> N&oacute;minas y calculo de ISR</li>
+            <li><i class="fa-solid fa-check"></i> Declaraciones de sueldos y salarios</li>
+            <li><i class="fa-solid fa-check"></i> Auditor&iacute;a fiscal preventiva</li>
+            <li><i class="fa-solid fa-check"></i> Planeaci&oacute;n fiscal anual</li>
+            <li><i class="fa-solid fa-check"></i> Atenci&oacute;n ilimitada</li>
+            <li><i class="fa-solid fa-check"></i> Consultor&iacute;a estrat&eacute;gica</li>
+          </ul>
+          <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20el%20plan%20EMPRESARIAL%20de%20contabilidad" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">
+            <i class="fa-brands fa-whatsapp"></i> Lo quiero
+          </a>
+        </div>
+      </div>
+
+      <!-- USPs -->
+      <div class="offer-usps reveal">
+        <span><i class="fa-solid fa-lock"></i> 100% confidencial</span>
+        <span><i class="fa-solid fa-file-contract"></i> Contrato transparente</span>
+        <span><i class="fa-solid fa-headset"></i> Soporte por WhatsApp</span>
+        <span><i class="fa-solid fa-calendar"></i> Sin plazos forzosos</span>
+        <span><i class="fa-solid fa-mexican-peso-sign"></i> Precios fijos sin sorpresas</span>
+        <span><i class="fa-solid fa-building"></i> Presencial en Gdl</span>
+      </div>
+
+      <!-- Scarcity -->
+      <div class="offer-scarcity reveal">
+        <p>
+          <i class="fa-solid fa-bolt" style="color:#c9a84c;"></i>
+          <strong>Cupo limitado:</strong> Solo acepto <strong>8 clientes nuevos</strong> este mes
+          para garantizar atenci&oacute;n personalizada. &iexcl;Agenda tu consulta antes de que se cierren
+          las inscripciones!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ SECTION
+       ============================================================ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Preguntas <span class="highlight">frecuentes</span></h2>
+        <p class="section-subtitle">
+          Respuestas r&aacute;pidas a las dudas m&aacute;s comunes sobre contabilidad,
+          el SAT y nuestros servicios.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>&iquest;Qu&eacute; documentos necesito para empezar?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Solo necesitas tu RFC, la e.firma (FIEL) actualizada, un correo electr&oacute;nico
+              y acceso a tu buz&oacute;n tributario. Si tienes facturas o estados de cuenta,
+              tambi&eacute;n nos sirven. Si no tienes algo, no te preocupes: te ayudo a
+              tramitarlo. El primer paso es agendar tu consulta gratuita de 15 minutos.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item reveal" style="transition-delay:0.05s">
+          <button class="faq-question" aria-expanded="false">
+            <span>&iquest;Cu&aacute;nto tiempo tardan en ponerme al d&iacute;a con el SAT?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Depende de qu&eacute; tan atrasada est&eacute; tu contabilidad. Por lo general,
+              en un plazo de 2 a 4 semanas podemos regularizar tu situaci&oacute;n fiscal
+              por completo. Si est&aacute;s al d&iacute;a, desde el primer mes quedas cubierto.
+              Lo importante es empezar cuanto antes para evitar recargos y multas.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item reveal" style="transition-delay:0.1s">
+          <button class="faq-question" aria-expanded="false">
+            <span>&iquest;Qu&eacute; es RESICO y me conviene?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              RESICO (R&eacute;gimen Simplificado de Confianza) es un r&eacute;gimen fiscal
+              creado por el SAT con tasas reducidas de ISR, desde 1% hasta 2.5%. Es ideal
+              para peque&ntilde;os negocios y personas f&iacute;sicas con ingresos menores a
+              3.5 millones de pesos anuales. En tu consulta gratuita analizamos si eres
+              candidato y si te conviene cambiar a este r&eacute;gimen.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item reveal" style="transition-delay:0.15s">
+          <button class="faq-question" aria-expanded="false">
+            <span>&iquest;Trabajan solo en Guadalajara o en todo M&eacute;xico?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Atiendo principalmente en la Zona Metropolitana de Guadalajara (Gdl, Zapopan,
+              Tlaquepaque, Tonal&aacute;) para reuniones presenciales. Pero tambi&eacute;n
+              trabajo con clientes de todo M&eacute;xico de forma 100% remota a trav&eacute;s
+              de WhatsApp, videollamadas y firma electr&oacute;nica. Donde sea que est&eacute;s,
+              podemos ayudarte.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item reveal" style="transition-delay:0.2s">
+          <button class="faq-question" aria-expanded="false">
+            <span>&iquest;Qu&eacute; pasa si tengo una auditor&iacute;a del SAT?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Si te notifica el SAT, no entres en p&aacute;nico. Como tu contador, te
+              represento ante la autoridad fiscal, preparo la documentaci&oacute;n requerida
+              y te acompa&ntilde;o durante todo el proceso. Mi objetivo es resolver la
+              auditor&iacute;a en el menor tiempo posible y con el menor impacto para ti.
+              La mayor&iacute;a de mis clientes nunca ha tenido una auditor&iacute;a porque
+              mantenemos todo en orden desde el d&iacute;a uno.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT SECTION
+       ============================================================ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label" style="color:var(--gold)">Con&oacute;ceme</span>
+        <h2 class="section-title">Angel <span style="color:var(--gold)">Contador</span></h2>
+        <p class="section-subtitle">
+          M&aacute;s que un contador, un aliado para tu negocio.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-visual reveal-left">
+          <div class="about-visual-inner">
+            <div class="about-avatar-circle">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <h3>Angel Contador</h3>
+            <span class="title">Contador P&uacute;blico &middot; Guadalajara</span>
+            <div class="about-years">
+              <div>
+                <span class="num">12+</span>
+                <span class="label">A&ntilde;os exp.</span>
+              </div>
+              <div>
+                <span class="num">500+</span>
+                <span class="label">Clientes</span>
+              </div>
+              <div>
+                <span class="num">&infin;</span>
+                <span class="label">Compromiso</span>
+              </div>
+            </div>
+
+            <!-- Small SVG seal of trust -->
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="position:absolute;bottom:20px;right:20px;opacity:0.15">
+              <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <path d="M24 10 L28 18 L37 19 L30 25 L32 34 L24 29 L16 34 L18 25 L11 19 L20 18 Z" fill="currentColor" opacity="0.5"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="about-text reveal-right">
+          <h3>Tu tranquilidad fiscal es mi misi&oacute;n</h3>
+          <p>
+            Soy Contador P&uacute;blico con m&aacute;s de 12 a&ntilde;os de experiencia
+            ayudando a peque&ntilde;os empresarios y profesionistas en Guadalajara a
+            mantener sus impuestos en orden. Empec&eacute; mi carrera en una firma grande,
+            pero descubr&iacute; que mi verdadera pasi&oacute;n es trabajar directamente
+            con emprendedores como t&uacute;.
+          </p>
+          <p>
+            Creo en una contabilidad clara, sin tecnicismos in&uacute;tiles ni letras chiquitas.
+            Mi objetivo es que entiendas cada peso que pagas en impuestos y que tengas las
+            herramientas para tomar mejores decisiones financieras para tu negocio.
+          </p>
+          <div class="about-mission">
+            <p>
+              &ldquo;Mi compromiso es tratar tu dinero y tu negocio como si fueran m&iacute;os.
+              Con honestidad, profesionalismo y resultados reales.&rdquo;
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <!-- Small logo SVG -->
+          <svg class="logo-small" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4 L42 13 L42 24 C42 36 24 44 24 44 C24 44 6 36 6 24 L6 13 Z"
+                  fill="rgba(45,138,78,0.2)" stroke="rgba(201,168,76,0.5)" stroke-width="1.5"/>
+            <path d="M24 8 L38 15 L38 23 C38 32 24 38 24 38 C24 38 10 32 10 23 L10 15 Z"
+                  fill="rgba(26,39,68,0.3)" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+            <path d="M19 18 L24 21 L29 18 L29 25 L24 22 L19 25 Z"
+                  fill="rgba(201,168,76,0.4)"/>
+            <text x="24" y="35" text-anchor="middle" font-size="5" fill="rgba(255,255,255,0.3)" font-family="serif">AC</text>
+          </svg>
+          <h3 style="font-family:var(--font-heading);color:var(--white);font-size:1.2rem;margin-bottom:8px;">Angel Contador</h3>
+          <p>
+            Contador P&uacute;blico en Guadalajara. Especialista en peque&ntilde;os negocios,
+            RESICO, declaraciones y contabilidad sin complicaciones.
+          </p>
+        </div>
+
+        <div>
+          <h4>Contacto</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="https://wa.me/5233XXXXXXXX" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> 5233 XXXX XXXX
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-phone"></i> 33 XXXX XXXX
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-regular fa-envelope"></i> angel@contadorgdl.com
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-location-dot"></i> Guadalajara, Jalisco
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Enlaces</h4>
+          <ul class="footer-links">
+            <li><a href="#benefits"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i> Beneficios</a></li>
+            <li><a href="#testimonials"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i> Testimonios</a></li>
+            <li><a href="#services"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i> Servicios</a></li>
+            <li><a href="#faq"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i> Preguntas Frecuentes</a></li>
+            <li><a href="#about"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i> Sobre m&iacute;</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Angel Contador &mdash; Contador P&uacute;blico en Guadalajara. Todos los derechos reservados.</span>
+        <span>
+          <i class="fa-regular fa-shield"></i> 100% confidencial
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       FLOATING WHATSAPP BUTTON
+       ============================================================ -->
+  <div class="whatsapp-float" id="whatsappFloat">
+    <span class="whatsapp-float-label">&iexcl;Escr&iacute;beme ahora!</span>
+    <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20informes" target="_blank" class="whatsapp-float-btn" aria-label="Contactar por WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- ============================================================
+       BACK TO TOP BUTTON
+       ============================================================ -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* ==========================================================
+         INTERSECTION OBSERVER - SCROLL REVEALS
+         ========================================================== */
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger');
+
+      if (revealElements.length > 0) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              // Optionally unobserve after reveal for performance
+              // observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(function(el) {
+          observer.observe(el);
+        });
+      }
+
+      /* ==========================================================
+         FAQ ACCORDION
+         ========================================================== */
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(function(item) {
+        const question = item.querySelector('.faq-question');
+        if (!question) return;
+
+        question.addEventListener('click', function() {
+          const isActive = item.classList.contains('active');
+
+          // Close all FAQ items
+          faqItems.forEach(function(other) {
+            other.classList.remove('active');
+            const otherBtn = other.querySelector('.faq-question');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          });
+
+          // Open this one if it was closed
+          if (!isActive) {
+            item.classList.add('active');
+            question.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      /* ==========================================================
+         BACK TO TOP BUTTON
+         ========================================================== */
+      const backToTop = document.getElementById('backToTop');
+      if (backToTop) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 600) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        });
+
+        backToTop.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      /* ==========================================================
+         SMOOTH SCROLL FOR ANCHOR LINKS
+         ========================================================== */
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          const href = anchor.getAttribute('href');
+          if (href === '#' || href === '') return;
+
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const headerOffset = 40;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      /* ==========================================================
+         COUNTER ANIMATION (for stats)
+         ========================================================== */
+      function animateCounter(el, target, suffix) {
+        if (!el) return;
+        let current = 0;
+        const increment = Math.ceil(target / 40);
+        const timer = setInterval(function() {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          el.textContent = current + (suffix || '');
+        }, 30);
+      }
+
+      // Observe stat numbers for counter animation
+      const statNums = document.querySelectorAll('.hero-stat-item .num, .about-years .num');
+      if (statNums.length > 0) {
+        const countObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              const text = el.textContent.trim();
+              const numMatch = text.match(/(\d+)/);
+              if (numMatch) {
+                const target = parseInt(numMatch[0], 10);
+                const suffix = text.replace(numMatch[0], '');
+                animateCounter(el, target, suffix);
+              }
+              countObserver.unobserve(el);
+            }
+          });
+        }, { threshold: 0.5 });
+
+        statNums.forEach(function(el) {
+          // Store original text and clear it for animation
+          countObserver.observe(el);
+        });
+      }
+
+      /* ==========================================================
+         WHATSAPP FLOATING BUTTON - TOOLTIP VISIBILITY
+         ========================================================== */
+      const whatsappFloat = document.getElementById('whatsappFloat');
+      if (whatsappFloat) {
+        let tooltipTimer;
+        // Show tooltip on first visit after 3 seconds
+        setTimeout(function() {
+          const tooltip = whatsappFloat.querySelector('.whatsapp-float-label');
+          if (tooltip) {
+            tooltip.style.opacity = '1';
+            setTimeout(function() {
+              tooltip.style.opacity = '0';
+            }, 5000);
+          }
+        }, 3000);
+      }
+
+      /* ==========================================================
+         PARALLAX EFFECT ON HERO FLOATING ELEMENTS
+         ========================================================== */
+      const heroFl = document.querySelector('.hero-floating');
+      if (heroFl) {
+        window.addEventListener('scroll', function() {
+          const scrollY = window.scrollY;
+          if (scrollY < window.innerHeight) {
+            heroFl.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
+            heroFl.style.opacity = Math.max(0, 1 - scrollY / (window.innerHeight * 0.6));
+          }
+        });
+      }
+
+      /* ==========================================================
+         ACTIVE NAV TRACKING (for footer links highlight)
+         ========================================================== */
+      // Not needed for landing page, but kept for structure
+
+      /* ==========================================================
+         KEYBOARD SUPPORT FOR FAQ
+         ========================================================== */
+      document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            btn.click();
+          }
+        });
+      });
+
+      console.log('Angel Contador - Landing Page initialized.');
+      console.log('Crafted with care for Guadalajara small businesses.');
+
+    })();
+  </script>
+
+  <!-- Structured Data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "Angel Contador - Contador Publico en Guadalajara",
+    "image": "https://angelcontador.mx/og-image.jpg",
+    "url": "https://angelcontador.mx",
+    "telephone": "+5233XXXXXXXX",
+    "email": "angel@contadorgdl.com",
+    "description": "Servicios contables y fiscales para pequenos negocios en Guadalajara. SAT, declaraciones, facturacion, RESICO.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Guadalajara",
+      "addressRegion": "Jalisco",
+      "addressCountry": "MX"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "128",
+      "bestRating": "5"
+    },
+    "priceRange": "$$",
+    "areaServed": ["Guadalajara", "Zapopan", "Tlaquepaque", "Tonala", "Mexico"],
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 20.6597,
+        "longitude": -103.3496
+      },
+      "geoRadius": "50000"
+    },
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "sameAs": [
+      "https://wa.me/5233XXXXXXXX"
+    ]
+  }
+  </script>
+
+</body>
+</html>
