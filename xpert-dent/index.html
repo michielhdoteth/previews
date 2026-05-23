@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="XPERTDENT - Cl&iacute;nica de Especialidades Dentales en Tampico. Odontolog&iacute;a general, Ortodoncia, Endodoncia, Est&eacute;tica dental. Agenda hoy.">
+  <title>XPERTDENT &mdash; Cl&iacute;nica Dental | Tampico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script defer src="/previews/assets/fontawesome/js/all.min.js"></script>
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"></noscript>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:24px}
+    body{font-family:'Inter',-apple-system,sans-serif;color:#1a1a2e;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 24px}
+    .section{padding:80px 0}
+    .section-label{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#0d7377;margin-bottom:8px}
+    .section-title{font-family:'Lora',Georgia,serif;font-size:clamp(1.75rem,4.5vw,2.5rem);font-weight:700;line-height:1.25;margin-bottom:16px;color:#1a1a2e}
+    .section-desc{font-size:clamp(1rem,2vw,1.125rem);color:#5a5a72;max-width:640px;margin-bottom:48px}
+
+    /* ===== REVEAL ANIMATION ===== */
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
+    .reveal-left.visible{opacity:1;transform:translateX(0)}
+    .reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
+    .reveal-right.visible{opacity:1;transform:translateX(0)}
+
+    /* ===== HERO ===== */
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;
+      background:linear-gradient(135deg,#0d7377 0%,#0b5e61 40%,#1a3a3c 100%);
+      padding:80px 24px 60px}
+    .hero-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .particle{position:absolute;width:12px;height:12px;border-radius:50%;opacity:.15;animation:floatParticle 20s infinite linear}
+    .particle:nth-child(1){width:8px;height:8px;background:#fff;top:10%;left:5%;animation-duration:22s;animation-delay:0s}
+    .particle:nth-child(2){width:16px;height:16px;background:#fff;top:25%;left:80%;animation-duration:18s;animation-delay:2s}
+    .particle:nth-child(3){width:10px;height:10px;background:#e86a6a;top:50%;left:15%;animation-duration:25s;animation-delay:4s}
+    .particle:nth-child(4){width:6px;height:6px;background:#fff;top:70%;left:70%;animation-duration:20s;animation-delay:1s}
+    .particle:nth-child(5){width:14px;height:14px;background:#fff;top:85%;left:40%;animation-duration:23s;animation-delay:3s}
+    .particle:nth-child(6){width:20px;height:20px;background:#e86a6a;opacity:.08;top:15%;left:55%;animation-duration:28s;animation-delay:5s}
+    .particle:nth-child(7){width:7px;height:7px;background:#fff;top:40%;left:90%;animation-duration:19s;animation-delay:6s}
+    .particle:nth-child(8){width:11px;height:11px;background:#fff;top:60%;left:8%;animation-duration:24s;animation-delay:7s}
+    @keyframes floatParticle{
+      0%{transform:translateY(0) rotate(0deg) scale(1);opacity:.15}
+      25%{transform:translateY(-60px) rotate(90deg) scale(1.2);opacity:.2}
+      50%{transform:translateY(20px) rotate(180deg) scale(.8);opacity:.12}
+      75%{transform:translateY(-30px) rotate(270deg) scale(1.1);opacity:.18}
+      100%{transform:translateY(0) rotate(360deg) scale(1);opacity:.15}
+    }
+
+    .hero-content{position:relative;z-index:2;text-align:center;max-width:780px;width:100%}
+    .hero-logo{margin-bottom:24px;display:inline-block}
+    .hero-logo svg{width:80px;height:80px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.15))}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);
+      padding:8px 18px;border-radius:100px;font-size:.8rem;color:#fff;margin-bottom:20px;letter-spacing:.02em}
+    .hero-badge .stars{color:#f5c542;font-size:.85rem;margin-right:4px}
+    .hero-badge .rating-num{font-weight:700;margin-left:2px}
+    .hero h1{font-family:'Lora',Georgia,serif;font-size:clamp(1.75rem,5vw,2.85rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:20px}
+    .hero h1 .typewriter-cursor{display:inline-block;width:3px;height:1.1em;background:#e86a6a;margin-left:4px;vertical-align:text-bottom;animation:blink .8s step-end infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    .hero-sub{font-size:clamp(1rem,2.2vw,1.2rem);color:rgba(255,255,255,.85);max-width:600px;margin:0 auto 32px;line-height:1.7}
+    .hero-cta{display:inline-flex;align-items:center;gap:12px;background:#e86a6a;color:#fff;font-weight:700;font-size:1.1rem;
+      padding:18px 40px;border-radius:60px;border:none;cursor:pointer;transition:all .3s ease;box-shadow:0 8px 28px rgba(232,106,106,.4)}
+    .hero-cta i{font-size:1.2rem}
+    .hero-cta:hover{background:#d45555;transform:translateY(-2px);box-shadow:0 12px 36px rgba(232,106,106,.5)}
+    .hero-cta:active{transform:translateY(0)}
+    .hero-friction{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 24px;margin-top:28px}
+    .hero-friction span{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.7);font-size:.85rem}
+    .hero-friction span i{color:rgba(255,255,255,.5);font-size:.75rem}
+
+    /* ===== BENEFITS ===== */
+    .benefits{background:#f8f9fa}
+    .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+    .benefit-card{background:#fff;border-radius:16px;padding:36px 28px;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:transform .3s ease,box-shadow .3s ease;border:1px solid rgba(0,0,0,.04)}
+    .benefit-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.06)}
+    .benefit-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;color:#fff}
+    .benefit-icon.teal{background:#0d7377}
+    .benefit-icon.coral{background:#e86a6a}
+    .benefit-icon.dark{background:#1a3a3c}
+    .benefit-card h3{font-family:'Lora',Georgia,serif;font-size:1.2rem;font-weight:700;margin-bottom:8px;color:#1a1a2e}
+    .benefit-card .problem{font-size:.85rem;font-weight:600;color:#e86a6a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+    .benefit-card p{font-size:.95rem;color:#5a5a72;line-height:1.7}
+    .benefit-card .solution-label{display:inline-block;margin-top:14px;font-size:.85rem;font-weight:600;color:#0d7377}
+
+    /* ===== SOCIAL PROOF ===== */
+    .social-proof{background:#fff}
+    .rating-banner{background:linear-gradient(135deg,#0d7377,#0b5e61);border-radius:16px;padding:36px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px 40px;margin-bottom:48px;color:#fff}
+    .rating-banner .big-stars{font-size:1.6rem;color:#f5c542;letter-spacing:4px}
+    .rating-banner .big-num{font-size:2.2rem;font-weight:800;line-height:1}
+    .rating-banner .big-label{font-size:.9rem;opacity:.85}
+    .rating-banner .trust-item{display:flex;align-items:center;gap:10px;font-size:.95rem}
+    .rating-banner .trust-item i{font-size:1.3rem;opacity:.8}
+    .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+    .testimonial-card{background:#f8f9fa;border-radius:16px;padding:32px 28px;border:1px solid rgba(0,0,0,.04)}
+    .testimonial-stars{color:#f5c542;font-size:1rem;margin-bottom:12px}
+    .testimonial-text{font-size:.97rem;color:#3a3a4e;line-height:1.75;margin-bottom:16px;font-style:italic}
+    .testimonial-author{display:flex;align-items:center;gap:12px}
+    .testimonial-avatar{width:44px;height:44px;border-radius:50%;background:#0d7377;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem}
+    .testimonial-name{font-weight:600;font-size:.9rem;color:#1a1a2e}
+    .testimonial-meta{font-size:.8rem;color:#7a7a8e}
+
+    /* ===== HOW IT WORKS ===== */
+    .how-it-works{background:#f8f9fa}
+    .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;position:relative}
+    .steps-grid::before{content:'';position:absolute;top:40px;left:60px;right:60px;height:2px;background:linear-gradient(90deg,#0d7377,#e86a6a);display:none}
+    @media(min-width:900px){.steps-grid::before{display:block}}
+    .step-card{text-align:center;position:relative;z-index:1}
+    .step-number{width:80px;height:80px;border-radius:50%;background:#fff;border:3px solid #0d7377;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Lora',Georgia,serif;font-size:1.8rem;font-weight:700;color:#0d7377;position:relative}
+    .step-card.active .step-number{background:#0d7377;color:#fff;box-shadow:0 8px 24px rgba(13,115,119,.25)}
+    .step-card h4{font-family:'Lora',Georgia,serif;font-size:1.1rem;font-weight:700;margin-bottom:8px}
+    .step-card p{font-size:.9rem;color:#5a5a72;max-width:240px;margin:0 auto;line-height:1.65}
+
+    /* ===== SERVICES ===== */
+    .services{background:#fff}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+    .service-card{background:#f8f9fa;border-radius:16px;padding:28px 24px;border:1px solid rgba(0,0,0,.04);transition:transform .3s ease,box-shadow .3s ease}
+    .service-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.06)}
+    .service-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;margin-bottom:16px}
+    .service-icon.teal{background:#0d7377}
+    .service-icon.coral{background:#e86a6a}
+    .service-icon.dark{background:#1a3a3c}
+    .service-card h4{font-family:'Lora',Georgia,serif;font-size:1.1rem;font-weight:700;margin-bottom:6px}
+    .service-card p{font-size:.9rem;color:#5a5a72;line-height:1.65;margin-bottom:12px}
+    .service-card .price-hint{font-size:.85rem;color:#0d7377;font-weight:600}
+    .service-card .price-hint i{margin-right:4px;font-size:.75rem}
+
+    /* ===== THE OFFER ===== */
+    .offer{background:linear-gradient(135deg,#0d7377 0%,#0b5e61 50%,#1a3a3c 100%);color:#fff;text-align:center}
+    .offer .section-title{color:#fff}
+    .offer .section-desc{color:rgba(255,255,255,.8);margin-left:auto;margin-right:auto}
+    .offer-card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:48px 40px;max-width:600px;margin:0 auto 32px;text-align:left}
+    .offer-card h3{font-family:'Lora',Georgia,serif;font-size:1.5rem;font-weight:700;margin-bottom:6px}
+    .offer-card .offer-sub{color:rgba(255,255,255,.7);font-size:.95rem;margin-bottom:20px}
+    .offer-card ul li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.95rem;line-height:1.5}
+    .offer-card ul li:last-child{border-bottom:none}
+    .offer-card ul li i{color:#e86a6a;font-size:.85rem;margin-top:4px;flex-shrink:0}
+    .offer .hero-cta{margin-top:8px}
+    .offer-scarcity{display:inline-flex;align-items:center;gap:8px;background:rgba(232,106,106,.2);border:1px solid rgba(232,106,106,.3);padding:10px 24px;border-radius:60px;font-size:.85rem;color:#f8a5a5;margin-bottom:24px}
+
+    /* ===== FAQ ===== */
+    .faq{background:#f8f9fa}
+    .faq-list{max-width:740px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+    .faq-item{background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,.04);transition:box-shadow .3s ease}
+    .faq-item:hover{box-shadow:0 4px 16px rgba(0,0,0,.04)}
+    .faq-question{display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 24px;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;color:#1a1a2e;text-align:left;gap:16px}
+    .faq-question .faq-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;transition:background .3s ease,transform .3s ease;font-size:.8rem;color:#0d7377}
+    .faq-item.open .faq-icon{background:#0d7377;color:#fff;transform:rotate(45deg)}
+    .faq-answer{padding:0 24px 0;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+    .faq-item.open .faq-answer{max-height:400px;padding:0 24px 20px}
+    .faq-answer p{font-size:.95rem;color:#5a5a72;line-height:1.75}
+    .faq-cta{margin-top:40px;text-align:center}
+    .faq-cta p{font-size:.95rem;color:#5a5a72;margin-bottom:12px}
+
+    /* ===== ABOUT US ===== */
+    .about{background:#fff}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    @media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:32px}}
+    .about-photo{width:100%;aspect-ratio:4/3;border-radius:16px;background:linear-gradient(135deg,#e8f4f4,#d0e8e8);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+    .about-photo svg{width:60%;height:60%;opacity:.6}
+    .about-photo .badge{position:absolute;bottom:16px;left:16px;background:#0d7377;color:#fff;padding:8px 16px;border-radius:10px;font-size:.8rem;font-weight:600}
+    .about-text h3{font-family:'Lora',Georgia,serif;font-size:1.4rem;font-weight:700;margin-bottom:4px}
+    .about-text .title-role{color:#0d7377;font-weight:600;font-size:.95rem;margin-bottom:16px}
+    .about-text p{font-size:.95rem;color:#5a5a72;line-height:1.75;margin-bottom:16px}
+    .about-details{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+    @media(max-width:480px){.about-details{grid-template-columns:1fr}}
+    .detail-item{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;color:#3a3a4e}
+    .detail-item i{color:#0d7377;font-size:1rem;margin-top:2px;min-width:18px}
+    .detail-item strong{display:block;font-weight:600}
+    .detail-item span{color:#5a5a72;font-size:.88rem}
+    .about-map{margin-top:24px;border-radius:12px;overflow:hidden;height:180px;background:#e8f4f4;display:flex;align-items:center;justify-content:center;color:#0d7377;font-size:.9rem;border:1px solid rgba(13,115,119,.15)}
+
+    /* ===== FOOTER ===== */
+    .footer{background:#1a1a2e;color:rgba(255,255,255,.8);padding:60px 0 0}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+    @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px}}
+    @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+    .footer-brand .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .footer-brand .footer-logo svg{width:40px;height:40px}
+    .footer-brand .footer-logo span{font-family:'Lora',Georgia,serif;font-size:1.2rem;font-weight:700;color:#fff}
+    .footer-brand p{font-size:.88rem;line-height:1.7;margin-bottom:16px;color:rgba(255,255,255,.6)}
+    .footer-social{display:flex;gap:12px}
+    .footer-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:background .3s ease;font-size:1rem;color:rgba(255,255,255,.7)}
+    .footer-social a:hover{background:#0d7377;color:#fff}
+    .footer h5{font-weight:700;font-size:.9rem;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em}
+    .footer ul li{margin-bottom:10px}
+    .footer ul li a{font-size:.88rem;color:rgba(255,255,255,.6);transition:color .3s ease}
+    .footer ul li a:hover{color:#e86a6a}
+    .footer ul li i{width:20px;margin-right:6px;color:#0d7377;font-size:.8rem}
+    .footer-hours li{font-size:.88rem;color:rgba(255,255,255,.6);display:flex;justify-content:space-between;gap:12px;padding:4px 0}
+    .footer-hours li strong{color:rgba(255,255,255,.8)}
+    .footer-bottom{text-align:center;padding:24px 0;font-size:.82rem;color:rgba(255,255,255,.4)}
+
+    /* ===== FLOATING WHATSAPP ===== */
+    .floating-wa{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;
+      display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 6px 24px rgba(37,211,102,.4);
+      transition:all .3s ease;animation:pulseWa 2s infinite}
+    .floating-wa:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(37,211,102,.5);color:#fff}
+    @keyframes pulseWa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.4)}50%{box-shadow:0 6px 36px rgba(37,211,102,.6)}}
+    .floating-wa .tooltip{position:absolute;right:68px;top:50%;transform:translateY(-50%);background:#1a1a2e;color:#fff;padding:8px 16px;border-radius:8px;font-size:.8rem;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s ease}
+    .floating-wa:hover .tooltip{opacity:1}
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:600px){
+      .section{padding:56px 0}
+      .hero{padding:60px 20px 48px;min-height:92vh}
+      .hero h1{font-size:1.6rem}
+      .hero-cta{padding:16px 28px;font-size:1rem;width:100%;justify-content:center}
+      .hero-friction{font-size:.8rem;gap:8px 16px}
+      .rating-banner{padding:28px 20px;flex-direction:column;gap:16px;text-align:center}
+      .rating-banner .big-num{font-size:1.8rem}
+      .offer-card{padding:32px 24px}
+      .about-photo{aspect-ratio:16/9}
+    }
+    @media(max-width:400px){
+      .container{padding:0 16px}
+      .benefit-card,.service-card{padding:24px 20px}
+      .testimonial-card{padding:24px 20px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .reveal,.reveal-left,.reveal-right{opacity:1;transform:none}
+      .particle,.hero-cta,.benefit-card,.service-card,.floating-wa{animation:none;transition:none}
+      html{scroll-behavior:auto}
+    }
+
+    /* ===== UTILITY ===== */
+    .text-center{text-align:center}
+    .mt-8{margin-top:8px}
+    .mt-16{margin-top:16px}
+    .mb-16{margin-bottom:16px}
+    .gap-8{gap:8px}
+    .inline-flex{display:inline-flex;align-items:center}
+    i.fa-solid,i.fa-regular,i.fa-brands{min-width:1em;display:inline-block}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  </style>
+</head>
+<body>
+
+<!-- ===== I. HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-particles" aria-hidden="true">
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-logo" data-reveal>
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" fill="rgba(255,255,255,.12)" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+        <!-- Tooth shape -->
+        <path d="M50 26c-6 0-10 4-11 10l-2 16c-.4 3.2.6 6.4 2.8 8.8 2 2.2 4.6 3.8 7.4 4.6.8.2 1.6.4 2.8.6 1.2-.2 2-.4 2.8-.6 2.8-.8 5.4-2.4 7.4-4.6 2.2-2.4 3.2-5.6 2.8-8.8l-2-16C60 30 56 26 50 26z"
+          fill="#fff" stroke="none" opacity=".95"/>
+        <!-- Cross/plus inside tooth -->
+        <path d="M47 42h6v6h6v6h-6v6h-6v-6h-6v-6h6v-6z" fill="#e86a6a" opacity=".85"/>
+      </svg>
+    </div>
+
+    <div class="hero-badge" data-reveal>
+      <span class="stars">&starf;&starf;&starf;&starf;&starf;</span>
+      <span>4.8 <span class="rating-num">en Google</span></span>
+    </div>
+
+    <h1 data-reveal>
+      <span id="typewriter-text"></span><span class="typewriter-cursor" id="typewriter-cursor" aria-hidden="true"></span>
+    </h1>
+
+    <p class="hero-sub" data-reveal>
+      Atenci&oacute;n dental profesional, sin dolor y con los mejores especialistas en Tampico.
+      Odontolog&iacute;a general, ortodoncia, est&eacute;tica dental y m&aacute;s en un solo lugar.
+    </p>
+
+    <div data-reveal>
+      <a href="https://wa.me/528331973653" class="hero-cta" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Agenda tu cita por WhatsApp
+      </a>
+    </div>
+
+    <div class="hero-friction" data-reveal>
+      <span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Sin costo</span>
+      <span><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Urgencias</span>
+      <span><i class="fa-solid fa-file-invoice" aria-hidden="true"></i> Seguros aceptados</span>
+      <span><i class="fa-solid fa-clock" aria-hidden="true"></i> 15+ a&ntilde;os de experiencia</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. BENEFITS ===== -->
+<section class="section benefits" id="beneficios">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Por qu&eacute; elegirnos</span>
+      <h2 class="section-title">Tu sonrisa, nuestra prioridad</h2>
+      <p class="section-desc" style="margin-left:auto;margin-right:auto">
+ Entendemos que ir al dentista puede generar dudas. Por eso creamos una experiencia c&oacute;moda, transparente y profesional.
+      </p>
+    </div>
+
+    <div class="benefits-grid">
+      <!-- Card 1: Fear -->
+      <div class="benefit-card reveal" style="transition-delay:.1s">
+        <div class="benefit-icon coral">
+          <i class="fa-regular fa-face-frown" aria-hidden="true"></i>
+        </div>
+        <div class="problem">El problema</div>
+        <h3>Miedo al dolor</h3>
+        <p>Muchas personas evitan el dentista por miedo al dolor o a experiencias traum&aacute;ticas del pasado. Eso solo empeora los problemas.</p>
+        <div class="solution-label">
+          <i class="fa-solid fa-check-circle" aria-hidden="true"></i> Soluci&oacute;n: Tratamientos sin dolor con anestesia moderna y sedaci&oacute;n suave.
+        </div>
+      </div>
+
+      <!-- Card 2: Cost -->
+      <div class="benefit-card reveal" style="transition-delay:.2s">
+        <div class="benefit-icon teal">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="14" cy="10" r="6" stroke="#fff" stroke-width="2" fill="none"/>
+            <path d="M6 24c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#fff" stroke-width="2" fill="none"/>
+            <circle cx="14" cy="10" r="2" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="problem">La frustraci&oacute;n</div>
+        <h3>Costos elevados</h3>
+        <p>Las cl&iacute;nicas dentales suelen tener precios poco claros y tratamientos costosos que no siempre caben en tu presupuesto.</p>
+        <div class="solution-label">
+          <i class="fa-solid fa-check-circle" aria-hidden="true"></i> Soluci&oacute;n: Precios justos y transparentes. Consulta sin compromiso.
+        </div>
+      </div>
+
+      <!-- Card 3: Trust -->
+      <div class="benefit-card reveal" style="transition-delay:.3s">
+        <div class="benefit-icon dark">
+          <i class="fa-regular fa-handshake" aria-hidden="true"></i>
+        </div>
+        <div class="problem">La realidad</div>
+        <h3>Malas experiencias</h3>
+        <p>Una mala experiencia dental puede dejar secuelas. Muchos pacientes llegan con desconfianza por atenciones previas fr&iacute;as o apresuradas.</p>
+        <div class="solution-label">
+          <i class="fa-solid fa-check-circle" aria-hidden="true"></i> Soluci&oacute;n: Atenci&oacute;n personalizada y c&aacute;lida de la mano del Dr. F&eacute;lix.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. SOCIAL PROOF ===== -->
+<section class="section social-proof" id="testimonios">
+  <div class="container">
+    <div class="rating-banner reveal">
+      <div class="big-num">4.8</div>
+      <div>
+        <div class="big-stars">&starf;&starf;&starf;&starf;&starf;</div>
+        <div class="big-label">Calificaci&oacute;n en Google</div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+        <span><strong>15+</strong> a&ntilde;os de experiencia</span>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="9" cy="7" r="4" stroke="rgba(255,255,255,.8)" stroke-width="2"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span><strong>5000+</strong> pacientes atendidos</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <span><strong>Tampico</strong> &mdash; Col. Smith</span>
+      </div>
+    </div>
+
+    <div class="text-center reveal">
+      <span class="section-label">Lo que dicen nuestros pacientes</span>
+      <h2 class="section-title">Testimonios reales</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal" style="transition-delay:.1s">
+        <div class="testimonial-stars">&starf;&starf;&starf;&starf;&starf;</div>
+        <p class="testimonial-text">
+          &ldquo;Excelente servicio. El Dr. F&eacute;lix me explic&oacute; todo el procedimiento antes de empezar y la atenci&oacute;n fue totalmente sin dolor. S&uacute;per recomendado.&rdquo;
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MR</div>
+          <div>
+            <div class="testimonial-name">Mar&iacute;a R.</div>
+            <div class="testimonial-meta">Paciente de ortodoncia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal" style="transition-delay:.2s">
+        <div class="testimonial-stars">&starf;&starf;&starf;&starf;&starf;</div>
+        <p class="testimonial-text">
+          &ldquo;Llegu&eacute; con una urgencia y me atendieron el mismo d&iacute;a. Precios accesibles y un trato muy humano. Desde entonces toda mi familia va con ellos.&rdquo;
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">CG</div>
+          <div>
+            <div class="testimonial-name">Carlos G.</div>
+            <div class="testimonial-meta">Paciente de endodoncia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal" style="transition-delay:.3s">
+        <div class="testimonial-stars">&starf;&starf;&starf;&starf;&starf;</div>
+        <p class="testimonial-text">
+          &ldquo;Me hice un blanqueamiento y carillas y quedaron espectaculares. El consultorio es muy limpio y moderno. 100% recomendados en Tampico.&rdquo;
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AL</div>
+          <div>
+            <div class="testimonial-name">Ana L.</div>
+            <div class="testimonial-meta">Paciente de est&eacute;tica dental</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IV. HOW IT WORKS ===== -->
+<section class="section how-it-works" id="como-funciona">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Proceso simple</span>
+      <h2 class="section-title">&iquest;C&oacute;mo funciona?</h2>
+      <p class="section-desc" style="margin-left:auto;margin-right:auto">
+        Te acompa&ntilde;amos en cada etapa para que tu experiencia sea c&oacute;moda y sin sorpresas.
+      </p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card active reveal" style="transition-delay:.1s">
+        <div class="step-number">1</div>
+        <h4>Consulta</h4>
+        <p>Agenda tu cita y plat&iacute;canos tus necesidades. Te escuchamos sin prisas.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay:.2s">
+        <div class="step-number">2</div>
+        <h4>Diagn&oacute;stico</h4>
+        <p>Evaluaci&oacute;n completa con equipo moderno para identificar la mejor soluci&oacute;n.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay:.3s">
+        <div class="step-number">3</div>
+        <h4>Tratamiento</h4>
+        <p>Procedimiento profesional con t&eacute;cnicas avanzadas y sin dolor.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay:.4s">
+        <div class="step-number">4</div>
+        <h4>Seguimiento</h4>
+        <p>Te damos recomendaciones personalizadas y agendamos tu pr&oacute;xima visita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== V. SERVICES ===== -->
+<section class="section services" id="servicios">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Nuestros servicios</span>
+      <h2 class="section-title">Especialidades dentales</h2>
+      <p class="section-desc" style="margin-left:auto;margin-right:auto">
+        Ofrecemos atenci&oacute;n integral para toda la familia con los mejores especialistas en Tampico.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal" style="transition-delay:.05s">
+        <div class="service-icon teal"><i class="fa-solid fa-teeth" aria-hidden="true"></i></div>
+        <h4>Odontolog&iacute;a General</h4>
+        <p>Atenci&oacute;n preventiva y curativa para mantener tu salud bucal en &oacute;ptimas condiciones.</p>
+        <div class="price-hint"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Consulta desde $XXX</div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.1s">
+        <div class="service-icon coral"><i class="fa-solid fa-bezier-curve" aria-hidden="true"></i></div>
+        <h4>Ortodoncia</h4>
+        <p>Correcci&oacute;n de alineaci&oacute;n dental con brackets tradicionales o est&eacute;ticos. Resultados duraderos.</p>
+        <div class="price-hint"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Consulta tu plan</div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.15s">
+        <div class="service-icon dark">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 4c-3 0-5 2-5 5 0 3 5 8 5 8s5-5 5-8c0-3-2-5-5-5z" stroke="#fff" stroke-width="2" fill="none"/>
+            <circle cx="12" cy="9" r="1.5" fill="#fff"/>
+          </svg>
+        </div>
+        <h4>Endodoncia</h4>
+        <p>Tratamiento de conducto para salvar dientes da&ntilde;ados. Procedimiento indoloro con tecnolog&iacute;a moderna.</p>
+        <div class="price-hint"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Consulta tu caso</div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.2s">
+        <div class="service-icon teal"><i class="fa-regular fa-gem" aria-hidden="true"></i></div>
+        <h4>Est&eacute;tica Dental</h4>
+        <p>Carillas, resinas y dise&ntilde;o de sonrisa para transformar tu apariencia y recuperar tu confianza.</p>
+        <div class="price-hint"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Consulta sin costo</div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.25s">
+        <div class="service-icon coral"><i class="fa-regular fa-sun" aria-hidden="true"></i></div>
+        <h4>Blanqueamiento</h4>
+        <p>Blanqueamiento dental profesional con resultados visibles desde la primera sesi&oacute;n. Sonrisa m&aacute;s brillante.</p>
+        <div class="price-hint"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Pregunta por promociones</div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.3s">
+        <div class="service-icon dark">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 3a7 7 0 0 0-7 7c0 5 7 11 7 11s7-6 7-11a7 7 0 0 0-7-7z" stroke="#fff" stroke-width="2" fill="none"/>
+            <line x1="9" y1="10" x2="15" y2="10" stroke="#fff" stroke-width="2"/>
+            <line x1="12" y1="7" x2="12" y2="13" stroke="#fff" stroke-width="2"/>
+          </svg>
+        </div>
+        <h4>Extracciones &amp; Urgencias</h4>
+        <p>Extracciones simples y quir&uacute;rgicas, atenci&oacute;n de urgencias dentales y manejo del dolor.</p>
+        <div class="price-hint"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Atenci&oacute;n inmediata</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VI. THE OFFER ===== -->
+<section class="section offer" id="oferta">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label" style="color:rgba(255,255,255,.7)">Oferta especial</span>
+      <h2 class="section-title">Tu primera consulta</h2>
+      <p class="section-desc">
+        Agenda tu primera cita y descubre por qu&eacute; XPERTDENT es la cl&iacute;nica de confianza en Tampico.
+      </p>
+    </div>
+
+    <div class="offer-card reveal">
+      <div class="offer-scarcity">
+        <i class="fa-solid fa-bolt" aria-hidden="true"></i> Cupo limitado para esta semana
+      </div>
+      <h3>Paquete de primera visita</h3>
+      <div class="offer-sub">Incluye evaluaci&oacute;n completa y plan de tratamiento personalizado</div>
+      <ul>
+        <li>
+          <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+          <span><strong>Consulta de valoraci&oacute;n</strong> con el Dr. Juan F&eacute;lix</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+          <span><strong>Diagn&oacute;stico inicial</strong> con revisi&oacute;n completa</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+          <span><strong>Plan de tratamiento</strong> detallado con opciones y costos</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+          <span><strong>Presupuesto sin compromiso</strong> y explicaci&oacute;n clara de cada paso</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+          <span><strong>Acceso a promociones</strong> exclusivas para pacientes nuevos</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="reveal">
+      <a href="https://wa.me/528331973653" class="hero-cta" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Agenda ahora
+      </a>
+      <p class="mt-16" style="color:rgba(255,255,255,.6);font-size:.85rem">
+        Responde en minutos &middot; Sin compromiso &middot; Atenci&oacute;n personalizada
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VII. FAQ ===== -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Preguntas frecuentes</span>
+      <h2 class="section-title">Todo lo que necesitas saber</h2>
+      <p class="section-desc" style="margin-left:auto;margin-right:auto">
+        Respuestas r&aacute;pidas a las dudas m&aacute;s comunes de nuestros pacientes.
+      </p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>&iquest;Aceptan seguros dentales?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>S&iacute;, trabajamos con la mayor&iacute;a de los seguros dentales del mercado. Te recomendamos contactarnos v&iacute;a WhatsApp para que verifiquemos si tu plan cubre los tratamientos que necesitas. Te ayudamos con todo el proceso de facturaci&oacute;n.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>&iquest;Duele el tratamiento?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>No. Utilizamos anestesia moderna de &uacute;ltima generaci&oacute;n que hace que los procedimientos sean pr&aacute;cticamente indoloros. Nuestro equipo est&aacute; entrenado para garantizar tu comodidad durante todo el proceso. Si tienes miedo al dolor, h&aacute;blanos y te explicaremos las opciones de sedaci&oacute;n disponibles.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>&iquest;Cu&aacute;nto cuesta una consulta?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>Ofrecemos precios accesibles y transparentes. El costo de la consulta general es muy accesible e incluye revisi&oacute;n completa. Escr&iacute;benos por WhatsApp y te compartimos nuestros precios actualizados sin ning&uacute;n compromiso.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>&iquest;Atienden urgencias dentales?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>S&iacute;, tenemos horarios para atenci&oacute;n de urgencias. Si tienes dolor, inflamaci&oacute;n o alg&uacute;n accidente dental, escr&iacute;benos por WhatsApp y te daremos la atenci&oacute;n lo antes posible. Priorizamos los casos urgentes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>&iquest;Cu&aacute;nto tiempo dura un blanqueamiento?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>Con el cuidado adecuado, los resultados del blanqueamiento dental profesional pueden durar de 1 a 3 a&ntilde;os. Te damos recomendaciones personalizadas para mantener tu sonrisa brillante por m&aacute;s tiempo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>&iquest;C&oacute;mo agendo una cita?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>Es muy sencillo. Solo tienes que enviarnos un mensaje por WhatsApp al <strong>833 197 3653</strong>, decirnos qu&eacute; tratamiento te interesa y el horario de tu preferencia. Te confirmamos la cita en cuesti&oacute;n de minutos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>&iquest;Tienen planes de financiamiento?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>S&iacute;, ofrecemos opciones de pago flexibles y planes de financiamiento para tratamientos de mayor costo como ortodoncia, carillas o implantes. Consulta con nosotros los detalles y encuentra el plan que mejor se adapte a tu presupuesto.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-cta reveal">
+      <p>&iquest;Tienes otra pregunta? Estamos para ayudarte.</p>
+      <a href="https://wa.me/528331973653" class="hero-cta" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pregunta por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIII. ABOUT US ===== -->
+<section class="section about" id="nosotros">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Sobre nosotros</span>
+      <h2 class="section-title">Conoce a tu dentista en Tampico</h2>
+      <p class="section-desc" style="margin-left:auto;margin-right:auto">
+        M&aacute;s de 15 a&ntilde;os atendiendo a las familias de Tampico con calidez, profesionalismo y dedicaci&oacute;n.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photo reveal-left">
+        <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="100" cy="55" r="30" fill="#0d7377" opacity=".15"/>
+          <path d="M45 130c0-22 24-40 55-40s55 18 55 40" fill="#0d7377" opacity=".1"/>
+          <rect x="65" y="70" width="70" height="10" rx="5" fill="#0d7377" opacity=".08"/>
+          <rect x="75" y="82" width="50" height="6" rx="3" fill="#0d7377" opacity=".06"/>
+        </svg>
+        <div class="badge">
+          <i class="fa-solid fa-star" aria-hidden="true"></i> 4.8 &middot; 15+ a&ntilde;os
+        </div>
+      </div>
+
+      <div class="about-text reveal-right">
+        <h3>Dr. Juan F&eacute;lix</h3>
+        <div class="title-role">Director de XPERTDENT Cl&iacute;nica de Especialidades</div>
+        <p>
+          Con m&aacute;s de 15 a&ntilde;os de experiencia, el Dr. Juan F&eacute;lix ha dedicado su carrera a brindar atenci&oacute;n dental de calidad a las familias de Tampico. Su filosof&iacute;a es simple: tratar a cada paciente como le gustar&iacute;a ser tratado, con honestidad, calidez y excelencia profesional.
+        </p>
+        <p>
+          La cl&iacute;nica cuenta con equipo moderno y un ambiente dise&ntilde;ado para que te sientas c&oacute;modo desde el momento en que entras. Nos enorgullece ser la cl&iacute;nica de confianza para cientos de familias tampique&ntilde;as.
+        </p>
+
+        <div class="about-details">
+          <div class="detail-item">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            <div>
+              <strong>Direcci&oacute;n</strong>
+              <span>Jes&uacute;s Cervantes #201, Col. Smith, Tampico, Tamps.</span>
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <div>
+              <strong>Tel&eacute;fono</strong>
+              <span><a href="tel:+528331973653">833 197 3653</a></span>
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fa-regular fa-clock" aria-hidden="true"></i>
+            <div>
+              <strong>Horario</strong>
+              <span>Lun &ndash; Vie: 9:00 am &ndash; 7:00 pm<br>S&aacute;b: 9:00 am &ndash; 2:00 pm</span>
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            <div>
+              <strong>Email</strong>
+              <span>contacto@xpertdent.com.mx</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-map">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:8px" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#0d7377" stroke-width="2" fill="none"/>
+            <circle cx="12" cy="9" r="2.5" stroke="#0d7377" stroke-width="2" fill="none"/>
+          </svg>
+          <span>Jes&uacute;s Cervantes #201, Col. Smith, Tampico</span>
+        </div>
+
+        <div style="margin-top:20px">
+          <a href="https://wa.me/528331973653" class="hero-cta" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Cont&aacute;ctanos
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IX. FOOTER ===== -->
+<footer class="footer" id="contacto">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="50" cy="50" r="46" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+            <path d="M50 26c-6 0-10 4-11 10l-2 16c-.4 3.2.6 6.4 2.8 8.8 2 2.2 4.6 3.8 7.4 4.6.8.2 1.6.4 2.8.6 1.2-.2 2-.4 2.8-.6 2.8-.8 5.4-2.4 7.4-4.6 2.2-2.4 3.2-5.6 2.8-8.8l-2-16C60 30 56 26 50 26z"
+              fill="rgba(255,255,255,.7)" stroke="none"/>
+          </svg>
+          <span>XPERTDENT</span>
+        </div>
+        <p>Cl&iacute;nica de Especialidades Dentales en Tampico. M&aacute;s de 15 a&ntilde;os cuidando tu sonrisa.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/528331973653" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="#servicios">Odontolog&iacute;a General</a></li>
+          <li><a href="#servicios">Ortodoncia</a></li>
+          <li><a href="#servicios">Endodoncia</a></li>
+          <li><a href="#servicios">Est&eacute;tica Dental</a></li>
+          <li><a href="#servicios">Blanqueamiento</a></li>
+          <li><a href="#servicios">Extracciones</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Contacto</h5>
+        <ul>
+          <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Jes&uacute;s Cervantes #201, Col. Smith</li>
+          <li><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+528331973653">833 197 3653</a></li>
+          <li><i class="fa-regular fa-envelope" aria-hidden="true"></i> contacto@xpertdent.com.mx</li>
+          <li><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/528331973653" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Horarios</h5>
+        <ul class="footer-hours">
+          <li><span>Lunes &ndash; Viernes</span> <strong>9:00 &ndash; 19:00</strong></li>
+          <li><span>S&aacute;bado</span> <strong>9:00 &ndash; 14:00</strong></li>
+          <li><span>Domingo</span> <strong>Cerrado</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 XPERTDENT Cl&iacute;nica de Especialidades. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+<a href="https://wa.me/528331973653" class="floating-wa" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  <span class="tooltip">&iexcl;Agenda tu cita!</span>
+</a>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  'use strict';
+
+  /* ---------- TYPEWRITER ---------- */
+  var typewriterEl = document.getElementById('typewriter-text');
+  var cursorEl = document.getElementById('typewriter-cursor');
+  if (typewriterEl) {
+    var phrases = [
+      'Tu Cl&iacute;nica Dental en Tampico',
+      'ExpertDent &mdash; Especialidades',
+      'Tu Sonrisa, Nuestra Pasi&oacute;n'
+    ];
+    // Decode HTML entities for display
+    var txt = document.createElement('textarea');
+    txt.innerHTML = phrases[0];
+    var displayText = txt.value;
+
+    var charIndex = 0;
+    var isDeleting = false;
+    var speed = 60;
+
+    function typeStep() {
+      if (!typewriterEl) return;
+      if (!isDeleting) {
+        typewriterEl.textContent = displayText.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex >= displayText.length) {
+          // Pause at end
+          setTimeout(function() { isDeleting = true; }, 2000);
+          return;
+        }
+      }
+      setTimeout(typeStep, speed);
+    }
+
+    // Start after a small delay
+    setTimeout(typeStep, 400);
+  }
+
+  /* ---------- INTERSECTION OBSERVER (SCROLL REVEAL) ---------- */
+  var revealEls = document.querySelectorAll('[data-reveal], .reveal, .reveal-left, .reveal-right');
+  if (revealEls.length) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function(el) { observer.observe(el); });
+  }
+
+  /* ---------- COUNTER ANIMATION (STATS IN RATING BANNER) ---------- */
+  var counterEls = document.querySelectorAll('[data-count]');
+  if (counterEls.length) {
+    var counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var target = parseInt(el.getAttribute('data-count'), 10);
+          var current = 0;
+          var step = Math.ceil(target / 40);
+          var timer = setInterval(function() {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            el.textContent = current + (el.getAttribute('data-suffix') || '');
+          }, 40);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counterEls.forEach(function(el) { counterObserver.observe(el); });
+  }
+
+  /* ---------- FAQ ACCORDION ---------- */
+  var faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(function(item) {
+    var question = item.querySelector('.faq-question');
+    if (!question) return;
+    question.addEventListener('click', function() {
+      var isOpen = item.classList.contains('open');
+      // Close all
+      faqItems.forEach(function(i) { i.classList.remove('open'); });
+      // Toggle current
+      if (!isOpen) {
+        item.classList.add('open');
+        question.setAttribute('aria-expanded', 'true');
+      } else {
+        question.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  /* ---------- SMOOTH SCROLL FOR ANCHOR CLICKS (FALLBACK) ---------- */
+  document.addEventListener('click', function(e) {
+    var target = e.target.closest('a[href^="#"]');
+    if (!target) return;
+    var id = target.getAttribute('href').substring(1);
+    var el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  /* ---------- ACTIVE STEP HIGHLIGHT ---------- */
+  var stepCards = document.querySelectorAll('.step-card');
+  if (stepCards.length) {
+    var stepObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          stepCards.forEach(function(c) { c.classList.remove('active'); });
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    stepCards.forEach(function(card) { stepObserver.observe(card); });
+  }
+
+})();
+</script>
+
+</body>
+</html>
