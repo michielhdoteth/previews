@@ -4,161 +4,123 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Angel Contador &mdash; Contador P&uacute;blico en Guadalajara</title>
-  <meta name="description" content="Servicios contables, fiscales y de contabilidad para peque&ntilde;os negocios en Guadalajara. SAT, declaraciones, facturaci&oacute;n y m&aacute;s.">
-  <meta name="theme-color" content="#1a2744">
+  <meta name="description" content="Servicios contables, fiscales y de contabilidad para peque&ntilde;os negocios en Guadalajara. SAT, declaraciones, facturaci&oacute;n, RESICO y m&aacute;s.">
+  <meta name="theme-color" content="#0f1b2d">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome 6 (Free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Font Awesome 6.5.1 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
 
   <style>
     /* ============================================================
-       CSS RESET & BASE
+       CSS VARIABLES
        ============================================================ */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     :root {
-      --navy: #1a2744;
-      --navy-dark: #0f1a2f;
-      --navy-light: #2a3d64;
-      --emerald: #2d8a4e;
-      --emerald-light: #3ba85f;
-      --emerald-dark: #22703d;
+      --navy: #0f1b2d;
+      --navy-dark: #0a1320;
+      --navy-mid: #162033;
+      --emerald: #1a6b3c;
+      --emerald-dark: #14552f;
+      --emerald-light: #20854a;
       --gold: #c9a84c;
-      --gold-light: #dfc16a;
+      --gold-light: #dbb95d;
       --gold-dark: #b08e32;
+      --cream: #f8f7f4;
       --white: #ffffff;
-      --off-white: #f8f9fc;
-      --gray-50: #f0f2f6;
-      --gray-100: #e2e5ec;
-      --gray-200: #c4c9d4;
-      --gray-400: #8b92a2;
-      --gray-600: #5a6070;
-      --gray-800: #2c3142;
-      --shadow-sm: 0 2px 8px rgba(26,39,68,0.08);
-      --shadow-md: 0 8px 32px rgba(26,39,68,0.12);
-      --shadow-lg: 0 16px 56px rgba(26,39,68,0.18);
-      --shadow-xl: 0 24px 80px rgba(26,39,68,0.22);
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
+      --black: #1a1a1a;
+      --gray-600: #4a4a4a;
+      --gray-400: #8a8a8a;
+      --gray-200: #d1d1d1;
+      --gray-100: #e8e7e4;
+      --gray-50: #f3f2ef;
+      --shadow-xs: 0 1px 3px rgba(15,27,45,0.06);
+      --shadow-sm: 0 2px 8px rgba(15,27,45,0.06);
+      --shadow-md: 0 8px 30px rgba(15,27,45,0.08);
+      --shadow-lg: 0 16px 56px rgba(15,27,45,0.10);
+      --shadow-xl: 0 24px 72px rgba(15,27,45,0.14);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
       --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      --container: 1200px;
+      --transition-slow: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      --container: 1140px;
     }
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
     body {
       font-family: var(--font-body);
-      color: var(--gray-800);
-      background: var(--white);
+      color: var(--black);
+      background: var(--cream);
       line-height: 1.7;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    img, svg {
-      max-width: 100%;
-      display: block;
-    }
-    .container {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .section {
-      padding: 90px 0;
-    }
+    a { text-decoration: none; color: inherit; }
+    img, svg { max-width: 100%; display: block; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
     .section-label {
       font-family: var(--font-body);
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--emerald);
       margin-bottom: 12px;
+      display: inline-block;
     }
     .section-title {
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      color: var(--navy);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      color: var(--black);
       line-height: 1.2;
+      letter-spacing: -0.01em;
     }
-    .section-title .highlight {
-      color: var(--emerald);
-    }
+    .section-title .emerald { color: var(--emerald); }
+    .section-title .gold { color: var(--gold); }
     .section-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--gray-600);
-      max-width: 640px;
+      max-width: 620px;
       margin-top: 16px;
       line-height: 1.8;
     }
     .text-center { text-align: center; }
-    .text-center .section-subtitle {
-      margin-left: auto;
-      margin-right: auto;
+    .text-center .section-subtitle { margin-left: auto; margin-right: auto; }
+    hr.section-divider {
+      border: none;
+      height: 1px;
+      background: var(--gray-100);
+      max-width: 80px;
+      margin: 16px auto 0;
     }
 
     /* ============================================================
-       REVEAL ANIMATIONS (IntersectionObserver)
+       REVEAL ANIMATIONS
        ============================================================ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity var(--transition-slow), transform var(--transition-slow);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: opacity var(--transition-slow), transform var(--transition-slow);
-    }
-    .reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(50px);
-      transition: opacity var(--transition-slow), transform var(--transition-slow);
-    }
-    .reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .reveal-scale {
-      opacity: 0;
-      transform: scale(0.92);
-      transition: opacity var(--transition-slow), transform var(--transition-slow);
-    }
-    .reveal-scale.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity var(--transition-slow), transform var(--transition-slow); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-44px); transition: opacity var(--transition-slow), transform var(--transition-slow); }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(44px); transition: opacity var(--transition-slow), transform var(--transition-slow); }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale { opacity: 0; transform: scale(0.94); transition: opacity var(--transition-slow), transform var(--transition-slow); }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
     .reveal-stagger > * {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 0; transform: translateY(28px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
     .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
@@ -166,6 +128,7 @@
     .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
     .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
     .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
 
     /* ============================================================
        BUTTONS
@@ -177,305 +140,257 @@
       gap: 10px;
       font-family: var(--font-body);
       font-weight: 600;
-      font-size: 1rem;
-      padding: 16px 36px;
-      border-radius: 50px;
+      font-size: 0.95rem;
+      padding: 15px 34px;
+      border-radius: var(--radius-sm);
       border: none;
       cursor: pointer;
       transition: all var(--transition);
       position: relative;
-      overflow: hidden;
     }
     .btn-primary {
       background: var(--emerald);
       color: var(--white);
-      box-shadow: 0 4px 20px rgba(45,138,78,0.35);
+      box-shadow: 0 4px 16px rgba(26,107,60,0.25);
     }
     .btn-primary:hover {
       background: var(--emerald-dark);
-      box-shadow: 0 8px 32px rgba(45,138,78,0.45);
-      transform: translateY(-2px);
-    }
-    .btn-primary:active {
-      transform: translateY(0);
+      box-shadow: 0 6px 24px rgba(26,107,60,0.35);
+      transform: translateY(-1px);
     }
     .btn-gold {
       background: var(--gold);
       color: var(--navy);
-      box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+      box-shadow: 0 4px 16px rgba(201,168,76,0.25);
     }
     .btn-gold:hover {
       background: var(--gold-dark);
-      box-shadow: 0 8px 32px rgba(201,168,76,0.5);
-      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(201,168,76,0.35);
+      transform: translateY(-1px);
     }
     .btn-outline {
       background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.85);
+      border: 1.5px solid rgba(255,255,255,0.2);
     }
     .btn-outline:hover {
       border-color: var(--gold);
       color: var(--gold);
-      background: rgba(201,168,76,0.1);
-      transform: translateY(-2px);
+      background: rgba(201,168,76,0.06);
+      transform: translateY(-1px);
     }
     .btn-whatsapp {
       background: #25D366;
       color: var(--white);
-      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      box-shadow: 0 4px 16px rgba(37,211,102,0.25);
     }
     .btn-whatsapp:hover {
       background: #1da851;
-      box-shadow: 0 8px 32px rgba(37,211,102,0.5);
-      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+      transform: translateY(-1px);
     }
-    .btn-sm {
-      padding: 12px 28px;
-      font-size: 0.9rem;
-    }
-    .btn .fa-arrow-right,
-    .btn .fa-whatsapp {
-      font-size: 1.1em;
-      transition: transform var(--transition);
-    }
-    .btn:hover .fa-arrow-right {
-      transform: translateX(4px);
-    }
+    .btn-sm { padding: 12px 26px; font-size: 0.88rem; }
+    .btn .fa-arrow-right { font-size: 1em; transition: transform var(--transition); }
+    .btn:hover .fa-arrow-right { transform: translateX(4px); }
+    .btn-block { width: 100%; justify-content: center; }
 
     /* ============================================================
-       HERO SECTION
+       HERO SECTION (I)
        ============================================================ */
     .hero {
       position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(165deg, var(--navy-dark) 0%, var(--navy) 40%, var(--navy-light) 100%);
+      background: var(--navy);
       overflow: hidden;
       padding: 120px 0 100px;
     }
-    /* Animated floating elements */
-    .hero-floating {
+    /* Subtle geometric pattern overlay */
+    .hero-pattern {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      overflow: hidden;
+      opacity: 0.035;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.06) 60px, rgba(255,255,255,0.06) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.06) 60px, rgba(255,255,255,0.06) 61px);
     }
-    .float-item {
+    /* Hero grid accent lines */
+    .hero-accent-line {
       position: absolute;
-      font-family: var(--font-heading);
-      font-weight: 700;
-      color: rgba(255,255,255,0.04);
-      font-size: clamp(2rem, 6vw, 6rem);
-      animation: floatDrift 18s ease-in-out infinite;
-      user-select: none;
-      line-height: 1;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--emerald), var(--gold), var(--emerald));
     }
-    .float-item:nth-child(1) { top: 8%; left: 5%; animation-delay: 0s; }
-    .float-item:nth-child(2) { top: 20%; right: 8%; animation-delay: -3s; font-size: clamp(3rem, 8vw, 8rem); }
-    .float-item:nth-child(3) { bottom: 15%; left: 10%; animation-delay: -6s; }
-    .float-item:nth-child(4) { bottom: 25%; right: 5%; animation-delay: -9s; }
-    .float-item:nth-child(5) { top: 45%; left: 2%; animation-delay: -12s; font-size: clamp(1.5rem, 4vw, 4rem); }
-    .float-item:nth-child(6) { top: 60%; right: 3%; animation-delay: -15s; font-size: clamp(2.5rem, 5vw, 5rem); }
-
-    @keyframes floatDrift {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      25% { transform: translateY(-24px) rotate(3deg); }
-      50% { transform: translateY(8px) rotate(-2deg); }
-      75% { transform: translateY(-16px) rotate(1deg); }
-    }
-
-    /* Floating SVG Calculator */
-    .float-calc {
-      position: absolute;
-      opacity: 0.06;
-      animation: floatCalc 22s ease-in-out infinite;
-    }
-    .float-calc svg {
-      width: clamp(120px, 20vw, 280px);
-      height: auto;
-    }
-    .float-calc:nth-child(7) { top: 12%; right: 12%; animation-delay: -2s; }
-    .float-calc:nth-child(8) { bottom: 18%; left: 15%; animation-delay: -10s; }
-    .float-calc:nth-child(8) svg { width: clamp(80px, 14vw, 180px); }
-
-    @keyframes floatCalc {
-      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-      33% { transform: translateY(-18px) rotate(4deg) scale(1.03); }
-      66% { transform: translateY(10px) rotate(-3deg) scale(0.97); }
-    }
-
-    /* Decorative gradient spheres */
-    .hero-glow {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.12;
-      pointer-events: none;
-    }
-    .hero-glow-1 {
-      width: 600px; height: 600px;
-      background: var(--emerald);
-      top: -200px; right: -200px;
-      animation: glowPulse 8s ease-in-out infinite;
-    }
-    .hero-glow-2 {
-      width: 400px; height: 400px;
-      background: var(--gold);
-      bottom: -150px; left: -150px;
-      animation: glowPulse 8s ease-in-out infinite;
-      animation-delay: -4s;
-    }
-    @keyframes glowPulse {
-      0%, 100% { opacity: 0.08; transform: scale(1); }
-      50% { opacity: 0.18; transform: scale(1.1); }
-    }
-
-    /* Hero content */
-    .hero .container {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-    }
+    .hero .container { position: relative; z-index: 2; width: 100%; }
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 64px;
       align-items: center;
     }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 100px;
-      padding: 8px 20px 8px 12px;
-      font-size: 0.85rem;
-      color: var(--gold-light);
-      margin-bottom: 28px;
-      backdrop-filter: blur(8px);
-    }
-    .hero-badge i {
-      font-size: 0.75rem;
-    }
-    .hero-badge-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--emerald);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
-    }
+
+    /* Hero text */
     .hero h1 {
       font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800;
+      font-size: clamp(2.2rem, 4.8vw, 3.6rem);
       color: var(--white);
       line-height: 1.15;
       letter-spacing: -0.02em;
       margin-bottom: 20px;
     }
-    .hero h1 .underline-gold {
-      background: linear-gradient(to right, var(--gold), var(--gold-light));
-      background-size: 100% 3px;
-      background-repeat: no-repeat;
-      background-position: bottom 2px left;
-      padding-bottom: 4px;
+    .hero h1 .gold-underline {
+      color: var(--gold);
+      border-bottom: 2px solid rgba(201,168,76,0.3);
+      padding-bottom: 2px;
     }
     .hero p {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.75);
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.65);
       line-height: 1.8;
-      max-width: 560px;
+      max-width: 520px;
       margin-bottom: 32px;
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 24px;
+      gap: 14px;
+      margin-bottom: 28px;
     }
+
+    /* Friction row */
     .hero-friction {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 18px;
+      margin-bottom: 28px;
     }
     .hero-friction span {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.55);
+      gap: 7px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
     }
-    .hero-friction span i {
-      color: var(--emerald);
-      font-size: 0.75rem;
+    .hero-friction span i { color: var(--emerald); font-size: 0.7rem; }
+
+    /* Hero rating */
+    .hero-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
+      padding: 10px 20px 10px 16px;
+      margin-bottom: 32px;
+    }
+    .hero-rating .stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+    .hero-rating .score {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--gold);
+    }
+    .hero-rating .count {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      border-left: 1px solid rgba(255,255,255,0.1);
+      padding-left: 14px;
     }
 
-    /* Hero visual */
+    /* Hero visual / logo */
     .hero-visual {
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
     }
-    .hero-logo-shield {
-      width: clamp(280px, 28vw, 420px);
-      height: clamp(280px, 28vw, 420px);
-      animation: shieldFloat 6s ease-in-out infinite;
+    .hero-logo-wrap {
+      position: relative;
+      width: clamp(300px, 30vw, 440px);
+      height: clamp(300px, 30vw, 440px);
     }
-    @keyframes shieldFloat {
+    .hero-logo-svg {
+      width: 100%;
+      height: 100%;
+      animation: logoFloat 7s ease-in-out infinite;
+    }
+    @keyframes logoFloat {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-16px); }
+      50% { transform: translateY(-10px); }
     }
-    .hero-stats-ring {
+    .hero-stat-ring {
       position: absolute;
-      bottom: 10%;
-      right: 0;
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.1);
+      bottom: 5%;
+      right: -5%;
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: var(--radius-md);
-      padding: 16px 24px;
+      padding: 14px 22px;
       display: flex;
-      gap: 28px;
-      animation: fadeSlideUp 1s ease 0.6s forwards;
+      gap: 22px;
+      animation: statFadeIn 1.2s ease 0.6s forwards;
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(16px);
     }
-    .hero-stat-item {
-      text-align: center;
+    @keyframes statFadeIn {
+      to { opacity: 1; transform: translateY(0); }
     }
+    .hero-stat-item { text-align: center; }
     .hero-stat-item .num {
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       color: var(--gold-light);
       display: block;
       line-height: 1;
     }
     .hero-stat-item .label {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.5);
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.4);
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-top: 4px;
     }
-    @keyframes fadeSlideUp {
-      to { opacity: 1; transform: translateY(0); }
+
+    /* Light accent ring behind logo */
+    .hero-ring-bg {
+      position: absolute;
+      width: 110%;
+      height: 110%;
+      top: -5%; left: -5%;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.06);
+      animation: ringRotate 30s linear infinite;
+    }
+    .hero-ring-bg-2 {
+      position: absolute;
+      width: 130%;
+      height: 130%;
+      top: -15%; left: -15%;
+      border-radius: 50%;
+      border: 1px dashed rgba(255,255,255,0.03);
+      animation: ringRotate 45s linear infinite reverse;
+    }
+    @keyframes ringRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     /* ============================================================
-       BENEFITS SECTION (PAS Copy)
+       BENEFITS SECTION (II) - PAS Copy
        ============================================================ */
-    .benefits {
-      background: var(--off-white);
-    }
+    .benefits { background: var(--white); }
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -483,400 +398,369 @@
       margin-top: 48px;
     }
     .benefit-card {
-      background: var(--white);
+      background: var(--cream);
       border-radius: var(--radius-md);
       padding: 40px 32px;
-      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-100);
       transition: all var(--transition);
-      border: 1px solid transparent;
       position: relative;
-      overflow: hidden;
     }
-    .benefit-card::before {
-      content: '';
+    .benefit-card:hover {
+      border-color: var(--gray-200);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .benefit-card .accent-bar {
       position: absolute;
       top: 0; left: 0;
-      width: 100%; height: 4px;
+      width: 100%; height: 3px;
       background: var(--emerald);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform var(--transition);
     }
-    .benefit-card:hover::before {
-      transform: scaleX(1);
-    }
-    .benefit-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--gray-100);
-    }
+    .benefit-card:hover .accent-bar { transform: scaleX(1); }
+    .benefit-card .accent-bar.gold { background: var(--gold); }
+    .benefit-card .accent-bar.navy { background: var(--navy); }
     .benefit-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
+      width: 52px; height: 52px;
+      border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 24px;
-      font-size: 1.6rem;
+      margin-bottom: 22px;
+      font-size: 1.3rem;
     }
-    .benefit-icon.emerald {
-      background: rgba(45,138,78,0.1);
-      color: var(--emerald);
-    }
-    .benefit-icon.navy {
-      background: rgba(26,39,68,0.08);
-      color: var(--navy);
-    }
-    .benefit-icon.gold {
-      background: rgba(201,168,76,0.12);
-      color: var(--gold-dark);
-    }
+    .benefit-icon.green { background: rgba(26,107,60,0.08); color: var(--emerald); }
+    .benefit-icon.navy { background: rgba(15,27,45,0.06); color: var(--navy); }
+    .benefit-icon.gold { background: rgba(201,168,76,0.1); color: var(--gold-dark); }
     .benefit-card h3 {
       font-family: var(--font-heading);
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
+      color: var(--black);
+      margin-bottom: 10px;
     }
     .benefit-card p {
       color: var(--gray-600);
-      font-size: 0.95rem;
-      line-height: 1.7;
+      font-size: 0.93rem;
+      line-height: 1.75;
     }
-    .benefit-pas {
-      max-width: 800px;
+
+    /* PAS copy block */
+    .pas-block {
+      max-width: 780px;
       margin: 0 auto 48px;
       text-align: center;
     }
-    .benefit-pas p {
-      font-size: 1.1rem;
+    .pas-block p {
+      font-size: 1.05rem;
       color: var(--gray-600);
       line-height: 1.9;
+      margin-bottom: 12px;
     }
-    .benefit-pas .pas-problem {
+    .pas-block .pas-label {
       font-weight: 600;
-      color: var(--navy);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 4px;
     }
-    .benefit-pas .pas-agitate {
-      color: #b91c1c;
-      font-style: italic;
-    }
-    .benefit-pas .pas-solution {
-      color: var(--emerald);
-      font-weight: 600;
-    }
+    .pas-block .pas-problem { color: var(--black); }
+    .pas-block .pas-agitate { color: #b91c1c; font-style: italic; }
+    .pas-block .pas-solution { color: var(--emerald); font-weight: 600; }
 
     /* ============================================================
-       SOCIAL PROOF
+       SOCIAL PROOF (III)
        ============================================================ */
-    .social-proof {
-      background: var(--white);
-    }
+    .social-proof { background: var(--cream); }
     .proof-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 24px;
       margin-top: 48px;
     }
     .testimonial-card {
-      background: var(--off-white);
+      background: var(--white);
       border-radius: var(--radius-md);
       padding: 32px;
       border: 1px solid var(--gray-100);
       transition: all var(--transition);
     }
     .testimonial-card:hover {
-      border-color: var(--gold-light);
+      border-color: var(--gray-200);
       box-shadow: var(--shadow-md);
-      transform: translateY(-4px);
+      transform: translateY(-3px);
     }
     .testimonial-stars {
       color: var(--gold);
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
     }
     .testimonial-card blockquote {
       font-style: italic;
       color: var(--gray-600);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       line-height: 1.8;
       margin-bottom: 20px;
     }
     .testimonial-card blockquote::before {
       content: '\201C';
       font-family: var(--font-heading);
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: var(--gold);
       line-height: 0;
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .testimonial-author {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
     .testimonial-avatar {
-      width: 48px;
-      height: 48px;
+      width: 44px; height: 44px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      background: var(--navy);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--white);
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1rem;
       flex-shrink: 0;
     }
     .testimonial-author .name {
       font-weight: 600;
-      color: var(--navy);
-      font-size: 0.95rem;
+      color: var(--black);
+      font-size: 0.92rem;
     }
     .testimonial-author .role {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--gray-400);
     }
-
     /* Trust bar */
     .trust-bar {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 40px;
-      margin-top: 56px;
-      padding: 28px 0;
+      gap: 36px;
+      margin-top: 52px;
+      padding: 28px 0 0;
       border-top: 1px solid var(--gray-100);
     }
     .trust-item {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       color: var(--gray-600);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
+      font-weight: 500;
     }
-    .trust-item i, .trust-item svg {
-      font-size: 1.4rem;
-      color: var(--navy);
-    }
+    .trust-item i { font-size: 1.2rem; color: var(--navy); }
+    .trust-item .trust-icon-svg { width: 22px; height: 22px; color: var(--navy); }
 
     /* ============================================================
-       HOW IT WORKS
+       HOW IT WORKS (IV)
        ============================================================ */
     .how-it-works {
       background: var(--navy);
       color: var(--white);
     }
-    .how-it-works .section-title {
-      color: var(--white);
-    }
-    .how-it-works .section-subtitle {
-      color: rgba(255,255,255,0.65);
-    }
+    .how-it-works .section-title { color: var(--white); }
+    .how-it-works .section-subtitle { color: rgba(255,255,255,0.55); }
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
+      gap: 44px;
       margin-top: 56px;
       position: relative;
     }
-    .steps-grid::before {
-      content: '';
+    .steps-connector {
       position: absolute;
-      top: 56px;
-      left: 16%;
-      right: 16%;
-      height: 2px;
-      background: linear-gradient(to right, var(--emerald), var(--gold), var(--emerald));
-      opacity: 0.3;
+      top: 40px;
+      left: 18%;
+      right: 18%;
+      height: 1.5px;
+      background: linear-gradient(90deg, var(--emerald), var(--gold), var(--emerald));
+      opacity: 0.2;
     }
     .step-card {
       text-align: center;
       position: relative;
     }
     .step-number {
-      width: 64px;
-      height: 64px;
+      width: 56px; height: 56px;
       border-radius: 50%;
-      background: rgba(45,138,78,0.15);
-      border: 2px solid var(--emerald);
+      border: 2px solid rgba(26,107,60,0.3);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 24px;
+      margin: 0 auto 20px;
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: var(--emerald);
       transition: all var(--transition);
     }
     .step-card:hover .step-number {
-      background: var(--emerald);
-      color: var(--white);
-      transform: scale(1.1);
+      border-color: var(--emerald);
+      background: rgba(26,107,60,0.1);
     }
     .step-icon {
-      font-size: 2rem;
-      color: var(--gold);
-      margin-bottom: 16px;
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      margin-bottom: 14px;
     }
     .step-card h3 {
       font-family: var(--font-heading);
-      font-size: 1.3rem;
-      margin-bottom: 12px;
+      font-size: 1.25rem;
+      margin-bottom: 10px;
     }
     .step-card p {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.95rem;
-      line-height: 1.7;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+    .steps-cta {
+      text-align: center;
+      margin-top: 48px;
     }
 
     /* ============================================================
-       OFFER / PRICING
+       PRICING / SERVICES (V)
        ============================================================ */
-    .offer {
-      background: var(--off-white);
-    }
-    .offer-grid {
+    .pricing { background: var(--white); }
+    .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 24px;
       margin-top: 48px;
     }
-    .offer-card {
-      background: var(--white);
+    .pricing-card {
+      background: var(--cream);
       border-radius: var(--radius-md);
       padding: 40px 32px;
-      box-shadow: var(--shadow-sm);
       border: 1px solid var(--gray-100);
       transition: all var(--transition);
-      position: relative;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
-    .offer-card.featured {
-      border: 2px solid var(--gold);
+    .pricing-card:hover {
+      border-color: var(--gray-200);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .pricing-card.featured {
+      border: 1.5px solid rgba(201,168,76,0.3);
+      background: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+    .pricing-card.featured:hover {
+      border-color: var(--gold);
       box-shadow: var(--shadow-lg);
-      transform: scale(1.03);
-      z-index: 2;
     }
-    .offer-card.featured:hover {
-      transform: scale(1.04) translateY(-4px);
-    }
-    .offer-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-    }
-    .offer-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
+    .pricing-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
       letter-spacing: 1.5px;
-      padding: 6px 20px;
-      border-radius: 50px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+      align-self: flex-start;
     }
-    .offer-name {
+    .pricing-name {
       font-family: var(--font-heading);
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .offer-price {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: var(--emerald);
+      color: var(--black);
       margin-bottom: 4px;
-      font-family: var(--font-heading);
     }
-    .offer-price span {
-      font-size: 1rem;
+    .pricing-price {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--emerald);
+      margin-bottom: 2px;
+      letter-spacing: -0.02em;
+    }
+    .pricing-price span {
+      font-size: 0.9rem;
       font-weight: 400;
       color: var(--gray-400);
     }
-    .offer-desc {
-      color: var(--gray-600);
-      font-size: 0.9rem;
-      margin-bottom: 20px;
+    .pricing-desc {
+      color: var(--gray-400);
+      font-size: 0.88rem;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--gray-100);
+      padding-bottom: 18px;
     }
-    .offer-features {
+    .pricing-features {
       list-style: none;
       margin-bottom: 28px;
       flex-grow: 1;
     }
-    .offer-features li {
-      padding: 8px 0;
+    .pricing-features li {
+      padding: 7px 0;
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      font-size: 0.9rem;
+      gap: 10px;
+      font-size: 0.88rem;
       color: var(--gray-600);
-      border-bottom: 1px solid var(--gray-50);
     }
-    .offer-features li:last-child {
-      border-bottom: none;
-    }
-    .offer-features li i {
-      color: var(--emerald);
-      margin-top: 3px;
-      flex-shrink: 0;
-    }
-    .offer-usps {
+    .pricing-features li i { color: var(--emerald); margin-top: 3px; flex-shrink: 0; font-size: 0.8rem; }
+    .pricing-features li .fa-circle { color: var(--gray-200); font-size: 0.5rem; margin-top: 6px; }
+    .pricing-usps {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
+      gap: 10px;
+      margin-top: 36px;
       justify-content: center;
     }
-    .offer-usps span {
+    .pricing-usps span {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(45,138,78,0.08);
+      gap: 5px;
+      background: rgba(26,107,60,0.06);
+      border: 1px solid rgba(26,107,60,0.1);
       border-radius: 50px;
-      padding: 6px 16px;
-      font-size: 0.8rem;
+      padding: 5px 14px;
+      font-size: 0.78rem;
       font-weight: 500;
       color: var(--emerald-dark);
     }
-    .offer-scarcity {
+    .pricing-scarcity {
       text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      background: rgba(201,168,76,0.1);
-      border: 1px dashed var(--gold);
-      border-radius: var(--radius-md);
+      margin-top: 36px;
+      padding: 18px 24px;
+      background: rgba(201,168,76,0.05);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: var(--radius-sm);
     }
-    .offer-scarcity p {
-      font-size: 0.95rem;
-      color: var(--navy);
+    .pricing-scarcity p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
     }
-    .offer-scarcity strong {
-      color: var(--emerald);
-    }
+    .pricing-scarcity strong { color: var(--emerald); }
 
     /* ============================================================
-       FAQ SECTION
+       FAQ SECTION (VI)
        ============================================================ */
-    .faq {
-      background: var(--white);
-    }
+    .faq { background: var(--cream); }
     .faq-list {
-      max-width: 760px;
+      max-width: 740px;
       margin: 48px auto 0;
     }
     .faq-item {
       border-bottom: 1px solid var(--gray-100);
-      padding: 8px 0;
     }
     .faq-question {
       width: 100%;
@@ -888,17 +772,16 @@
       align-items: center;
       cursor: pointer;
       font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: var(--navy);
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--black);
       text-align: left;
       transition: color var(--transition);
+      gap: 16px;
     }
-    .faq-question:hover {
-      color: var(--emerald);
-    }
+    .faq-question:hover { color: var(--emerald); }
     .faq-question i {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--gray-400);
       transition: transform var(--transition), color var(--transition);
       flex-shrink: 0;
@@ -907,38 +790,26 @@
       transform: rotate(180deg);
       color: var(--emerald);
     }
-    .faq-item.active .faq-question {
-      color: var(--emerald);
-    }
+    .faq-item.active .faq-question { color: var(--emerald); }
     .faq-answer {
       max-height: 0;
       overflow: hidden;
-      transition: max-height var(--transition), padding var(--transition);
-      padding: 0 0;
+      transition: max-height 0.4s ease, padding 0.4s ease;
     }
     .faq-item.active .faq-answer {
-      max-height: 400px;
-      padding: 0 0 20px;
+      max-height: 500px;
+      padding: 0 0 22px;
     }
     .faq-answer p {
       color: var(--gray-600);
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       line-height: 1.8;
     }
 
     /* ============================================================
-       ABOUT SECTION
+       ABOUT SECTION (VII)
        ============================================================ */
-    .about {
-      background: var(--navy);
-      color: var(--white);
-    }
-    .about .section-title {
-      color: var(--white);
-    }
-    .about .section-subtitle {
-      color: rgba(255,255,255,0.65);
-    }
+    .about { background: var(--white); }
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -951,167 +822,247 @@
       justify-content: center;
       align-items: center;
     }
-    .about-visual-inner {
+    .about-card {
       width: 100%;
-      max-width: 440px;
-      aspect-ratio: 1;
+      max-width: 420px;
+      background: var(--cream);
       border-radius: var(--radius-lg);
-      background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
+      border: 1px solid var(--gray-100);
+      padding: 48px 40px;
       text-align: center;
       position: relative;
-      overflow: hidden;
+      transition: box-shadow var(--transition);
     }
-    .about-visual-inner::before {
-      content: '';
-      position: absolute;
-      width: 200px;
-      height: 200px;
+    .about-card:hover { box-shadow: var(--shadow-md); }
+    .about-avatar {
+      width: 100px; height: 100px;
       border-radius: 50%;
-      background: rgba(45,138,78,0.08);
-      top: -60px; right: -60px;
-    }
-    .about-visual-inner::after {
-      content: '';
-      position: absolute;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: rgba(201,168,76,0.06);
-      bottom: -50px; left: -50px;
-    }
-    .about-avatar-circle {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--emerald), var(--ember-dark, #1a5c34));
+      background: var(--navy);
       border: 3px solid var(--gold);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
+      font-size: 2.6rem;
       color: var(--white);
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
+      margin: 0 auto 16px;
     }
-    .about-visual-inner h3 {
-      font-family: var(--font-heading);
-      font-size: 1.6rem;
-      position: relative;
-      z-index: 1;
-    }
-    .about-visual-inner .title {
-      color: var(--gold-light);
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      position: relative;
-      z-index: 1;
-    }
-    .about-years {
-      display: flex;
-      gap: 40px;
-      margin-top: 24px;
-      position: relative;
-      z-index: 1;
-    }
-    .about-years .num {
+    .about-card h3 {
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 2rem;
-      color: var(--gold);
+      font-size: 1.5rem;
+      color: var(--black);
+    }
+    .about-card .title {
+      color: var(--gray-400);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
       display: block;
     }
-    .about-years .label {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.55);
+    .about-stats {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-100);
+    }
+    .about-stats .num {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--emerald);
+      display: block;
+      line-height: 1;
+    }
+    .about-stats .label {
+      font-size: 0.72rem;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .about-text h3 {
       font-family: var(--font-heading);
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       margin-bottom: 16px;
+      color: var(--black);
     }
     .about-text p {
-      color: rgba(255,255,255,0.7);
+      color: var(--gray-600);
       line-height: 1.9;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+    .about-mission {
+      border-left: 3px solid var(--gold);
+      padding-left: 22px;
+      margin-top: 20px;
+    }
+    .about-mission p {
+      font-style: italic;
+      color: var(--emerald-dark);
       font-size: 1rem;
     }
-    .about-text .about-mission {
-      border-left: 3px solid var(--gold);
-      padding-left: 20px;
-      margin-top: 24px;
+    .about-creds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
     }
-    .about-text .about-mission p {
-      font-style: italic;
-      color: var(--gold-light);
-      font-size: 1.05rem;
+    .about-creds span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--gray-600);
+      background: var(--cream);
+      border: 1px solid var(--gray-100);
+      border-radius: 50px;
+      padding: 5px 14px;
+    }
+    .about-creds i { color: var(--emerald); font-size: 0.7rem; }
+
+    /* ============================================================
+       CONTACT / LOCATION (VIII)
+       ============================================================ */
+    .contact {
+      background: var(--cream);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 48px;
+    }
+    .contact-info h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--black);
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .contact-info-item i {
+      width: 20px;
+      color: var(--emerald);
+      font-size: 1rem;
+      margin-top: 3px;
+    }
+    .contact-info-item .info-label {
+      font-size: 0.82rem;
+      color: var(--gray-400);
+      display: block;
+    }
+    .contact-info-item .info-value {
+      font-size: 0.95rem;
+      color: var(--black);
+      font-weight: 500;
+    }
+    .contact-info-item .info-value a { color: var(--emerald); }
+    .contact-info-item .info-value a:hover { text-decoration: underline; }
+    .contact-hours {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+      margin-top: 20px;
+      padding: 20px;
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-sm);
+    }
+    .contact-hours .day {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+    }
+    .contact-hours .time {
+      font-size: 0.85rem;
+      color: var(--black);
+      font-weight: 500;
+      text-align: right;
+    }
+    .contact-map-placeholder {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: box-shadow var(--transition);
+    }
+    .contact-map-placeholder:hover { box-shadow: var(--shadow-md); }
+    .contact-map-placeholder .map-icon {
+      font-size: 2.5rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+      opacity: 0.3;
+    }
+    .contact-map-placeholder p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      max-width: 240px;
     }
 
     /* ============================================================
-       FOOTER
+       FOOTER (IX)
        ============================================================ */
     .footer {
       background: var(--navy-dark);
-      color: rgba(255,255,255,0.7);
-      padding: 60px 0 40px;
+      color: rgba(255,255,255,0.6);
+      padding: 64px 0 32px;
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
     }
-    .footer-brand .logo-small {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 16px;
+    .footer-brand .footer-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 10px;
     }
     .footer-brand p {
-      font-size: 0.9rem;
-      max-width: 340px;
+      font-size: 0.88rem;
+      max-width: 320px;
       line-height: 1.8;
     }
     .footer h4 {
       font-family: var(--font-heading);
       color: var(--white);
-      font-size: 1.1rem;
+      font-size: 1rem;
+      font-weight: 600;
       margin-bottom: 16px;
     }
-    .footer-links li {
-      list-style: none;
-      margin-bottom: 10px;
-    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 9px; }
     .footer-links a {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.6);
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
       transition: color var(--transition);
       display: inline-flex;
       align-items: center;
       gap: 8px;
     }
-    .footer-links a:hover {
-      color: var(--gold);
-    }
-    .footer-links a i {
-      width: 16px;
-      color: var(--emerald);
-    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-links a i { width: 16px; color: var(--emerald); font-size: 0.75rem; }
     .footer-bottom {
       margin-top: 40px;
       padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(255,255,255,0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 16px;
-      font-size: 0.85rem;
+      gap: 12px;
+      font-size: 0.82rem;
     }
 
     /* ============================================================
@@ -1128,27 +1079,25 @@
       gap: 6px;
     }
     .whatsapp-float-btn {
-      width: 60px;
-      height: 60px;
+      width: 56px; height: 56px;
       border-radius: 50%;
       background: #25D366;
       color: var(--white);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
-      box-shadow: 0 6px 28px rgba(37,211,102,0.4);
+      font-size: 1.6rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.3);
       transition: all var(--transition);
-      position: relative;
-      animation: whatsappPulse 2.5s ease-in-out infinite;
+      animation: waPulse 2.5s ease-in-out infinite;
     }
     .whatsapp-float-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 40px rgba(37,211,102,0.55);
+      transform: scale(1.08);
+      box-shadow: 0 8px 36px rgba(37,211,102,0.45);
     }
     .whatsapp-float-label {
-      font-size: 0.7rem;
-      background: rgba(0,0,0,0.7);
+      font-size: 0.68rem;
+      background: rgba(0,0,0,0.75);
       color: white;
       padding: 4px 10px;
       border-radius: 4px;
@@ -1156,12 +1105,10 @@
       opacity: 0;
       transition: opacity var(--transition);
     }
-    .whatsapp-float:hover .whatsapp-float-label {
-      opacity: 1;
-    }
-    @keyframes whatsappPulse {
-      0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,0.4); }
-      50% { box-shadow: 0 6px 48px rgba(37,211,102,0.7); }
+    .whatsapp-float:hover .whatsapp-float-label { opacity: 1; }
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.3); }
+      50% { box-shadow: 0 6px 40px rgba(37,211,102,0.55); }
     }
 
     /* ============================================================
@@ -1169,11 +1116,10 @@
        ============================================================ */
     .back-to-top {
       position: fixed;
-      bottom: 100px;
+      bottom: 96px;
       right: 28px;
       z-index: 998;
-      width: 44px;
-      height: 44px;
+      width: 40px; height: 40px;
       border-radius: 50%;
       background: var(--navy);
       color: var(--white);
@@ -1182,314 +1128,218 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1rem;
       box-shadow: var(--shadow-md);
       transition: all var(--transition);
       opacity: 0;
       pointer-events: none;
       transform: translateY(12px);
     }
-    .back-to-top.visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-    .back-to-top:hover {
-      background: var(--emerald);
-      transform: translateY(-4px);
-    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .back-to-top:hover { background: var(--emerald); transform: translateY(-3px); }
 
     /* ============================================================
        RESPONSIVE
        ============================================================ */
     @media (max-width: 1024px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-      }
-      .hero p {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .hero-actions {
-        justify-content: center;
-      }
-      .hero-friction {
-        justify-content: center;
-      }
-      .hero-stats-ring {
+      .hero-grid { grid-template-columns: 1fr; gap: 44px; text-align: center; }
+      .hero p { margin: 0 auto 28px; }
+      .hero-actions { justify-content: center; }
+      .hero-friction { justify-content: center; }
+      .hero-rating { justify-content: center; }
+      .hero-stat-ring {
         position: relative;
-        bottom: auto;
-        right: auto;
+        bottom: auto; right: auto;
         justify-content: center;
-        margin-top: 32px;
+        margin-top: 24px;
       }
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-      }
+      .hero-logo-wrap { margin-top: 20px; }
+      .about-grid { grid-template-columns: 1fr; gap: 44px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
     @media (max-width: 768px) {
-      .section {
-        padding: 64px 0;
-      }
-      .hero {
-        padding: 100px 0 60px;
-        min-height: auto;
-      }
-      .benefits-grid,
-      .proof-grid,
-      .offer-grid {
+      .section { padding: 72px 0; }
+      .hero { padding: 100px 0 60px; min-height: auto; }
+      .benefits-grid, .proof-grid, .pricing-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
       .steps-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 36px;
       }
-      .steps-grid::before {
-        display: none;
-      }
-      .steps-grid::before { content: none; }
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-      }
-      .trust-bar {
-        gap: 20px;
-      }
-      .offer-card.featured {
-        transform: none;
-      }
-      .offer-card.featured:hover {
-        transform: translateY(-6px);
-      }
-      .whatsapp-float-btn {
-        width: 52px;
-        height: 52px;
-        font-size: 1.5rem;
-      }
-      .back-to-top {
-        bottom: 80px;
-        right: 24px;
-        width: 40px;
-        height: 40px;
-      }
+      .steps-connector { display: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .trust-bar { gap: 18px; }
+      .pricing-card.featured { transform: none; }
+      .pricing-card.featured:hover { transform: translateY(-3px); }
+      .contact-hours { grid-template-columns: 1fr 1fr; }
+      .whatsapp-float-btn { width: 50px; height: 50px; font-size: 1.4rem; }
+      .back-to-top { bottom: 80px; right: 22px; }
     }
     @media (max-width: 480px) {
-      .container {
-        padding: 0 16px;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero-actions {
-        flex-direction: column;
-        align-items: center;
-      }
-      .hero-actions .btn {
-        width: 100%;
-        justify-content: center;
-      }
-      .hero-friction {
-        flex-direction: column;
-        align-items: center;
-      }
-      .hero-stats-ring {
-        flex-wrap: wrap;
-        gap: 16px;
-        padding: 14px 18px;
-      }
-      .benefit-card {
-        padding: 28px 24px;
-      }
-      .offer-card {
-        padding: 28px 24px;
-      }
-      .testimonial-card {
-        padding: 24px 20px;
-      }
+      .container { padding: 0 16px; }
+      .hero h1 { font-size: 1.9rem; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .hero-friction { flex-direction: column; align-items: center; gap: 8px; }
+      .hero-stat-ring { flex-wrap: wrap; gap: 14px; padding: 12px 16px; }
+      .benefit-card { padding: 28px 22px; }
+      .pricing-card { padding: 28px 22px; }
+      .testimonial-card { padding: 24px 18px; }
+      .about-card { padding: 32px 24px; }
+      .contact-hours { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
 
   <!-- ============================================================
-       HERO SECTION
+       I. HERO SECTION
        ============================================================ -->
   <section class="hero" id="hero">
-    <!-- Floating background elements -->
-    <div class="hero-floating">
-      <span class="float-item">10%</span>
-      <span class="float-item">SAT</span>
-      <span class="float-item">$</span>
-      <span class="float-item">CFDI</span>
-      <span class="float-item">IVA</span>
-      <span class="float-item">ISR</span>
-
-      <!-- Calculator SVG floaters -->
-      <div class="float-calc">
-        <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="5" width="80" height="110" rx="8" stroke="currentColor" stroke-width="2"/>
-          <rect x="18" y="15" width="64" height="24" rx="4" fill="currentColor" opacity="0.3"/>
-          <text x="28" y="31" font-size="12" fill="currentColor" opacity="0.5">1234</text>
-          <rect x="18" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="42" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="66" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="18" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="42" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="66" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="18" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="42" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="66" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-        </svg>
-      </div>
-      <div class="float-calc">
-        <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="5" width="80" height="110" rx="8" stroke="currentColor" stroke-width="2"/>
-          <rect x="18" y="15" width="64" height="24" rx="4" fill="currentColor" opacity="0.3"/>
-          <rect x="18" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="42" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="66" y="46" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="18" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="42" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="66" y="66" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <line x1="22" y1="72" x2="78" y2="72" stroke="currentColor" opacity="0.1" stroke-width="1"/>
-          <rect x="18" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="42" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-          <rect x="66" y="86" width="18" height="14" rx="2" fill="currentColor" opacity="0.15"/>
-        </svg>
-      </div>
-    </div>
-
-    <!-- Decorative glow spheres -->
-    <div class="hero-glow hero-glow-1"></div>
-    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-accent-line"></div>
+    <div class="hero-pattern"></div>
 
     <div class="container">
       <div class="hero-grid">
         <div class="hero-text">
-          <div class="hero-badge reveal" style="transition-delay:0.1s">
-            <span class="hero-badge-dot"></span>
-            Contador P&uacute;blico en <strong>Guadalajara</strong>
+          <!-- Rating badge -->
+          <div class="hero-rating reveal" style="transition-delay:0.1s">
+            <span class="score">4.9</span>
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <span class="count">128+ opiniones</span>
           </div>
 
-          <h1 class="reveal" style="transition-delay:0.2s">
-            Tu <span class="underline-gold">Contador de Confianza</span><br>
+          <h1 class="reveal" style="transition-delay:0.15s">
+            Tu <span class="gold-underline">Contador de Confianza</span><br>
             en Guadalajara
           </h1>
 
-          <p class="reveal" style="transition-delay:0.3s">
-            Olv&iacute;date de las multas del SAT y los dolores de cabeza con las declaraciones.
-            Te ayudo a mantener tus impuestos en orden, tu contabilidad al d&iacute;a y tu
-            negocio creciendo sin riesgos fiscales.
+          <p class="reveal" style="transition-delay:0.25s">
+            12+ a&ntilde;os protegiendo tus finanzas y optimizando tu situaci&oacute;n fiscal.
+            Declaraciones, contabilidad electr&oacute;nica y representaci&oacute;n SAT
+            con la seriedad que tu negocio merece.
           </p>
 
-          <div class="hero-actions reveal" style="transition-delay:0.4s">
+          <div class="hero-actions reveal" style="transition-delay:0.35s">
             <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20agendar%20una%20consulta%20gratuita" target="_blank" class="btn btn-whatsapp">
-              <i class="fa-brands fa-whatsapp"></i> Agenda tu consulta gratis
+              <i class="fa-brands fa-whatsapp"></i> Agenda tu consulta gratuita
             </a>
             <a href="#benefits" class="btn btn-outline">
               Conoce m&aacute;s <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
 
-          <div class="hero-friction reveal" style="transition-delay:0.5s">
-            <span><i class="fa-solid fa-circle-check"></i> Sin costo</span>
-            <span><i class="fa-solid fa-circle-check"></i> 100% confidencial</span>
-            <span><i class="fa-solid fa-circle-check"></i> Sin compromiso</span>
-            <span><i class="fa-solid fa-circle-check"></i> RESICO / Personas F&iacute;sicas</span>
+          <div class="hero-friction reveal" style="transition-delay:0.45s">
+            <span><i class="fa-solid fa-check-circle"></i> Sin costo</span>
+            <span><i class="fa-solid fa-check-circle"></i> 100% Confidencial</span>
+            <span><i class="fa-solid fa-check-circle"></i> RESICO Expertos</span>
+            <span><i class="fa-solid fa-check-circle"></i> Respuesta en 30 min</span>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <!-- Custom SVG Logo: Shield + Book + Calculator -->
-          <svg class="hero-logo-shield" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#2d8a4e"/>
-                <stop offset="100%" stop-color="#1a5c34"/>
-              </linearGradient>
-              <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#c9a84c"/>
-                <stop offset="100%" stop-color="#dfc16a"/>
-              </linearGradient>
-            </defs>
+        <div class="hero-visual reveal-scale" style="transition-delay:0.3s">
+          <div class="hero-logo-wrap">
+            <div class="hero-ring-bg"></div>
+            <div class="hero-ring-bg-2"></div>
 
-            <!-- Shield outer -->
-            <path d="M150 30 L260 80 L260 150 C260 220 150 270 150 270 C150 270 40 220 40 150 L40 80 Z"
-                  fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="3" opacity="0.15"/>
+            <!-- Premium SVG Logo: Shield + Eagle + Calculator -->
+            <svg class="hero-logo-svg" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="logoGreen" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#1a6b3c"/>
+                  <stop offset="100%" stop-color="#14552f"/>
+                </linearGradient>
+                <linearGradient id="logoGold" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#c9a84c"/>
+                  <stop offset="100%" stop-color="#b08e32"/>
+                </linearGradient>
+              </defs>
 
-            <!-- Shield inner -->
-            <path d="M150 50 L245 92 L245 145 C245 205 150 248 150 248 C150 248 55 205 55 145 L55 92 Z"
-                  fill="rgba(26,39,68,0.6)" stroke="rgba(201,168,76,0.3)" stroke-width="1.5"/>
+              <!-- Outer shield -->
+              <path d="M160 24 L275 74 L275 150 C275 230 160 290 160 290 C160 290 45 230 45 150 L45 74 Z"
+                    fill="rgba(26,107,60,0.08)" stroke="rgba(201,168,76,0.15)" stroke-width="1.5"/>
 
-            <!-- Book open -->
-            <path d="M120 110 Q150 130 150 130 Q150 130 180 110 L180 180 Q150 160 150 160 Q150 160 120 180 Z"
-                  fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+              <!-- Inner shield -->
+              <path d="M160 52 L252 93 L252 148 C252 218 160 268 160 268 C160 268 68 218 68 148 L68 93 Z"
+                    fill="rgba(15,27,45,0.5)" stroke="rgba(201,168,76,0.12)" stroke-width="1"/>
 
-            <!-- Book left page -->
-            <path d="M120 110 Q135 120 145 125 L145 175 Q135 170 120 180 Z"
-                  fill="rgba(45,138,78,0.25)"/>
+              <!-- Eagle wings (left) -->
+              <path d="M160 90 Q130 80 100 95 Q95 97 92 105 Q90 110 95 108 Q120 98 145 100 L160 105 Z"
+                    fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.2)" stroke-width="0.8"/>
+              <!-- Eagle wings (right) -->
+              <path d="M160 90 Q190 80 220 95 Q225 97 228 105 Q230 110 225 108 Q200 98 175 100 L160 105 Z"
+                    fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.2)" stroke-width="0.8"/>
 
-            <!-- Book right page -->
-            <path d="M180 110 Q165 120 155 125 L155 175 Q165 170 180 180 Z"
-                  fill="rgba(45,138,78,0.25)"/>
+              <!-- Eagle body / head -->
+              <ellipse cx="160" cy="100" rx="14" ry="10" fill="rgba(201,168,76,0.06)"/>
+              <path d="M154 94 Q160 88 166 94" stroke="rgba(201,168,76,0.2)" stroke-width="1" fill="none"/>
 
-            <!-- Center line (book spine) -->
-            <line x1="150" y1="115" x2="150" y2="165" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"/>
+              <!-- Book / ledger pages -->
+              <path d="M125 130 Q160 148 195 130 L195 200 Q160 180 125 200 Z"
+                    fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+              <!-- Left page -->
+              <path d="M125 130 Q142 140 153 145 L153 192 Q142 186 125 200 Z"
+                    fill="rgba(26,107,60,0.06)"/>
+              <!-- Right page -->
+              <path d="M195 130 Q178 140 167 145 L167 192 Q178 186 195 200 Z"
+                    fill="rgba(26,107,60,0.06)"/>
+              <!-- Spine -->
+              <line x1="160" y1="135" x2="160" y2="192" stroke="rgba(201,168,76,0.1)" stroke-width="0.8"/>
 
-            <!-- Text lines on left page -->
-            <line x1="130" y1="133" x2="145" y2="138" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-            <line x1="130" y1="140" x2="145" y2="145" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-            <line x1="130" y1="147" x2="143" y2="151" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <!-- Text lines on pages -->
+              <line x1="134" y1="150" x2="152" y2="155" stroke="rgba(255,255,255,0.06)" stroke-width="0.6"/>
+              <line x1="134" y1="157" x2="152" y2="162" stroke="rgba(255,255,255,0.06)" stroke-width="0.6"/>
+              <line x1="134" y1="164" x2="149" y2="168" stroke="rgba(255,255,255,0.06)" stroke-width="0.6"/>
+              <line x1="168" y1="155" x2="186" y2="150" stroke="rgba(255,255,255,0.06)" stroke-width="0.6"/>
+              <line x1="168" y1="162" x2="186" y2="157" stroke="rgba(255,255,255,0.06)" stroke-width="0.6"/>
+              <line x1="171" y1="168" x2="186" y2="164" stroke="rgba(255,255,255,0.06)" stroke-width="0.6"/>
 
-            <!-- Text lines on right page -->
-            <line x1="155" y1="138" x2="170" y2="133" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-            <line x1="155" y1="145" x2="170" y2="140" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-            <line x1="157" y1="151" x2="170" y2="147" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <!-- Calculator overlay at bottom of book -->
+              <rect x="140" y="196" width="40" height="28" rx="3" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.12)" stroke-width="0.8"/>
+              <rect x="144" y="200" width="32" height="7" rx="1" fill="rgba(201,168,76,0.05)"/>
+              <rect x="144" y="211" width="8" height="5" rx="1" fill="rgba(255,255,255,0.04)"/>
+              <rect x="156" y="211" width="8" height="5" rx="1" fill="rgba(255,255,255,0.04)"/>
+              <rect x="168" y="211" width="8" height="5" rx="1" fill="rgba(255,255,255,0.04)"/>
 
-            <!-- Calculator overlay -->
-            <rect x="133" y="175" width="34" height="24" rx="3" fill="rgba(201,168,76,0.2)" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
-            <rect x="137" y="179" width="26" height="6" rx="1" fill="rgba(201,168,76,0.15)"/>
-            <rect x="137" y="189" width="7" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
-            <rect x="147" y="189" width="7" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
-            <rect x="157" y="189" width="7" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
+              <!-- Feather pen quill -->
+              <path d="M160 100 Q164 80 172 68 Q168 78 162 90 Z"
+                    fill="rgba(201,168,76,0.04)" stroke="rgba(201,168,76,0.12)" stroke-width="0.6"/>
 
-            <!-- Feather / pen quill -->
-            <path d="M150 115 Q155 95 165 80 Q160 90 155 100 Z"
-                  fill="rgba(201,168,76,0.3)" stroke="rgba(201,168,76,0.5)" stroke-width="0.8"/>
+              <!-- Dollar sign watermark -->
+              <text x="160" y="135" text-anchor="middle" font-size="26" font-weight="700" fill="rgba(201,168,76,0.04)" font-family="Georgia, serif">$</text>
 
-            <!-- Dollar sign accent -->
-            <text x="150" y="105" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(201,168,76,0.25)" font-family="Georgia, serif">$</text>
+              <!-- "A" monogram at shield peak -->
+              <text x="160" y="92" text-anchor="middle" font-size="22" font-weight="700" fill="rgba(201,168,76,0.08)" font-family="'Playfair Display', Georgia, serif">A</text>
 
-            <!-- Bottom text -->
-            <text x="150" y="225" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.5)" font-family="Georgia, serif" letter-spacing="3">CONTADOR</text>
-            <text x="150" y="240" text-anchor="middle" font-size="8" fill="rgba(201,168,76,0.4)" font-family="sans-serif" letter-spacing="2">PUBLICO</text>
-          </svg>
+              <!-- Bottom text -->
+              <text x="160" y="250" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.25)" font-family="'Playfair Display', Georgia, serif" letter-spacing="4">ANGEL CONTADOR</text>
+              <text x="160" y="265" text-anchor="middle" font-size="7" fill="rgba(201,168,76,0.2)" font-family="'Inter', sans-serif" letter-spacing="4">CONTADOR PUBLICO</text>
+            </svg>
 
-          <!-- Stats ring -->
-          <div class="hero-stats-ring">
-            <div class="hero-stat-item">
-              <span class="num">12+</span>
-              <span class="label">A&ntilde;os exp.</span>
-            </div>
-            <div class="hero-stat-item">
-              <span class="num">500+</span>
-              <span class="label">Clientes</span>
-            </div>
-            <div class="hero-stat-item">
-              <span class="num">98%</span>
-              <span class="label">Satisfacci&oacute;n</span>
+            <!-- Stats ring -->
+            <div class="hero-stat-ring">
+              <div class="hero-stat-item">
+                <span class="num">12+</span>
+                <span class="label">A&ntilde;os exp.</span>
+              </div>
+              <div class="hero-stat-item">
+                <span class="num">500+</span>
+                <span class="label">Clientes</span>
+              </div>
+              <div class="hero-stat-item">
+                <span class="num">98%</span>
+                <span class="label">Satisfacci&oacute;n</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1498,79 +1348,76 @@
   </section>
 
   <!-- ============================================================
-       BENEFITS SECTION (PAS Copy)
+       II. BENEFITS SECTION (PAS Copy)
        ============================================================ -->
   <section class="section benefits" id="benefits">
     <div class="container">
       <div class="text-center reveal">
         <span class="section-label">Beneficios</span>
-        <h2 class="section-title">Contabilidad sin <span class="highlight">dolor de cabeza</span></h2>
+        <h2 class="section-title">Contabilidad sin <span class="emerald">dolor de cabeza</span></h2>
       </div>
 
-      <div class="benefit-pas reveal" style="transition-delay:0.1s">
+      <div class="pas-block reveal" style="transition-delay:0.1s">
         <p>
-          <span class="pas-problem"><i class="fa-solid fa-circle-exclamation"></i> PROBLEMA:</span>
+          <span class="pas-label pas-problem"><i class="fa-solid fa-circle-exclamation"></i> PROBLEMA</span>
           Cada mes, miles de peque&ntilde;os empresarios en Guadalajara enfrentan multas del SAT,
           declaraciones tard&iacute;as y facturaci&oacute;n incorrecta. Un error fiscal puede costarte
           desde $2,000 hasta $50,000 pesos en multas.
         </p>
-        <p style="margin-top:12px">
-          <span class="pas-agitate"><i class="fa-solid fa-triangle-exclamation"></i> Y LO PEOR:</span>
+        <p>
+          <span class="pas-label pas-agitate"><i class="fa-solid fa-triangle-exclamation"></i> Y LO PEOR</span>
           El SAT est&aacute; auditando m&aacute;s que nunca. Sin un contador profesional, expones
-          tu negocio a embargos, recargos y p&eacute;rdida de facturaci&oacute;n. El estr&eacute;s
-          fiscal no vale la pena.
+          tu negocio a embargos, recargos y p&eacute;rdida de facturaci&oacute;n.
         </p>
-        <p style="margin-top:12px">
-          <span class="pas-solution"><i class="fa-solid fa-check-circle"></i> SOLUCI&Oacute;N:</span>
+        <p>
+          <span class="pas-label pas-solution"><i class="fa-solid fa-check-circle"></i> SOLUCI&Oacute;N</span>
           Con Angel Contador, tu contabilidad est&aacute; en manos de un profesional
           con m&aacute;s de 12 a&ntilde;os de experiencia. Olv&iacute;date del SAT y ded&iacute;cate
-          a hacer crecer tu negocio. Nosotros nos encargamos del resto.
+          a hacer crecer tu negocio.
         </p>
       </div>
 
-      <div class="benefits-grid reveal-stagger" style="transition-delay:0.2s">
-        <!-- Benefit 1 -->
+      <div class="benefits-grid reveal-stagger">
         <div class="benefit-card">
-          <div class="benefit-icon emerald">
-            <i class="fa-solid fa-file-shield"></i>
+          <div class="accent-bar"></div>
+          <div class="benefit-icon green">
+            <i class="fa-solid fa-file-invoice"></i>
           </div>
-          <h3>Declaraciones sin errores</h3>
+          <h3>Declaraciones Sin Errores</h3>
           <p>
             Presentamos tus declaraciones mensuales y anuales ante el SAT con total precisi&oacute;n.
-            Evita multas, recargos y auditor&iacute;as con un servicio que revisa cada detalle.
             Trabajamos con RESICO, Personas F&iacute;sicas y Actividad Empresarial.
+            Observaciones del SAT rechazadas &mdash; 100% garantizado.
           </p>
         </div>
 
-        <!-- Benefit 2 -->
         <div class="benefit-card">
+          <div class="accent-bar navy"></div>
           <div class="benefit-icon navy">
-            <!-- Custom SVG icon mixed with Font Awesome -->
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="3" width="20" height="18" rx="2"/>
               <line x1="6" y1="9" x2="18" y2="9"/>
               <line x1="6" y1="13" x2="18" y2="13"/>
               <line x1="6" y1="17" x2="12" y2="17"/>
             </svg>
           </div>
-          <h3>Contabilidad al d&iacute;a</h3>
+          <h3>Contabilidad al D&iacute;a</h3>
           <p>
-            Llevamos tu contabilidad de forma ordenada y puntual. Facturaci&oacute;n electr&oacute;nica
-            (CFDI 4.0), c&aacute;lculo de impuestos, balanzas y p&oacute;lizas. Todo listo para
-            cuando lo necesites, sin rezagos ni sorpresas de &uacute;ltimo momento.
+            Llevamos tu contabilidad de forma ordenada y puntual. CFDI 4.0, c&aacute;lculo de impuestos,
+            balanzas y p&oacute;lizas. Reportes mensuales claros, sin sorpresas ni rezagos.
           </p>
         </div>
 
-        <!-- Benefit 3 -->
         <div class="benefit-card">
+          <div class="accent-bar gold"></div>
           <div class="benefit-icon gold">
             <i class="fa-regular fa-handshake"></i>
           </div>
-          <h3>Asesor&iacute;a fiscal personalizada</h3>
+          <h3>Asesor&iacute;a Personalizada</h3>
           <p>
-            No solo hacemos tu contabilidad: te explicamos todo en espa&ntilde;ol claro.
-            Saber cu&aacute;nto pagar, cu&aacute;ndo y c&oacute;mo deducir gastos legalmente
-            te da tranquilidad y control sobre tu negocio. Estamos para ayudarte.
+            Te explicamos todo en espa&ntilde;ol claro: cu&aacute;nto pagar, cu&aacute;ndo y c&oacute;mo
+            deducir legalmente. Atenci&oacute;n directa por WhatsApp, soporte biling&uuml;e y
+            optimizaci&oacute;n RESICO. Sin tecnicismos in&uacute;tiles.
           </p>
         </div>
       </div>
@@ -1578,27 +1425,24 @@
   </section>
 
   <!-- ============================================================
-       SOCIAL PROOF
+       III. SOCIAL PROOF
        ============================================================ -->
   <section class="section social-proof" id="testimonials">
     <div class="container">
       <div class="text-center reveal">
         <span class="section-label">Testimonios</span>
-        <h2 class="section-title">Lo que dicen <span class="highlight">mis clientes</span></h2>
+        <h2 class="section-title">Lo que dicen <span class="emerald">mis clientes</span></h2>
         <p class="section-subtitle">
           M&aacute;s de 500 peque&ntilde;os empresarios en Guadalajara conf&iacute;an en
-          mi servicio. Estos son algunos de sus comentarios.
+          mi servicio. Estas son algunas de sus experiencias.
         </p>
       </div>
 
       <div class="proof-grid reveal-stagger">
-        <!-- Testimonial 1 -->
         <div class="testimonial-card">
           <div class="testimonial-stars">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
           </div>
           <blockquote>
@@ -1610,18 +1454,15 @@
             <div class="testimonial-avatar">MR</div>
             <div>
               <div class="name">Mar&iacute;a Rosales</div>
-              <div class="role">Due&ntilde;a de Boutique, &nbsp;Gdl</div>
+              <div class="role">Due&ntilde;a de Boutique, Gdl</div>
             </div>
           </div>
         </div>
 
-        <!-- Testimonial 2 -->
         <div class="testimonial-card">
           <div class="testimonial-stars">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
           </div>
           <blockquote>
@@ -1638,17 +1479,14 @@
           </div>
         </div>
 
-        <!-- Testimonial 3 -->
         <div class="testimonial-card">
           <div class="testimonial-stars">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
           </div>
           <blockquote>
-                Llegu&eacute; con mi contabilidad hecha un desastre y Angel me ayud&oacute; a
+            Llegu&eacute; con mi contabilidad hecha un desastre y Angel me ayud&oacute; a
             ponerme al d&iacute;a en menos de un mes. Ahora todo fluye, facturo sin problemas
             y duermo tranquilo. Es mi contador de por vida.
           </blockquote>
@@ -1665,35 +1503,35 @@
       <!-- Trust bar -->
       <div class="trust-bar reveal">
         <div class="trust-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d8a4e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="trust-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
           12+ a&ntilde;os de experiencia
         </div>
         <div class="trust-item">
-          <i class="fa-regular fa-building" style="color:#1a2744;"></i>
-          Basado en Guadalajara
+          <i class="fa-solid fa-users"></i>
+          500+ clientes activos
         </div>
         <div class="trust-item">
-          <i class="fa-regular fa-circle-check" style="color:#2d8a4e;"></i>
-          Registrado ante el SAT
+          <i class="fa-solid fa-certificate"></i>
+          SAT Registrado
         </div>
         <div class="trust-item">
-          <i class="fa-regular fa-face-smile" style="color:#c9a84c;"></i>
-          98% clientes satisfechos
+          <i class="fa-solid fa-location-dot"></i>
+          Gdl desde 2012
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       HOW IT WORKS
+       IV. HOW IT WORKS
        ============================================================ -->
   <section class="section how-it-works" id="how-it-works">
     <div class="container">
       <div class="text-center reveal">
         <span class="section-label" style="color:var(--gold)">Proceso</span>
-        <h2 class="section-title" style="color:var(--white)">C&oacute;mo <span style="color:var(--gold)">trabajamos</span></h2>
+        <h2 class="section-title">C&oacute;mo <span class="gold">trabajamos</span></h2>
         <p class="section-subtitle">
           Empezar es sencillo. En tres pasos tendr&aacute;s tu contabilidad en orden
           y una persona real encarg&aacute;ndose de tus impuestos.
@@ -1701,7 +1539,8 @@
       </div>
 
       <div class="steps-grid reveal-stagger">
-        <!-- Step 1 -->
+        <div class="steps-connector"></div>
+
         <div class="step-card">
           <div class="step-number">1</div>
           <div class="step-icon">
@@ -1709,45 +1548,37 @@
           </div>
           <h3>Agenda tu consulta</h3>
           <p>
-            Cont&aacute;ctanos por WhatsApp o tel&eacute;fono. Platicamos 15 minutos
-            sin costo para entender tu situaci&oacute;n fiscal y resolver tus dudas
-            iniciales.
+            Cont&aacute;ctanos por WhatsApp. Platicamos 15 minutos sin costo para entender
+            tu situaci&oacute;n fiscal y resolver tus dudas iniciales.
           </p>
         </div>
 
-        <!-- Step 2 -->
         <div class="step-card">
           <div class="step-number">2</div>
           <div class="step-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#c9a84c">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-            </svg>
+            <i class="fa-solid fa-file-upload"></i>
           </div>
-          <h3>Recibimos tus documentos</h3>
+          <h3>Entregas tus documentos</h3>
           <p>
-            Nos env&iacute;as tus facturas, CFDI, estados de cuenta y lo que tengas.
-            Nosotros organizamos todo y te pedimos lo que haga falta. Sin estr&eacute;s.
+            Nos env&iacute;as tus facturas, CFDI y estados de cuenta. Nosotros organizamos
+            todo y te pedimos lo que haga falta. Sin estr&eacute;s.
           </p>
         </div>
 
-        <!-- Step 3 -->
         <div class="step-card">
           <div class="step-number">3</div>
           <div class="step-icon">
-            <i class="fa-regular fa-face-smile"></i>
+            <i class="fa-regular fa-circle-check"></i>
           </div>
           <h3>Nosotros nos encargamos</h3>
           <p>
-            Preparamos y presentamos tus declaraciones, facturamos por ti y te mantenemos
-            al tanto de todo. T&uacute; solo revisas y apruebas. As&iacute; de simple.
+            Preparamos tus declaraciones, facturamos por ti y te mantenemos al tanto.
+            T&uacute; solo revisas y apruebas. As&iacute; de simple.
           </p>
         </div>
       </div>
 
-      <div class="text-center reveal" style="margin-top:48px">
+      <div class="steps-cta reveal">
         <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20agendar%20mi%20consulta%20gratuita" target="_blank" class="btn btn-whatsapp">
           <i class="fa-brands fa-whatsapp"></i> Quiero empezar ahora
         </a>
@@ -1756,65 +1587,65 @@
   </section>
 
   <!-- ============================================================
-       OFFER SECTION (Packages)
+       V. PRICING / SERVICES
        ============================================================ -->
-  <section class="section offer" id="services">
+  <section class="section pricing" id="services">
     <div class="container">
       <div class="text-center reveal">
         <span class="section-label">Servicios</span>
-        <h2 class="section-title">Planes para tu <span class="highlight">negocio</span></h2>
+        <h2 class="section-title">Planes para tu <span class="emerald">negocio</span></h2>
         <p class="section-subtitle">
           Elige el plan que mejor se adapte a tu negocio. Todos incluyen atenci&oacute;n
           personalizada y absoluta confidencialidad.
         </p>
       </div>
 
-      <div class="offer-grid reveal-stagger">
-        <!-- Plan 1: Basico -->
-        <div class="offer-card">
-          <div class="offer-name">B&aacute;sico</div>
-          <div class="offer-price">$999 <span>/mes</span></div>
-          <div class="offer-desc">Ideal para profesionistas y freelancers</div>
-          <ul class="offer-features">
+      <div class="pricing-grid reveal-stagger">
+        <!-- Basico -->
+        <div class="pricing-card">
+          <div class="pricing-name">B&aacute;sico</div>
+          <div class="pricing-price">$999 <span>/mes</span></div>
+          <div class="pricing-desc">Para profesionistas y freelancers</div>
+          <ul class="pricing-features">
             <li><i class="fa-solid fa-check"></i> Declaraciones mensuales (IVA, ISR)</li>
             <li><i class="fa-solid fa-check"></i> Declaraci&oacute;n anual</li>
             <li><i class="fa-solid fa-check"></i> Facturaci&oacute;n electr&oacute;nica (CFDI 4.0)</li>
             <li><i class="fa-solid fa-check"></i> C&aacute;lculo de impuestos</li>
-            <li><i class="fa-solid fa-check"></i> Asesor&iacute;a por WhatsApp</li>
-            <li><i class="fa-regular fa-circle" style="color:var(--gray-200);"></i> Contabilidad completa</li>
-            <li><i class="fa-regular fa-circle" style="color:var(--gray-200);"></i> Balanzas mensuales</li>
+            <li><i class="fa-solid fa-check"></i> Asesor&iacute;a por email</li>
+            <li><i class="fa-regular fa-circle"></i> Contabilidad completa</li>
+            <li><i class="fa-regular fa-circle"></i> Balanzas mensuales</li>
           </ul>
-          <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20el%20plan%20BASICO%20de%20contabilidad" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">
+          <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20el%20plan%20BASICO%20de%20contabilidad" target="_blank" class="btn btn-primary btn-block">
             <i class="fa-brands fa-whatsapp"></i> Lo quiero
           </a>
         </div>
 
-        <!-- Plan 2: Profesional (FEATURED) -->
-        <div class="offer-card featured">
-          <div class="offer-badge">M&aacute;s popular</div>
-          <div class="offer-name">Profesional</div>
-          <div class="offer-price">$1,899 <span>/mes</span></div>
-          <div class="offer-desc">Perfecto para peque&ntilde;os negocios y tiendas</div>
-          <ul class="offer-features">
+        <!-- Profesional (FEATURED) -->
+        <div class="pricing-card featured">
+          <div class="pricing-badge">M&aacute;s popular</div>
+          <div class="pricing-name">Profesional</div>
+          <div class="pricing-price">$1,899 <span>/mes</span></div>
+          <div class="pricing-desc">Para peque&ntilde;os negocios y tiendas</div>
+          <ul class="pricing-features">
             <li><i class="fa-solid fa-check"></i> Todo lo del plan B&aacute;sico</li>
             <li><i class="fa-solid fa-check"></i> Contabilidad completa</li>
             <li><i class="fa-solid fa-check"></i> Balanzas mensuales y p&oacute;lizas</li>
             <li><i class="fa-solid fa-check"></i> Estado de resultados</li>
             <li><i class="fa-solid fa-check"></i> Facturaci&oacute;n ilimitada</li>
             <li><i class="fa-solid fa-check"></i> Representaci&oacute;n ante el SAT</li>
-            <li><i class="fa-solid fa-check"></i> Atenci&oacute;n prioritaria</li>
+            <li><i class="fa-solid fa-check"></i> Asesor&iacute;a por WhatsApp</li>
           </ul>
-          <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20el%20plan%20PROFESIONAL%20de%20contabilidad" target="_blank" class="btn btn-gold" style="width:100%;justify-content:center;">
+          <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20el%20plan%20PROFESIONAL%20de%20contabilidad" target="_blank" class="btn btn-gold btn-block">
             <i class="fa-brands fa-whatsapp"></i> Lo quiero
           </a>
         </div>
 
-        <!-- Plan 3: Empresarial -->
-        <div class="offer-card">
-          <div class="offer-name">Empresarial</div>
-          <div class="offer-price">$3,499 <span>/mes</span></div>
-          <div class="offer-desc">Para empresas en crecimiento</div>
-          <ul class="offer-features">
+        <!-- Empresarial -->
+        <div class="pricing-card">
+          <div class="pricing-name">Empresarial</div>
+          <div class="pricing-price">$3,499 <span>/mes</span></div>
+          <div class="pricing-desc">Para empresas en crecimiento</div>
+          <ul class="pricing-features">
             <li><i class="fa-solid fa-check"></i> Todo lo del plan Profesional</li>
             <li><i class="fa-solid fa-check"></i> N&oacute;minas y calculo de ISR</li>
             <li><i class="fa-solid fa-check"></i> Declaraciones de sueldos y salarios</li>
@@ -1823,26 +1654,26 @@
             <li><i class="fa-solid fa-check"></i> Atenci&oacute;n ilimitada</li>
             <li><i class="fa-solid fa-check"></i> Consultor&iacute;a estrat&eacute;gica</li>
           </ul>
-          <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20el%20plan%20EMPRESARIAL%20de%20contabilidad" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">
+          <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20quiero%20el%20plan%20EMPRESARIAL%20de%20contabilidad" target="_blank" class="btn btn-primary btn-block">
             <i class="fa-brands fa-whatsapp"></i> Lo quiero
           </a>
         </div>
       </div>
 
       <!-- USPs -->
-      <div class="offer-usps reveal">
+      <div class="pricing-usps reveal">
         <span><i class="fa-solid fa-lock"></i> 100% confidencial</span>
         <span><i class="fa-solid fa-file-contract"></i> Contrato transparente</span>
-        <span><i class="fa-solid fa-headset"></i> Soporte por WhatsApp</span>
+        <span><i class="fa-solid fa-headset"></i> Soporte WhatsApp</span>
         <span><i class="fa-solid fa-calendar"></i> Sin plazos forzosos</span>
-        <span><i class="fa-solid fa-mexican-peso-sign"></i> Precios fijos sin sorpresas</span>
+        <span><i class="fa-solid fa-coins"></i> Precios fijos</span>
         <span><i class="fa-solid fa-building"></i> Presencial en Gdl</span>
       </div>
 
       <!-- Scarcity -->
-      <div class="offer-scarcity reveal">
+      <div class="pricing-scarcity reveal">
         <p>
-          <i class="fa-solid fa-bolt" style="color:#c9a84c;"></i>
+          <i class="fa-solid fa-bolt" style="color:var(--gold)"></i>
           <strong>Cupo limitado:</strong> Solo acepto <strong>8 clientes nuevos</strong> este mes
           para garantizar atenci&oacute;n personalizada. &iexcl;Agenda tu consulta antes de que se cierren
           las inscripciones!
@@ -1852,13 +1683,13 @@
   </section>
 
   <!-- ============================================================
-       FAQ SECTION
+       VI. FAQ SECTION
        ============================================================ -->
   <section class="section faq" id="faq">
     <div class="container">
       <div class="text-center reveal">
         <span class="section-label">FAQ</span>
-        <h2 class="section-title">Preguntas <span class="highlight">frecuentes</span></h2>
+        <h2 class="section-title">Preguntas <span class="emerald">frecuentes</span></h2>
         <p class="section-subtitle">
           Respuestas r&aacute;pidas a las dudas m&aacute;s comunes sobre contabilidad,
           el SAT y nuestros servicios.
@@ -1876,14 +1707,31 @@
             <p>
               Solo necesitas tu RFC, la e.firma (FIEL) actualizada, un correo electr&oacute;nico
               y acceso a tu buz&oacute;n tributario. Si tienes facturas o estados de cuenta,
-              tambi&eacute;n nos sirven. Si no tienes algo, no te preocupes: te ayudo a
-              tramitarlo. El primer paso es agendar tu consulta gratuita de 15 minutos.
+              tambi&eacute;n nos sirven. Si no tienes algo, te ayudo a tramitarlo.
+              El primer paso es agendar tu consulta gratuita de 15 minutos.
             </p>
           </div>
         </div>
 
         <!-- FAQ 2 -->
         <div class="faq-item reveal" style="transition-delay:0.05s">
+          <button class="faq-question" aria-expanded="false">
+            <span>&iquest;Qu&eacute; es RESICO y me conviene?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              RESICO (R&eacute;gimen Simplificado de Confianza) es un r&eacute;gimen fiscal
+              del SAT con tasas reducidas de ISR, desde 1% hasta 2.5%. Es ideal
+              para peque&ntilde;os negocios y personas f&iacute;sicas con ingresos menores a
+              3.5 millones de pesos anuales. En tu consulta gratuita analizamos si eres
+              candidato y si te conviene cambiar a este r&eacute;gimen.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item reveal" style="transition-delay:0.1s">
           <button class="faq-question" aria-expanded="false">
             <span>&iquest;Cu&aacute;nto tiempo tardan en ponerme al d&iacute;a con el SAT?</span>
             <i class="fa-solid fa-chevron-down"></i>
@@ -1894,23 +1742,6 @@
               en un plazo de 2 a 4 semanas podemos regularizar tu situaci&oacute;n fiscal
               por completo. Si est&aacute;s al d&iacute;a, desde el primer mes quedas cubierto.
               Lo importante es empezar cuanto antes para evitar recargos y multas.
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 3 -->
-        <div class="faq-item reveal" style="transition-delay:0.1s">
-          <button class="faq-question" aria-expanded="false">
-            <span>&iquest;Qu&eacute; es RESICO y me conviene?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>
-              RESICO (R&eacute;gimen Simplificado de Confianza) es un r&eacute;gimen fiscal
-              creado por el SAT con tasas reducidas de ISR, desde 1% hasta 2.5%. Es ideal
-              para peque&ntilde;os negocios y personas f&iacute;sicas con ingresos menores a
-              3.5 millones de pesos anuales. En tu consulta gratuita analizamos si eres
-              candidato y si te conviene cambiar a este r&eacute;gimen.
             </p>
           </div>
         </div>
@@ -1926,8 +1757,7 @@
               Atiendo principalmente en la Zona Metropolitana de Guadalajara (Gdl, Zapopan,
               Tlaquepaque, Tonal&aacute;) para reuniones presenciales. Pero tambi&eacute;n
               trabajo con clientes de todo M&eacute;xico de forma 100% remota a trav&eacute;s
-              de WhatsApp, videollamadas y firma electr&oacute;nica. Donde sea que est&eacute;s,
-              podemos ayudarte.
+              de WhatsApp, videollamadas y firma electr&oacute;nica.
             </p>
           </div>
         </div>
@@ -1942,10 +1772,25 @@
             <p>
               Si te notifica el SAT, no entres en p&aacute;nico. Como tu contador, te
               represento ante la autoridad fiscal, preparo la documentaci&oacute;n requerida
-              y te acompa&ntilde;o durante todo el proceso. Mi objetivo es resolver la
-              auditor&iacute;a en el menor tiempo posible y con el menor impacto para ti.
-              La mayor&iacute;a de mis clientes nunca ha tenido una auditor&iacute;a porque
-              mantenemos todo en orden desde el d&iacute;a uno.
+              y te acompa&ntilde;o durante todo el proceso. La mayor&iacute;a de mis
+              clientes nunca ha tenido una auditor&iacute;a porque mantenemos todo en orden
+              desde el d&iacute;a uno.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item reveal" style="transition-delay:0.25s">
+          <button class="faq-question" aria-expanded="false">
+            <span>&iquest;Cu&aacute;nto cuesta la consulta inicial?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              La primera consulta es completamente gratuita y sin compromiso. Dura
+              aproximadamente 15 minutos, la podemos hacer por WhatsApp, videollamada
+              o en persona. Es el momento ideal para conocernos, revisar tu situaci&oacute;n
+              fiscal y ver si podemos ayudarte. No hay presi&oacute;n ni venta agresiva.
             </p>
           </div>
         </div>
@@ -1954,13 +1799,13 @@
   </section>
 
   <!-- ============================================================
-       ABOUT SECTION
+       VII. ABOUT SECTION
        ============================================================ -->
   <section class="section about" id="about">
     <div class="container">
       <div class="text-center reveal">
-        <span class="section-label" style="color:var(--gold)">Con&oacute;ceme</span>
-        <h2 class="section-title">Angel <span style="color:var(--gold)">Contador</span></h2>
+        <span class="section-label">Con&oacute;ceme</span>
+        <h2 class="section-title">Angel <span class="emerald">Contador</span></h2>
         <p class="section-subtitle">
           M&aacute;s que un contador, un aliado para tu negocio.
         </p>
@@ -1968,13 +1813,14 @@
 
       <div class="about-grid">
         <div class="about-visual reveal-left">
-          <div class="about-visual-inner">
-            <div class="about-avatar-circle">
+          <div class="about-card">
+            <div class="about-avatar">
               <i class="fa-solid fa-user-tie"></i>
             </div>
             <h3>Angel Contador</h3>
             <span class="title">Contador P&uacute;blico &middot; Guadalajara</span>
-            <div class="about-years">
+
+            <div class="about-stats">
               <div>
                 <span class="num">12+</span>
                 <span class="label">A&ntilde;os exp.</span>
@@ -1984,16 +1830,10 @@
                 <span class="label">Clientes</span>
               </div>
               <div>
-                <span class="num">&infin;</span>
-                <span class="label">Compromiso</span>
+                <span class="num">98%</span>
+                <span class="label">Satisfacci&oacute;n</span>
               </div>
             </div>
-
-            <!-- Small SVG seal of trust -->
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="position:absolute;bottom:20px;right:20px;opacity:0.15">
-              <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.5" fill="none"/>
-              <path d="M24 10 L28 18 L37 19 L30 25 L32 34 L24 29 L16 34 L18 25 L11 19 L20 18 Z" fill="currentColor" opacity="0.5"/>
-            </svg>
           </div>
         </div>
 
@@ -2009,13 +1849,21 @@
           <p>
             Creo en una contabilidad clara, sin tecnicismos in&uacute;tiles ni letras chiquitas.
             Mi objetivo es que entiendas cada peso que pagas en impuestos y que tengas las
-            herramientas para tomar mejores decisiones financieras para tu negocio.
+            herramientas para tomar mejores decisiones financieras.
           </p>
+
           <div class="about-mission">
             <p>
               &ldquo;Mi compromiso es tratar tu dinero y tu negocio como si fueran m&iacute;os.
               Con honestidad, profesionalismo y resultados reales.&rdquo;
             </p>
+          </div>
+
+          <div class="about-creds">
+            <span><i class="fa-solid fa-certificate"></i> Registro SAT</span>
+            <span><i class="fa-solid fa-graduation-cap"></i> C&eacute;dula Profesional</span>
+            <span><i class="fa-solid fa-scale-balanced"></i> RESICO Especialista</span>
+            <span><i class="fa-regular fa-building"></i> Gdl desde 2012</span>
           </div>
         </div>
       </div>
@@ -2023,63 +1871,138 @@
   </section>
 
   <!-- ============================================================
-       FOOTER
+       VIII. CONTACT / LOCATION
+       ============================================================ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Contacto</span>
+        <h2 class="section-title">Estamos para <span class="emerald">ayudarte</span></h2>
+        <p class="section-subtitle">
+          Cont&aacute;ctanos por WhatsApp, tel&eacute;fono o correo. Te respondemos en
+          menos de 30 minutos en horario laboral.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="reveal-left">
+          <div class="contact-info">
+            <h3>Informaci&oacute;n de contacto</h3>
+
+            <div class="contact-info-item">
+              <i class="fa-brands fa-whatsapp"></i>
+              <div>
+                <span class="info-label">WhatsApp</span>
+                <span class="info-value"><a href="https://wa.me/5233XXXXXXXX" target="_blank">33 XXXX XXXX</a></span>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <i class="fa-solid fa-phone"></i>
+              <div>
+                <span class="info-label">Tel&eacute;fono</span>
+                <span class="info-value">33 XXXX XXXX</span>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <i class="fa-regular fa-envelope"></i>
+              <div>
+                <span class="info-label">Email</span>
+                <span class="info-value">angel@contadorgdl.com</span>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <span class="info-label">Ubicaci&oacute;n</span>
+                <span class="info-value">Guadalajara, Jalisco, M&eacute;xico</span>
+              </div>
+            </div>
+
+            <h3 style="margin-top: 28px;">Horario de atenci&oacute;n</h3>
+            <div class="contact-hours">
+              <span class="day">Lunes &ndash; Viernes</span>
+              <span class="time">9:00 &ndash; 18:00</span>
+              <span class="day">S&aacute;bado</span>
+              <span class="time">9:00 &ndash; 13:00</span>
+              <span class="day">Domingo</span>
+              <span class="time" style="color:var(--gray-400);">Cerrado</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal-right">
+          <div class="contact-map-placeholder">
+            <div class="map-icon">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <h3 style="font-family:var(--font-heading);font-size:1.1rem;margin-bottom:8px;color:var(--black);">
+              Guadalajara, Jalisco
+            </h3>
+            <p>
+              Zona Metropolitana de Guadalajara. Atendemos de forma presencial y remota
+              en toda la Rep&uacute;blica Mexicana.
+            </p>
+            <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+              <a href="https://wa.me/5233XXXXXXXX?text=Hola%20Angel%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20informes" target="_blank" class="btn btn-whatsapp btn-sm">
+                <i class="fa-brands fa-whatsapp"></i> Escr&iacute;beme
+              </a>
+              <a href="#hero" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-arrow-up"></i> Volver arriba
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       IX. FOOTER
        ============================================================ -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <!-- Small logo SVG -->
-          <svg class="logo-small" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 4 L42 13 L42 24 C42 36 24 44 24 44 C24 44 6 36 6 24 L6 13 Z"
-                  fill="rgba(45,138,78,0.2)" stroke="rgba(201,168,76,0.5)" stroke-width="1.5"/>
-            <path d="M24 8 L38 15 L38 23 C38 32 24 38 24 38 C24 38 10 32 10 23 L10 15 Z"
-                  fill="rgba(26,39,68,0.3)" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
-            <path d="M19 18 L24 21 L29 18 L29 25 L24 22 L19 25 Z"
-                  fill="rgba(201,168,76,0.4)"/>
-            <text x="24" y="35" text-anchor="middle" font-size="5" fill="rgba(255,255,255,0.3)" font-family="serif">AC</text>
-          </svg>
-          <h3 style="font-family:var(--font-heading);color:var(--white);font-size:1.2rem;margin-bottom:8px;">Angel Contador</h3>
+          <div class="footer-name">Angel Contador</div>
           <p>
             Contador P&uacute;blico en Guadalajara. Especialista en peque&ntilde;os negocios,
-            RESICO, declaraciones y contabilidad sin complicaciones.
+            RESICO, declaraciones y contabilidad sin complicaciones. M&aacute;s de 12 a&ntilde;os
+            de experiencia y 500+ clientes satisfechos.
           </p>
         </div>
 
         <div>
           <h4>Contacto</h4>
           <ul class="footer-links">
-            <li>
-              <a href="https://wa.me/5233XXXXXXXX" target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> 5233 XXXX XXXX
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa-solid fa-phone"></i> 33 XXXX XXXX
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa-regular fa-envelope"></i> angel@contadorgdl.com
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa-solid fa-location-dot"></i> Guadalajara, Jalisco
-              </a>
-            </li>
+            <li><a href="https://wa.me/5233XXXXXXXX" target="_blank"><i class="fa-brands fa-whatsapp"></i> 33 XXXX XXXX</a></li>
+            <li><a href="#"><i class="fa-solid fa-phone"></i> 33 XXXX XXXX</a></li>
+            <li><a href="#"><i class="fa-regular fa-envelope"></i> angel@contadorgdl.com</a></li>
+            <li><a href="#"><i class="fa-solid fa-location-dot"></i> Guadalajara, Jalisco</a></li>
           </ul>
         </div>
 
         <div>
-          <h4>Enlaces</h4>
+          <h4>Servicios</h4>
           <ul class="footer-links">
-            <li><a href="#benefits"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i> Beneficios</a></li>
-            <li><a href="#testimonials"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i> Testimonios</a></li>
-            <li><a href="#services"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i> Servicios</a></li>
-            <li><a href="#faq"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i> Preguntas Frecuentes</a></li>
-            <li><a href="#about"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i> Sobre m&iacute;</a></li>
+            <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Declaraciones</a></li>
+            <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Contabilidad</a></li>
+            <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Facturaci&oacute;n CFDI</a></li>
+            <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> RESICO</a></li>
+            <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Representaci&oacute;n SAT</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Navegaci&oacute;n</h4>
+          <ul class="footer-links">
+            <li><a href="#hero"><i class="fa-solid fa-chevron-right"></i> Inicio</a></li>
+            <li><a href="#benefits"><i class="fa-solid fa-chevron-right"></i> Beneficios</a></li>
+            <li><a href="#testimonials"><i class="fa-solid fa-chevron-right"></i> Testimonios</a></li>
+            <li><a href="#faq"><i class="fa-solid fa-chevron-right"></i> FAQ</a></li>
+            <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> Sobre m&iacute;</a></li>
           </ul>
         </div>
       </div>
@@ -2127,8 +2050,6 @@
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
-              // Optionally unobserve after reveal for performance
-              // observer.unobserve(entry.target);
             }
           });
         }, {
@@ -2209,12 +2130,13 @@
       });
 
       /* ==========================================================
-         COUNTER ANIMATION (for stats)
+         COUNTER ANIMATION FOR STATS
          ========================================================== */
-      function animateCounter(el, target, suffix) {
+      function animateCounter(el, target, suffix, isInfinite) {
         if (!el) return;
+        if (isInfinite) { el.textContent = '\u221E' + (suffix || ''); return; }
         let current = 0;
-        const increment = Math.ceil(target / 40);
+        const increment = Math.max(1, Math.ceil(target / 40));
         const timer = setInterval(function() {
           current += increment;
           if (current >= target) {
@@ -2222,22 +2144,21 @@
             clearInterval(timer);
           }
           el.textContent = current + (suffix || '');
-        }, 30);
+        }, 28);
       }
 
-      // Observe stat numbers for counter animation
-      const statNums = document.querySelectorAll('.hero-stat-item .num, .about-years .num');
+      const statNums = document.querySelectorAll('.hero-stat-item .num, .about-stats .num');
       if (statNums.length > 0) {
         const countObserver = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
               const el = entry.target;
               const text = el.textContent.trim();
-              const numMatch = text.match(/(\d+)/);
+              const numMatch = text.match(/(\d+)\+?/);
               if (numMatch) {
                 const target = parseInt(numMatch[0], 10);
-                const suffix = text.replace(numMatch[0], '');
-                animateCounter(el, target, suffix);
+                const suffix = text.includes('+') ? '+' : '';
+                animateCounter(el, target, suffix, text.includes('\u221E'));
               }
               countObserver.unobserve(el);
             }
@@ -2245,18 +2166,15 @@
         }, { threshold: 0.5 });
 
         statNums.forEach(function(el) {
-          // Store original text and clear it for animation
           countObserver.observe(el);
         });
       }
 
       /* ==========================================================
-         WHATSAPP FLOATING BUTTON - TOOLTIP VISIBILITY
+         WHATSAPP TOOLTIP
          ========================================================== */
       const whatsappFloat = document.getElementById('whatsappFloat');
       if (whatsappFloat) {
-        let tooltipTimer;
-        // Show tooltip on first visit after 3 seconds
         setTimeout(function() {
           const tooltip = whatsappFloat.querySelector('.whatsapp-float-label');
           if (tooltip) {
@@ -2267,25 +2185,6 @@
           }
         }, 3000);
       }
-
-      /* ==========================================================
-         PARALLAX EFFECT ON HERO FLOATING ELEMENTS
-         ========================================================== */
-      const heroFl = document.querySelector('.hero-floating');
-      if (heroFl) {
-        window.addEventListener('scroll', function() {
-          const scrollY = window.scrollY;
-          if (scrollY < window.innerHeight) {
-            heroFl.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
-            heroFl.style.opacity = Math.max(0, 1 - scrollY / (window.innerHeight * 0.6));
-          }
-        });
-      }
-
-      /* ==========================================================
-         ACTIVE NAV TRACKING (for footer links highlight)
-         ========================================================== */
-      // Not needed for landing page, but kept for structure
 
       /* ==========================================================
          KEYBOARD SUPPORT FOR FAQ
@@ -2300,8 +2199,6 @@
       });
 
       console.log('Angel Contador - Landing Page initialized.');
-      console.log('Crafted with care for Guadalajara small businesses.');
-
     })();
   </script>
 
@@ -2311,7 +2208,6 @@
     "@context": "https://schema.org",
     "@type": "AccountingService",
     "name": "Angel Contador - Contador Publico en Guadalajara",
-    "image": "https://angelcontador.mx/og-image.jpg",
     "url": "https://angelcontador.mx",
     "telephone": "+5233XXXXXXXX",
     "email": "angel@contadorgdl.com",
@@ -2330,15 +2226,6 @@
     },
     "priceRange": "$$",
     "areaServed": ["Guadalajara", "Zapopan", "Tlaquepaque", "Tonala", "Mexico"],
-    "serviceArea": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": 20.6597,
-        "longitude": -103.3496
-      },
-      "geoRadius": "50000"
-    },
     "openingHours": "Mo-Fr 09:00-18:00",
     "sameAs": [
       "https://wa.me/5233XXXXXXXX"
