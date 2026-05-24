@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Despacho Jurídico Ornelas y Asociados — Abogados en Guadalajara. Penal, Civil, Familiar, Mercantil, Laboral, Fiscal, Amparo. Más de 10 años de experiencia.">
+<title>Ornelas y Asociados — Abogados en Guadalajara</title>
+
+<!-- Google Fonts: Cormorant Garamond + Work Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<!-- Font Awesome (local preferred) -->
+<script defer src="/previews/assets/fontawesome/js/all.min.js"></script>
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+<style>
+:root {
+  --oa-white: #F7F3EE;
+  --oa-navy: #1B2A4A;
+  --oa-gold: #C4A35A;
+  --oa-cream: #F7F3EE;
+}
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Work Sans',system-ui,-apple-system,sans-serif;
+  font-weight:400;
+  font-size:1.0625rem;
+  line-height:1.65;
+  color:#1C1C1C;
+  background:#F7F3EE;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* ===== TYPOGRAPHY ===== */
+h1,h2,h3,h4,h5,h6{
+  font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  font-weight:600;
+  line-height:1.2;
+  color:#1B2A4A;
+}
+h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:700;letter-spacing:-0.02em}
+h2{font-size:clamp(1.75rem,4vw,2.8rem);font-weight:600;letter-spacing:-0.01em}
+h3{font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:600}
+h4{font-size:clamp(1.1rem,2vw,1.35rem);font-weight:600}
+.container{width:100%;max-width:1140px;margin:0 auto;padding:0 1.25rem}
+
+/* ===== COLOR UTILITIES ===== */
+.text-gold{color:#C4A35A}
+.text-muted{color:#5A5A5A}
+.bg-cream{background:#F7F3EE}
+.bg-navy{background:#1B2A4A}
+.bg-white{background:var(--oa-white)}
+.text-white{color:var(--oa-white)}
+
+/* ===== BUTTONS ===== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:0.6rem;
+  padding:0.85rem 2rem;
+  border-radius:0;
+  font-family:'Work Sans',sans-serif;
+  font-weight:600;
+  font-size:1rem;
+  line-height:1;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  border:none;
+  text-align:center;
+}
+.btn-primary{
+  background:#C4A35A;
+  color:#1B2A4A;
+}
+.btn-primary:hover,.btn-primary:focus{
+  background:#B8933E;
+  transform:translateY(-1px);
+}
+.btn-outline{
+  background:transparent;
+  color:#C4A35A;
+  border:1.5px solid #C4A35A;
+}
+.btn-outline:hover,.btn-outline:focus{
+  background:#C4A35A;
+  color:#1B2A4A;
+}
+.btn-whatsapp{
+  background:#25D366;
+  color:var(--oa-white);
+}
+.btn-whatsapp:hover,.btn-whatsapp:focus{
+  background:#1DA851;
+  transform:translateY(-1px);
+}
+
+/* ===== HEADER ===== */
+.site-header{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  background:rgba(27,42,74,0.97);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  padding:0.7rem 0;
+  border-bottom:1px solid rgba(196,163,90,0.2);
+  transition:background 0.3s ease;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.header-brand{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;
+  font-weight:600;
+  color:#F7F3EE;
+  letter-spacing:0.02em;
+}
+.header-brand i{color:#C4A35A;font-size:1.1rem}
+.header-cta{display:flex;align-items:center;gap:0.75rem}
+.header-cta .btn{
+  padding:0.55rem 1.25rem;
+  font-size:0.875rem;
+  font-weight:500;
+  border-radius:0;
+}
+.header-icon-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:2.25rem;height:2.25rem;
+  border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  color:#C4A35A;
+  transition:background 0.3s;
+}
+.header-icon-btn:hover{background:rgba(255,255,255,0.2)}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  background:#1B2A4A;
+  padding:7rem 0 5rem;
+  overflow:hidden;
+}
+/* decorative pseudo-elements removed */
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:780px;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.4rem 1rem;
+  background:rgba(196,163,90,0.15);
+  border:1px solid rgba(196,163,90,0.3);
+  color:#C4A35A;
+  font-size:0.85rem;
+  font-weight:500;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.hero-badge i{font-size:0.75rem}
+.hero h1{color:#F7F3EE;margin-bottom:0.75rem}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.1rem,2vw,1.4rem);
+  font-weight:400;
+  font-style:italic;
+  color:rgba(247,243,238,0.7);
+  margin-bottom:0.5rem;
+  letter-spacing:0.03em;
+}
+.hero-practice-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.4rem 0.75rem;
+  margin:1.25rem 0 1.75rem;
+}
+.hero-practice-tags span{
+  font-size:0.85rem;
+  font-weight:500;
+  color:rgba(247,243,238,0.8);
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  position:relative;
+}
+.hero-practice-tags span+span::before{
+  content:'\00B7';
+  margin-right:0.75rem;
+  color:#C4A35A;
+}
+.hero-trust{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  margin-bottom:2rem;
+  font-size:0.95rem;
+  color:rgba(247,243,238,0.75);
+}
+.hero-trust .stars{color:#C4A35A;letter-spacing:2px}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+
+/* ===== SECTION COMMON ===== */
+.section{padding:5rem 0}
+.section-header{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 3.5rem;
+}
+.section-label{
+  display:inline-block;
+  font-size:0.8rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:#C4A35A;
+  margin-bottom:0.75rem;
+}
+.section-header p{
+  margin-top:1rem;
+  color:#5A5A5A;
+  font-size:1.05rem;
+}
+
+/* ===== PRACTICE AREAS ===== */
+.practice-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.25rem;
+}
+.practice-card{
+  background:var(--oa-white);
+  padding:2rem 1.75rem;
+  border:1px solid #E5DDD4;
+  transition:all 0.4s ease;
+  position:relative;
+}
+.practice-card::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:3px;
+  background:#C4A35A;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.4s ease;
+}
+.practice-card:hover::after{transform:scaleX(1)}
+.practice-card:hover{
+  border-color:#C4A35A;
+  box-shadow:0 8px 30px rgba(27,42,74,0.08);
+  transform:translateY(-3px);
+}
+.practice-card-icon{
+  width:3rem;height:3rem;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(196,163,90,0.12);
+  color:#C4A35A;
+  font-size:1.25rem;
+  margin-bottom:1.25rem;
+}
+.practice-card h3{
+  margin-bottom:0.6rem;
+}
+.practice-card p{
+  font-size:0.95rem;
+  color:#5A5A5A;
+  line-height:1.6;
+}
+
+/* ===== ABOUT ===== */
+.about-section{
+  background:var(--oa-white);
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2.5rem;
+  align-items:center;
+}
+.about-visual{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:320px;
+  background:rgba(27,42,74,0.03);
+  border:1px solid #E5DDD4;
+  position:relative;
+}
+.about-visual-content{
+  text-align:center;
+  padding:2rem;
+}
+.about-visual-content i{
+  font-size:3.5rem;
+  color:#C4A35A;
+  margin-bottom:1rem;
+  display:block;
+}
+.about-visual-content .decade-number{
+  font-family:'Cormorant Garamond',serif;
+  font-size:4rem;
+  font-weight:700;
+  color:#1B2A4A;
+  line-height:1;
+  display:block;
+}
+.about-visual-content .decade-label{
+  font-size:0.9rem;
+  color:#5A5A5A;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+.about-text h2{margin-bottom:1rem}
+.about-text .lead{
+  font-size:1.15rem;
+  color:#1C1C1C;
+  margin-bottom:1.25rem;
+  font-weight:500;
+}
+.about-text p{
+  color:#5A5A5A;
+  margin-bottom:0.75rem;
+}
+.about-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.25rem;
+  margin-top:2rem;
+}
+.about-stat{
+  text-align:center;
+  padding:1.25rem;
+  background:#F7F3EE;
+}
+.about-stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;
+  font-weight:700;
+  color:#1B2A4A;
+  line-height:1;
+  display:block;
+}
+.about-stat-label{
+  font-size:0.8rem;
+  color:#5A5A5A;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  margin-top:0.3rem;
+}
+
+/* ===== HELP SECTION ===== */
+.help-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;
+}
+.help-item{
+  display:flex;
+  gap:1.25rem;
+  padding:1.5rem 1.75rem;
+  background:var(--oa-white);
+  border:1px solid #E5DDD4;
+  transition:all 0.3s ease;
+  align-items:flex-start;
+}
+.help-item:hover{
+  border-color:#C4A35A;
+  box-shadow:0 4px 16px rgba(27,42,74,0.06);
+}
+.help-item-icon{
+  flex-shrink:0;
+  width:2.5rem;height:2.5rem;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(196,163,90,0.1);
+  color:#C4A35A;
+  font-size:1.1rem;
+  margin-top:0.15rem;
+}
+.help-item-text h4{
+  margin-bottom:0.3rem;
+  font-size:1.05rem;
+}
+.help-item-text p{
+  font-size:0.9rem;
+  color:#5A5A5A;
+  line-height:1.55;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-section{
+  background:#1B2A4A;
+  color:rgba(247,243,238,0.85);
+}
+.testimonials-section .section-header h2{color:#F7F3EE}
+.testimonials-section .section-header p{color:rgba(247,243,238,0.6)}
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.5rem;
+}
+.testimonial-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(196,163,90,0.2);
+  padding:2rem 1.75rem;
+  transition:all 0.3s ease;
+}
+.testimonial-card:hover{
+  background:rgba(255,255,255,0.09);
+  border-color:rgba(196,163,90,0.35);
+}
+.testimonial-stars{
+  color:#C4A35A;
+  font-size:0.85rem;
+  letter-spacing:3px;
+  margin-bottom:0.75rem;
+}
+.testimonial-text{
+  font-size:0.95rem;
+  line-height:1.7;
+  font-style:italic;
+  color:rgba(247,243,238,0.8);
+  margin-bottom:1.25rem;
+}
+.testimonial-author{
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+}
+.testimonial-avatar{
+  width:2.5rem;height:2.5rem;
+  border-radius:50%;
+  background:rgba(196,163,90,0.2);
+  display:flex;align-items:center;justify-content:center;
+  color:#C4A35A;
+  font-size:0.9rem;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;
+}
+.testimonial-name{
+  font-weight:600;
+  font-size:0.9rem;
+  color:#F7F3EE;
+}
+.testimonial-name span{
+  display:block;
+  font-weight:400;
+  font-size:0.8rem;
+  color:rgba(247,243,238,0.5);
+  margin-top:0.1rem;
+}
+
+/* ===== FAQ ===== */
+.faq-list{
+  max-width:760px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:0.75rem;
+}
+.faq-item{
+  background:var(--oa-white);
+  border:1px solid #E5DDD4;
+}
+.faq-question{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1.25rem 1.75rem;
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-family:'Work Sans',sans-serif;
+  font-size:1rem;
+  font-weight:500;
+  color:#1B2A4A;
+  text-align:left;
+  transition:color 0.3s;
+}
+.faq-question:hover{color:#C4A35A}
+.faq-question i{
+  font-size:0.8rem;
+  color:#C4A35A;
+  transition:transform 0.3s ease;
+  flex-shrink:0;
+}
+.faq-item.active .faq-question i{transform:rotate(180deg)}
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.4s ease;
+  padding:0 1.75rem;
+}
+.faq-item.active .faq-answer{
+  max-height:300px;
+  padding:0 1.75rem 1.25rem;
+}
+.faq-answer p{
+  font-size:0.95rem;
+  color:#5A5A5A;
+  line-height:1.65;
+}
+
+/* ===== LOCATION ===== */
+.location-section{background:var(--oa-white)}
+.location-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2.5rem;
+  align-items:center;
+}
+.location-info h2{margin-bottom:0.5rem}
+.location-detail{
+  display:flex;
+  gap:1rem;
+  margin-top:1.5rem;
+  align-items:flex-start;
+}
+.location-detail-icon{
+  flex-shrink:0;
+  width:2.5rem;height:2.5rem;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(196,163,90,0.1);
+  color:#C4A35A;
+  font-size:1rem;
+}
+.location-detail-text h4{
+  margin-bottom:0.15rem;
+  font-size:0.95rem;
+}
+.location-detail-text p{
+  font-size:0.9rem;
+  color:#5A5A5A;
+}
+.location-map-frame{
+  width:100%;
+  min-height:320px;
+  background:#F7F3EE;
+  border:1px solid #E5DDD4;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#5A5A5A;
+  font-size:0.9rem;
+  text-align:center;
+  padding:2rem;
+}
+.location-map-frame iframe{
+  width:100%;
+  height:100%;
+  min-height:320px;
+  border:none;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section{
+  background:var(--oa-navy);
+  text-align:center;
+  padding:4.5rem 0;
+}
+.cta-section h2{
+  color:#F7F3EE;
+  margin-bottom:0.75rem;
+}
+.cta-section p{
+  color:rgba(247,243,238,0.7);
+  max-width:600px;
+  margin:0 auto 2rem;
+  font-size:1.05rem;
+}
+.cta-section .btn-whatsapp{
+  font-size:1.1rem;
+  padding:1rem 2.5rem;
+}
+
+/* ===== FOOTER ===== */
+.site-footer{
+  background:#131F36;
+  color:rgba(247,243,238,0.6);
+  padding:3rem 0 2rem;
+  font-size:0.9rem;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2rem;
+}
+.footer-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;
+  font-weight:600;
+  color:#F7F3EE;
+  margin-bottom:0.5rem;
+}
+.footer-brand i{color:#C4A35A;margin-right:0.4rem}
+.footer-col p{line-height:1.7;margin-bottom:0.4rem}
+.footer-col h4{
+  color:#F7F3EE;
+  font-size:1rem;
+  margin-bottom:0.75rem;
+}
+.footer-links li{margin-bottom:0.5rem}
+.footer-links a{
+  transition:color 0.3s;
+  display:inline-flex;align-items:center;gap:0.5rem;
+}
+.footer-links a:hover{color:#C4A35A}
+.footer-links a i{color:#C4A35A;font-size:0.75rem;width:1rem}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.06);
+  margin-top:2.5rem;
+  padding-top:1.5rem;
+  text-align:center;
+  font-size:0.8rem;
+  color:rgba(247,243,238,0.4);
+}
+.footer-social{
+  display:flex;
+  gap:0.75rem;
+  margin-top:0.75rem;
+}
+.footer-social a{
+  width:2.25rem;height:2.25rem;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.06);
+  color:rgba(247,243,238,0.5);
+  transition:all 0.3s;
+  font-size:0.9rem;
+}
+.footer-social a:hover{
+  background:#C4A35A;
+  color:#1B2A4A;
+}
+
+/* ===== WHATSAPP FLOATING ===== */
+.whatsapp-float{
+  position:fixed;
+  bottom:1.5rem;right:1.5rem;
+  z-index:999;
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  background:#25D366;
+  color:var(--oa-white);
+  padding:0.7rem 1.1rem 0.7rem 0.9rem;
+  border-radius:50px;
+  box-shadow:0 4px 20px rgba(37,211,102,0.35);
+  transition:all 0.3s ease;
+  font-family:'Work Sans',sans-serif;
+  font-size:0.9rem;
+  font-weight:600;
+}
+.whatsapp-float:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 30px rgba(37,211,102,0.45);
+  color:var(--oa-white);
+}
+.whatsapp-float i{font-size:1.3rem}
+.whatsapp-float .label{display:none}
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* ===== RESPONSIVE ===== */
+@media(min-width:576px){
+  .whatsapp-float .label{display:inline}
+
+  .about-stats{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(min-width:768px){
+  .section{padding:6rem 0}
+  .practice-grid{grid-template-columns:repeat(2,1fr)}
+  .help-grid{grid-template-columns:1fr 1fr}
+  .testimonials-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:2fr 1fr 1fr}
+  .about-grid{grid-template-columns:1fr 1fr}
+  .location-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(min-width:992px){
+  .practice-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* ===== SKIP LINK ===== */
+.skip-link{
+  position:absolute;
+  top:-100%;
+  left:1rem;
+  z-index:10000;
+  padding:0.75rem 1.5rem;
+  background:#C4A35A;
+  color:#1B2A4A;
+  font-weight:600;
+}
+.skip-link:focus{top:1rem}
+
+/* ===== SELECTION ===== */
+::selection{background:rgba(196,163,90,0.3);color:#1B2A4A}
+
+/* ===== FOCUS VISIBLE ===== */
+:focus-visible{outline:2px solid #C4A35A;outline-offset:2px}
+</style>
+</head>
+<body>
+
+<!-- SKIP LINK -->
+<a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="#inicio" class="header-brand" aria-label="Ornelas y Asociados — Ir al inicio">
+      <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+      <span>Ornelas y Asociados</span>
+    </a>
+    <div class="header-cta">
+      <a href="https://wa.me/523331973653?text=Hola%2C%20quisiera%20agendar%20una%20consulta" class="btn btn-primary" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        <span class="header-cta-label">Agendar</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="inicio" class="hero" aria-label="Inicio">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-star" aria-hidden="true"></i>
+        <span>Despacho jurídico en Guadalajara</span>
+      </div>
+      <h1>Despacho Jurídico<br>Ornelas y Asociados</h1>
+      <p class="hero-sub">Abogados comprometidos con la defensa de sus derechos</p>
+      <div class="hero-practice-tags" aria-label="Áreas de práctica">
+        <span>Penal</span>
+        <span>Civil</span>
+        <span>Familiar</span>
+        <span>Mercantil</span>
+        <span>Laboral</span>
+        <span>Fiscal</span>
+        <span>Amparo</span>
+      </div>
+      <div class="hero-trust">
+        <span class="stars" aria-label="Calificacion 4.8 de 5 estrellas">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star-half-alt" aria-hidden="true"></i>
+        </span>
+        <span><strong>4.8 estrellas</strong> en Google</span>
+      </div>
+      <div class="hero-actions">
+        <a href="https://wa.me/523331973653?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20jur%C3%ADdica" class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          Agenda tu consulta
+        </a>
+        <a href="#areas" class="btn btn-outline">
+          Nuestras áreas
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRACTICE AREAS ===== -->
+<section id="areas" class="section" aria-label="Áreas de práctica">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Áreas de práctica</span>
+      <h2>Defendemos sus derechos en cada rama del derecho</h2>
+      <p>Contamos con experiencia sólida en las principales áreas jurídicas. Cada caso recibe atención personalizada y estratégica.</p>
+    </div>
+    <div class="practice-grid">
+      <article class="practice-card reveal reveal-delay-1">
+        <div class="practice-card-icon"><i class="fa-solid fa-gavel" aria-hidden="true"></i></div>
+        <h3>Penal</h3>
+        <p>Defensa penal estratégica en procesos penales, asesoramos a víctimas e imputados con absoluta confidencialidad y rigor legal.</p>
+      </article>
+      <article class="practice-card reveal reveal-delay-2">
+        <div class="practice-card-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
+        <h3>Civil</h3>
+        <p>Litigio civil, contratos, responsabilidad civil, propiedades y sucesiones. Protegemos su patrimonio con solidez jurídica.</p>
+      </article>
+      <article class="practice-card reveal reveal-delay-3">
+        <div class="practice-card-icon"><i class="fa-solid fa-family" aria-hidden="true"></i></div>
+        <h3>Familiar</h3>
+        <p>Divorcios, pensiones alimenticias, guarda y custodia, adopciones y violencia familiar. Actuamos con sensibilidad y firmeza.</p>
+      </article>
+      <article class="practice-card reveal reveal-delay-1">
+        <div class="practice-card-icon"><i class="fa-solid fa-handcuffs" aria-hidden="true"></i></div>
+        <h3>Mercantil</h3>
+        <p>Litigios mercantiles, cobranza judicial, contratos comerciales, sociedades y cumplimiento de obligaciones empresariales.</p>
+      </article>
+      <article class="practice-card reveal reveal-delay-2">
+        <div class="practice-card-icon"><i class="fa-solid fa-file-signature" aria-hidden="true"></i></div>
+        <h3>Laboral</h3>
+        <p>Defensa en juicios laborales, indemnizaciones, despidos injustificados, y asesoría tanto a trabajadores como a empleadores.</p>
+      </article>
+      <article class="practice-card reveal reveal-delay-3">
+        <div class="practice-card-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
+        <h3>Fiscal</h3>
+        <p>Asesoría fiscal integral, defensa ante el SAT, recursos de revocación, cumplimiento tributario y planeación fiscal.</p>
+      </article>
+      <article class="practice-card reveal reveal-delay-4" style="grid-column: 1 / -1; max-width: 380px; justify-self: center;">
+        <div class="practice-card-icon"><i class="fa-solid fa-shield" aria-hidden="true"></i></div>
+        <h3>Amparo</h3>
+        <p>Juicios de amparo contra actos de autoridad que vulneran sus garantías constitucionales. Protección Federal efectiva.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section section" aria-label="Sobre nosotros">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-visual-content">
+          <i class="fa-solid fa-gavel" aria-hidden="true"></i>
+          <span class="decade-number">+10</span>
+          <span class="decade-label">Años de experiencia</span>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <span class="section-label">Quiénes somos</span>
+        <h2>Más de 10 años defendiendo sus derechos en Guadalajara</h2>
+        <p class="lead">En Despacho Jurídico Ornelas y Asociados creemos que la justicia no debe ser privilegio de pocos.</p>
+        <p>Desde nuestra fundación, hemos representado a cientos de clientes en Jalisco con un enfoque cercano, ético y profesional. Nuestro equipo combina experiencia litigiosa con una profunda vocación de servicio.</p>
+        <p>Cada caso se analiza de manera particular porque sabemos que detrás de cada expediente hay una persona que confía en nosotros.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="about-stat-num">+500</span>
+            <span class="about-stat-label">Casos atendidos</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">4.8</span>
+            <span class="about-stat-label">Calificacion Google</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">10+</span>
+            <span class="about-stat-label">Años de experiencia</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">7</span>
+            <span class="about-stat-label">Ramas del derecho</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW WE CAN HELP ===== -->
+<section class="section bg-cream" aria-label="Cómo podemos ayudarle">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Como te podemos ayudar</span>
+      <h2>Estamos preparados para acompañarle en los momentos que más importan</h2>
+      <p>Estas son algunas de las situaciones en las que nuestro equipo puede marcar la diferencia.</p>
+    </div>
+    <div class="help-grid">
+      <div class="help-item reveal reveal-delay-1">
+        <div class="help-item-icon"><i class="fa-solid fa-check-circle" aria-hidden="true"></i></div>
+        <div class="help-item-text">
+          <h4>Enfrenta un proceso penal</h4>
+          <p>Si usted o un familiar enfrenta una investigación o proceso penal, necesitará defensa legal sólida y oportuna desde el primer momento.</p>
+        </div>
+      </div>
+      <div class="help-item reveal reveal-delay-2">
+        <div class="help-item-icon"><i class="fa-solid fa-check-circle" aria-hidden="true"></i></div>
+        <div class="help-item-text">
+          <h4>Necesita un divorcio o pension alimenticia</h4>
+          <p>Los procesos familiares son emocionalmente difíciles. Lo guiaremos con claridad y discreción para proteger sus derechos y los de sus hijos.</p>
+        </div>
+      </div>
+      <div class="help-item reveal reveal-delay-1">
+        <div class="help-item-icon"><i class="fa-solid fa-check-circle" aria-hidden="true"></i></div>
+        <div class="help-item-text">
+          <h4>Le deben dinero o tiene problemas con un contrato</h4>
+          <p>Incumplimientos de pago, disputas contractuales y conflictos entre socios requieren acción legal rápida y estratégica.</p>
+        </div>
+      </div>
+      <div class="help-item reveal reveal-delay-2">
+        <div class="help-item-icon"><i class="fa-solid fa-check-circle" aria-hidden="true"></i></div>
+        <div class="help-item-text">
+          <h4>Lo despidieron injustificadamente</h4>
+          <p>Si fue despedido sin causa justificada, tiene derecho a una indemnización. Evaluamos su caso sin compromiso.</p>
+        </div>
+      </div>
+      <div class="help-item reveal reveal-delay-3">
+        <div class="help-item-icon"><i class="fa-solid fa-check-circle" aria-hidden="true"></i></div>
+        <div class="help-item-text">
+          <h4>Problemas con el SAT o autoridades fiscales</h4>
+          <p>¿Recibió un requerimiento fiscal o necesita regularizar su situación? Le ofrecemos defensa fiscal integral.</p>
+        </div>
+      </div>
+      <div class="help-item reveal reveal-delay-3">
+        <div class="help-item-icon"><i class="fa-solid fa-check-circle" aria-hidden="true"></i></div>
+        <div class="help-item-text">
+          <h4>Necesita interponer un amparo</h4>
+          <p>Si una autoridad ha vulnerado sus derechos constitucionales, el juicio de amparo es la vía para restituirlos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials-section section" aria-label="Testimonios">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label" style="color:#C4A35A;">Testimonios</span>
+      <h2>Lo que dicen nuestros clientes</h2>
+      <p>La confianza de quienes hemos representado es nuestro mejor respaldo.</p>
+    </div>
+    <div class="testimonials-grid">
+      <blockquote class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars" aria-label="5 estrellas">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+        </div>
+        <p class="testimonial-text">"Excelente atención. Me ayudaron con un proceso familiar complicado y siempre estuvieron al pendiente. Los recomiendo ampliamente."</p>
+        <footer class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">MC</div>
+          <div>
+            <cite class="testimonial-name">Maria del Carmen<span>Cliente de derecho familiar</span></cite>
+          </div>
+        </footer>
+      </blockquote>
+      <blockquote class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars" aria-label="5 estrellas">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+        </div>
+        <p class="testimonial-text">"Profesionalismo y resultados. Llevaron mi caso laboral con total seriedad y logramos un acuerdo favorable. Muy agradecido con todo el equipo."</p>
+        <footer class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">JR</div>
+          <div>
+            <cite class="testimonial-name">Jorge Rodriguez<span>Cliente de derecho laboral</span></cite>
+          </div>
+        </footer>
+      </blockquote>
+      <blockquote class="testimonial-card reveal reveal-delay-3">
+        <div class="testimonial-stars" aria-label="5 estrellas">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+        </div>
+        <p class="testimonial-text">"Los contacté por una disputa mercantil y resolvieron todo con rapidez y eficacia. Desde la primera consulta me sentí en buenas manos."</p>
+        <footer class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">LG</div>
+          <div>
+            <cite class="testimonial-name">Laura Gonzalez<span>Cliente de derecho mercantil</span></cite>
+          </div>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section bg-cream" aria-label="Preguntas frecuentes">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Preguntas frecuentes</span>
+      <h2>Resolvemos sus dudas legales</h2>
+      <p>Entendemos que el mundo jurídico puede ser complejo. Aquí respondemos las preguntas más comunes.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal" data-faq>
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Cuánto cuesta una consulta inicial?</span>
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="faq-answer">
+          <p>La primera consulta tiene un costo accesible que se descuenta de tus honorarios si decides continuar con el caso. Durante esta sesión evaluamos tu situación y te explicamos las opciones legales disponibles.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal" data-faq>
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Cuánto tiempo dura un proceso legal?</span>
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="faq-answer">
+          <p>La duración depende del tipo de caso y su complejidad. Algunos procesos pueden resolverse en semanas; otros toman meses. En tu primera consulta te daremos un estimado realista basado en tu situación particular.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal" data-faq>
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Atienden solo en Guadalajara?</span>
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Nuestra oficina principal está en la colonia Providencia, Guadalajara, pero atendemos casos en todo el estado de Jalisco y a nivel federal. También ofrecemos consultas virtuales para mayor comodidad.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal" data-faq>
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Qué necesito llevar a la primera cita?</span>
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Te recomendamos traer toda la documentación relacionada con tu caso: contratos, demandas, notificaciones, identificación oficial y cualquier papel que consideres relevante. Así podremos hacer un análisis más completo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOCATION ===== -->
+<section class="location-section section" aria-label="Ubicación">
+  <div class="container">
+    <div class="location-grid">
+      <div class="location-info reveal">
+        <span class="section-label">Ubicación</span>
+        <h2>Estamos en la colonia Providencia</h2>
+        <p style="color:#5A5A5A; margin-top:0.75rem;">Visítenos en nuestra oficina. Estaremos encantados de atenderle personalmente.</p>
+        <div class="location-detail">
+          <div class="location-detail-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+          <div class="location-detail-text">
+            <h4>Dirección</h4>
+            <p>Italia 2370, Colonia Providencia<br>Guadalajara, Jalisco C.P. 44648</p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="location-detail-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
+          <div class="location-detail-text">
+            <h4>Teléfono</h4>
+            <p><a href="tel:+523331973653">33 3197 3653</a></p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="location-detail-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></div>
+          <div class="location-detail-text">
+            <h4>Horario de atención</h4>
+            <p>Lunes a Viernes: 9:00 am - 6:00 pm<br>Sábados: 9:00 am - 1:00 pm</p>
+          </div>
+        </div>
+      </div>
+      <div class="location-map-frame reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.127485242815!2d-103.3867179!3d20.7078261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae3d8b4e1c7b%3A0x8a4e1c7b!2sItalia%202370%2C%20Providencia%2C%2044648%20Guadalajara%2C%20Jal.!5e0!3m2!1ses!2smx!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Ornelas y Asociados en Providencia, Guadalajara"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="cta-section" aria-label="Consulta">
+  <div class="container">
+    <h2 class="reveal">Su primera consulta está a un mensaje de distancia</h2>
+    <p class="reveal">Agende una cita y permítanos mostrarle como podemos ayudarle. Hablamos con claridad, sin tecnicismos innecesarios.</p>
+    <a href="https://wa.me/523331973653?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20jur%C3%ADdica" class="btn btn-whatsapp reveal" target="_blank" rel="noopener">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      Agenda tu consulta por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+          Ornelas y Asociados
+        </div>
+        <p>Despacho jurídico con más de 10 años de experiencia en Guadalajara. Comprometidos con la defensa de sus derechos en cada una de las ramas del derecho.</p>
+        <nav class="footer-social" aria-label="Redes sociales">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="https://wa.me/523331973653" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p><i class="fa-solid fa-location-dot" style="color:#C4A35A;width:1rem;margin-right:0.3rem;" aria-hidden="true"></i> Italia 2370, Providencia</p>
+        <p><i class="fa-solid fa-phone" style="color:#C4A35A;width:1rem;margin-right:0.3rem;" aria-hidden="true"></i> 33 3197 3653</p>
+        <p><i class="fa-solid fa-clock" style="color:#C4A35A;width:1rem;margin-right:0.3rem;" aria-hidden="true"></i> Lun-Vie 9:00-18:00</p>
+        <p><i class="fa-solid fa-clock" style="color:#C4A35A;width:1rem;margin-right:0.3rem;" aria-hidden="true"></i> Sáb 9:00-13:00</p>
+      </div>
+      <div class="footer-col">
+        <h4>Áreas de práctica</h4>
+        <ul class="footer-links">
+          <li><a href="#areas"><i class="fa-solid fa-gavel" aria-hidden="true"></i> Penal</a></li>
+          <li><a href="#areas"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Civil</a></li>
+          <li><a href="#areas"><i class="fa-solid fa-family" aria-hidden="true"></i> Familiar</a></li>
+          <li><a href="#areas"><i class="fa-solid fa-handcuffs" aria-hidden="true"></i> Mercantil</a></li>
+          <li><a href="#areas"><i class="fa-solid fa-file-signature" aria-hidden="true"></i> Laboral</a></li>
+          <li><a href="#areas"><i class="fa-solid fa-building" aria-hidden="true"></i> Fiscal</a></li>
+          <li><a href="#areas"><i class="fa-solid fa-shield" aria-hidden="true"></i> Amparo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Despacho Jurídico Ornelas y Asociados. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+<a href="https://wa.me/523331973653?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20jur%C3%ADdica" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  <span class="label">Agenda tu consulta</span>
+</a>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+(function() {
+  'use strict';
+
+  // --- Intersection Observer for reveal animations ---
+  const revealElements = document.querySelectorAll('.reveal');
+  if (revealElements.length > 0) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+    revealElements.forEach(function(el) { observer.observe(el); });
+  }
+
+  // --- FAQ Accordion ---
+  var faqItems = document.querySelectorAll('[data-faq]');
+  faqItems.forEach(function(item) {
+    var btn = item.querySelector('.faq-question');
+    btn.addEventListener('click', function() {
+      var isActive = item.classList.contains('active');
+      // Close all
+      faqItems.forEach(function(other) {
+        other.classList.remove('active');
+        other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      // Toggle current
+      if (!isActive) {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // --- Smooth scroll for anchor links ---
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        var headerOffset = 70;
+        var elementPosition = target.getBoundingClientRect().top;
+        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

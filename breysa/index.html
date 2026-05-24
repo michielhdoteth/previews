@@ -16,14 +16,14 @@
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'DM Sans',sans-serif;color:#1a1a1a;background:#f7f5f0;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}
-:root{--bp-blue:#1a4b8c;--bp-blue-light:#3a7bd5;--bp-blue-faint:rgba(26,75,140,0.08);--bp-yellow:#f5c518;--bp-yellow-light:rgba(245,197,24,0.2);--bp-orange:#e85d2c;--bp-orange-faint:rgba(232,93,44,0.1);--bp-paper:#f7f5f0;--bp-paper-dark:#ece8df;--bp-text:#1a1a1a;--bp-text-light:#5a5a5a;--bp-text-faint:#999084;--bp-white:#fff;--bp-line:rgba(26,75,140,0.15);--bp-line-strong:rgba(26,75,140,0.35);--font-heading:'Bebas Neue',sans-serif;--font-body:'DM Sans',sans-serif;--gap-sect:clamp(4rem,10vw,7rem);--gap-blk:clamp(1.5rem,4vw,2.5rem);--max-w:1200px;--cta-h:clamp(3.25rem,6vw,3.75rem)}
+:root{--bp-blue:#1a4b8c;--bp-blue-light:#3a7bd5;--bp-blue-faint:rgba(26,75,140,0.08);--bp-yellow:#f5c518;--bp-yellow-light:rgba(245,197,24,0.2);--bp-orange:#e85d2c;--bp-orange-faint:rgba(232,93,44,0.1);--bp-paper:#f7f5f0;--bp-paper-dark:#ece8df;--bp-text:#1a1a1a;--bp-text-light:#5a5a5a;--bp-text-faint:#999084;--bp-white:#FCFAF5;--bp-line:rgba(26,75,140,0.15);--bp-line-strong:rgba(26,75,140,0.35);--font-heading:'Bebas Neue',sans-serif;--font-body:'DM Sans',sans-serif;--gap-sect:clamp(4rem,10vw,7rem);--gap-blk:clamp(1.5rem,4vw,2.5rem);--max-w:1200px;--cta-h:clamp(3.25rem,6vw,3.75rem)}
 .container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.bp-grid{background-color:var(--bp-paper);background-image:linear-gradient(var(--bp-line) 1px,transparent 1px),linear-gradient(90deg,var(--bp-line) 1px,transparent 1px);background-size:clamp(15px,2vw,25px) clamp(15px,2vw,25px);position:relative}
-.bp-grid::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 10px 10px,var(--bp-blue-faint) 1px,transparent 1px);background-size:clamp(30px,4vw,50px) clamp(30px,4vw,50px);pointer-events:none;animation:gridFloat 20s linear infinite}
+.bp-grid{background-color:var(--bp-paper);position:relative}
+.bp-grid::after{display:none}
 @keyframes gridFloat{0%{background-position:0 0}100%{background-position:clamp(30px,4vw,50px) clamp(30px,4vw,50px)}}
 .bp-grid>*{position:relative;z-index:1}
-.bp-grid-float{position:absolute;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(45deg,transparent 49.5%,var(--bp-blue-faint) 49.5%,var(--bp-blue-faint) 50.5%,transparent 50.5%);background-size:clamp(60px,8vw,100px) clamp(60px,8vw,100px);opacity:0.3;animation:floatDrift 30s ease-in-out infinite alternate}
+.bp-grid-float{display:none}
 @keyframes floatDrift{0%{transform:translate(0,0) rotate(0deg)}100%{transform:translate(10px,8px) rotate(0.5deg)}}
 .title-block{background:var(--bp-paper);border-bottom:2px solid var(--bp-blue);padding:0.625rem 0;position:relative}
 .title-block::before{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:4px;background:var(--bp-yellow)}
@@ -139,7 +139,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 <!-- HERO -->
 <section class="hero bp-grid" role="banner">
 <div class="bp-grid-float"></div>
-<div class="hero-stamp-badge"><div class="hero-stamp-badge-inner">APROBADO<br>ING. HORSTMAN<br><span style="font-family:'DM Sans',sans-serif;font-size:0.5rem;font-weight:500;letter-spacing:0.02em;display:block;text-transform:none;margin-top:0.1em">REV. TECNICA</span></div></div>
+<div class="hero-stamp-badge"><div class="hero-stamp-badge-inner">CONSORCIO<br>BREYSA<br><span style="font-family:'DM Sans',sans-serif;font-size:0.5rem;font-weight:500;letter-spacing:0.02em;display:block;text-transform:none;margin-top:0.1em">CONSTRUCCION</span></div></div>
 <div class="hero-drawing" aria-hidden="true">
 <svg viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
 <defs><style>.hl{stroke:#1a4b8c;stroke-width:1.5;fill:none}.hl2{stroke:#f5c518;stroke-width:1;fill:none;stroke-dasharray:4 3}.hl3{stroke:#e85d2c;stroke-width:1;fill:none}.hld{stroke:#1a4b8c;stroke-width:1;fill:none;stroke-dasharray:3 2}</style></defs>
@@ -253,7 +253,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 </a>
 <div class="friction-row">
 <span><svg viewBox="0 0 16 16"><path d="M13.5 2.5L8 8M13.5 2.5H10M13.5 2.5V6M4 14l4-4M4 14H2.5M4 14v-1.5" stroke="currentColor" stroke-width="1.5"/></svg> Sin adelanto</span>
-<span><svg viewBox="0 0 16 16"><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5L5 11M11 5l1.5-1.5" stroke="currentColor" stroke-width="1.5"/></svg> Garantia 5 anos</span>
+<span><svg viewBox="0 0 16 16"><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5L5 11M11 5l1.5-1.5" stroke="currentColor" stroke-width="1.5"/></svg> Garant&iacute;a 5 a&ntilde;os</span>
 <span><svg viewBox="0 0 16 16"><path d="M2 8h12M8 2v12M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.2"/></svg> Deducible ISR</span>
 </div></div></div></div>
 </section>
@@ -393,7 +393,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 </div>
 <div class="contract-clause"><strong>Cl&aacute;usula de transparencia:</strong> El cliente recibe acceso semanal a bit&aacute;cora de obra con fotograf&iacute;as, avances y reporte de personal en sitio.</div>
 <div class="contract-cta-wrap">
-<a href="https://wa.me/523310255492?text=Hola%2C%20vi%20su%20pagina%20de%20BREYSA%20y%20quiero%20solicitar%20una%20propuesta" target="_blank" class="btn btn-stamp" style="font-size:clamp(0.9rem,1.5vw,1.1rem)">
+<a href="https://wa.me/523310255492?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20BREYSA%20y%20quiero%20solicitar%20una%20propuesta" target="_blank" class="btn btn-stamp" style="font-size:clamp(0.9rem,1.5vw,1.1rem)">
 <span class="stamp-ring"></span><i class="fa-brands fa-whatsapp" style="font-size:1.2em"></i> SOLICITAR PROPUESTA<span class="stamp-approved">* SIN COMPROMISO &middot; RESPUESTA EN 24 HRS</span>
 </a>
 </div></div></div></section>
@@ -413,7 +413,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 </div>
 <div class="faq-item section-reveal section-reveal-delay-2">
 <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Qu&eacute; incluye la garant&iacute;a de 5 a&ntilde;os? <i class="fa-solid fa-plus"></i></button>
-<div class="faq-a"><p>Cubre vicios ocultos de construcci&oacute;n, defectos estructurales y problemas en instalaciones (el&eacute;ctrica, hidr&aacute;ulica, sanitaria) que se presenten dentro del periodo. Est&aacute; respaldada por contrato notariado.</p></div>
+<div class="faq-a"><p>Cubre vicios ocultos de construcci&oacute;n, defectos estructurales y problemas en instalaciones (el&eacute;ctrica, hidr&aacute;ulica, sanitaria) que se presenten dentro del per&iacute;odo. Est&aacute; respaldada por contrato notariado.</p></div>
 </div>
 <div class="faq-item section-reveal section-reveal-delay-3">
 <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Trabajan en toda la ZMG? <i class="fa-solid fa-plus"></i></button>
@@ -454,7 +454,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 <!-- ====== CTA INLINE ====== -->
 <section class="cta-inline section-reveal" style="background:var(--bp-paper-dark)">
 <div class="container">
-<a href="https://wa.me/523310255492?text=Hola%2C%20vi%20su%20pagina%20de%20BREYSA%20y%20quiero%20solicitar%20una%20cotizacion" target="_blank" class="btn btn-stamp" style="font-size:clamp(0.9rem,1.5vw,1.1rem)">
+<a href="https://wa.me/523310255492?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20BREYSA%20y%20quiero%20solicitar%20una%20cotizaci%C3%B3n" target="_blank" class="btn btn-stamp" style="font-size:clamp(0.9rem,1.5vw,1.1rem)">
 <span class="stamp-ring"></span><i class="fa-brands fa-whatsapp" style="font-size:1.2em"></i> QUIERO COTIZAR MI PROYECTO<span class="stamp-approved">* RESPUESTA EN MENOS DE 24 HORAS</span>
 </a>
 </div></section>
@@ -487,11 +487,11 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 <li><i class="fa-solid fa-location-dot"></i><span>Guadalajara, Jalisco</span></li>
 </ul>
 </div></div>
-<div class="closeout-bottom">&copy; 2026 BREYSA CONSTRUCTORA S.A. de C.V. &bull; Protected by 4M Labs &trade;</div>
+<div class="closeout-bottom">&copy; 2026 BREYSA CONSTRUCTORA S.A. de C.V.</div>
 </div></footer>
 
 <!-- ====== WHATSAPP FLOATING ====== -->
-<a href="https://wa.me/523310255492?text=Hola%2C%20vi%20la%20pagina%20de%20BREYSA%20y%20quiero%20informes" target="_blank" aria-label="WhatsApp" style="position:fixed;bottom:clamp(1rem,3vw,1.75rem);right:clamp(1rem,3vw,1.75rem);z-index:999;width:clamp(3.25rem,6vw,4rem);height:clamp(3.25rem,6vw,4rem);border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.4);transition:transform 0.25s ease,box-shadow 0.25s ease;animation:floatWA 3s ease-in-out infinite" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"><i class="fa-brands fa-whatsapp" style="font-size:clamp(1.5rem,3vw,2rem);color:#fff"></i></a>
+<a href="https://wa.me/523310255492?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20BREYSA%20y%20quiero%20informes" target="_blank" aria-label="WhatsApp" style="position:fixed;bottom:clamp(1rem,3vw,1.75rem);right:clamp(1rem,3vw,1.75rem);z-index:999;width:clamp(3.25rem,6vw,4rem);height:clamp(3.25rem,6vw,4rem);border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.4);transition:transform 0.25s ease,box-shadow 0.25s ease;animation:floatWA 3s ease-in-out infinite" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"><i class="fa-brands fa-whatsapp" style="font-size:clamp(1.5rem,3vw,2rem);color:#FCFAF5"></i></a>
 
 <style>
 @keyframes floatWA{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}

@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inmobiliaria Guadalajara Oriente — Casas, Terrenos y Departamentos</title>
+  <meta name="description" content="Encuentra la casa de tus sueños en Guadalajara Oriente. Casas, terrenos y departamentos en venta y renta. 5+ años de experiencia, 125+ propiedades vendidas.">
+
+  <!-- Google Fonts: Playfair Display + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome local (preferred) -->
+  <script defer src="/previews/assets/fontawesome/js/all.min.js"></script>
+  <!-- Font Awesome CDN fallback (when JS disabled) -->
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </noscript>
+
+  <style>
+    /* ========================================
+       RESET & BASE
+    ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --terracotta: #C15B3D;
+      --terracotta-dark: #9E4227;
+      --terracotta-light: #E88365;
+      --warm-brown: #7A5C3A;
+      --warm-brown-light: #9C7A54;
+      --olive: #6F8A5E;
+      --olive-light: #8DA87A;
+      --cream: #FDF6EC;
+      --cream-light: #FFFAF4;
+      --dark-brown: #2D1F14;
+      --text-primary: #3E2C1E;
+      --text-secondary: #6B5A4A;
+      --text-muted: #9B8B7C;
+      --gold: #D4A84B;
+      --gold-light: #E8C87A;
+      --white: #FCFAF5;
+      --shadow-sm: 0 1px 3px rgba(45, 31, 20, 0.08);
+      --shadow-md: 0 4px 16px rgba(45, 31, 20, 0.1);
+      --shadow-lg: 0 12px 40px rgba(45, 31, 20, 0.14);
+      --shadow-xl: 0 24px 60px rgba(45, 31, 20, 0.18);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --max-width: 1200px;
+      --header-height: 72px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-primary);
+      background: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ========================================
+       TYPOGRAPHY
+    ======================================== */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--dark-brown);
+    }
+
+    .heading-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+    .section-label::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.25rem;
+      height: 2px;
+      background: var(--terracotta);
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      margin-bottom: 1rem;
+      color: var(--dark-brown);
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ========================================
+       CONTAINER
+    ======================================== */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ========================================
+       REVEAL ANIMATIONS
+    ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ========================================
+       HEADER / NAV
+    ======================================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(253, 246, 236, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(122, 92, 58, 0.1);
+      height: var(--header-height);
+      transition: box-shadow 0.3s;
+    }
+    .header.scrolled {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--header-height);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+    .header-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--terracotta);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.125rem;
+      flex-shrink: 0;
+    }
+    .header-logo-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--dark-brown);
+      line-height: 1.2;
+    }
+    .header-logo-text span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--terracotta);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .header-cta:hover {
+      background: var(--terracotta-dark);
+      transform: scale(1.03);
+    }
+    .header-cta i {
+      font-size: 0.875rem;
+    }
+
+    /* ========================================
+       HERO
+    ======================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: var(--header-height);
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    /* decorative pseudo-elements removed */
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      padding: 2rem 0 1rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 1px solid rgba(122, 92, 58, 0.15);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-badge i {
+      color: var(--terracotta);
+      font-size: 0.7rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      color: var(--dark-brown);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      background: var(--terracotta);
+      color: var(--white);
+      padding: 0.875rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 14px rgba(193, 91, 61, 0.3);
+    }
+    .btn-primary:hover {
+      background: var(--terracotta-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(193, 91, 61, 0.35);
+    }
+    .btn-primary i {
+      font-size: 0.875rem;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text-primary);
+      padding: 0.875rem 1.75rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border: 2px solid rgba(122, 92, 58, 0.25);
+      cursor: pointer;
+      transition: border-color 0.3s, background 0.3s, transform 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: var(--terracotta);
+      background: rgba(193, 91, 61, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(122, 92, 58, 0.12);
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--terracotta);
+    }
+    .hero-stat-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.125rem;
+    }
+
+    .hero-visual {
+      display: none;
+    }
+
+    /* ========================================
+       SECTION BASE
+    ======================================== */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+    }
+
+    /* ========================================
+       SERVICES
+    ======================================== */
+    #servicios {
+      background: var(--cream-light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid rgba(122, 92, 58, 0.08);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--terracotta);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(193, 91, 61, 0.15);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(193, 91, 61, 0.08);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .service-card:hover .service-icon {
+      background: var(--terracotta);
+      color: var(--white);
+    }
+
+    .service-card h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+    }
+    .service-card p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       FEATURED PROPERTIES
+    ======================================== */
+    #propiedades {
+      background: var(--cream);
+    }
+
+    .properties-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .property-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(122, 92, 58, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .property-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .property-image {
+      height: 200px;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--warm-brown-light);
+      position: relative;
+    }
+    .property-image .fa-building {
+      opacity: 0.5;
+    }
+    .property-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--terracotta);
+      color: var(--white);
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .property-badge.renta {
+      background: var(--olive);
+    }
+
+    .property-body {
+      padding: 1.25rem 1.25rem 1.5rem;
+    }
+
+    .property-price {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--terracotta);
+      margin-bottom: 0.25rem;
+    }
+    .property-price span {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .property-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--dark-brown);
+      margin-bottom: 0.375rem;
+    }
+
+    .property-location {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    .property-location i {
+      font-size: 0.7rem;
+      color: var(--terracotta-light);
+    }
+
+    .property-features {
+      display: flex;
+      gap: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(122, 92, 58, 0.08);
+    }
+    .property-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+    .property-feature i {
+      color: var(--olive);
+      font-size: 0.75rem;
+    }
+
+    /* ========================================
+       WHY US
+    ======================================== */
+    #por-que-nosotros {
+      background: var(--dark-brown);
+      position: relative;
+      overflow: hidden;
+    }
+    /* decorative pseudo-element removed */
+
+    #por-que-nosotros .section-title,
+    #por-que-nosotros .section-label {
+      color: var(--white);
+    }
+    #por-que-nosotros .section-label::before {
+      background: var(--terracotta-light);
+    }
+    #por-que-nosotros .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .why-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .why-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .why-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .why-label {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .why-desc {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
+    }
+    .why-icon {
+      font-size: 1.5rem;
+      color: var(--gold-light);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ========================================
+       TESTIMONIALS
+    ======================================== */
+    #testimonios {
+      background: var(--cream-light);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      border: 1px solid rgba(122, 92, 58, 0.08);
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: rgba(193, 91, 61, 0.12);
+      position: absolute;
+      top: 0.5rem;
+      right: 1.25rem;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 0.25rem;
+      color: var(--gold);
+      font-size: 0.8125rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.875rem;
+      font-family: 'Playfair Display', Georgia, serif;
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--dark-brown);
+    }
+    .testimonial-role {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ========================================
+       FAQ
+    ======================================== */
+    #faq {
+      background: var(--cream);
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid rgba(122, 92, 58, 0.08);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+    .faq-item:hover {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.125rem 1.25rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-align: left;
+      transition: color 0.3s;
+    }
+    .faq-question:hover {
+      color: var(--terracotta);
+    }
+    .faq-question i {
+      font-size: 0.75rem;
+      color: var(--terracotta);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+    .faq-answer-inner {
+      padding: 0 1.25rem 1.125rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       MAP
+    ======================================== */
+    #ubicacion {
+      background: var(--cream-light);
+    }
+
+    .map-placeholder {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      height: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--warm-brown);
+      border: 1px solid rgba(122, 92, 58, 0.1);
+    }
+    .map-placeholder i {
+      font-size: 2.5rem;
+      opacity: 0.4;
+    }
+    .map-placeholder p {
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .map-placeholder small {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    /* ========================================
+       WHATSAPP CTA
+    ======================================== */
+    #contacto {
+      background: var(--dark-brown);
+      position: relative;
+      overflow: hidden;
+    }
+    /* decorative pseudo-element removed */
+
+    #contacto .section-title {
+      color: var(--white);
+    }
+    #contacto .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .cta-whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #25D366;
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+    .cta-whatsapp-button:hover {
+      background: #1DA851;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.35);
+    }
+    .cta-whatsapp-button i {
+      font-size: 1.25rem;
+    }
+
+    .cta-contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      transition: color 0.3s;
+    }
+    .cta-contact-item:hover {
+      color: var(--white);
+    }
+    .cta-contact-item i {
+      color: var(--gold-light);
+      font-size: 0.75rem;
+    }
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+    .footer {
+      background: #1A110B;
+      padding: 2.5rem 0 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .footer-brand-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--terracotta);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .footer-brand-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+    }
+
+    .footer-desc {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.7;
+      max-width: 360px;
+    }
+
+    .footer-heading {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+    .footer-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.55);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: var(--terracotta-light);
+    }
+    .footer-links i {
+      font-size: 0.7rem;
+      width: 1rem;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .footer-social a {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.8125rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .footer-social a:hover {
+      background: var(--terracotta);
+      color: var(--white);
+    }
+
+    /* ========================================
+       FLOATING WHATSAPP
+    ======================================== */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 999;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: wa-pulse 3s ease-in-out infinite;
+    }
+    .floating-whatsapp:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.45);
+    }
+
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35); }
+      50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.55); }
+    }
+
+    /* ========================================
+       RESPONSIVE (TABLET)
+    ======================================== */
+    @media (min-width: 640px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .properties-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-stats {
+        gap: 1.5rem;
+      }
+      .hero-stat-number {
+        font-size: 1.75rem;
+      }
+    }
+
+    /* ========================================
+       RESPONSIVE (DESKTOP)
+    ======================================== */
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      .hero-visual-inner {
+        width: 100%;
+        max-width: 480px;
+        aspect-ratio: 4/3;
+        background: var(--cream);
+        border-radius: var(--radius-lg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        color: var(--warm-brown-light);
+        position: relative;
+        box-shadow: var(--shadow-xl);
+      }
+      .hero-visual-inner i {
+        font-size: 4rem;
+        opacity: 0.25;
+      }
+      .hero-visual-inner p {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.125rem;
+        font-weight: 500;
+        opacity: 0.4;
+        text-align: center;
+        padding: 0 2rem;
+      }
+      .hero-visual-accent {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 1rem;
+        left: 1rem;
+        border: 2px solid rgba(193, 91, 61, 0.1);
+        border-radius: var(--radius-lg);
+        z-index: -1;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .properties-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .why-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+      }
+
+      .section {
+        padding: 6rem 0;
+      }
+    }
+
+    /* ========================================
+       RESPONSIVE (LARGE DESKTOP)
+    ======================================== */
+    @media (min-width: 1200px) {
+      .properties-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       HEADER
+  ======================================== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#" class="header-logo">
+        <div class="header-logo-icon">
+          <i class="fas fa-house"></i>
+        </div>
+        <div class="header-logo-text">
+          Inmobiliaria GDL Oriente
+          <span>Tu hogar en Guadalajara</span>
+        </div>
+      </a>
+      <a href="https://wa.me/523331973653?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20propiedades" target="_blank" rel="noopener" class="header-cta">
+        <i class="fab fa-whatsapp"></i>
+        Contactar
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================================
+       HERO
+  ======================================== -->
+  <section class="hero" id="inicio">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge reveal">
+            <i class="fas fa-star"></i>
+            5+ años de experiencia en Guadalajara Oriente
+          </div>
+
+          <h1 class="hero-title reveal reveal-delay-1">
+            Encuentra la casa de tus <em>sueños</em>
+          </h1>
+
+          <p class="hero-subtitle reveal reveal-delay-2">
+            Casas, terrenos y departamentos en venta y renta en Guadalajara Oriente.
+            Te acompañamos en cada paso para encontrar el hogar que mereces.
+          </p>
+
+          <div class="hero-actions reveal reveal-delay-3">
+            <a href="https://wa.me/523331973653?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20propiedades" target="_blank" rel="noopener" class="btn-primary">
+              <i class="fab fa-whatsapp"></i>
+              Escríbenos por WhatsApp
+            </a>
+            <a href="#servicios" class="btn-outline">
+              Ver servicios
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="hero-stats reveal reveal-delay-4">
+            <div class="hero-stat">
+              <div class="hero-stat-number">5+</div>
+              <div class="hero-stat-label">Años de experiencia</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-number">125+</div>
+              <div class="hero-stat-label">Propiedades vendidas</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-number">98%</div>
+              <div class="hero-stat-label">Clientes satisfechos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal reveal-delay-3">
+          <div class="hero-visual-inner">
+            <i class="fas fa-building"></i>
+            <p>Inmobiliaria Guadalajara Oriente</p>
+            <div class="hero-visual-accent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SERVICES
+  ======================================== -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label">Nuestros servicios</span>
+        <h2 class="section-title">Todo lo que necesitas para tu hogar</h2>
+        <p class="section-subtitle mx-auto">
+          Ofrecemos soluciones completas para que comprar, vender o rentar sea una experiencia sencilla y segura.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Compra / Venta de Propiedades</h3>
+          <p>Te ayudamos a comprar o vender tu propiedad con asesoría profesional, trámites y negociación incluidos.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">
+            <i class="fas fa-file-signature"></i>
+          </div>
+          <h3>Renta de Inmuebles</h3>
+          <p>Administramos la renta de tu propiedad o te ayudamos a encontrar el lugar ideal con contratos seguros.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <h3>Avalúos Inmobiliarios</h3>
+          <p>Realizamos avaluos profesionales con precios justos de mercado para venta, renta o trámites bancarios.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-4">
+          <div class="service-icon">
+            <i class="fas fa-coins"></i>
+          </div>
+          <h3>Asesoría Hipotecaria</h3>
+          <p>Te guiamos en todo el proceso de crédito hipotecario para que obtengas las mejores condiciones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FEATURED PROPERTIES
+  ======================================== -->
+  <section class="section" id="propiedades">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label">Propiedades destacadas</span>
+        <h2 class="section-title">Encuentra tu próximo hogar</h2>
+        <p class="section-subtitle mx-auto">
+          Propiedades seleccionadas en las mejores zonas de Guadalajara Oriente, Tonalá, Tlaquepaque y Zapotlanejo.
+        </p>
+      </div>
+
+      <div class="properties-grid">
+        <!-- Property 1 -->
+        <div class="property-card reveal reveal-delay-1">
+          <div class="property-image">
+            <i class="fas fa-building"></i>
+            <span class="property-badge">Venta</span>
+          </div>
+          <div class="property-body">
+            <div class="property-price">$1,850,000 <span>MXN</span></div>
+            <h3 class="property-title">Casa en Tonalá Centro</h3>
+            <div class="property-location">
+              <i class="fas fa-location-dot"></i>
+              Tonalá, Jalisco
+            </div>
+            <div class="property-features">
+              <span class="property-feature"><i class="fas fa-bed"></i> 3 recamaras</span>
+              <span class="property-feature"><i class="fas fa-bath"></i> 2 baños</span>
+              <span class="property-feature"><i class="fas fa-arrows-alt"></i> 120 m2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Property 2 -->
+        <div class="property-card reveal reveal-delay-2">
+          <div class="property-image">
+            <i class="fas fa-building"></i>
+            <span class="property-badge">Venta</span>
+          </div>
+          <div class="property-body">
+            <div class="property-price">$2,450,000 <span>MXN</span></div>
+            <h3 class="property-title">Departamento en Tlaquepaque</h3>
+            <div class="property-location">
+              <i class="fas fa-location-dot"></i>
+              Tlaquepaque, Jalisco
+            </div>
+            <div class="property-features">
+              <span class="property-feature"><i class="fas fa-bed"></i> 2 recamaras</span>
+              <span class="property-feature"><i class="fas fa-bath"></i> 2 baños</span>
+              <span class="property-feature"><i class="fas fa-arrows-alt"></i> 95 m2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Property 3 -->
+        <div class="property-card reveal reveal-delay-3">
+          <div class="property-image">
+            <i class="fas fa-tree"></i>
+            <span class="property-badge renta">Renta</span>
+          </div>
+          <div class="property-body">
+            <div class="property-price">$8,500 <span>MXN / mes</span></div>
+            <h3 class="property-title">Terreno en Zapotlanejo</h3>
+            <div class="property-location">
+              <i class="fas fa-location-dot"></i>
+              Zapotlanejo, Jalisco
+            </div>
+            <div class="property-features">
+              <span class="property-feature"><i class="fas fa-arrows-alt"></i> 250 m2</span>
+              <span class="property-feature"><i class="fas fa-car"></i> 2 autos</span>
+              <span class="property-feature"><i class="fas fa-shield"></i> Seguridad 24h</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Property 4 -->
+        <div class="property-card reveal reveal-delay-4 reveal-delay-4">
+          <div class="property-image">
+            <i class="fas fa-building"></i>
+            <span class="property-badge">Venta</span>
+          </div>
+          <div class="property-body">
+            <div class="property-price">$3,200,000 <span>MXN</span></div>
+            <h3 class="property-title">Casa Fracc. Los Arrayanes</h3>
+            <div class="property-location">
+              <i class="fas fa-location-dot"></i>
+              Guadalajara Oriente
+            </div>
+            <div class="property-features">
+              <span class="property-feature"><i class="fas fa-bed"></i> 4 recamaras</span>
+              <span class="property-feature"><i class="fas fa-bath"></i> 3 baños</span>
+              <span class="property-feature"><i class="fas fa-arrows-alt"></i> 180 m2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       WHY US
+  ======================================== -->
+  <section class="section" id="por-que-nosotros">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label" style="color: var(--terracotta-light);">Por qué nosotros</span>
+        <h2 class="section-title" style="color: var(--white);">Tu tranquilidad es nuestra prioridad</h2>
+        <p class="section-subtitle mx-auto">
+          No solo vendemos propiedades, construimos relaciones de confianza con cada cliente.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon"><i class="fas fa-calendar-check"></i></div>
+          <div class="why-number">5+</div>
+          <div class="why-label">Años de experiencia</div>
+          <div class="why-desc">Conocimiento profundo del mercado inmobiliario en Guadalajara Oriente y sus alrededores.</div>
+        </div>
+
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon"><i class="fas fa-building"></i></div>
+          <div class="why-number">125+</div>
+          <div class="why-label">Propiedades vendidas</div>
+          <div class="why-desc">Más de 125 transacciones exitosas que avalan nuestra experiencia y compromiso.</div>
+        </div>
+
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <div class="why-number">100%</div>
+          <div class="why-label">Atención personalizada</div>
+          <div class="why-desc">Te asignamos un asesor exclusivo que te acompañará de principio a fin.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       TESTIMONIALS
+  ======================================== -->
+  <section class="section" id="testimonios">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label">Testimonios</span>
+        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+        <p class="section-subtitle mx-auto">
+          La satisfacción de nuestros clientes es nuestra mejor carta de presentación.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">
+            "Encontré la casa perfecta para mi familia gracias a Inmobiliaria Guadalajara Oriente. Su asesoría fue clave en todo el proceso. Altamente recomendados."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MG</div>
+            <div>
+              <div class="testimonial-name">Maria Guadalupe</div>
+              <div class="testimonial-role">Compro casa en Tonalá</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">
+            "Vendí mi departamento en tiempo récord. La asesoría hipotecaria que me ofrecieron hizo toda la diferencia. Muy profesionales y atentos en todo momento."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RH</div>
+            <div>
+              <div class="testimonial-name">Roberto Hernandez</div>
+              <div class="testimonial-role">Vendio departamento</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">
+            "Rentar nunca había sido tan fácil. Me mostraron varias opciones y me ayudaron con todos los trámites. Sin duda los recomiendo a quien busque un inmueble."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AL</div>
+            <div>
+              <div class="testimonial-name">Ana Laura</div>
+              <div class="testimonial-role">Rento departamento</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FAQ
+  ======================================== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label">Preguntas frecuentes</span>
+        <h2 class="section-title">Resuelve tus dudas</h2>
+        <p class="section-subtitle mx-auto">
+          Las preguntas más comunes sobre el proceso de compra, venta y renta de inmuebles.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Qué documentos necesito para comprar una casa?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Generalmente necesitas: identificación oficial (INE), comprobante de ingresos, acta de matrimonio (si aplica) y avalúo bancario. Si requieres crédito hipotecario, te ayudamos a preparar todo el expediente.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-1">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Cuánto tiempo toma vender una propiedad?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              En promedio, una propiedad bien valuada y en buena ubicación puede venderse entre 2 y 6 meses. Nosotros trabajamos con estrategias de marketing y promocion para acelerar el proceso.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Qué comisión cobran por vender mi propiedad?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Nuestra comisión es del 3% + IVA sobre el precio de venta. Incluye: sesión de fotos, publicación en portales, asesoría jurídica y acompañamiento en todo el proceso hasta la firma.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-3">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Qué zonas de Guadalajara Oriente cubren?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Cubrimos toda la zona Oriente de Guadalajara, incluyendo Tonalá, Tlaquepaque, Zapotlanejo, El Salto, y colonias como Jardines del Valle, Los Arrayanes, Loma Dorada, y Santa Fe.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       MAP
+  ======================================== -->
+  <section class="section" id="ubicacion">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label">Ubicación</span>
+        <h2 class="section-title">Visítanos en nuestras oficinas</h2>
+        <p class="section-subtitle mx-auto">
+          Estamos en el corazon de Guadalajara Oriente para atenderte personalmente.
+        </p>
+      </div>
+
+      <div class="map-placeholder reveal">
+        <i class="fas fa-map-location-dot"></i>
+        <p>
+          Mapa interactivo próximamente
+          <small>Av. Tonaltecas #123, Col. Centro, Tonalá, Jalisco</small>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       WHATSAPP CTA
+  ======================================== -->
+  <section class="section" id="contacto">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label" style="color: var(--terracotta-light);">Contacto</span>
+        <h2 class="section-title" style="color: var(--white);">¿Listo para encontrar tu hogar?</h2>
+        <p class="section-subtitle mx-auto" style="margin-bottom: 2rem;">
+          Escribenos hoy y descubre como podemos ayudarte a dar el siguiente paso.
+        </p>
+
+        <a href="https://wa.me/523331973653?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20propiedades" target="_blank" rel="noopener" class="cta-whatsapp-button">
+          <i class="fab fa-whatsapp"></i>
+          Enviar mensaje por WhatsApp
+        </a>
+
+        <div class="cta-contact-row">
+          <span class="cta-contact-item">
+            <i class="fas fa-phone"></i>
+            33 3197 3653
+          </span>
+          <span class="cta-contact-item">
+            <i class="fas fa-envelope"></i>
+            contacto@inmobiliariagdl.mx
+          </span>
+          <span class="cta-contact-item">
+            <i class="fas fa-location-dot"></i>
+            Tonalá, Jalisco
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+  ======================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <div class="footer-brand-icon">
+              <i class="fas fa-house"></i>
+            </div>
+            <span class="footer-brand-text">Inmobiliaria Guadalajara Oriente</span>
+          </div>
+          <p class="footer-desc">
+            Tu aliado de confianza para encontrar la propiedad ideal en Guadalajara Oriente.
+            Con más de 5 años de experiencia y 125+ propiedades vendidas.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Servicios</div>
+          <ul class="footer-links">
+            <li><a href="#servicios"><i class="fas fa-circle"></i> Compra/Venta</a></li>
+            <li><a href="#servicios"><i class="fas fa-circle"></i> Renta</a></li>
+            <li><a href="#servicios"><i class="fas fa-circle"></i> Avaluos</a></li>
+            <li><a href="#servicios"><i class="fas fa-circle"></i> Asesoría hipotecaria</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Contacto</div>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/523331973653" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> 33 3197 3653</a></li>
+            <li><a href="#"><i class="fas fa-phone"></i> 33 1234 5678</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> contacto@inmobiliariagdl.mx</a></li>
+            <li><a href="#"><i class="fas fa-location-dot"></i> Tonalá, Jalisco</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Siguenos</div>
+          <ul class="footer-links">
+            <li><a href="#" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+            <li><a href="#" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Inmobiliaria Guadalajara Oriente. Todos los derechos reservados.</span>
+        <div class="footer-social">
+          <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/523331973653" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       FLOATING WHATSAPP BUTTON
+  ======================================== -->
+  <a href="https://wa.me/523331973653?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20propiedades" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ========================================
+       SCRIPTS
+  ======================================== -->
+  <script>
+    // --- Scroll reveal (Intersection Observer) ---
+    (function() {
+      const revealElements = document.querySelectorAll('.reveal');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Optionally unobserve after reveal
+            // observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(el => observer.observe(el));
+    })();
+
+    // --- Header scroll effect ---
+    (function() {
+      const header = document.getElementById('header');
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            if (window.scrollY > 50) {
+              header.classList.add('scrolled');
+            } else {
+              header.classList.remove('scrolled');
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+
+    // --- FAQ toggle ---
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      if (!item) return;
+
+      // Close all other items
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        if (el !== item) {
+          el.classList.remove('open');
+        }
+      });
+
+      // Toggle current
+      item.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

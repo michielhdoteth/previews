@@ -24,7 +24,7 @@
       --gold:         #c9a84c;
       --gold-light:   #e8d48b;
       --gold-dark:    #a88a2e;
-      --white:        #ffffff;
+      --white:        #FCFAF5;
       --charcoal:     #1a1a1a;
       --gray:         #4a4a4a;
       --gray-light:   #8a8a8a;
@@ -320,7 +320,7 @@
        ============================================================ */
     .hero {
       padding: 100px 0 60px;
-      background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 50%, #085050 100%);
+      background: var(--teal-dark);
       position: relative;
       overflow: hidden;
       min-height: 100vh;
@@ -331,13 +331,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 40px,
-        rgba(201,168,76,0.015) 40px,
-        rgba(201,168,76,0.015) 41px
-      );
+      background: transparent;
       pointer-events: none;
       z-index: 1;
     }
@@ -447,7 +441,7 @@
       position: absolute;
       inset: -2px;
       border-radius: 14px;
-      background: linear-gradient(135deg, rgba(201,168,76,0.2), transparent, rgba(201,168,76,0.1));
+      background: var(--gold);
       z-index: -1;
     }
 
@@ -618,7 +612,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--teal), var(--gold));
+      background: var(--teal);
       opacity: 0;
       transition: opacity 0.3s;
     }
@@ -980,7 +974,7 @@
        SECTION VI — THE OFFER
        ============================================================ */
     .section-offer {
-      background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 100%);
+      background: var(--teal-dark);
       padding: 80px 0;
       position: relative;
       overflow: hidden;
@@ -1346,7 +1340,7 @@
 
     .about-social-fb:hover {
       background: #1877f2;
-      color: white;
+      color: #FCFAF5;
     }
 
     .about-social-ig {
@@ -1356,7 +1350,7 @@
 
     .about-social-ig:hover {
       background: #e4405f;
-      color: white;
+      color: #FCFAF5;
     }
 
     .about-social-wa {
@@ -1366,7 +1360,7 @@
 
     .about-social-wa:hover {
       background: #25d366;
-      color: white;
+      color: #FCFAF5;
     }
 
     /* ============================================================
@@ -1470,7 +1464,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: #FCFAF5;
       font-size: 1.6rem;
       box-shadow: 0 4px 20px rgba(37,211,102,0.4);
       transition: transform 0.2s, box-shadow 0.2s;
@@ -1682,7 +1676,7 @@
           <circle cx="30" cy="25" r="18" stroke="var(--gold, #c9a84c)" stroke-width="0.5" opacity="0.4"/>
           <rect x="27.5" y="7" width="5" height="36" rx="2.2" fill="var(--gold, #c9a84c)"/>
           <rect x="12" y="22.5" width="36" height="5" rx="2.2" fill="var(--gold, #c9a84c)"/>
-          <text x="68" y="21" font-family="Lora, Georgia, serif" font-size="20" font-weight="700" fill="#ffffff" letter-spacing="-0.3">503</text>
+          <text x="68" y="21" font-family="Lora, Georgia, serif" font-size="20" font-weight="700" fill="#FCFAF5" letter-spacing="-0.3">503</text>
           <text x="68" y="37" font-family="Lora, Georgia, serif" font-size="9.5" font-weight="600" fill="var(--gold, #c9a84c)" letter-spacing="1.5">MEDICAL CENTER</text>
         </svg>
       </a>
@@ -2441,7 +2435,7 @@
             <circle cx="26" cy="22" r="20" stroke="var(--gold, #c9a84c)" stroke-width="1.8"/>
             <rect x="23.5" y="5" width="5" height="34" rx="2.2" fill="var(--gold, #c9a84c)"/>
             <rect x="8" y="19.5" width="36" height="5" rx="2.2" fill="var(--gold, #c9a84c)"/>
-            <text x="58" y="19" font-family="Lora, Georgia, serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="-0.3">503 Medical Center</text>
+            <text x="58" y="19" font-family="Lora, Georgia, serif" font-size="18" font-weight="700" fill="#FCFAF5" letter-spacing="-0.3">503 Medical Center</text>
             <text x="58" y="33" font-family="'Source Sans 3', sans-serif" font-size="8" font-weight="400" fill="rgba(255,255,255,0.4)" letter-spacing="0.5">Dr. Juan Ubaldo Delgado G&oacute;mez</text>
           </svg>
           <p class="footer-tagline">"Donde la ciencia y la calidad humana se unen"</p>

@@ -11,15 +11,12 @@
       background: #0f1117;
       color: #e4e6ed;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       padding: 2rem;
     }
     .container {
-      max-width: 640px;
+      max-width: 720px;
       width: 100%;
+      margin: 0 auto;
     }
     h1 {
       font-size: 1.75rem;
@@ -34,12 +31,16 @@
       border-bottom: 1px solid #1e2030;
       padding-bottom: 1rem;
     }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 0.75rem;
+    }
     .card {
       background: #161822;
       border: 1px solid #1e2030;
       border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 1rem;
+      padding: 1rem 1.25rem;
       transition: border-color 0.2s, transform 0.15s;
     }
     .card:hover {
@@ -55,75 +56,158 @@
       gap: 1rem;
     }
     .card-title {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #ffffff;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.15rem;
     }
     .card-desc {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #8b8fa3;
     }
     .arrow {
       color: #3b82f6;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       flex-shrink: 0;
+    }
+    .tag {
+      display: inline-block;
+      background: #1e2030;
+      color: #8b8fa3;
+      font-size: 0.6rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      margin-top: 0.15rem;
     }
     .footer {
       margin-top: 2rem;
       font-size: 0.75rem;
       color: #5a5d70;
-    }
-    .badge {
-      display: inline-block;
-      background: #3b82f6;
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 600;
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      margin-left: 0.5rem;
-      vertical-align: middle;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Previews</h1>
-    <div class="subtitle">4M Labs landing page previews</div>
+    <div class="subtitle">Landing page previews — 4M Labs</div>
 
-    <div class="card">
-      <a href="./soporte/">
-        <div>
-          <div class="card-title">Soporte Juridico Laboral</div>
-          <div class="card-desc">Defensa laboral estrategica en Guadalajara</div>
-        </div>
-        <div class="arrow">&rarr;</div>
-      </a>
-    </div>
+    <div class="grid">
 
-    <div class="card">
-      <a href="./breysa/">
-        <div>
-          <div class="card-title">BREYSA Constructora</div>
-          <div class="card-desc">Proyecto de construccion en Guadalajara</div>
-        </div>
-        <div class="arrow">&rarr;</div>
-      </a>
-    </div>
+      <div class="card">
+        <a href="./scuba-life/">
+          <div>
+            <div class="card-title">Scuba Life Cozumel</div>
+            <div class="card-desc">PADI 5-Star dive shop — The Dive Logbook</div>
+          </div>
+          <div class="arrow">&rarr;</div>
+        </a>
+      </div>
 
-    <div class="card">
-      <a href="./503medical/">
-        <div>
-          <div class="card-title">503 Medical Center</div>
-          <div class="card-desc">Clinica Multiespecialidad en Tampico</div>
-        </div>
-        <div class="arrow">&rarr;</div>
-      </a>
+      <div class="card">
+        <a href="./zissou/">
+          <div>
+            <div class="card-title">Zissou Divers</div>
+            <div class="card-desc">Pacific Coast diving — Zihuatanejo</div>
+          </div>
+          <div class="arrow">&rarr;</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="./soporte/">
+          <div>
+            <div class="card-title">Soporte Juridico Laboral</div>
+            <div class="card-desc">Defensa laboral estrategica en Guadalajara</div>
+          </div>
+          <div class="arrow">&rarr;</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="./xpert-dent/">
+          <div>
+            <div class="card-title">Xpert Dent</div>
+            <div class="card-desc">Consultorio dental — Tampico, 40+ anos</div>
+          </div>
+          <div class="arrow">&rarr;</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="./breysa/">
+          <div>
+            <div class="card-title">BREYSA Constructora</div>
+            <div class="card-desc">Proyecto de construccion en Guadalajara</div>
+          </div>
+          <div class="arrow">&rarr;</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="./inmobiliaria/">
+          <div>
+            <div class="card-title">Inmobiliaria GDL Oriente</div>
+            <div class="card-desc">Casas, terrenos y departamentos</div>
+          </div>
+          <div class="arrow">&rarr;</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="./ornelas/">
+          <div>
+            <div class="card-title">Ornelas y Asociados</div>
+            <div class="card-desc">Despacho juridico en Guadalajara</div>
+          </div>
+          <div class="arrow">&rarr;</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="./503medical/">
+          <div>
+            <div class="card-title">503 Medical Center</div>
+            <div class="card-desc">Clinica Multiespecialidad en Tampico</div>
+          </div>
+          <div class="arrow">&rarr;</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="./angel-contador/">
+          <div>
+            <div class="card-title">Angel Contador</div>
+            <div class="card-desc">Contabilidad y finanzas</div>
+          </div>
+          <div class="arrow">&rarr;</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="./dr-llamas/">
+          <div>
+            <div class="card-title">Dr. Llamas</div>
+            <div class="card-desc">Medico especialista</div>
+          </div>
+          <div class="arrow">&rarr;</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="./hanio/">
+          <div>
+            <div class="card-title">Hanio Constructora</div>
+            <div class="card-desc">Proyectos de construccion</div>
+          </div>
+          <div class="arrow">&rarr;</div>
+        </a>
+      </div>
+
     </div>
 
     <div class="footer">
-      4M Labs &mdash; GitHub Pages
+      Landing page previews for outbound sales
     </div>
   </div>
 </body>

@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scuba Life Cozumel — PADI 5-Star Dive Center</title>
+<meta name="description" content="Cozumel's #1 rated PADI 5-Star Dive Center. 2,608+ 5-star TripAdvisor reviews. Small groups, premium gear, expert instructors since 2017.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   SCUBA LIFE COZUMEL — "THE DIVE LOGBOOK"
+   A captain's log / nautical chart aesthetic.
+   Warm paper tones, navy ink, coral stamps.
+   ========================================================= */
+
+:root {
+  --navy: #0C1D2D;
+  --navy-deep: #081420;
+  --coral: #FF6B35;
+  --coral-hover: #E55A2B;
+  --sand: #C4A77D;
+  --sand-light: #D4C4A8;
+  --parchment: #F5F0E8;
+  --parchment-dark: #E8E0D4;
+  --ink: #1A1814;
+  --ink-light: #4A4844;
+  --ink-muted: #7A766E;
+
+  --font-heading: 'Oswald';
+  --font-body: 'Cormorant';
+
+  --shadow-sm: 0 1px 3px rgba(26,24,20,0.08);
+  --shadow-md: 0 4px 16px rgba(26,24,20,0.1);
+  --shadow-lg: 0 8px 32px rgba(26,24,20,0.14);
+
+  --stamp-red: #C73E2B;
+}
+
+/* ---------- RESET ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  font-size:1.125rem;
+  line-height:1.7;
+  color:var(--ink);
+  background:var(--parchment);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font:inherit}
+ul{list-style:none}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+@media(max-width:768px){.container{padding:0 1rem}}
+
+/* ---------- PAPER TEXTURE ---------- */
+.paper-bg{
+  background-color:var(--parchment);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.015) 2px,
+      rgba(0,0,0,0.015) 3px
+    );
+}
+.paper-bg-dark{
+  background-color:var(--navy);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.025) 2px,
+      rgba(255,255,255,0.025) 3px
+    );
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+h1,h2,h3,h4{
+  font-family:var(--font-heading);
+  font-weight:500;
+  color:var(--navy);
+  line-height:1.15;
+  text-transform:uppercase;
+  letter-spacing:0.02em;
+}
+h1{font-size:clamp(2.8rem,6vw,4.5rem);font-weight:600;letter-spacing:0.04em}
+h2{font-size:clamp(2rem,4vw,3rem);font-weight:500;letter-spacing:0.03em}
+h3{font-size:clamp(1.25rem,2.2vw,1.5rem);font-weight:500}
+h4{font-size:clamp(1rem,1.6vw,1.15rem);font-weight:400}
+
+.section-padding{padding:5rem 0}
+@media(max-width:768px){.section-padding{padding:3.5rem 0}}
+
+/* ---------- LOGBOOK ENTRY STYLING ---------- */
+.logbook-entry{
+  position:relative;
+  padding-left:2rem;
+  border-left:2px solid var(--sand);
+  margin-bottom:2rem;
+}
+.logbook-entry::before{
+  content:'';
+  position:absolute;
+  left:-0.5rem;
+  top:0.5rem;
+  width:0.75rem;
+  height:0.75rem;
+  background:var(--coral);
+  border-radius:50%;
+  border:2px solid var(--parchment);
+}
+.logbook-label{
+  font-family:var(--font-heading);
+  font-size:0.7rem;
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:0.15em;
+  color:var(--sand);
+  margin-bottom:0.25rem;
+}
+
+/* ---------- RUBBER STAMP ---------- */
+.stamp{
+  position:absolute;
+  top:1rem;
+  right:1rem;
+  display:inline-flex;
+  align-items:center;
+  gap:0.3rem;
+  font-family:var(--font-heading);
+  font-size:0.6rem;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--stamp-red);
+  border:2px solid var(--stamp-red);
+  padding:0.15rem 0.6rem;
+  opacity:0;
+  transform:scale(0.6) rotate(-8deg);
+  transition:opacity 0.5s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  transform-origin:top right;
+  background:rgba(199,62,43,0.04);
+}
+.stamp.visible{
+  opacity:0.8;
+  transform:scale(1) rotate(-5deg);
+}
+.stamp svg{width:0.7rem;height:0.7rem;stroke:currentColor;fill:none;stroke-width:2}
+
+/* ---------- SECTION HEADERS ---------- */
+.section-header{
+  margin-bottom:3rem;
+  position:relative;
+}
+.section-header h2{
+  position:relative;
+  display:inline-block;
+}
+.section-header h2::after{
+  content:'';
+  display:block;
+  width:3rem;
+  height:3px;
+  background:var(--coral);
+  margin-top:0.5rem;
+}
+.section-header .entry-date{
+  font-family:var(--font-heading);
+  font-size:0.7rem;
+  font-weight:300;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--ink-muted);
+  margin-bottom:0.35rem;
+}
+.section-header p{
+  font-family:var(--font-body);
+  font-size:1.05rem;
+  color:var(--ink-light);
+  max-width:560px;
+  line-height:1.6;
+  margin-top:0.75rem;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:0.6rem;
+  font-family:var(--font-heading);
+  font-weight:400;
+  font-size:0.85rem;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  padding:0.75rem 1.75rem;
+  border:none;
+  cursor:pointer;
+  transition:all 0.25s ease;
+  position:relative;
+}
+.btn-primary{
+  background:var(--navy);
+  color:var(--parchment);
+}
+.btn-primary:hover{
+  background:var(--navy-deep);
+  box-shadow:var(--shadow-md);
+}
+.btn-coral{
+  background:var(--coral);
+  color:var(--parchment);
+}
+.btn-coral:hover{
+  background:var(--coral-hover);
+  box-shadow:0 4px 20px rgba(255,107,53,0.35);
+}
+.btn-outline{
+  background:transparent;
+  color:var(--parchment);
+  border:1.5px solid rgba(255,255,255,0.25);
+}
+.btn-outline:hover{
+  border-color:var(--parchment);
+  background:rgba(255,255,255,0.06);
+}
+.btn-wa{
+  background:#25D366;
+  color:var(--parchment);
+}
+.btn-wa:hover{
+  background:#1DA851;
+  box-shadow:0 4px 20px rgba(37,211,102,0.35);
+}
+.btn-ink{
+  background:var(--ink);
+  color:var(--parchment);
+}
+.btn-ink:hover{
+  background:var(--ink-light);
+}
+
+/* ---------- COMPASS ROSE DECORATION ---------- */
+.compass-rose{
+  width:3rem;
+  height:3rem;
+  animation:compassSpin 16s linear infinite;
+  opacity:0.15;
+}
+@keyframes compassSpin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+/* ---------- REVEAL ANIMATIONS ---------- */
+.reveal{opacity:0;transform:translateY(1.5rem);transition:opacity 0.7s ease,transform 0.7s cubic-bezier(0.22,1,0.36,1)}
+.reveal.revealed{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-1.5rem);transition:opacity 0.7s ease,transform 0.7s cubic-bezier(0.22,1,0.36,1)}
+.reveal-left.revealed{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(1.5rem);transition:opacity 0.7s ease,transform 0.7s cubic-bezier(0.22,1,0.36,1)}
+.reveal-right.revealed{opacity:1;transform:translateX(0)}
+.reveal-stagger>*{opacity:0;transform:translateY(1rem);transition:opacity 0.5s ease,transform 0.5s ease}
+.reveal-stagger.revealed>*:nth-child(1){transition-delay:0.05s;opacity:1;transform:translateY(0)}
+.reveal-stagger.revealed>*:nth-child(2){transition-delay:0.12s;opacity:1;transform:translateY(0)}
+.reveal-stagger.revealed>*:nth-child(3){transition-delay:0.19s;opacity:1;transform:translateY(0)}
+.reveal-stagger.revealed>*:nth-child(4){transition-delay:0.26s;opacity:1;transform:translateY(0)}
+.reveal-stagger.revealed>*:nth-child(5){transition-delay:0.33s;opacity:1;transform:translateY(0)}
+.reveal-stagger.revealed>*:nth-child(6){transition-delay:0.40s;opacity:1;transform:translateY(0)}
+.reveal-stagger.revealed>*:nth-child(7){transition-delay:0.47s;opacity:1;transform:translateY(0)}
+.reveal-stagger.revealed>*:nth-child(8){transition-delay:0.54s;opacity:1;transform:translateY(0)}
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+.top-bar{
+  background:var(--navy-deep);
+  color:var(--ink-muted);
+  font-family:var(--font-heading);
+  font-size:0.7rem;
+  font-weight:300;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  padding:0.5rem 0;
+  border-bottom:1px solid rgba(196,167,125,0.15);
+}
+.top-bar .container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:0.3rem 1rem;
+}
+.top-bar a{color:var(--ink-muted);transition:color 0.2s}
+.top-bar a:hover{color:var(--sand)}
+.top-bar .top-bar-divider{color:rgba(196,167,125,0.25);margin:0 0.5rem}
+.top-bar .top-bar-social{display:flex;gap:0.6rem}
+.top-bar .top-bar-social a{display:flex;align-items:center;gap:0.3rem}
+.top-bar .top-bar-social svg{width:0.75rem;height:0.75rem;fill:none;stroke:currentColor;stroke-width:1.5}
+@media(max-width:768px){
+  .top-bar{font-size:0.6rem}
+  .top-bar .container{justify-content:center}
+  .top-bar .top-bar-social{width:100%;justify-content:center;margin-top:0.2rem}
+}
+
+/* =========================================================
+   STICKY NAV
+   ========================================================= */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:var(--parchment);
+  border-bottom:1px solid var(--parchment-dark);
+  padding:0.6rem 0;
+}
+.navbar .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-brand{
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+  font-family:var(--font-heading);
+  font-weight:500;
+  font-size:1.1rem;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--navy);
+}
+.nav-brand svg{width:1.35rem;height:1.35rem;stroke:var(--coral);fill:none;stroke-width:1.8}
+.nav-links{display:flex;align-items:center;gap:0.25rem}
+.nav-links a{
+  font-family:var(--font-heading);
+  font-weight:300;
+  font-size:0.78rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  padding:0.45rem 0.8rem;
+  color:var(--ink-light);
+  border-radius:2px;
+  transition:all 0.2s;
+}
+.nav-links a:hover{color:var(--navy);background:rgba(12,29,45,0.06)}
+.nav-cta{
+  background:var(--coral) !important;
+  color:var(--parchment) !important;
+  padding:0.45rem 1.1rem !important;
+  font-weight:400 !important;
+  border-radius:2px !important;
+}
+.nav-cta:hover{background:var(--coral-hover) !important;color:var(--parchment) !important}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.4rem}
+.nav-toggle svg{width:1.4rem;height:1.4rem;stroke:var(--navy);fill:none;stroke-width:2}
+@media(max-width:768px){
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:var(--parchment);
+    flex-direction:column;
+    padding:0.75rem 1rem;
+    border-bottom:1px solid var(--parchment-dark);
+    gap:0.15rem;
+  }
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  padding:4rem 0 3.5rem;
+  background:var(--parchment-dark);
+  position:relative;
+  overflow:hidden;
+}
+.hero .container{
+  position:relative;
+  z-index:2;
+}
+.hero-wave-bg{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:120px;
+  z-index:1;
+  opacity:0.12;
+}
+.hero-wave-bg svg{width:100%;height:100%}
+.hero-wave-path{
+  stroke:var(--navy);
+  stroke-width:1.5;
+  fill:none;
+  stroke-dasharray:1200;
+  stroke-dashoffset:1200;
+  animation:waveDraw 4s ease forwards;
+}
+@keyframes waveDraw{
+  to{stroke-dashoffset:0}
+}
+
+.hero-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:center;
+}
+.hero-logbook{
+  position:relative;
+}
+.hero-logbook .logbook-label{color:var(--ink-muted);font-weight:300}
+.hero h1{
+  color:var(--navy);
+  margin-bottom:0.5rem;
+  line-height:1.1;
+}
+.hero h1 .hero-sub-line{
+  display:block;
+  font-weight:300;
+  font-size:0.5em;
+  letter-spacing:0.15em;
+  color:var(--ink-muted);
+  margin-top:0.5rem;
+}
+.hero-rule{
+  width:4rem;
+  height:3px;
+  background:var(--coral);
+  margin:1.25rem 0;
+}
+.hero p{
+  font-family:var(--font-body);
+  font-size:1.1rem;
+  color:var(--ink-light);
+  max-width:460px;
+  line-height:1.6;
+  margin-bottom:1.5rem;
+  font-weight:500;
+}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.75rem;
+}
+
+.hero-stats-row{
+  display:flex;
+  gap:2rem;
+  margin-top:2rem;
+  padding-top:1.5rem;
+  border-top:1px solid var(--sand-light);
+}
+.hero-stat{
+  text-align:left;
+}
+.hero-stat-num{
+  font-family:var(--font-heading);
+  font-size:1.6rem;
+  font-weight:500;
+  color:var(--navy);
+  line-height:1;
+  letter-spacing:0.02em;
+}
+.hero-stat-label{
+  font-family:var(--font-heading);
+  font-size:0.65rem;
+  font-weight:300;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--ink-muted);
+  margin-top:0.2rem;
+}
+
+.hero-visual{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1.5rem;
+  position:relative;
+}
+.hero-logo-frame{
+  width:100%;
+  max-width:260px;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:var(--parchment);
+  border:2px solid var(--sand-light);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:2rem;
+  position:relative;
+}
+.hero-logo-frame .compass-deco{
+  position:absolute;
+  top:-0.75rem;
+  right:-0.75rem;
+  width:2.5rem;
+  height:2.5rem;
+  opacity:0.3;
+}
+.hero-logo-frame img{
+  max-width:80%;
+  height:auto;
+  margin-bottom:0.5rem;
+}
+.hero-padi-stars{
+  font-family:var(--font-heading);
+  font-size:0.65rem;
+  font-weight:300;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--navy);
+  display:flex;
+  align-items:center;
+  gap:0.4rem;
+}
+.hero-padi-stars svg{width:0.8rem;height:0.8rem;fill:none;stroke:var(--sand);stroke-width:1.5}
+.hero-badges{
+  display:flex;
+  gap:0.75rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.hero-badge-item{
+  display:flex;
+  align-items:center;
+  gap:0.35rem;
+  font-family:var(--font-heading);
+  font-size:0.65rem;
+  font-weight:300;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink-light);
+  background:var(--parchment);
+  padding:0.35rem 0.75rem;
+  border:1px solid var(--sand-light);
+}
+.hero-badge-item svg{width:0.7rem;height:0.7rem;stroke:var(--coral);fill:none;stroke-width:2}
+
+@media(max-width:768px){
+  .hero-content{grid-template-columns:1fr;gap:2rem}
+  .hero-visual{order:-1}
+  .hero-logo-frame{max-width:180px}
+  .hero-stats-row{flex-wrap:wrap;gap:1rem 1.5rem}
+  .hero{padding:2.5rem 0 2rem}
+}
+
+/* =========================================================
+   STATS BAR
+   ========================================================= */
+.stats-bar{
+  background:var(--navy);
+  padding:2rem 0;
+  border-bottom:3px solid var(--navy-deep);
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;
+  text-align:center;
+}
+.stat-item{
+  position:relative;
+  padding:0.5rem 0;
+}
+.stat-item:not(:last-child)::after{
+  content:'';
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:1px;
+  height:3rem;
+  background:rgba(196,167,125,0.2);
+}
+.stat-item-num{
+  font-family:var(--font-heading);
+  font-size:2rem;
+  font-weight:500;
+  color:var(--parchment);
+  line-height:1;
+  letter-spacing:0.02em;
+}
+.stat-item-label{
+  font-family:var(--font-heading);
+  font-size:0.65rem;
+  font-weight:300;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--sand);
+  margin-top:0.3rem;
+}
+@media(max-width:768px){
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .stat-item:not(:last-child)::after{display:none}
+  .stat-item:nth-child(2)::after{display:block;right:0;top:50%;transform:translateY(-50%);width:1px;height:2.5rem;background:rgba(196,167,125,0.2)}
+  .stat-item-num{font-size:1.6rem}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-item:nth-child(2)::after{display:none}
+}
+
+/* =========================================================
+   ABOUT — SHIP'S LOG
+   ========================================================= */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:start;
+}
+.about-content p{
+  font-family:var(--font-body);
+  font-size:1.05rem;
+  color:var(--ink-light);
+  line-height:1.7;
+  margin-bottom:1rem;
+}
+.about-content p:last-child{margin-bottom:0}
+.about-highlights{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0.75rem;
+}
+.about-highlight{
+  background:var(--parchment-dark);
+  padding:1rem 1.25rem;
+  border-left:3px solid var(--coral);
+}
+.about-highlight-num{
+  font-family:var(--font-heading);
+  font-size:1.3rem;
+  font-weight:500;
+  color:var(--navy);
+  line-height:1;
+}
+.about-highlight-label{
+  font-family:var(--font-body);
+  font-size:0.9rem;
+  color:var(--ink-light);
+  font-weight:500;
+}
+@media(max-width:768px){
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .about-highlights{grid-template-columns:1fr 1fr}
+}
+
+/* =========================================================
+   SERVICES — LOGBOOK CARDS
+   ========================================================= */
+.services-section{
+  background:var(--parchment-dark);
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.25rem;
+}
+.service-card{
+  background:var(--parchment);
+  border:1px solid var(--parchment-dark);
+  padding:1.75rem;
+  position:relative;
+  transition:box-shadow 0.3s ease, transform 0.3s ease;
+}
+.service-card:hover{
+  box-shadow:var(--shadow-md);
+  transform:translateY(-2px);
+}
+.service-card-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  margin-bottom:0.75rem;
+  gap:1rem;
+}
+.service-icon-wrap{
+  flex-shrink:0;
+  width:2.5rem;
+  height:2.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.service-icon-wrap svg{
+  width:1.5rem;
+  height:1.5rem;
+  stroke:var(--navy);
+  fill:none;
+  stroke-width:1.5;
+}
+.service-card h3{
+  font-family:var(--font-heading);
+  font-size:1.05rem;
+  font-weight:400;
+  color:var(--navy);
+  margin-bottom:0.3rem;
+  letter-spacing:0.02em;
+}
+.service-card .service-detail{
+  font-family:var(--font-body);
+  font-size:0.95rem;
+  color:var(--ink-light);
+  line-height:1.55;
+  margin-bottom:0.75rem;
+}
+.service-card .service-meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:0.5rem;
+}
+.service-price{
+  font-family:var(--font-heading);
+  font-size:1.2rem;
+  font-weight:500;
+  color:var(--coral);
+  letter-spacing:0.02em;
+}
+.service-price span{
+  font-family:var(--font-body);
+  font-size:0.85rem;
+  font-weight:400;
+  color:var(--ink-muted);
+  text-transform:none;
+  letter-spacing:0;
+}
+.service-tag{
+  display:inline-flex;
+  align-items:center;
+  font-family:var(--font-heading);
+  font-size:0.6rem;
+  font-weight:400;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--navy);
+  background:rgba(12,29,45,0.06);
+  padding:0.2rem 0.6rem;
+}
+@media(max-width:768px){.services-grid{grid-template-columns:1fr}}
+
+/* =========================================================
+   REVIEWS — LOGBOOK INSERT CARDS
+   ========================================================= */
+.reviews-section{
+  background:var(--navy);
+  color:var(--parchment);
+}
+.reviews-section .section-header h2{color:var(--parchment)}
+.reviews-section .section-header h2::after{background:var(--coral)}
+.reviews-section .entry-date{color:var(--sand)}
+.reviews-section .section-header p{color:var(--sand-light)}
+.reviews-ta-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  font-family:var(--font-heading);
+  font-size:0.7rem;
+  font-weight:300;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--sand);
+  border:1px solid rgba(196,167,125,0.3);
+  padding:0.35rem 1rem;
+  margin-bottom:0.75rem;
+}
+.reviews-ta-badge svg{width:0.75rem;height:0.75rem;fill:var(--sand);stroke:none}
+.reviews-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.25rem;
+}
+.review-card{
+  background:rgba(245,240,232,0.06);
+  border:1px solid rgba(245,240,232,0.12);
+  padding:1.75rem;
+  position:relative;
+  transition:background 0.3s ease;
+}
+.review-card:hover{background:rgba(245,240,232,0.1)}
+.review-card::before{
+  content:'"';
+  position:absolute;
+  top:0.5rem;
+  right:1.25rem;
+  font-family:var(--font-body);
+  font-size:3rem;
+  font-weight:700;
+  line-height:1;
+  color:rgba(196,167,125,0.15);
+}
+.review-stars{
+  display:flex;
+  gap:0.15rem;
+  margin-bottom:0.6rem;
+}
+.review-stars svg{
+  width:0.85rem;
+  height:0.85rem;
+  fill:var(--sand);
+  stroke:var(--sand);
+  stroke-width:1;
+}
+.review-text{
+  font-family:var(--font-body);
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--parchment);
+  line-height:1.55;
+  margin-bottom:1rem;
+  font-weight:500;
+}
+.review-author{
+  font-family:var(--font-heading);
+  font-size:0.7rem;
+  font-weight:300;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--sand);
+}
+.review-source{
+  font-family:var(--font-heading);
+  font-size:0.6rem;
+  font-weight:300;
+  letter-spacing:0.06em;
+  color:var(--ink-muted);
+  display:flex;
+  align-items:center;
+  gap:0.3rem;
+  margin-top:0.15rem;
+}
+.review-source svg{width:0.65rem;height:0.65rem;fill:var(--sand);stroke:none}
+.reviews-cta{
+  text-align:center;
+  margin-top:2rem;
+}
+.reviews-cta p{
+  font-family:var(--font-body);
+  font-size:0.95rem;
+  color:var(--sand-light);
+}
+.reviews-cta a{
+  font-family:var(--font-heading);
+  font-size:0.75rem;
+  font-weight:400;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--coral);
+  border-bottom:1px solid var(--coral);
+  padding-bottom:0.1rem;
+  transition:opacity 0.2s;
+}
+.reviews-cta a:hover{opacity:0.7}
+@media(max-width:768px){.reviews-grid{grid-template-columns:1fr}}
+
+/* =========================================================
+   TEAM — CREW MANIFEST
+   ========================================================= */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.25rem;
+}
+.team-card{
+  background:var(--parchment);
+  border:1px solid var(--parchment-dark);
+  padding:1.5rem;
+  text-align:center;
+  transition:box-shadow 0.3s ease;
+}
+.team-card:hover{box-shadow:var(--shadow-sm)}
+.team-avatar{
+  width:4rem;
+  height:4rem;
+  border-radius:50%;
+  background:var(--parchment-dark);
+  margin:0 auto 0.75rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid var(--sand-light);
+}
+.team-avatar svg{
+  width:1.5rem;
+  height:1.5rem;
+  stroke:var(--navy);
+  fill:none;
+  stroke-width:1.5;
+}
+.team-name{
+  font-family:var(--font-heading);
+  font-size:0.9rem;
+  font-weight:400;
+  color:var(--navy);
+  letter-spacing:0.02em;
+}
+.team-role{
+  font-family:var(--font-body);
+  font-size:0.85rem;
+  color:var(--ink-muted);
+  font-weight:500;
+}
+.team-role-sub{
+  font-family:var(--font-body);
+  font-size:0.75rem;
+  color:var(--ink-muted);
+  font-style:italic;
+}
+@media(max-width:992px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.team-grid{grid-template-columns:1fr}}
+
+/* =========================================================
+   DIVE SITES — NAUTICAL CHART
+   ========================================================= */
+.divesites-section{
+  background:var(--parchment-dark);
+}
+.divesites-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1rem;
+}
+.divesite-card{
+  background:var(--parchment);
+  border:1px solid var(--parchment-dark);
+  padding:1.25rem 1.5rem;
+  display:flex;
+  align-items:center;
+  gap:1.25rem;
+  transition:box-shadow 0.3s ease;
+}
+.divesite-card:hover{box-shadow:var(--shadow-sm)}
+.divesite-marker{
+  flex-shrink:0;
+  width:2.5rem;
+  height:2.5rem;
+  border-radius:50%;
+  border:2px solid var(--navy);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  font-family:var(--font-heading);
+  font-size:0.6rem;
+  font-weight:400;
+  color:var(--navy);
+}
+.divesite-marker::after{
+  content:'';
+  position:absolute;
+  bottom:-0.4rem;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:4px solid transparent;
+  border-right:4px solid transparent;
+  border-top:4px solid var(--navy);
+}
+.divesite-name{
+  font-family:var(--font-heading);
+  font-size:0.9rem;
+  font-weight:400;
+  color:var(--navy);
+  letter-spacing:0.02em;
+}
+.divesite-depth{
+  font-family:var(--font-body);
+  font-size:0.8rem;
+  color:var(--ink-muted);
+  font-weight:500;
+}
+.divesite-desc{
+  font-family:var(--font-body);
+  font-size:0.85rem;
+  color:var(--ink-light);
+  line-height:1.4;
+}
+@media(max-width:768px){.divesites-grid{grid-template-columns:1fr}}
+
+/* =========================================================
+   CTA SECTION
+   ========================================================= */
+.cta-section{
+  padding:5rem 0;
+  text-align:center;
+  background:var(--navy);
+  position:relative;
+  overflow:hidden;
+}
+.cta-section::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.02) 2px,
+      rgba(255,255,255,0.02) 3px
+    );
+  pointer-events:none;
+}
+.cta-section .container{position:relative;z-index:1}
+.cta-section h2{
+  color:var(--parchment);
+  margin-bottom:0.5rem;
+}
+.cta-section .section-header h2::after{margin:0.5rem auto 0}
+.cta-section .cta-sub{
+  font-family:var(--font-body);
+  font-size:1.05rem;
+  color:var(--sand-light);
+  max-width:480px;
+  margin:0 auto 1.5rem;
+  line-height:1.6;
+}
+.cta-actions{
+  display:flex;
+  gap:0.75rem;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.cta-section .phone-line{
+  font-family:var(--font-heading);
+  font-size:0.8rem;
+  font-weight:300;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--sand);
+  margin-top:1rem;
+}
+.cta-section .phone-line a{color:var(--parchment);font-weight:400;transition:color 0.2s}
+.cta-section .phone-line a:hover{color:var(--coral)}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer{
+  background:var(--ink);
+  color:var(--ink-muted);
+  padding:3.5rem 0 1.5rem;
+  font-family:var(--font-body);
+  font-size:0.95rem;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:2rem;
+  margin-bottom:2rem;
+}
+.footer-brand .nav-brand{color:var(--sand);margin-bottom:0.5rem}
+.footer-brand-desc{
+  font-size:0.9rem;
+  line-height:1.5;
+  max-width:280px;
+  color:var(--ink-muted);
+}
+.footer-heading{
+  font-family:var(--font-heading);
+  font-size:0.7rem;
+  font-weight:400;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--sand);
+  margin-bottom:0.75rem;
+}
+.footer-links li{margin-bottom:0.35rem}
+.footer-links a{color:var(--ink-muted);transition:color 0.2s;font-size:0.9rem}
+.footer-links a:hover{color:var(--sand)}
+.footer-links a svg{
+  width:0.7rem;
+  height:0.7rem;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:2;
+  margin-right:0.35rem;
+  vertical-align:middle;
+}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding-top:1.25rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:0.5rem;
+  font-size:0.85rem;
+}
+.footer-social{display:flex;gap:0.5rem}
+.footer-social a{
+  width:2rem;
+  height:2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(255,255,255,0.1);
+  color:var(--ink-muted);
+  transition:all 0.2s;
+}
+.footer-social a:hover{border-color:var(--sand);color:var(--sand)}
+.footer-social a svg{width:0.8rem;height:0.8rem;fill:none;stroke:currentColor;stroke-width:1.5}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:1.5rem}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+
+/* ---------- FLOATING WHATSAPP ---------- */
+.floating-wa{
+  position:fixed;
+  bottom:1.25rem;
+  right:1.25rem;
+  z-index:999;
+  width:3.25rem;
+  height:3.25rem;
+  border-radius:50%;
+  background:#25D366;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.35);
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+}
+.floating-wa:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,0.45)}
+.floating-wa svg{width:1.4rem;height:1.4rem;fill:var(--parchment);stroke:none}
+
+/* ---------- DEPTH MARKER COMPONENT ---------- */
+.depth-marker{
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  font-family:var(--font-heading);
+  font-size:0.65rem;
+  font-weight:300;
+  letter-spacing:0.04em;
+  color:var(--ink-muted);
+}
+.depth-marker svg{width:0.8rem;height:0.8rem;stroke:var(--navy);fill:none;stroke-width:1.5}
+
+/* ---------- SECTION DIVIDER ---------- */
+.section-divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.75rem;
+  padding:0 0 2rem;
+  opacity:0.3;
+}
+.section-divider-line{flex:1;max-width:6rem;height:1px;background:var(--sand)}
+.section-divider svg{width:1rem;height:1rem;stroke:var(--sand);fill:none;stroke-width:1.5}
+
+/* ---------- ANCHOR DECORATION ---------- */
+.anchor-deco{
+  text-align:center;
+  padding-top:2rem;
+  opacity:0.08;
+}
+.anchor-deco svg{width:2rem;height:2rem;stroke:var(--navy);fill:none;stroke-width:1.2;margin:0 auto}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BAR
+     ============================================================ -->
+<div class="top-bar">
+  <div class="container">
+    <div>
+      <span>PADI 5-Star</span>
+      <span class="top-bar-divider">|</span>
+      <span>#1 TripAdvisor</span>
+      <span class="top-bar-divider">|</span>
+      <span>2,608+ Reviews</span>
+      <span class="top-bar-divider">|</span>
+      <a href="mailto:info@scubalifecozumel.com">info@scubalifecozumel.com</a>
+    </div>
+    <div class="top-bar-social">
+      <a href="https://www.facebook.com/scubalifecozumel/" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" stroke="currentColor" fill="none"/></svg>
+        Facebook
+      </a>
+      <a href="https://www.instagram.com/scubalifecozumel/" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" fill="none"/><circle cx="12" cy="12" r="5" stroke="currentColor" fill="none"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     STICKY NAV
+     ============================================================ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10" stroke="currentColor" fill="none"/><path d="M12 6a6 6 0 1 0 6 6" stroke="currentColor" fill="none"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/></svg>
+      Scuba Life Cozumel
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#crew">Crew</a>
+      <a href="#divesites">Dive Sites</a>
+      <a href="#contact">Contact</a>
+      <a href="https://wa.me/529871123016?text=Hi%20Scuba%20Life%21%20I%20want%20to%20book%20a%20dive" target="_blank" class="nav-cta">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-wave-bg" aria-hidden="true">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path class="hero-wave-path" d="M0,60 C200,20 400,100 600,60 C800,20 1000,100 1200,60 L1200,120 L0,120 Z"/>
+      <path class="hero-wave-path" d="M0,80 C200,40 400,120 600,80 C800,40 1000,120 1200,80 L1200,120 L0,120 Z" style="animation-delay:0.5s;opacity:0.5"/>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-logbook reveal">
+        <div class="logbook-label">Logbook Entry 01</div>
+        <h1>
+          DIVE LOG<br>COZUMEL
+          <span class="hero-sub-line">No Safari Required. Just Diving.</span>
+        </h1>
+        <div class="hero-rule"></div>
+        <p>Cozumel's premier PADI 5-Star Dive Center since 2017. Small groups, extended bottom times, top-tier Scubapro gear, and a crew that treats you like family. 2,608+ five-star reviews and counting.</p>
+        <div class="hero-actions">
+          <a href="https://scubalifecozumel.com/reserve-cozumel-diving/" target="_blank" class="btn btn-primary">Book a Dive</a>
+          <a href="https://wa.me/529871123016?text=Hi%20Scuba%20Life%21%20I%20have%20a%20question" target="_blank" class="btn btn-coral">WhatsApp Us</a>
+        </div>
+        <div class="hero-stats-row">
+          <div class="hero-stat">
+            <div class="hero-stat-num">3,500+</div>
+            <div class="hero-stat-label">Dives Completed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">2,608+</div>
+            <div class="hero-stat-label">5-Star Reviews</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">9+</div>
+            <div class="hero-stat-label">Years in Operation</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual reveal" style="transition-delay:0.15s">
+        <div class="hero-logo-frame">
+          <div class="compass-deco">
+            <svg viewBox="0 0 24 24" style="animation:compassSpin 16s linear infinite">
+              <polygon points="12,2 14,10 22,12 14,14 12,22 10,14 2,12 10,10" stroke="var(--coral)" fill="none" stroke-width="1"/>
+            </svg>
+          </div>
+          <img src="https://scubalifecozumel.com/wp-content/uploads/logo.png" alt="Scuba Life Cozumel logo" loading="lazy" onerror="this.style.display='none'">
+          <div class="hero-padi-stars">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9" stroke="currentColor" fill="none"/></svg>
+            PADI 5-Star Center
+          </div>
+        </div>
+        <div class="hero-badges">
+          <span class="hero-badge-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" fill="none"/></svg>
+            DAN Member
+          </span>
+          <span class="hero-badge-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" fill="none"/></svg>
+            AWARE Partner
+          </span>
+          <span class="hero-badge-item">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" fill="none"/><circle cx="9" cy="7" r="4" stroke="currentColor" fill="none"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" fill="none"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" fill="none"/></svg>
+            4:1 Ratio
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS BAR
+     ============================================================ -->
+<section class="stats-bar reveal">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-item-num">3,500+</div>
+        <div class="stat-item-label">Dives Logged</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item-num">2,470+</div>
+        <div class="stat-item-label">Certifications Issued</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item-num">35+</div>
+        <div class="stat-item-label">Dive Sites</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item-num">70</div>
+        <div class="stat-item-label">Minute Bottom Times</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT — SHIP'S LOG
+     ============================================================ -->
+<section class="section-padding paper-bg" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="entry-date">Ship's Log &mdash; Established 2017</div>
+      <h2>The Dive Center</h2>
+      <p>Fonatur Marina, Cozumel, Quintana Roo, Mexico. PADI 5-Star Dive Center with 9+ years of excellence.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-content reveal-left">
+        <p>Scuba Life Cozumel was born from a simple belief: the best diving experiences come from small groups, expert guides, and genuine hospitality. Located at Fonatur Marina on Cozumel's stunning southern coast, we have built a reputation as the island's most trusted dive operation.</p>
+        <p>Our philosophy is straightforward. We limit every group to a maximum of 4 divers per guide. We extend bottom times to 70 minutes because we believe in diving your tank, not the clock. Every piece of rental equipment is Scubapro -- maintained to the highest standard. Our boat carries a high-pressure oxygen tank for every trip, because safety is never optional.</p>
+        <p>With 2,470+ certifications issued across every PADI level from Open Water to Divemaster, we have introduced hundreds of divers to the underwater world and helped thousands more explore Cozumel's legendary reefs.</p>
+      </div>
+      <div class="about-highlights reveal-right">
+        <div class="about-highlight">
+          <div class="about-highlight-num">4:1</div>
+          <div class="about-highlight-label">Max diver-to-guide ratio</div>
+        </div>
+        <div class="about-highlight">
+          <div class="about-highlight-num">70 min</div>
+          <div class="about-highlight-label">Extended bottom times</div>
+        </div>
+        <div class="about-highlight">
+          <div class="about-highlight-num">2,470+</div>
+          <div class="about-highlight-label">Certifications issued</div>
+        </div>
+        <div class="about-highlight">
+          <div class="about-highlight-num">35+</div>
+          <div class="about-highlight-label">Dive sites explored</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES — LOGBOOK CARDS
+     ============================================================ -->
+<section class="section-padding services-section" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="entry-date">Services &mdash; Rates &amp; Packages</div>
+      <h2>Dive Experiences</h2>
+      <p>Every dive includes expert guide, premium Scubapro gear, hotel dock pickup, snacks, drinks, and surface interval. No hidden fees.</p>
+    </div>
+    <div class="services-grid reveal-stagger">
+      <!-- 2-Tank Dive -->
+      <div class="service-card">
+        <div class="service-card-header">
+          <div>
+            <h3>2-Tank Morning Dive</h3>
+            <div class="depth-marker">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor"/><polyline points="4,14 12,22 20,14" stroke="currentColor" fill="none"/></svg>
+              Certified divers &bull; 70 min bottom time
+            </div>
+          </div>
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" fill="none"/><path d="M8 14c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="currentColor" fill="none"/><line x1="12" y1="6" x2="12" y2="10" stroke="currentColor"/></svg>
+          </div>
+        </div>
+        <p class="service-detail">Two dives on Cozumel's best reefs. Small groups, one guide per 4 divers max. Extended bottom times -- dive your tank, not the clock.</p>
+        <div class="service-meta">
+          <div class="service-price">$95 <span>/ person</span></div>
+          <span class="stamp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="8,12 11,15 16,9"/></svg>Approved</span>
+          <span class="service-tag">Most Popular</span>
+        </div>
+      </div>
+
+      <!-- DSD -->
+      <div class="service-card">
+        <div class="service-card-header">
+          <div>
+            <h3>Discover Scuba Diving</h3>
+            <div class="depth-marker">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor"/><polyline points="4,14 12,22 20,14" stroke="currentColor" fill="none"/></svg>
+              No cert needed &bull; Shallow reef
+            </div>
+          </div>
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="14" rx="7" ry="4" stroke="currentColor" fill="none"/><path d="M5 14v-2a7 7 0 0 1 14 0v2" stroke="currentColor" fill="none"/><line x1="12" y1="6" x2="12" y2="10" stroke="currentColor"/></svg>
+          </div>
+        </div>
+        <p class="service-detail">Never tried scuba? This is your first step. Shallow water intro with full instruction. No certification needed. All gear included.</p>
+        <div class="service-meta">
+          <div class="service-price">$135 <span>/ person</span></div>
+          <span class="stamp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="8,12 11,15 16,9"/></svg>Approved</span>
+          <span class="service-tag">Beginner Friendly</span>
+        </div>
+      </div>
+
+      <!-- Open Water -->
+      <div class="service-card">
+        <div class="service-card-header">
+          <div>
+            <h3>Open Water Certification</h3>
+            <div class="depth-marker">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor"/><polyline points="4,14 12,22 20,14" stroke="currentColor" fill="none"/></svg>
+              PADI eLearning &bull; 4 dives
+            </div>
+          </div>
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" fill="none"/></svg>
+          </div>
+        </div>
+        <p class="service-detail">Become a certified diver. PADI eLearning saves vacation time. Includes all training, gear, pool sessions, and 4 open water dives.</p>
+        <div class="service-meta">
+          <div class="service-price">$599 <span>/ person &mdash; Special</span></div>
+          <span class="stamp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="8,12 11,15 16,9"/></svg>Approved</span>
+          <span class="service-tag">Best Value</span>
+        </div>
+      </div>
+
+      <!-- Advanced Open Water -->
+      <div class="service-card">
+        <div class="service-card-header">
+          <div>
+            <h3>Advanced Open Water</h3>
+            <div class="depth-marker">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor"/><polyline points="4,14 12,22 20,14" stroke="currentColor" fill="none"/></svg>
+              5 dives &bull; Deep &amp; nav
+            </div>
+          </div>
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" fill="none"/><circle cx="12" cy="12" r="4" stroke="currentColor" fill="none"/><line x1="12" y1="2" x2="12" y2="4" stroke="currentColor"/><line x1="12" y1="20" x2="12" y2="22" stroke="currentColor"/></svg>
+          </div>
+        </div>
+        <p class="service-detail">Take your skills deeper. Five adventure dives including deep diving and navigation. Perfect next step after Open Water.</p>
+        <div class="service-meta">
+          <div class="service-price">$450 <span>/ person</span></div>
+          <span class="stamp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="8,12 11,15 16,9"/></svg>Approved</span>
+          <span class="service-tag">Next Level</span>
+        </div>
+      </div>
+
+      <!-- Rescue Diver -->
+      <div class="service-card">
+        <div class="service-card-header">
+          <div>
+            <h3>Rescue Diver Course</h3>
+            <div class="depth-marker">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor"/><polyline points="4,14 12,22 20,14" stroke="currentColor" fill="none"/></svg>
+              2 days &bull; PADI certified
+            </div>
+          </div>
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" fill="none"/></svg>
+          </div>
+        </div>
+        <p class="service-detail">Build confidence and learn to handle emergencies. The most rewarding course in diving. Prerequisite for Divemaster.</p>
+        <div class="service-meta">
+          <div class="service-price">$450 <span>/ person</span></div>
+          <span class="stamp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="8,12 11,15 16,9"/></svg>Approved</span>
+          <span class="service-tag">Essential Skills</span>
+        </div>
+      </div>
+
+      <!-- Private Charter -->
+      <div class="service-card">
+        <div class="service-card-header">
+          <div>
+            <h3>Private Charter</h3>
+            <div class="depth-marker">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor"/><polyline points="4,14 12,22 20,14" stroke="currentColor" fill="none"/></svg>
+              1-8 divers &bull; Custom itinerary
+            </div>
+          </div>
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M2 12l2-8h16l2 8" stroke="currentColor" fill="none"/><path d="M22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6" stroke="currentColor" fill="none"/><line x1="8" y1="22" x2="8" y2="18" stroke="currentColor"/><line x1="16" y1="22" x2="16" y2="18" stroke="currentColor"/></svg>
+          </div>
+        </div>
+        <p class="service-detail">Your own boat, guide, and itinerary. Perfect for families, groups, or photographers who want a custom schedule and private experience.</p>
+        <div class="service-meta">
+          <div class="service-price">$650+ <span>/ up to 8 divers</span></div>
+          <span class="stamp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="8,12 11,15 16,9"/></svg>VIP</span>
+          <span class="service-tag">Exclusive</span>
+        </div>
+      </div>
+
+      <!-- Nitrox -->
+      <div class="service-card">
+        <div class="service-card-header">
+          <div>
+            <h3>Nitrox Certification</h3>
+            <div class="depth-marker">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor"/><polyline points="4,14 12,22 20,14" stroke="currentColor" fill="none"/></svg>
+              Extended no-deco time
+            </div>
+          </div>
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" fill="none"/><path d="M12 6v6l4 2" stroke="currentColor" fill="none"/></svg>
+          </div>
+        </div>
+        <p class="service-detail">Dive longer with enriched air. PADI Nitrox certification. Includes all materials and certification fee.</p>
+        <div class="service-meta">
+          <div class="service-price">$200 <span>/ person</span></div>
+          <span class="stamp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="8,12 11,15 16,9"/></svg>Approved</span>
+          <span class="service-tag">Enriched Air</span>
+        </div>
+      </div>
+
+      <!-- Snorkeling -->
+      <div class="service-card">
+        <div class="service-card-header">
+          <div>
+            <h3>Snorkeling Tour</h3>
+            <div class="depth-marker">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor"/><polyline points="4,14 12,22 20,14" stroke="currentColor" fill="none"/></svg>
+              All gear &bull; Reef tour
+            </div>
+          </div>
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="14" rx="7" ry="4" stroke="currentColor" fill="none"/><path d="M5 14v-2a7 7 0 0 1 14 0v2" stroke="currentColor" fill="none"/></svg>
+          </div>
+        </div>
+        <p class="service-detail">Explore Cozumel's crystal-clear reefs from the surface. Perfect for families and non-divers. Snorkel the same world-class sites.</p>
+        <div class="service-meta">
+          <div class="service-price">$55 <span>/ person</span></div>
+          <span class="stamp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="8,12 11,15 16,9"/></svg>Approved</span>
+          <span class="service-tag">Family Friendly</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS
+     ============================================================ -->
+<section class="section-padding reviews-section" id="reviews">
+  <div class="container">
+    <div class="section-header reveal" style="margin-bottom:2rem">
+      <div class="entry-date">Guest Log &mdash; Verified Reviews</div>
+      <h2>What Divers Say</h2>
+      <p>Rated #1 on TripAdvisor in Cozumel. 2,608+ five-star reviews and counting.</p>
+    </div>
+    <div class="reviews-tb">
+      <div class="reviews-ta-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        5.0 &mdash; 2,608+ reviews on TripAdvisor
+      </div>
+    </div>
+    <div class="reviews-grid reveal-stagger">
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+        </div>
+        <p class="review-text">"Amazing as always! The best dive shop I've ever used. They go above and beyond. Small groups, great equipment, professional staff."</p>
+        <div class="review-author">Verified Traveller</div>
+        <div class="review-source">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          TripAdvisor &bull; 2,608+ Reviews
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+        </div>
+        <p class="review-text">"I just got my Open Water certification and my instructor was JJ. Highly recommend! Everything was perfect from start to finish. Professional, patient, and made the whole experience unforgettable."</p>
+        <div class="review-author">Verified Traveller</div>
+        <div class="review-source">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          TripAdvisor &bull; 2,608+ Reviews
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+        </div>
+        <p class="review-text">"Best in Cozumel. Small groups, great equipment, professional staff. An EXCELLENT dive operation from start to finish. Their boat is top-notch and the crew are all amazing."</p>
+        <div class="review-author">Verified Traveller</div>
+        <div class="review-source">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          TripAdvisor &bull; 2,608+ Reviews
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 23,9 16,14 19,22 12,17 5,22 8,14 1,9 9,9"/></svg>
+        </div>
+        <p class="review-text">"The best dive shop I've ever used. They go above and beyond. From the first contact to the final dive, every detail was handled with care. Highly recommend Scuba Life Cozumel."</p>
+        <div class="review-author">Verified Traveller</div>
+        <div class="review-source">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          TripAdvisor &bull; 2,608+ Reviews
+        </div>
+      </div>
+    </div>
+    <div class="reviews-cta reveal">
+      <p>Read more on TripAdvisor</p>
+      <a href="https://www.tripadvisor.ca/Attraction_Review-g150809-d8469486-Reviews-Scuba_Life_Cozumel-Cozumel_Yucatan_Peninsula.html" target="_blank">View All Reviews &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TEAM — CREW MANIFEST
+     ============================================================ -->
+<section class="section-padding paper-bg" id="crew">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="entry-date">Crew Manifest &mdash; Your Dive Team</div>
+      <h2>Meet the Crew</h2>
+      <p>The people behind Scuba Life Cozumel. PADI-certified professionals who share a passion for the ocean and making every dive unforgettable.</p>
+    </div>
+    <div class="team-grid reveal-stagger">
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" fill="none"/><circle cx="12" cy="7" r="4" stroke="currentColor" fill="none"/></svg>
+        </div>
+        <div class="team-name">JP</div>
+        <div class="team-role">Owner &amp; Head Instructor</div>
+        <div class="team-role-sub">PADI Master Instructor</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" fill="none"/><circle cx="12" cy="7" r="4" stroke="currentColor" fill="none"/></svg>
+        </div>
+        <div class="team-name">Carly</div>
+        <div class="team-role">Operations Manager</div>
+        <div class="team-role-sub">Keeping it all running</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" fill="none"/><circle cx="12" cy="7" r="4" stroke="currentColor" fill="none"/></svg>
+        </div>
+        <div class="team-name">Nivo</div>
+        <div class="team-role">Instructor</div>
+        <div class="team-role-sub">PADI Instructor</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" fill="none"/><circle cx="12" cy="7" r="4" stroke="currentColor" fill="none"/></svg>
+        </div>
+        <div class="team-name">Aldo</div>
+        <div class="team-role">Instructor</div>
+        <div class="team-role-sub">PADI Instructor</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" fill="none"/><circle cx="12" cy="7" r="4" stroke="currentColor" fill="none"/></svg>
+        </div>
+        <div class="team-name">Jorge</div>
+        <div class="team-role">Captain</div>
+        <div class="team-role-sub">Boat Captain</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" fill="none"/><circle cx="12" cy="7" r="4" stroke="currentColor" fill="none"/></svg>
+        </div>
+        <div class="team-name">Santiago</div>
+        <div class="team-role">Captain</div>
+        <div class="team-role-sub">Boat Captain</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" fill="none"/><circle cx="12" cy="7" r="4" stroke="currentColor" fill="none"/></svg>
+        </div>
+        <div class="team-name">Captain Mono</div>
+        <div class="team-role">Captain &amp; Crew</div>
+        <div class="team-role-sub">Boat Captain</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" fill="none"/><circle cx="12" cy="7" r="4" stroke="currentColor" fill="none"/></svg>
+        </div>
+        <div class="team-name">Javier</div>
+        <div class="team-role">Instructor / DM</div>
+        <div class="team-role-sub">PADI Divemaster</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIVE SITES — NAUTICAL CHART
+     ============================================================ -->
+<section class="section-padding divesites-section" id="divesites">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="entry-date">Navigation Chart &mdash; Dive Site Coordinates</div>
+      <h2>Explore the Reefs</h2>
+      <p>Cozumul's marine park features 35+ world-class dive sites. Dramatic walls, swim-throughs, turtles, rays, nurse sharks, and endless coral gardens.</p>
+    </div>
+    <div class="divesites-grid reveal-stagger">
+      <div class="divesite-card">
+        <div class="divesite-marker">85</div>
+        <div>
+          <div class="divesite-name">Palancar Reef</div>
+          <div class="divesite-depth">Depth: 50-85 ft &bull; Wall &amp; Coral</div>
+          <div class="divesite-desc">Dramatic wall dives with massive coral formations, swim-throughs, and abundant marine life.</div>
+        </div>
+      </div>
+      <div class="divesite-card">
+        <div class="divesite-marker">90</div>
+        <div>
+          <div class="divesite-name">Columbia Reef</div>
+          <div class="divesite-depth">Depth: 40-90 ft &bull; Wall &amp; Garden</div>
+          <div class="divesite-desc">Stunning coral gardens and deep wall sections. Known for eagle rays and turtle encounters.</div>
+        </div>
+      </div>
+      <div class="divesite-card">
+        <div class="divesite-marker">60</div>
+        <div>
+          <div class="divesite-name">Santa Rosa Wall</div>
+          <div class="divesite-depth">Depth: 40-60 ft &bull; Wall</div>
+          <div class="divesite-desc">A spectacular wall dive with incredible visibility, gorgonians, and frequent nurse shark sightings.</div>
+        </div>
+      </div>
+      <div class="divesite-card">
+        <div class="divesite-marker">50</div>
+        <div>
+          <div class="divesite-name">Punta Sur</div>
+          <div class="divesite-depth">Depth: 30-50 ft &bull; Reef &amp; Drift</div>
+          <div class="divesite-desc">Gentle drift diving through pristine coral. Turtles, rays, and macro life in crystal-clear water.</div>
+        </div>
+      </div>
+      <div class="divesite-card">
+        <div class="divesite-marker">70</div>
+        <div>
+          <div class="divesite-name">Cedral Wall</div>
+          <div class="divesite-depth">Depth: 45-70 ft &bull; Wall &amp; Reef</div>
+          <div class="divesite-desc">Beautiful shallows and a dramatic drop-off. Home to diverse coral species and schooling fish.</div>
+        </div>
+      </div>
+      <div class="divesite-card">
+        <div class="divesite-marker">65</div>
+        <div>
+          <div class="divesite-name">Paradise Reef</div>
+          <div class="divesite-depth">Depth: 30-65 ft &bull; Reef</div>
+          <div class="divesite-desc">Perfect for all experience levels. Shallow coral heads, abundant marine life, excellent photo opportunities.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-header" style="border:0;margin-bottom:0">
+        <h2 style="color:var(--parchment);text-align:center">
+          Book Your Dive
+          <span style="display:block;margin:0.5rem auto 0;width:3rem;height:3px;background:var(--coral)"></span>
+        </h2>
+      </div>
+      <p class="cta-sub">Spaces fill fast during high season. Reserve now and secure your spot on Cozumel's top-rated dive boat.</p>
+      <div class="cta-actions">
+        <a href="https://scubalifecozumel.com/reserve-cozumel-diving/" target="_blank" class="btn btn-coral" style="padding:0.9rem 2.5rem;font-size:0.9rem">Book Online</a>
+        <a href="https://wa.me/529871123016?text=Hi%20Scuba%20Life%21%20I%20want%20to%20book%20a%20dive" target="_blank" class="btn btn-wa" style="padding:0.9rem 2.5rem;font-size:0.9rem">WhatsApp Us</a>
+      </div>
+      <div class="phone-line">
+        or call <a href="tel:+529871123016">+52 987 112 3016</a> &bull; <a href="tel:+12109401671">+1 210 940 1671</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-brand">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10" stroke="currentColor" fill="none"/><path d="M12 6a6 6 0 1 0 6 6" stroke="currentColor" fill="none"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/></svg>
+          Scuba Life Cozumel
+        </div>
+        <p class="footer-brand-desc">PADI 5-Star Dive Center. Small groups, big adventures. Cozumel's #1 rated dive shop since 2017.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Diving</div>
+        <ul class="footer-links">
+          <li><a href="https://scubalifecozumel.com/cozumel-diving/" target="_blank">Certified Diving</a></li>
+          <li><a href="https://scubalifecozumel.com/try-cozumel-scuba-diving/" target="_blank">Try Scuba</a></li>
+          <li><a href="https://scubalifecozumel.com/cozumel-snorkeling/" target="_blank">Snorkeling</a></li>
+          <li><a href="https://scubalifecozumel.com/cozumel-private-charter/" target="_blank">Private Charter</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Courses</div>
+        <ul class="footer-links">
+          <li><a href="https://scubalifecozumel.com/open-water-cozumel/" target="_blank">Open Water</a></li>
+          <li><a href="https://scubalifecozumel.com/advanced-open-water-cozumel/" target="_blank">Advanced Open Water</a></li>
+          <li><a href="https://scubalifecozumel.com/rescue-diver-cozumel/" target="_blank">Rescue Diver</a></li>
+          <li><a href="https://scubalifecozumel.com/divemaster-cozumel/" target="_blank">Divemaster</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <ul class="footer-links">
+          <li>
+            <a href="tel:+529871123016">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" fill="none"/></svg>
+              +52 987 112 3016
+            </a>
+          </li>
+          <li>
+            <a href="tel:+12109401671">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" fill="none"/></svg>
+              +1 210 940 1671
+            </a>
+          </li>
+          <li>
+            <a href="mailto:info@scubalifecozumel.com">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" fill="none"/><polyline points="22,6 12,13 2,6" stroke="currentColor" fill="none"/></svg>
+              info@scubalifecozumel.com
+            </a>
+          </li>
+          <li>
+            <a href="https://maps.google.com/?q=Fonatur+Marina+Cozumel" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" fill="none"/><circle cx="12" cy="10" r="3" stroke="currentColor" fill="none"/></svg>
+              Fonatur Marina, Cozumel, Q.R.
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Scuba Life Cozumel. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/scubalifecozumel/" target="_blank" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" stroke="currentColor" fill="none"/></svg>
+        </a>
+        <a href="https://www.instagram.com/scubalifecozumel/" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" fill="none"/><circle cx="12" cy="12" r="5" stroke="currentColor" fill="none"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.tripadvisor.ca/Attraction_Review-g150809-d8469486-Reviews-Scuba_Life_Cozumel-Cozumel_Yucatan_Peninsula.html" target="_blank" aria-label="TripAdvisor">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" fill="none"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" fill="none"/></svg>
+        </a>
+        <a href="https://www.youtube.com/channel/UCgnCy-s74fHU-3tg1sQccOg/videos" target="_blank" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29.86 29.86 0 0 0 1 12a29.86 29.86 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29.86 29.86 0 0 0 23 12a29.86 29.86 0 0 0-.46-5.58z" stroke="currentColor" fill="none"/><polygon points="9.75,8.75 9.75,15.25 15.5,12" stroke="currentColor" fill="none"/></svg>
+        </a>
+        <a href="https://www.padi.com/dive-center/mexiko/scuba-life-cozumel/" target="_blank" aria-label="PADI">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" fill="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+<a href="https://wa.me/529871123016?text=Hi%20Scuba%20Life%21%20I%20want%20to%20book%20a%20dive" target="_blank" class="floating-wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="#F5F0E8" fill="none" stroke-width="1.5"/><path d="M9 9h.01M15 9h.01M9 13a3.5 3.5 0 0 0 6 0" stroke="#F5F0E8" fill="none" stroke-width="1.5" stroke-linecap="round"/></svg>
+</a>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+(function() {
+  'use strict';
+
+  // --- Nav toggle ---
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (toggle && links) {
+    toggle.addEventListener('click', function() {
+      links.classList.toggle('open');
+    });
+    document.querySelectorAll('#navLinks a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        links.classList.remove('open');
+      });
+    });
+  }
+
+  // --- Intersection Observer for reveals ---
+  var revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger');
+  if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    revealElements.forEach(function(el) { observer.observe(el); });
+  } else {
+    revealElements.forEach(function(el) { el.classList.add('revealed'); });
+  }
+
+  // --- Rubber stamp animation on scroll ---
+  var stamps = document.querySelectorAll('.stamp');
+  if (stamps.length > 0 && 'IntersectionObserver' in window) {
+    var stampObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+    stamps.forEach(function(el) { stampObserver.observe(el); });
+  }
+
+})();
+</script>
+
+</body>
+</html>
