@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Mi Terraza &mdash; Celebraciones Intimas en Tampico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mt-warm-paper: oklch(0.95 0.008 75);
+  --mt-rose: oklch(0.55 0.16 28);
+  --mt-rose-dark: oklch(0.45 0.14 28);
+  --mt-olive: oklch(0.48 0.12 140);
+  --mt-olive-dark: oklch(0.38 0.1 140);
+  --mt-dark: oklch(0.15 0.015 50);
+  --mt-surface: oklch(0.97 0.005 80);
+  --mt-gold: oklch(0.7 0.14 55);
+  --mt-muted: oklch(0.6 0.04 50);
+  --mt-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --mt-heading: 'Libre Baskerville', Georgia, serif;
+  --mt-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --mt-radius: 16px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: var(--mt-body); background: var(--mt-surface); color: var(--mt-dark); overflow-x: hidden; line-height: 1.7; }
+img { max-width: 100%; display: block; height: auto; }
+a { text-decoration: none; color: inherit; }
+::selection { background: var(--mt-rose); color: white; }
+
+.mt__nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; transition: background 0.5s var(--mt-ease), box-shadow 0.5s var(--mt-ease); background: transparent; }
+.mt__nav-scrolled { background: oklch(0.15 0.015 50 / 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 0 oklch(1 0 0 / 0.06); }
+.mt__nav-logo { font-family: var(--mt-heading); font-size: 1rem; color: white; letter-spacing: 0.04em; }
+.mt__nav-links { display: flex; gap: 24px; list-style: none; }
+.mt__nav-links a { font-family: var(--mt-body); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: oklch(1 0 0 / 0.65); transition: color 0.4s var(--mt-ease); }
+.mt__nav-links a:hover { color: white; }
+@media (max-width: 640px) { .mt__nav-links { display: none; } .mt__nav { padding: 12px 20px; } }
+
+.mt__whatsapp { position: fixed; bottom: 24px; right: 24px; z-index: 99; width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(37,211,102,0.35); transition: transform 0.4s var(--mt-ease), box-shadow 0.4s var(--mt-ease); animation: mt__wa-float 2.4s ease-in-out infinite; }
+.mt__whatsapp:hover { transform: scale(1.08); box-shadow: 0 10px 36px rgba(37,211,102,0.5); animation: none; }
+.mt__whatsapp svg { width: 26px; height: 26px; }
+@keyframes mt__wa-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+.mt__scroll-top { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-family: var(--mt-body); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: oklch(0.6 0.04 50 / 0.5); cursor: pointer; background: none; border: none; transition: color 0.4s var(--mt-ease); }
+.mt__scroll-top:hover { color: var(--mt-rose); }
+.mt__scroll-top svg { width: 14px; height: 14px; }
+
+.mt__hero-slides { position: absolute; inset: -10% -10% 0 -10%; z-index: 0; will-change: transform; }
+.mt__hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center 30%; opacity: 0; animation: mt__slideShow 20s infinite; pointer-events: none; }
+@keyframes mt__slideShow { 0%, 2% { opacity: 0; } 6% { opacity: 1; } 22% { opacity: 1; } 26% { opacity: 0; } 100% { opacity: 0; } }
+.mt__hero-dots { position: absolute; bottom: 72px; left: 50%; transform: translateX(-50%); z-index: 4; display: flex; gap: 10px; }
+.mt__hero-dot { width: 8px; height: 8px; border-radius: 50%; background: oklch(1 0 0 / 0.25); transition: background 0.5s var(--mt-ease), transform 0.5s var(--mt-ease); cursor: pointer; }
+.mt__hero-dot.is-active { background: var(--mt-gold); transform: scale(1.3); }
+
+.mt__lightbox { position: fixed; inset: 0; z-index: 200; background: oklch(0 0 0 / 0.88); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.5s var(--mt-ease); }
+.mt__lightbox.is-open { opacity: 1; pointer-events: all; }
+.mt__lightbox-img { max-width: 90vw; max-height: 85vh; border-radius: 8px; box-shadow: 0 24px 64px oklch(0 0 0 / 0.4); transform: scale(0.92); transition: transform 0.5s var(--mt-ease); }
+.mt__lightbox.is-open .mt__lightbox-img { transform: scale(1); }
+.mt__lightbox-close { position: absolute; top: 20px; right: 28px; width: 44px; height: 44px; border-radius: 50%; background: oklch(1 0 0 / 0.08); border: none; color: oklch(1 0 0 / 0.6); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.4s var(--mt-ease); font-size: 1.4rem; font-family: var(--mt-body); }
+.mt__lightbox-close:hover { background: oklch(1 0 0 / 0.15); color: white; }
+
+.mt__package--featured { border-bottom-color: var(--mt-gold); box-shadow: 0 12px 40px oklch(0.7 0.14 55 / 0.12); transform: scale(1.02); position: relative; overflow: hidden; }
+.mt__package--featured:hover { transform: scale(1.04); }
+.mt__package--featured .mt__package-name { color: var(--mt-gold); }
+.mt__package--ribbon { position: absolute; top: 16px; right: -32px; width: 120px; padding: 4px 0; background: var(--mt-gold); color: var(--mt-dark); font-family: var(--mt-body); font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; text-align: center; transform: rotate(45deg); transform-origin: center; }
+
+.mt__wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.mt__reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--mt-ease), transform 1s var(--mt-ease); }
+.mt__reveal.mt__in-view { opacity: 1; transform: translateY(0); }
+.mt__section { padding: 110px 0; }
+.mt__section-alt { background: var(--mt-warm-paper); }
+.mt__section-header { text-align: center; margin-bottom: 60px; }
+.mt__section-label { display: block; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--mt-muted); margin-bottom: 10px; }
+.mt__section-title { font-family: var(--mt-heading); font-size: clamp(1.8rem, 3.8vw, 2.8rem); font-weight: 700; color: var(--mt-dark); line-height: 1.2; }
+.mt__section-line { width: 40px; height: 1.5px; background: var(--mt-olive); margin: 18px auto 0; border: 0; opacity: 0.4; }
+.mt__btn { display: inline-flex; align-items: center; gap: 8px; padding: 15px 36px; border-radius: 50px; font-family: var(--mt-body); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.5s var(--mt-ease); border: 1.5px solid transparent; outline: none; letter-spacing: 0.06em; text-transform: uppercase; }
+.mt__btn-rose { background: var(--mt-rose); color: white; border-color: var(--mt-rose); }
+.mt__btn-rose:hover { background: oklch(0.5 0.085 30); border-color: oklch(0.5 0.085 30); transform: translateY(-3px); box-shadow: 0 14px 36px oklch(0 0 0 / 0.2); }
+.mt__btn-olive { background: transparent; color: white; border-color: var(--mt-olive); }
+.mt__btn-olive:hover { background: var(--mt-olive); color: white; transform: translateY(-3px); box-shadow: 0 14px 36px oklch(0 0 0 / 0.18); }
+.mt__btn-rose-outline { background: transparent; color: var(--mt-rose); border-color: var(--mt-rose); }
+.mt__btn-rose-outline:hover { background: var(--mt-rose); color: white; transform: translateY(-3px); box-shadow: 0 14px 36px oklch(0 0 0 / 0.15); }
+
+.mt__hero { min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 100px 24px 60px; position: relative; overflow: hidden; color: white; }
+.mt__hero-bg { position: absolute; inset: -10% -10% 0 -10%; background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1600&q=80') center 30%/cover no-repeat; will-change: transform; z-index: 0; }
+.mt__hero-overlay { position: absolute; inset: 0; background: linear-gradient(145deg, oklch(0.18 0.02 50 / 0.55) 0%, oklch(0.55 0.08 30 / 0.4) 45%, oklch(0.18 0.02 50 / 0.65) 100%); z-index: 1; pointer-events: none; }
+.mt__hero-content { position: relative; z-index: 2; max-width: 780px; }
+.mt__hero-flourish { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 28px; color: var(--mt-gold); font-family: var(--mt-heading); font-size: 2rem; opacity: 0.5; font-weight: 400; }
+.mt__hero-flourish-line { width: 70px; height: 1px; background: var(--mt-gold); opacity: 0.4; }
+.mt__hero-title { font-family: var(--mt-heading); font-weight: 700; font-size: clamp(2.6rem, 7vw, 4.8rem); line-height: 1.05; margin-bottom: 14px; letter-spacing: 0.01em; }
+.mt__hero-divider { width: 64px; height: 1.5px; background: var(--mt-olive); margin: 18px auto; border: 0; opacity: 0.55; }
+.mt__hero-sub { font-family: var(--mt-body); font-size: clamp(0.95rem, 1.6vw, 1.15rem); color: oklch(1 0 0 / 0.7); letter-spacing: 0.08em; font-weight: 300; margin-bottom: 42px; }
+.mt__hero-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.mt__hero-scroll { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 8px; color: oklch(1 0 0 / 0.35); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; animation: mt__scrollHint 2.8s ease infinite; }
+@keyframes mt__scrollHint { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+.mt__hero-scroll-line { width: 1px; height: 28px; background: oklch(1 0 0 / 0.25); }
+
+.mt__packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: start; }
+.mt__package { background: var(--mt-surface); padding: 48px 36px 40px; border-radius: var(--mt-radius); position: relative; transition: transform 0.7s var(--mt-ease), box-shadow 0.7s var(--mt-ease); border-bottom: 3px solid var(--mt-olive); opacity: 0; transform: translateY(30px); }
+.mt__package.mt__in-view { opacity: 1; transform: translateY(0); }
+.mt__package:hover { transform: translateY(-8px); box-shadow: 0 28px 56px oklch(0 0 0 / 0.07); }
+.mt__package:hover.mt__in-view { transform: translateY(-8px); }
+.mt__package-num { font-family: var(--mt-heading); font-size: clamp(3rem, 5vw, 4.2rem); font-weight: 700; line-height: 1; color: var(--mt-rose); opacity: 0.18; margin-bottom: 6px; transition: opacity 0.6s var(--mt-ease); }
+.mt__package:hover .mt__package-num { opacity: 0.32; }
+.mt__package-name { font-family: var(--mt-heading); font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; color: var(--mt-dark); }
+.mt__package-price { font-size: 1.35rem; font-weight: 700; color: var(--mt-olive); margin-bottom: 20px; letter-spacing: 0.02em; }
+.mt__package-price small { font-size: 0.7rem; font-weight: 400; color: var(--mt-muted); letter-spacing: 0.04em; }
+.mt__package-divider { width: 100%; height: 1px; background: oklch(0.6 0.04 50 / 0.1); margin: 16px 0; border: 0; }
+.mt__package-features { list-style: none; margin-bottom: 28px; }
+.mt__package-features li { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--mt-muted); line-height: 1.6; padding: 5px 0; }
+.mt__package-features li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--mt-rose); flex-shrink: 0; opacity: 0.5; }
+.mt__package-cta { display: inline-flex; align-items: center; gap: 6px; padding: 12px 32px; border-radius: 50px; background: var(--mt-rose); color: white; font-family: var(--mt-body); font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.5s var(--mt-ease); border: none; letter-spacing: 0.05em; text-transform: uppercase; }
+.mt__package-cta:hover { background: oklch(0.5 0.085 30); transform: translateY(-2px); box-shadow: 0 10px 28px oklch(0.55 0.08 30 / 0.25); }
+
+.mt__gallery { background: var(--mt-warm-paper); padding: 110px 0; }
+.mt__polaroid-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto auto; gap: 24px; max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+.mt__polaroid { background: white; padding: 10px 10px 40px 10px; box-shadow: 0 8px 36px oklch(0 0 0 / 0.08), 0 2px 8px oklch(0 0 0 / 0.04); transition: opacity 0.9s var(--mt-ease), transform 0.9s var(--mt-ease); opacity: 0; }
+.mt__polaroid.mt__in-view { opacity: 1; }
+.mt__polaroid-img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
+.mt__polaroid-fig { position: relative; width: 100%; height: 100%; overflow: hidden; }
+.mt__polaroid-cap { position: absolute; bottom: -30px; left: 0; right: 0; text-align: center; font-family: var(--mt-body); font-size: 0.75rem; font-style: italic; color: var(--mt-muted); letter-spacing: 0.03em; }
+.mt__polaroid--1 { grid-column: 1 / 2; grid-row: 1 / 3; transform: rotate(-1.5deg) scale(0.97); }
+.mt__polaroid--1.mt__in-view { transform: rotate(-1.5deg) scale(1); }
+.mt__polaroid--2 { grid-column: 2 / 4; grid-row: 1 / 2; transform: rotate(2deg) scale(0.97); }
+.mt__polaroid--2.mt__in-view { transform: rotate(2deg) scale(1); }
+.mt__polaroid--3 { grid-column: 2 / 3; grid-row: 2 / 3; transform: rotate(-1deg) scale(0.97); }
+.mt__polaroid--3.mt__in-view { transform: rotate(-1deg) scale(1); }
+.mt__polaroid--4 { grid-column: 3 / 4; grid-row: 2 / 3; transform: rotate(1.5deg) scale(0.97); }
+.mt__polaroid--4.mt__in-view { transform: rotate(1.5deg) scale(1); }
+.mt__amen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+.mt__amen-item { text-align: center; padding: 40px 24px; border-radius: var(--mt-radius); background: var(--mt-warm-paper); transition: transform 0.6s var(--mt-ease), box-shadow 0.6s var(--mt-ease); opacity: 0; transform: translateY(24px); }
+.mt__amen-item.mt__in-view { opacity: 1; transform: translateY(0); }
+.mt__amen-item:hover { transform: translateY(-5px); box-shadow: 0 20px 48px oklch(0 0 0 / 0.05); }
+.mt__amen-item:hover.mt__in-view { transform: translateY(-5px); }
+.mt__amen-ring { width: 68px; height: 68px; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid var(--mt-rose); padding: 16px; color: var(--mt-rose); transition: box-shadow 0.5s var(--mt-ease), transform 0.5s var(--mt-ease), border-color 0.5s var(--mt-ease); }
+.mt__amen-item:hover .mt__amen-ring { box-shadow: 0 0 0 10px oklch(0.55 0.08 30 / 0.12), 0 0 0 16px oklch(0.55 0.08 30 / 0.05); border-color: var(--mt-gold); transform: scale(1.08); }
+.mt__amen-ring svg { width: 100%; height: 100%; }
+.mt__amen-item h4 { font-family: var(--mt-heading); font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; color: var(--mt-dark); }
+.mt__amen-item p { font-size: 0.85rem; color: var(--mt-muted); }
+
+.mt__test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.mt__test-card { padding: 44px 36px; background: var(--mt-surface); border-radius: var(--mt-radius); border: 1px solid oklch(0.6 0.04 50 / 0.07); position: relative; opacity: 0; transform: scale(0.94); transition: opacity 0.9s var(--mt-ease), transform 0.9s var(--mt-ease), box-shadow 0.5s var(--mt-ease); }
+.mt__test-card.mt__in-view { opacity: 1; transform: scale(1); }
+.mt__test-card:hover { box-shadow: 0 20px 48px oklch(0 0 0 / 0.04); }
+.mt__test-card:hover.mt__in-view { transform: scale(1.015); }
+.mt__test-quote { position: relative; width: 34px; height: 26px; margin-bottom: 16px; color: var(--mt-gold); opacity: 0.35; font-family: var(--mt-heading); font-size: 4rem; line-height: 1; }
+.mt__test-text { font-size: 0.93rem; color: var(--mt-muted); line-height: 1.75; margin-bottom: 18px; font-style: italic; }
+.mt__test-author { font-family: var(--mt-heading); font-size: 0.85rem; font-weight: 700; color: var(--mt-dark); }
+.mt__test-author span { display: block; font-family: var(--mt-body); font-size: 0.72rem; font-weight: 400; color: var(--mt-muted); margin-top: 3px; font-style: normal; }
+
+.mt__contact { padding: 110px 0; background: var(--mt-warm-paper); }
+.mt__contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.mt__contact-left .mt__section-title { margin-bottom: 10px; }
+.mt__contact-left > p { color: var(--mt-muted); margin-bottom: 40px; font-size: 0.95rem; line-height: 1.7; }
+.mt__form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.mt__form-group { margin-bottom: 20px; }
+.mt__form-group label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mt-olive); margin-bottom: 7px; }
+.mt__form-group input, .mt__form-group select, .mt__form-group textarea { width: 100%; padding: 13px 18px; border: 1.5px solid oklch(0.6 0.04 50 / 0.15); border-radius: 12px; font-family: var(--mt-body); font-size: 0.92rem; background: var(--mt-surface); color: var(--mt-dark); transition: border-color 0.4s var(--mt-ease), box-shadow 0.4s var(--mt-ease); outline: none; }
+.mt__form-group input:focus, .mt__form-group select:focus, .mt__form-group textarea:focus { border-color: var(--mt-olive); box-shadow: 0 0 0 4px oklch(0.48 0.1 140 / 0.1); }
+.mt__form-group textarea { resize: vertical; min-height: 110px; }
+.mt__form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%236b6b6b' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+.mt__btn-submit { width: 100%; padding: 15px 32px; border-radius: 50px; background: var(--mt-rose); color: white; border: none; font-family: var(--mt-body); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.5s var(--mt-ease); margin-top: 6px; letter-spacing: 0.05em; text-transform: uppercase; }
+.mt__btn-submit:hover { background: oklch(0.5 0.085 30); transform: translateY(-3px); box-shadow: 0 14px 32px oklch(0.55 0.08 30 / 0.3); }
+
+.mt__contact-right { padding-top: 4px; }
+.mt__contact-right h3 { font-family: var(--mt-heading); font-size: 1.2rem; margin-bottom: 24px; color: var(--mt-dark); }
+.mt__contact-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 22px; }
+.mt__contact-icon { flex-shrink: 0; width: 22px; height: 22px; margin-top: 4px; color: var(--mt-olive); }
+.mt__contact-icon svg { width: 100%; height: 100%; }
+.mt__contact-text { font-size: 0.92rem; color: var(--mt-muted); line-height: 1.6; }
+.mt__contact-text strong { color: var(--mt-dark); font-weight: 600; display: block; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 2px; }
+.mt__contact-divider { height: 1px; background: oklch(0.6 0.04 50 / 0.1); margin: 28px 0; border: 0; }
+.mt__contact-social-title { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mt-olive); margin-bottom: 14px; }
+.mt__contact-social { display: flex; gap: 14px; }
+.mt__contact-social a { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid oklch(0.48 0.1 140 / 0.2); display: flex; align-items: center; justify-content: center; color: var(--mt-olive); transition: all 0.4s var(--mt-ease); }
+.mt__contact-social a:hover { background: var(--mt-olive); color: white; border-color: var(--mt-olive); transform: translateY(-3px); box-shadow: 0 8px 20px oklch(0.48 0.1 140 / 0.2); }
+.mt__contact-social a svg { width: 18px; height: 18px; }
+
+.mt__footer { background: var(--mt-warm-paper); padding: 56px 24px 48px; text-align: center; border-top: 1px solid oklch(0.6 0.04 50 / 0.07); }
+.mt__footer-brand { font-family: var(--mt-heading); font-size: 1rem; color: var(--mt-dark); margin-bottom: 4px; letter-spacing: 0.02em; }
+.mt__footer-divider { width: 44px; height: 1px; background: var(--mt-olive); margin: 14px auto; border: 0; opacity: 0.35; }
+.mt__footer p { font-size: 0.82rem; color: var(--mt-muted); line-height: 1.7; }
+.mt__footer-copy { margin-top: 10px; font-size: 0.75rem; color: oklch(0.6 0.04 50 / 0.6); }
+
+@media (max-width: 1024px) {
+  .mt__packages-grid { gap: 20px; }
+  .mt__package { padding: 40px 28px 36px; }
+  .mt__polaroid-grid { gap: 18px; max-width: 100%; }
+  .mt__amen-grid { gap: 28px; }
+  .mt__test-grid { gap: 20px; }
+  .mt__test-card { padding: 36px 28px; }
+  .mt__contact-inner { gap: 44px; }
+}
+
+@media (max-width: 768px) {
+  .mt__hero { padding: 80px 24px 50px; }
+  .mt__section { padding: 80px 0; }
+  .mt__packages-grid { grid-template-columns: 1fr; gap: 20px; max-width: 480px; margin: 0 auto; }
+  .mt__polaroid-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; gap: 16px; }
+  .mt__polaroid--1 { grid-column: 1 / 3; grid-row: 1 / 2; transform: rotate(-1deg) scale(0.98); }
+  .mt__polaroid--1.mt__in-view { transform: rotate(-1deg) scale(1); }
+  .mt__polaroid--2 { grid-column: 1 / 2; grid-row: 2 / 3; transform: rotate(1.5deg) scale(0.98); }
+  .mt__polaroid--2.mt__in-view { transform: rotate(1.5deg) scale(1); }
+  .mt__polaroid--3 { grid-column: 2 / 3; grid-row: 2 / 3; transform: rotate(-1deg) scale(0.98); }
+  .mt__polaroid--3.mt__in-view { transform: rotate(-1deg) scale(1); }
+  .mt__polaroid--4 { grid-column: 1 / 2; grid-row: 3 / 4; transform: rotate(0.5deg) scale(0.98); }
+  .mt__polaroid--4.mt__in-view { transform: rotate(0.5deg) scale(1); }
+  .mt__amen-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .mt__test-grid { grid-template-columns: 1fr; gap: 20px; }
+  .mt__contact-inner { grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 480px) {
+  .mt__wrap { padding: 0 16px; }
+  .mt__hero { padding: 70px 16px 40px; min-height: 100dvh; }
+  .mt__hero-title { font-size: clamp(2rem, 10vw, 2.6rem); }
+  .mt__hero-flourish { gap: 12px; font-size: 1.5rem; }
+  .mt__hero-flourish-line { width: 40px; }
+  .mt__hero-actions { flex-direction: column; align-items: center; width: 100%; }
+  .mt__hero-actions .mt__btn { width: 100%; justify-content: center; }
+  .mt__section { padding: 64px 0; }
+  .mt__section-header { margin-bottom: 40px; }
+  .mt__package { padding: 32px 20px 28px; }
+  .mt__polaroid-grid { gap: 12px; }
+  .mt__polaroid { padding: 6px 6px 32px 6px; }
+  .mt__polaroid-cap { bottom: -24px; font-size: 0.65rem; }
+  .mt__amen-grid { gap: 14px; }
+  .mt__amen-item { padding: 28px 16px; }
+  .mt__amen-ring { width: 56px; height: 56px; padding: 12px; }
+  .mt__test-card { padding: 28px 20px; }
+  .mt__form-row { grid-template-columns: 1fr; }
+  .mt__btn-submit { font-size: 0.85rem; padding: 14px 28px; }
+  .mt__contact-right h3 { font-size: 1.05rem; }
+  .mt__footer { padding: 40px 16px 36px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="mt__nav" id="mt-nav" aria-label="Navegacion principal">
+  <a href="#" class="mt__nav-logo">Mi Terraza</a>
+  <ul class="mt__nav-links">
+    <li><a href="#paquetes">Paquetes</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<section class="mt__hero" aria-label="Bienvenida a Salon Mi Terraza">
+  <div class="mt__hero-slides" id="mt-hero-slides" aria-hidden="true">
+    <div class="mt__hero-slide" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1600&q=80'); animation-delay: 0s"></div>
+    <div class="mt__hero-slide" style="background-image: url('https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?w=1600&q=80'); animation-delay: 5s"></div>
+    <div class="mt__hero-slide" style="background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80'); animation-delay: 10s"></div>
+    <div class="mt__hero-slide" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=80'); animation-delay: 15s"></div>
+  </div>
+  <div class="mt__hero-overlay" aria-hidden="true"></div>
+
+  <div class="mt__hero-content">
+    <div class="mt__hero-flourish" aria-hidden="true">
+      <span class="mt__hero-flourish-line"></span>
+      <span>~</span>
+      <span class="mt__hero-flourish-line"></span>
+    </div>
+    <h1 class="mt__hero-title">Tu Terraza, Tu Fiesta</h1>
+    <hr class="mt__hero-divider" aria-hidden="true">
+    <p class="mt__hero-sub">Celebraciones intimas en Tampico</p>
+    <div class="mt__hero-actions">
+      <a href="#paquetes" class="mt__btn mt__btn-rose" aria-label="Ver paquetes disponibles">Ver Paquetes</a>
+      <a href="#contacto" class="mt__btn mt__btn-olive" aria-label="Cotizar evento personalizado">Cotizar Evento</a>
+    </div>
+  </div>
+
+  <div class="mt__hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="mt__hero-scroll-line"></div>
+  </div>
+
+  <div class="mt__hero-dots" aria-hidden="true">
+    <span class="mt__hero-dot" data-index="0"></span>
+    <span class="mt__hero-dot" data-index="1"></span>
+    <span class="mt__hero-dot" data-index="2"></span>
+    <span class="mt__hero-dot" data-index="3"></span>
+  </div>
+</section>
+
+<section class="mt__section" id="paquetes" aria-label="Paquetes y precios">
+  <div class="mt__wrap">
+    <div class="mt__section-header mt__reveal">
+      <span class="mt__section-label">Paquetes</span>
+      <h2 class="mt__section-title">Para cada momento especial</h2>
+      <hr class="mt__section-line" aria-hidden="true">
+    </div>
+    <div class="mt__packages-grid">
+      <div class="mt__package" style="transition-delay: 0ms">
+        <div class="mt__package-num" aria-hidden="true">01</div>
+        <h3 class="mt__package-name">Cumpleanos</h3>
+        <div class="mt__package-price">$8,500 <small>MXN</small></div>
+        <hr class="mt__package-divider" aria-hidden="true">
+        <ul class="mt__package-features">
+          <li>Capacidad hasta 30 personas</li>
+          <li>Catering basico incluido</li>
+          <li>Decoracion tematica</li>
+          <li>Sistema de sonido profesional</li>
+          <li>4 horas de evento</li>
+        </ul>
+        <a href="#contacto" class="mt__package-cta" aria-label="Cotizar paquete cumpleanos">Cotizar</a>
+      </div>
+      <div class="mt__package mt__package--featured" style="transition-delay: 150ms">
+        <div class="mt__package--ribbon">Mas Popular</div>
+        <div class="mt__package-num" aria-hidden="true">02</div>
+        <h3 class="mt__package-name">Bautizos</h3>
+        <div class="mt__package-price">$12,500 <small>MXN</small></div>
+        <hr class="mt__package-divider" aria-hidden="true">
+        <ul class="mt__package-features">
+          <li>Capacidad hasta 45 personas</li>
+          <li>Catering completo</li>
+          <li>Decoracion floral</li>
+          <li>Musica ambiental</li>
+          <li>Mesa de recuerdos</li>
+          <li>5 horas de evento</li>
+        </ul>
+        <a href="#contacto" class="mt__package-cta" aria-label="Cotizar paquete bautizo">Cotizar</a>
+      </div>
+      <div class="mt__package" style="transition-delay: 300ms">
+        <div class="mt__package-num" aria-hidden="true">03</div>
+        <h3 class="mt__package-name">Despedidas</h3>
+        <div class="mt__package-price">$6,500 <small>MXN</small></div>
+        <hr class="mt__package-divider" aria-hidden="true">
+        <ul class="mt__package-features">
+          <li>Capacidad hasta 25 personas</li>
+          <li>Snacks y bebidas</li>
+          <li>Decoracion personalizada</li>
+          <li>Pista de baile</li>
+          <li>Iluminacion LED</li>
+          <li>4 horas de evento</li>
+        </ul>
+        <a href="#contacto" class="mt__package-cta" aria-label="Cotizar paquete despedida">Cotizar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt__gallery" aria-label="Galeria de momentos">
+  <div class="mt__wrap">
+    <div class="mt__section-header mt__reveal">
+      <span class="mt__section-label">Galeria</span>
+      <h2 class="mt__section-title">Momentos que inspiran</h2>
+      <hr class="mt__section-line" aria-hidden="true">
+    </div>
+  </div>
+  <div class="mt__polaroid-grid">
+    <div class="mt__polaroid mt__polaroid--1" style="transition-delay: 0ms">
+      <div class="mt__polaroid-fig">
+        <img class="mt__polaroid-img" src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Mesa principal decorada para evento" loading="lazy">
+        <span class="mt__polaroid-cap">Mesa principal</span>
+      </div>
+    </div>
+    <div class="mt__polaroid mt__polaroid--2" style="transition-delay: 120ms">
+      <div class="mt__polaroid-fig">
+        <img class="mt__polaroid-img" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80" alt="Decoracion festiva con luces y colores" loading="lazy">
+        <span class="mt__polaroid-cap">Decoracion festiva</span>
+      </div>
+    </div>
+    <div class="mt__polaroid mt__polaroid--3" style="transition-delay: 240ms">
+      <div class="mt__polaroid-fig">
+        <img class="mt__polaroid-img" src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=800&q=80" alt="Arreglos florales elegantes" loading="lazy">
+        <span class="mt__polaroid-cap">Arreglos florales</span>
+      </div>
+    </div>
+    <div class="mt__polaroid mt__polaroid--4" style="transition-delay: 360ms">
+      <div class="mt__polaroid-fig">
+        <img class="mt__polaroid-img" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Velas creando ambiente intimo" loading="lazy">
+        <span class="mt__polaroid-cap">Velas y calidez</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt__section mt__section-alt" aria-label="Amenidades y servicios">
+  <div class="mt__wrap">
+    <div class="mt__section-header mt__reveal">
+      <span class="mt__section-label">Servicios</span>
+      <h2 class="mt__section-title">Todo lo que necesitas</h2>
+      <hr class="mt__section-line" aria-hidden="true">
+    </div>
+    <div class="mt__amen-grid">
+      <div class="mt__amen-item" style="transition-delay: 0ms">
+        <div class="mt__amen-ring" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+            <path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <h4>Capacidad 100 pers</h4>
+        <p>Espacio versatil para recibir a tus invitados</p>
+      </div>
+      <div class="mt__amen-item" style="transition-delay: 80ms">
+        <div class="mt__amen-ring" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="10" rx="1"/>
+            <path d="M7 11V7a5 5 0 0110 0v4"/>
+            <circle cx="12" cy="16" r="1"/>
+          </svg>
+        </div>
+        <h4>Estacionamiento</h4>
+        <p>Estacionamiento privado para 30 autos</p>
+      </div>
+      <div class="mt__amen-item" style="transition-delay: 160ms">
+        <div class="mt__amen-ring" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8h1a4 4 0 010 8h-1"/>
+            <path d="M2 8h16v9a4 4 0 01-4 4H5a4 4 0 01-4-4V8z"/>
+            <path d="M6 21v3"/>
+            <path d="M12 21v3"/>
+          </svg>
+        </div>
+        <h4>Catering incluido</h4>
+        <p>Menu personalizado segun tu evento</p>
+      </div>
+      <div class="mt__amen-item" style="transition-delay: 240ms">
+        <div class="mt__amen-ring" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/>
+            <circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <h4>Musica</h4>
+        <p>Sistema de sonido profesional integrado</p>
+      </div>
+      <div class="mt__amen-item" style="transition-delay: 320ms">
+        <div class="mt__amen-ring" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-6z"/>
+          </svg>
+        </div>
+        <h4>Decoracion</h4>
+        <p>Paquetes decorativos tematicos disponibles</p>
+      </div>
+      <div class="mt__amen-item" style="transition-delay: 400ms">
+        <div class="mt__amen-ring" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </div>
+        <h4>Iluminacion</h4>
+        <p>Iluminacion ambiental LED regulable</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt__section" aria-label="Testimonios de clientes">
+  <div class="mt__wrap">
+    <div class="mt__section-header mt__reveal">
+      <span class="mt__section-label">Testimonios</span>
+      <h2 class="mt__section-title">Lo que dicen nuestros clientes</h2>
+      <hr class="mt__section-line" aria-hidden="true">
+    </div>
+    <div class="mt__test-grid">
+      <blockquote class="mt__test-card" style="transition-delay: 0ms">
+        <div class="mt__test-quote" aria-hidden="true">&ldquo;</div>
+        <p class="mt__test-text">El lugar supero todas nuestras expectativas. Cada detalle estuvo cuidado al minimo y nuestros invitados quedaron encantados con la terraza. Sin duda volveremos.</p>
+        <footer class="mt__test-author">Maria Fernanda L.<span>Fiesta de 15 anos</span></footer>
+      </blockquote>
+      <blockquote class="mt__test-card" style="transition-delay: 150ms">
+        <div class="mt__test-quote" aria-hidden="true">&ldquo;</div>
+        <p class="mt__test-text">Celebramos el bautizo de nuestra hija y todo fue perfecto. El ambiente intimo y la atencion personalizada hicieron la diferencia. Recomendadisimo.</p>
+        <footer class="mt__test-author">Carlos y Ana G.<span>Bautizo</span></footer>
+      </blockquote>
+      <blockquote class="mt__test-card" style="transition-delay: 300ms">
+        <div class="mt__test-quote" aria-hidden="true">&ldquo;</div>
+        <p class="mt__test-text">La mejor decision para nuestra despedida de solteros. Espacio versatil, buena musica y un atardecer inolvidable en la terraza. Todo impecable.</p>
+        <footer class="mt__test-author">Roberto S.<span>Despedida</span></footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="mt__contact" id="contacto" aria-label="Contacto y cotizacion">
+  <div class="mt__wrap">
+    <div class="mt__section-header mt__reveal">
+      <span class="mt__section-label">Cotizacion</span>
+      <h2 class="mt__section-title">Platica con nosotros</h2>
+      <hr class="mt__section-line" aria-hidden="true">
+    </div>
+    <div class="mt__contact-inner">
+      <div class="mt__contact-left mt__reveal">
+        <p>Cuentanos sobre tu evento y te enviaremos opciones personalizadas sin compromiso.</p>
+        <form action="#" method="post" aria-label="Formulario de cotizacion">
+          <div class="mt__form-group">
+            <label for="mt-name">Nombre</label>
+            <input type="text" id="mt-name" name="nombre" placeholder="Tu nombre completo" required>
+          </div>
+          <div class="mt__form-row">
+            <div class="mt__form-group">
+              <label for="mt-event">Tipo de evento</label>
+              <select id="mt-event" name="evento" required>
+                <option value="" disabled selected>Selecciona</option>
+                <option value="cumpleanos">Cumpleanos</option>
+                <option value="bautizo">Bautizo</option>
+                <option value="despedida">Despedida</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="mt__form-group">
+              <label for="mt-guests">Invitados</label>
+              <input type="number" id="mt-guests" name="invitados" placeholder="Num. aproximado" min="1" required>
+            </div>
+          </div>
+          <div class="mt__form-group">
+            <label for="mt-date">Fecha aproximada</label>
+            <input type="text" id="mt-date" name="fecha" placeholder="Ej: Diciembre 2025" required>
+          </div>
+          <div class="mt__form-group">
+            <label for="mt-msg">Mensaje</label>
+            <textarea id="mt-msg" name="mensaje" placeholder="Cuentanos mas sobre tu evento..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="mt__btn-submit" aria-label="Enviar cotizacion">Enviar</button>
+        </form>
+      </div>
+      <div class="mt__contact-right mt__reveal">
+        <h3>Informacion de contacto</h3>
+        <div class="mt__contact-item">
+          <div class="mt__contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
+          <div class="mt__contact-text"><strong>WhatsApp</strong>833 475 4567</div>
+        </div>
+        <div class="mt__contact-item">
+          <div class="mt__contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="mt__contact-text"><strong>Direccion</strong>Tampico, Tamaulipas, MX</div>
+        </div>
+        <div class="mt__contact-item">
+          <div class="mt__contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="mt__contact-text"><strong>Correo</strong>hola@salonmiterraza.mx</div>
+        </div>
+        <hr class="mt__contact-divider" aria-hidden="true">
+        <div class="mt__contact-social-title">Siguenos en redes</div>
+        <div class="mt__contact-social">
+          <a href="#" aria-label="Facebook de Salon Mi Terraza">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram de Salon Mi Terraza">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1.5"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="WhatsApp de Salon Mi Terraza">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mt__lightbox" id="mt-lightbox" role="dialog" aria-label="Vista ampliada de la galeria">
+  <button class="mt__lightbox-close" id="mt-lightbox-close" aria-label="Cerrar">&times;</button>
+  <img class="mt__lightbox-img" id="mt-lightbox-img" alt="" src="">
+</div>
+
+<a class="mt__whatsapp" href="https://wa.me/528334754567?text=Hola!%20Me%20gustar%C3%ADa%20cotizar%20un%20evento" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+  </svg>
+</a>
+
+<footer class="mt__footer" aria-label="Pie de pagina">
+  <p class="mt__footer-brand">Salon Mi Terraza &mdash; Tampico, Tamaulipas</p>
+  <hr class="mt__footer-divider" aria-hidden="true">
+  <p>4.9 estrellas &middot; 50+ eventos realizados</p>
+  <button class="mt__scroll-top" id="mt-scroll-top" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    Volver arriba
+  </button>
+  <p class="mt__footer-copy">&copy; 2025 Salon Mi Terraza. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+  var selector = '.mt__reveal, .mt__package, .mt__polaroid, .mt__amen-item, .mt__test-card';
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('mt__in-view');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(selector).forEach(function(el) { obs.observe(el); });
+
+  var nav = document.getElementById('mt-nav');
+  if (nav) {
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('mt__nav-scrolled', window.scrollY > 60);
+    }, { passive: true });
+  }
+
+  var heroSlides = document.getElementById('mt-hero-slides');
+  if (heroSlides) {
+    window.addEventListener('scroll', function() {
+      heroSlides.style.transform = 'translateY(' + Math.min(window.scrollY * 0.2, 50) + 'px)';
+    }, { passive: true });
+  }
+
+  var dots = document.querySelectorAll('.mt__hero-dot');
+  var dotInterval = setInterval(function() {
+    var elapsed = (Date.now() / 1000) % 20;
+    var activeIdx = Math.floor(elapsed / 5);
+    dots.forEach(function(d, i) { d.classList.toggle('is-active', i === activeIdx); });
+  }, 500);
+
+  var lightbox = document.getElementById('mt-lightbox');
+  var lightboxImg = document.getElementById('mt-lightbox-img');
+  if (lightbox && lightboxImg) {
+    document.querySelectorAll('.mt__polaroid-img').forEach(function(img) {
+      img.addEventListener('click', function() {
+        lightboxImg.src = this.src;
+        lightboxImg.alt = this.alt;
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('mt-lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+    });
+  }
+
+  var form = document.querySelector('.mt__contact form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('mt-name');
+      var eventType = document.getElementById('mt-event');
+      var guests = document.getElementById('mt-guests');
+      if (!name.value.trim() || !eventType.value || !guests.value) {
+        alert('Por favor completa todos los campos requeridos.');
+        return;
+      }
+      alert('Gracias por tu cotizacion. Te contactaremos pronto.');
+      form.reset();
+    });
+  }
+
+  var scrollTop = document.getElementById('mt-scroll-top');
+  if (scrollTop) {
+    scrollTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

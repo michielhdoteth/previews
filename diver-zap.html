@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIVER ZAP — Ingenieria Subacuatica y Buceo Recreativo desde 2014</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dz-dark-bg: oklch(0.07 0.02 260);
+  --dz-aqua: oklch(0.55 0.16 190);
+  --dz-rust: oklch(0.48 0.14 30);
+  --dz-light-bg: oklch(0.96 0.005 85);
+  --dz-surface: oklch(0.12 0.02 260);
+  --dz-light-text: oklch(0.92 0.01 80);
+  --dz-muted: oklch(0.5 0.03 260);
+  --dz-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dz-font-heading: 'Syne', sans-serif;
+  --dz-font-body: 'Onest', sans-serif;
+  --dz-glow-aqua: 0 0 30px oklch(0.55 0.12 190 / 0.3), 0 0 60px oklch(0.55 0.12 190 / 0.15);
+  --dz-glow-rust: 0 0 30px oklch(0.48 0.14 30 / 0.3), 0 0 60px oklch(0.48 0.14 30 / 0.15);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--dz-font-body);
+  background: var(--dz-dark-bg);
+  color: var(--dz-light-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--dz-font-heading); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { text-decoration: none; color: inherit; }
+
+.dz__container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.dz__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--dz-font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 14px 32px;
+  border-radius: 4px;
+  transition: all 0.4s var(--dz-ease);
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.dz__btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.dz__btn--aqua {
+  background: var(--dz-aqua);
+  color: var(--dz-dark-bg);
+  border-color: var(--dz-aqua);
+}
+
+.dz__btn--aqua:hover {
+  background: transparent;
+  color: var(--dz-aqua);
+  box-shadow: var(--dz-glow-aqua);
+}
+
+.dz__btn--rust {
+  background: transparent;
+  color: var(--dz-rust);
+  border-color: var(--dz-rust);
+}
+
+.dz__btn--rust:hover {
+  background: var(--dz-rust);
+  color: var(--dz-dark-bg);
+  box-shadow: var(--dz-glow-rust);
+}
+
+.dz__section-label {
+  font-family: var(--dz-font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--dz-aqua);
+  margin-bottom: 8px;
+  display: inline-block;
+  border: 1px solid var(--dz-aqua);
+  padding: 4px 14px;
+  border-radius: 999px;
+}
+
+.dz__section-title {
+  font-family: var(--dz-font-heading);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.dz__section-desc {
+  font-size: 1rem;
+  color: var(--dz-muted);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.dz__reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--dz-ease), transform 0.8s var(--dz-ease);
+}
+
+.dz__reveal--visible { opacity: 1; transform: translateY(0); }
+
+.dz__reveal--left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s var(--dz-ease), transform 0.8s var(--dz-ease);
+}
+
+.dz__reveal--left.dz__reveal--visible { opacity: 1; transform: translateX(0); }
+
+.dz__reveal--right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s var(--dz-ease), transform 0.8s var(--dz-ease);
+}
+
+.dz__reveal--right.dz__reveal--visible { opacity: 1; transform: translateX(0); }
+
+.dz__reveal--scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.8s var(--dz-ease), transform 0.8s var(--dz-ease);
+}
+
+.dz__reveal--scale.dz__reveal--visible { opacity: 1; transform: scale(1); }
+
+/* ===== NAV ===== */
+.dz__nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px 0;
+  transition: background 0.4s var(--dz-ease), padding 0.4s var(--dz-ease);
+}
+
+.dz__nav--scrolled {
+  background: oklch(0.07 0.02 260 / 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 0;
+  border-bottom: 1px solid oklch(1 1 1 / 0.05);
+}
+
+.dz__nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dz__nav-logo {
+  font-family: var(--dz-font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+  line-height: 1;
+}
+
+.dz__nav-logo span { color: var(--dz-aqua); }
+
+.dz__nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.dz__nav-links a {
+  font-family: var(--dz-font-heading);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--dz-muted);
+  transition: color 0.3s var(--dz-ease);
+  position: relative;
+}
+
+.dz__nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--dz-aqua);
+  transition: width 0.3s var(--dz-ease);
+}
+
+.dz__nav-links a:hover { color: #fff; }
+
+.dz__nav-links a:hover::after { width: 100%; }
+
+.dz__nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.dz__nav-toggle svg { width: 24px; height: 24px; }
+
+/* ===== HERO ===== */
+.dz__hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.dz__hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&q=80') center center / cover no-repeat;
+  transform: translateZ(0) scale(1.05);
+  will-change: transform;
+  z-index: 0;
+}
+
+.dz__hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, oklch(0.07 0.02 260 / 0.2) 0%, oklch(0.07 0.02 260 / 0.4) 40%, var(--dz-dark-bg) 100%);
+  z-index: 1;
+}
+
+.dz__hero-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, oklch(0.55 0.12 190 / 0.08) 0%, transparent 70%);
+}
+
+.dz__hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 120px 24px 80px;
+  max-width: 960px;
+}
+
+.dz__hero-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.dz__hero-badge {
+  font-family: var(--dz-font-heading);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: oklch(1 1 1 / 0.06);
+  border: 1px solid oklch(1 1 1 / 0.1);
+  color: var(--dz-muted);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dz__hero-badge--cert {
+  background: oklch(0.55 0.12 190 / 0.15);
+  border-color: oklch(0.55 0.12 190 / 0.3);
+  color: var(--dz-aqua);
+}
+
+.dz__hero-title {
+  font-family: var(--dz-font-heading);
+  font-size: clamp(3.5rem, 12vw, 8rem);
+  font-weight: 700;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 40px oklch(0 0 0 / 0.5);
+}
+
+.dz__hero-title-glow {
+  color: var(--dz-aqua);
+  text-shadow: 0 0 40px oklch(0.55 0.12 190 / 0.4), 0 0 80px oklch(0.55 0.12 190 / 0.2);
+}
+
+.dz__hero-sub {
+  font-family: var(--dz-font-heading);
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--dz-light-text);
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.dz__hero-sub span { color: var(--dz-aqua); }
+
+.dz__hero-year {
+  display: inline-block;
+  font-family: var(--dz-font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--dz-muted);
+  margin-bottom: 40px;
+  padding: 4px 16px;
+  border: 1px solid oklch(1 1 1 / 0.08);
+  border-radius: 999px;
+}
+
+.dz__hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.dz__hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.dz__hero-stat {
+  text-align: center;
+}
+
+.dz__hero-stat-num {
+  font-family: var(--dz-font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.dz__hero-stat-num span { color: var(--dz-aqua); }
+
+.dz__hero-stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dz-muted);
+}
+
+.dz__scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: dz__scroll-bounce 2s ease-in-out infinite;
+}
+
+.dz__scroll-indicator-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, var(--dz-aqua), transparent);
+}
+
+.dz__scroll-indicator-label {
+  font-family: var(--dz-font-heading);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--dz-muted);
+}
+
+@keyframes dz__scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===== SERVICES SPLIT ===== */
+.dz__services-split {
+  background: var(--dz-surface);
+  padding: 100px 0;
+  position: relative;
+}
+
+.dz__services-split-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.dz__services-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.dz__service-bento {
+  background: var(--dz-dark-bg);
+  border-radius: 12px;
+  padding: 48px 40px;
+  border-top: 4px solid var(--dz-aqua);
+  transition: transform 0.5s var(--dz-ease), box-shadow 0.5s var(--dz-ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.dz__service-bento::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, oklch(0.55 0.12 190 / 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  transition: opacity 0.5s var(--dz-ease);
+  opacity: 0;
+}
+
+.dz__service-bento:hover::before { opacity: 1; }
+
+.dz__service-bento:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px oklch(0 0 0 / 0.3), 0 0 40px oklch(0.55 0.12 190 / 0.1);
+}
+
+.dz__service-bento--rust {
+  border-top-color: var(--dz-rust);
+}
+
+.dz__service-bento--rust::before {
+  background: radial-gradient(circle, oklch(0.48 0.14 30 / 0.04) 0%, transparent 70%);
+}
+
+.dz__service-bento--rust:hover {
+  box-shadow: 0 20px 60px oklch(0 0 0 / 0.3), 0 0 40px oklch(0.48 0.14 30 / 0.1);
+}
+
+.dz__service-bento-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 24px;
+  color: var(--dz-aqua);
+}
+
+.dz__service-bento--rust .dz__service-bento-icon { color: var(--dz-rust); }
+
+.dz__service-bento h3 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.dz__service-bento-tag {
+  font-family: var(--dz-font-heading);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: oklch(0.55 0.12 190 / 0.15);
+  color: var(--dz-aqua);
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.dz__service-bento--rust .dz__service-bento-tag {
+  background: oklch(0.48 0.14 30 / 0.15);
+  color: var(--dz-rust);
+}
+
+.dz__service-bento-list {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.dz__service-bento-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid oklch(1 1 1 / 0.04);
+  font-size: 0.9rem;
+  color: var(--dz-muted);
+}
+
+.dz__service-bento-list li:last-child { border-bottom: none; }
+
+.dz__service-bento-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--dz-aqua);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dz__service-bento--rust .dz__service-bento-list li::before { background: var(--dz-rust); }
+
+.dz__service-bento-cta {
+  margin-top: auto;
+}
+
+/* ===== CERTIFICATION TICKER ===== */
+.dz__certs {
+  background: var(--dz-dark-bg);
+  padding: 60px 0;
+  overflow: hidden;
+  border-top: 1px solid oklch(1 1 1 / 0.04);
+  border-bottom: 1px solid oklch(1 1 1 / 0.04);
+}
+
+.dz__certs-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.dz__certs-header .dz__section-label {
+  margin-bottom: 4px;
+}
+
+.dz__certs-header h3 {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--dz-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dz__certs-track-wrapper {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+}
+
+.dz__certs-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: dz__marquee 30s linear infinite;
+}
+
+.dz__certs-track:hover { animation-play-state: paused; }
+
+@keyframes dz__marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.dz__cert-pill {
+  font-family: var(--dz-font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  padding: 10px 22px;
+  border-radius: 6px;
+  background: var(--dz-surface);
+  border: 1px solid oklch(1 1 1 / 0.06);
+  color: var(--dz-light-text);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.3s var(--dz-ease);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dz__cert-pill::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dz-aqua);
+  flex-shrink: 0;
+}
+
+.dz__cert-pill:hover {
+  background: oklch(0.18 0.02 260);
+  border-color: var(--dz-aqua);
+  transform: translateY(-2px);
+}
+
+.dz__cert-pill--gold {
+  border-color: oklch(0.7 0.1 80);
+  color: oklch(0.7 0.1 80);
+}
+
+.dz__cert-pill--gold::before { background: oklch(0.7 0.1 80); }
+
+.dz__cert-pill--rust { color: var(--dz-rust); }
+
+.dz__cert-pill--rust::before { background: var(--dz-rust); }
+
+/* ===== INSTRUCTOR TEAM ===== */
+.dz__team {
+  background: var(--dz-surface);
+  padding: 100px 0;
+  position: relative;
+}
+
+.dz__team-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.dz__team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.dz__team-card {
+  background: var(--dz-dark-bg);
+  border-radius: 12px;
+  padding: 40px 32px;
+  text-align: center;
+  transition: transform 0.5s var(--dz-ease), box-shadow 0.5s var(--dz-ease);
+  border: 1px solid oklch(1 1 1 / 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.dz__team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--dz-aqua), var(--dz-rust));
+  opacity: 0;
+  transition: opacity 0.5s var(--dz-ease);
+}
+
+.dz__team-card:hover::before { opacity: 1; }
+
+.dz__team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px oklch(0 0 0 / 0.3);
+}
+
+.dz__team-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  border: 3px solid oklch(1 1 1 / 0.06);
+  transition: border-color 0.4s var(--dz-ease);
+}
+
+.dz__team-card:hover .dz__team-photo {
+  border-color: var(--dz-aqua);
+}
+
+.dz__team-name {
+  font-family: var(--dz-font-heading);
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.dz__team-title {
+  font-family: var(--dz-font-heading);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dz-aqua);
+  margin-bottom: 16px;
+}
+
+.dz__team-bio {
+  font-size: 0.85rem;
+  color: var(--dz-muted);
+  line-height: 1.7;
+}
+
+.dz__team-cert-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.dz__team-cert-badge {
+  font-family: var(--dz-font-heading);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: oklch(1 1 1 / 0.04);
+  border: 1px solid oklch(1 1 1 / 0.06);
+  color: var(--dz-muted);
+}
+
+/* ===== GALLERY ===== */
+.dz__gallery {
+  background: var(--dz-dark-bg);
+  padding: 100px 0;
+}
+
+.dz__gallery-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.dz__gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.dz__gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+}
+
+.dz__gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--dz-ease), filter 0.6s var(--dz-ease);
+}
+
+.dz__gallery-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.5);
+}
+
+.dz__gallery-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, transparent 0%, oklch(0.07 0.02 260 / 0.8) 100%);
+  opacity: 0;
+  transition: opacity 0.5s var(--dz-ease);
+  padding: 24px;
+  text-align: center;
+}
+
+.dz__gallery-item:hover .dz__gallery-overlay { opacity: 1; }
+
+.dz__gallery-overlay h4 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.dz__gallery-overlay p {
+  font-size: 0.75rem;
+  color: var(--dz-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.dz__gallery-overlay-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--dz-aqua);
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
+/* ===== CONTACT ===== */
+.dz__contact {
+  background: var(--dz-surface);
+  padding: 100px 0;
+}
+
+.dz__contact-header { text-align: center; margin-bottom: 60px; }
+
+.dz__contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.dz__contact-panel {
+  background: var(--dz-dark-bg);
+  border-radius: 12px;
+  padding: 44px 40px;
+  border: 1px solid oklch(1 1 1 / 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.dz__contact-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--dz-aqua);
+}
+
+.dz__contact-panel--rust::before { background: var(--dz-rust); }
+
+.dz__contact-panel h3 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.dz__contact-panel .dz__section-label { margin-bottom: 2px; }
+
+.dz__contact-panel p {
+  font-size: 0.85rem;
+  color: var(--dz-muted);
+  margin-bottom: 24px;
+}
+
+.dz__form-group { margin-bottom: 18px; }
+
+.dz__form-group label {
+  display: block;
+  font-family: var(--dz-font-heading);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dz-muted);
+  margin-bottom: 6px;
+}
+
+.dz__form-group input,
+.dz__form-group select,
+.dz__form-group textarea {
+  width: 100%;
+  background: oklch(0.09 0.02 260);
+  border: 1px solid oklch(1 1 1 / 0.06);
+  border-radius: 6px;
+  padding: 14px 16px;
+  font-family: var(--dz-font-body);
+  font-size: 0.95rem;
+  color: var(--dz-light-text);
+  transition: border-color 0.3s var(--dz-ease), box-shadow 0.3s var(--dz-ease);
+  outline: none;
+}
+
+.dz__form-group input:focus,
+.dz__form-group select:focus,
+.dz__form-group textarea:focus {
+  border-color: var(--dz-aqua);
+  box-shadow: 0 0 0 3px oklch(0.55 0.12 190 / 0.1);
+}
+
+.dz__contact-panel--rust .dz__form-group input:focus,
+.dz__contact-panel--rust .dz__form-group select:focus,
+.dz__contact-panel--rust .dz__form-group textarea:focus {
+  border-color: var(--dz-rust);
+  box-shadow: 0 0 0 3px oklch(0.48 0.14 30 / 0.1);
+}
+
+.dz__form-group textarea { resize: vertical; min-height: 120px; }
+
+.dz__form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23666'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+  cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+.dz__footer {
+  background: var(--dz-dark-bg);
+  padding: 60px 0 40px;
+  border-top: 1px solid oklch(1 1 1 / 0.04);
+}
+
+.dz__footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.dz__footer-top {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dz__footer-lang {
+  font-family: var(--dz-font-heading);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border: 1px solid var(--dz-aqua);
+  border-radius: 999px;
+  color: var(--dz-aqua);
+  cursor: default;
+}
+
+.dz__footer-brand {
+  font-family: var(--dz-font-heading);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.06em;
+}
+
+.dz__footer-brand span { color: var(--dz-aqua); }
+
+.dz__footer-location {
+  font-size: 0.8rem;
+  color: var(--dz-muted);
+}
+
+.dz__footer-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--dz-muted);
+  opacity: 0.3;
+}
+
+.dz__footer-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dz__footer-links a {
+  font-family: var(--dz-font-heading);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dz-muted);
+  transition: color 0.3s var(--dz-ease);
+}
+
+.dz__footer-links a:hover { color: var(--dz-aqua); }
+
+.dz__footer-copy {
+  font-size: 0.7rem;
+  color: oklch(0.35 0.02 260);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .dz__team-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .dz__service-bento { padding: 36px 28px; }
+  .dz__contact-panel { padding: 36px 28px; }
+}
+
+@media (max-width: 768px) {
+  .dz__nav-links { display: none; }
+  .dz__nav-toggle { display: flex; }
+
+  .dz__services-split-grid { grid-template-columns: 1fr; }
+  .dz__team-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .dz__gallery-grid { grid-template-columns: 1fr; }
+  .dz__contact-grid { grid-template-columns: 1fr; }
+  .dz__hero { min-height: 100dvh; }
+  .dz__hero-stat-num { font-size: 1.4rem; }
+  .dz__hero-stats { gap: 20px; }
+  .dz__service-bento { padding: 32px 24px; }
+  .dz__contact-panel { padding: 32px 24px; }
+  .dz__team-card { padding: 32px 24px; }
+}
+
+@media (max-width: 480px) {
+  .dz__container { padding: 0 16px; }
+  .dz__hero-content { padding: 100px 16px 60px; }
+  .dz__hero-title { font-size: clamp(2.5rem, 14vw, 3.5rem); }
+  .dz__hero-ctas { flex-direction: column; align-items: center; }
+  .dz__hero-stat-num { font-size: 1.2rem; }
+  .dz__hero-stats { gap: 16px; }
+  .dz__service-bento-list li { font-size: 0.8rem; padding: 8px 0; }
+  .dz__service-bento { padding: 28px 20px; }
+  .dz__contact-panel { padding: 28px 20px; }
+  .dz__team-card { padding: 28px 20px; }
+  .dz__gallery-grid { gap: 12px; }
+  .dz__cert-pill { font-size: 0.65rem; padding: 8px 16px; }
+  .dz__footer-brand { font-size: 1.1rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="dz__nav" id="dz-nav" aria-label="Navegacion principal">
+  <div class="dz__nav-inner">
+    <a href="#hero" class="dz__nav-logo">Diver<span>Zap</span></a>
+    <ul class="dz__nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#instructores">Instructores</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="dz__nav-toggle" id="dz-nav-toggle" aria-label="Menu de navegacion" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<section class="dz__hero" id="hero" aria-label="Hero principal">
+  <div class="dz__hero-bg" aria-hidden="true"></div>
+  <div class="dz__hero-overlay" aria-hidden="true"></div>
+  <div class="dz__hero-content">
+    <div class="dz__hero-badge-row">
+      <span class="dz__hero-badge dz__hero-badge--cert">SSI</span>
+      <span class="dz__hero-badge dz__hero-badge--cert">PADI</span>
+      <span class="dz__hero-badge dz__hero-badge--cert">IMCA</span>
+      <span class="dz__hero-badge">ISO 9001</span>
+      <span class="dz__hero-badge">DAN</span>
+    </div>
+    <h1 class="dz__hero-title">
+      Diver <span class="dz__hero-title-glow">Zap</span>
+    </h1>
+    <p class="dz__hero-sub">Ingenieria Subacuatica y <span>Buceo Recreativo</span></p>
+    <span class="dz__hero-year">Desde 2014 — Tampico, Mexico</span>
+    <div class="dz__hero-ctas">
+      <a href="#industrial" class="dz__btn dz__btn--aqua">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        Servicios Industriales
+      </a>
+      <a href="#recreativo" class="dz__btn dz__btn--rust">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18h6a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H3v12a3 3 0 0 0 3 3z"/><path d="M6 18v3h12a3 3 0 0 0 3-3v-9h-3"/><path d="M15 15v3"/></svg>
+        Buceo Recreativo
+      </a>
+    </div>
+    <div class="dz__hero-stats">
+      <div class="dz__hero-stat">
+        <div class="dz__hero-stat-num">11<span>+</span></div>
+        <div class="dz__hero-stat-label">Anos de Experiencia</div>
+      </div>
+      <div class="dz__hero-stat">
+        <div class="dz__hero-stat-num">2500<span>+</span></div>
+        <div class="dz__hero-stat-label">Inmersiones Realizadas</div>
+      </div>
+      <div class="dz__hero-stat">
+        <div class="dz__hero-stat-num">98<span>%</span></div>
+        <div class="dz__hero-stat-label">Seguridad Operativa</div>
+      </div>
+      <div class="dz__hero-stat">
+        <div class="dz__hero-stat-num">24<span>/7</span></div>
+        <div class="dz__hero-stat-label">Soporte Continuo</div>
+      </div>
+    </div>
+  </div>
+  <div class="dz__scroll-indicator" aria-hidden="true">
+    <div class="dz__scroll-indicator-line"></div>
+    <span class="dz__scroll-indicator-label">Desplazar</span>
+  </div>
+</section>
+
+<section class="dz__services-split" id="servicios" aria-label="Servicios divididos">
+  <div class="dz__container">
+    <div class="dz__services-split-header dz__reveal">
+      <p class="dz__section-label">Nuestros Servicios</p>
+      <h2 class="dz__section-title">Dos Mundos, Una Mision</h2>
+      <p class="dz__section-desc" style="margin: 0 auto;">Operaciones subacuaticas industriales con precision certificada y exploracion recreativa con estandares internacionales de seguridad.</p>
+    </div>
+    <div class="dz__services-split-grid">
+      <div class="dz__service-bento dz__reveal--left" id="industrial">
+        <svg class="dz__service-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+        <h3>Ingenieria Subacuatica</h3>
+        <span class="dz__service-bento-tag">Industrial & Offshore</span>
+        <ul class="dz__service-bento-list">
+          <li>Inspeccion submarina de plataformas y ductos</li>
+          <li>Soldadura hiperbarica y corte subacuatico</li>
+          <li>Construccion y reparacion de infraestructura marina</li>
+          <li>Mantenimiento de presas, puertos y plantas</li>
+          <li>Topografia batimetrica y relevamiento 3D</li>
+          <li>Operaciones con ROV y equipos de intervencion</li>
+        </ul>
+        <a href="#contacto" class="dz__btn dz__btn--aqua dz__service-bento-cta">Solicitar Cotizacion</a>
+      </div>
+
+      <div class="dz__service-bento dz__service-bento--rust dz__reveal--right" id="recreativo">
+        <svg class="dz__service-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 18h6a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H3v12a3 3 0 0 0 3 3z"/>
+          <path d="M6 18v3h12a3 3 0 0 0 3-3v-9h-3"/>
+          <path d="M15 15v3"/>
+          <path d="M10 12l-3-3"/><path d="M12 10l-1.5-1.5"/><path d="M7 8v4"/><path d="M11 16v-3"/>
+        </svg>
+        <h3>Buceo Recreativo</h3>
+        <span class="dz__service-bento-tag">Cursos, Expediciones & Equipo</span>
+        <ul class="dz__service-bento-list">
+          <li>Buceo deportivo en arrecifes, pecios y cenotes</li>
+          <li>Cursos de certificacion PADI / SSI (Open Water a Divemaster)</li>
+          <li>Renta y venta de equipo de buceo certificado</li>
+          <li>Expediciones especializadas en el Golfo de Mexico</li>
+          <li>Buceo nocturno, fotografia subacuatica y tecnicas de rescate</li>
+          <li>Paquetes grupales y programas de immersion intensiva</li>
+        </ul>
+        <a href="#contacto" class="dz__btn dz__btn--rust dz__service-bento-cta">Ver Cursos y Reservar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dz__certs" aria-label="Certificaciones y acreditaciones">
+  <div class="dz__certs-header dz__reveal">
+    <p class="dz__section-label">Acreditaciones</p>
+    <h3>Certificaciones internacionales que respaldan cada operacion</h3>
+  </div>
+  <div class="dz__certs-track-wrapper">
+    <div class="dz__certs-track" id="dz-certs-track" aria-label="Cintillo de certificaciones">
+      <span class="dz__cert-pill">SSI</span>
+      <span class="dz__cert-pill">PADI</span>
+      <span class="dz__cert-pill dz__cert-pill--rust">IMCA</span>
+      <span class="dz__cert-pill dz__cert-pill--gold">ISO 9001</span>
+      <span class="dz__cert-pill">STCW</span>
+      <span class="dz__cert-pill">DAN</span>
+      <span class="dz__cert-pill dz__cert-pill--rust">SEMARNAT</span>
+      <span class="dz__cert-pill dz__cert-pill--gold">AWS D3.6</span>
+      <span class="dz__cert-pill">SSI</span>
+      <span class="dz__cert-pill">PADI</span>
+      <span class="dz__cert-pill dz__cert-pill--rust">IMCA</span>
+      <span class="dz__cert-pill dz__cert-pill--gold">ISO 9001</span>
+      <span class="dz__cert-pill">STCW</span>
+      <span class="dz__cert-pill">DAN</span>
+      <span class="dz__cert-pill dz__cert-pill--rust">SEMARNAT</span>
+      <span class="dz__cert-pill dz__cert-pill--gold">AWS D3.6</span>
+    </div>
+  </div>
+</section>
+
+<section class="dz__team" id="instructores" aria-label="Equipo de instructores">
+  <div class="dz__container">
+    <div class="dz__team-header dz__reveal">
+      <p class="dz__section-label">Nuestro Equipo</p>
+      <h2 class="dz__section-title">Instructores Certificados</h2>
+      <p class="dz__section-desc" style="margin: 0 auto;">Profesionales con experiencia internacional y pasion por el mar. Cada instructor cuenta con certificaciones vigentes y anos de operacion en campo.</p>
+    </div>
+    <div class="dz__team-grid">
+      <div class="dz__team-card dz__reveal--scale" style="transition-delay: 0.05s;">
+        <img class="dz__team-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&fit=crop&crop=face" alt="Capitan Roberto Mendez" loading="lazy" width="120" height="120">
+        <h3 class="dz__team-name">Roberto Mendez</h3>
+        <p class="dz__team-title">Director de Operaciones / Instructor SSI</p>
+        <p class="dz__team-bio">Buzo profesional con mas de 15 anos de experiencia en ingenieria subacuatica para la industria petrolera. Certificado en soldadura hiperbarica, inspeccion NDT y rescate industrial. Lider de mas de 800 operaciones offshore en el Golfo de Mexico.</p>
+        <div class="dz__team-cert-badges">
+          <span class="dz__team-cert-badge">SSI Instructor</span>
+          <span class="dz__team-cert-badge">IMCA</span>
+          <span class="dz__team-cert-badge">NDT Level II</span>
+        </div>
+      </div>
+      <div class="dz__team-card dz__reveal--scale" style="transition-delay: 0.15s;">
+        <img class="dz__team-photo" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80&fit=crop&crop=face" alt="Instructor Carlos Huerta" loading="lazy" width="120" height="120">
+        <h3 class="dz__team-name">Carlos Huerta</h3>
+        <p class="dz__team-title">Instructor PADI / Especialista en Buceo Tecnico</p>
+        <p class="dz__team-bio">Instructor PADI Master Scuba Diver Trainer con especialidad en buceo profundo, pecios y navegacion subacuatica. Mas de 2000 inmersiones recreativas guiadas en cenotes, arrecifes del Golfo y expediciones en el Caribe mexicano.</p>
+        <div class="dz__team-cert-badges">
+          <span class="dz__team-cert-badge">PADI MSDT</span>
+          <span class="dz__team-cert-badge">DAN Instructor</span>
+          <span class="dz__team-cert-badge">Rescue Diver</span>
+        </div>
+      </div>
+      <div class="dz__team-card dz__reveal--scale" style="transition-delay: 0.25s;">
+        <img class="dz__team-photo" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80&fit=crop&crop=face" alt="Instructora Ana Trevino" loading="lazy" width="120" height="120">
+        <h3 class="dz__team-name">Ana Trevino</h3>
+        <p class="dz__team-title">Instructora SSI / Biologa Marina</p>
+        <p class="dz__team-bio">Biologa marina especializada en conservacion de arrecifes coralinos y formacion de buzos responsables. Instructora SSI con enfoque en certificacion de nuevos buzos, fotografia subacuatica y programas de monitoreo de ecosistemas marinos.</p>
+        <div class="dz__team-cert-badges">
+          <span class="dz__team-cert-badge">SSI Instructor</span>
+          <span class="dz__team-cert-badge">Marine Biology</span>
+          <span class="dz__team-cert-badge">Underwater Photo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dz__gallery" id="galeria" aria-label="Galeria de buceo">
+  <div class="dz__container">
+    <div class="dz__gallery-header dz__reveal">
+      <p class="dz__section-label">Galeria</p>
+      <h2 class="dz__section-title">Inmersiones Extraordinarias</h2>
+      <p class="dz__section-desc" style="margin: 0 auto;">Explora los escenarios donde operamos: desde plataformas offshore hasta arrecifes virgenes del Golfo de Mexico.</p>
+    </div>
+    <div class="dz__gallery-grid">
+      <div class="dz__gallery-item dz__reveal--scale">
+        <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=800&q=80" alt="Buzo explorando arrecife profundo" loading="lazy">
+        <div class="dz__gallery-overlay">
+          <svg class="dz__gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <h4>Arrecife Lobos</h4>
+          <p>Golfo de Mexico | 28 m</p>
+        </div>
+      </div>
+      <div class="dz__gallery-item dz__reveal--scale" style="transition-delay: 0.1s;">
+        <img src="https://images.unsplash.com/photo-1535069652397-292cbe9da15b?w=800&q=80" alt="Plataforma petrolera offshore" loading="lazy">
+        <div class="dz__gallery-overlay">
+          <svg class="dz__gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M12 5v5"/><path d="M8 5l4-3 4 3"/><line x1="3" y1="21" x2="21" y2="21"/></svg>
+          <h4>Plataforma Eni</h4>
+          <p>Offshore Tampico | Inspeccion NDT</p>
+        </div>
+      </div>
+      <div class="dz__gallery-item dz__reveal--scale" style="transition-delay: 0.2s;">
+        <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=800&q=80" alt="Cenote cristalino para buceo" loading="lazy">
+        <div class="dz__gallery-overlay">
+          <svg class="dz__gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18h6a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H3v12a3 3 0 0 0 3 3z"/><path d="M6 18v3h12a3 3 0 0 0 3-3v-9h-3"/><path d="M15 15v3"/></svg>
+          <h4>Cenote Dos Ojos</h4>
+          <p>Quintana Roo | 12 m visibilidad</p>
+        </div>
+      </div>
+      <div class="dz__gallery-item dz__reveal--scale" style="transition-delay: 0.3s;">
+        <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?w=800&q=80" alt="Buzo en immersion profunda" loading="lazy">
+        <div class="dz__gallery-overlay">
+          <svg class="dz__gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <h4>Pez Ballena</h4>
+          <p>Temporada 2024 | Encuentro Unico</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dz__contact" id="contacto" aria-label="Contacto">
+  <div class="dz__container">
+    <div class="dz__contact-header dz__reveal">
+      <p class="dz__section-label">Contacto</p>
+      <h2 class="dz__section-title">Comuniquemonos</h2>
+      <p class="dz__section-desc" style="margin: 0 auto;">Selecciona la via de contacto segun tu necesidad. Recibiras respuesta en menos de 24 horas habiles.</p>
+    </div>
+    <div class="dz__contact-grid">
+      <div class="dz__contact-panel dz__reveal--left">
+        <p class="dz__section-label">Industrial</p>
+        <h3>Solicitud Industrial</h3>
+        <p>Para cotizaciones, proyectos de ingenieria subacuatica y contratos corporativos.</p>
+        <form>
+          <div class="dz__form-group">
+            <label for="dz-ind-empresa">Empresa o Institucion</label>
+            <input type="text" id="dz-ind-empresa" name="empresa" placeholder="Nombre de la empresa" required aria-required="true">
+          </div>
+          <div class="dz__form-group">
+            <label for="dz-ind-sector">Sector Industrial</label>
+            <select id="dz-ind-sector" name="sector" required aria-required="true">
+              <option value="">Selecciona un sector</option>
+              <option value="petroleo">Petroleo y Gas</option>
+              <option value="maritimo">Maritimo y Portuario</option>
+              <option value="construccion">Construccion Subacuatica</option>
+              <option value="energia">Energia Renovable Marina</option>
+              <option value="mineria">Mineria Subacuatica</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="dz__form-group">
+            <label for="dz-ind-descripcion">Descripcion del Proyecto</label>
+            <textarea id="dz-ind-descripcion" name="descripcion" placeholder="Describe los requerimientos tecnicos, profundidad, ubicacion y alcance del proyecto..." required aria-required="true"></textarea>
+          </div>
+          <div class="dz__form-group">
+            <label for="dz-ind-correo">Correo Corporativo</label>
+            <input type="email" id="dz-ind-correo" name="correo" placeholder="correo@empresa.com" required aria-required="true">
+          </div>
+          <button type="submit" class="dz__btn dz__btn--aqua" style="width:100%;">Solicitar Cotizacion</button>
+        </form>
+      </div>
+      <div class="dz__contact-panel dz__contact-panel--rust dz__reveal--right">
+        <p class="dz__section-label">Recreativo</p>
+        <h3>Reservacion Recreativa</h3>
+        <p>Para cursos, expediciones de buceo, renta de equipo y paquetes grupales.</p>
+        <form>
+          <div class="dz__form-group">
+            <label for="dz-rec-nombre">Nombre Completo</label>
+            <input type="text" id="dz-rec-nombre" name="nombre" placeholder="Tu nombre completo" required aria-required="true">
+          </div>
+          <div class="dz__form-group">
+            <label for="dz-rec-email">Correo Electronico</label>
+            <input type="email" id="dz-rec-email" name="email" placeholder="correo@ejemplo.com" required aria-required="true">
+          </div>
+          <div class="dz__form-group">
+            <label for="dz-rec-nivel">Nivel de Experiencia</label>
+            <select id="dz-rec-nivel" name="nivel" required aria-required="true">
+              <option value="">Selecciona tu nivel</option>
+              <option value="principiante">Principiante (Sin certificacion)</option>
+              <option value="open-water">Open Water Diver</option>
+              <option value="advanced">Advanced Open Water</option>
+              <option value="rescue">Rescue Diver</option>
+              <option value="divemaster">Divemaster / Instructor</option>
+            </select>
+          </div>
+          <div class="dz__form-group">
+            <label for="dz-rec-fecha">Fecha Preferida</label>
+            <input type="date" id="dz-rec-fecha" name="fecha">
+          </div>
+          <div class="dz__form-group">
+            <label for="dz-rec-mensaje">Mensaje o Interes Especifico</label>
+            <textarea id="dz-rec-mensaje" name="mensaje" placeholder="Curso de interes, destino preferido, numero de personas, fechas alternativas..."></textarea>
+          </div>
+          <button type="submit" class="dz__btn dz__btn--rust" style="width:100%;">Reservar Ahora</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="dz__footer" aria-label="Pie de pagina">
+  <div class="dz__container">
+    <div class="dz__footer-inner">
+      <div class="dz__footer-top">
+        <span class="dz__footer-lang">ESP | ENG</span>
+      </div>
+      <div class="dz__footer-brand">Diver<span>Zap</span></div>
+      <p class="dz__footer-location">Ingenieria Subacuatica y Buceo Recreativo — Tampico, Tamaulipas, Mexico</p>
+      <div class="dz__footer-divider" aria-hidden="true"></div>
+      <div class="dz__footer-links">
+        <a href="#hero">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#instructores">Instructores</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <p class="dz__footer-copy">&copy; 2024 Diver Zap. Todos los derechos reservados. Diseñado con precision, operado con seguridad.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('dz__reveal--visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.dz__reveal, .dz__reveal--left, .dz__reveal--right, .dz__reveal--scale').forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  var nav = document.getElementById('dz-nav');
+  if (nav) {
+    var navToggler = document.getElementById('dz-nav-toggle');
+    var navLinks = nav.querySelector('.dz__nav-links');
+    var isOpen = false;
+
+    if (navToggler && navLinks) {
+      navToggler.addEventListener('click', function() {
+        isOpen = !isOpen;
+        navLinks.style.display = isOpen ? 'flex' : '';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.background = 'oklch(0.07 0.02 260 / 0.98)';
+        navLinks.style.backdropFilter = 'blur(12px)';
+        navLinks.style.padding = '20px 24px';
+        navLinks.style.gap = '16px';
+        navLinks.style.borderBottom = '1px solid oklch(1 1 1 / 0.05)';
+      });
+    }
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768 && navLinks) {
+        navLinks.style.display = '';
+        navLinks.style.flexDirection = '';
+        navLinks.style.position = '';
+        navLinks.style.top = '';
+        navLinks.style.left = '';
+        navLinks.style.right = '';
+        navLinks.style.background = '';
+        navLinks.style.backdropFilter = '';
+        navLinks.style.padding = '';
+        navLinks.style.gap = '';
+        navLinks.style.borderBottom = '';
+      }
+    });
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 60) {
+        nav.classList.add('dz__nav--scrolled');
+      } else {
+        nav.classList.remove('dz__nav--scrolled');
+      }
+    }, { passive: true });
+  }
+
+  var heroBg = document.querySelector('.dz__hero-bg');
+  if (heroBg) {
+    window.addEventListener('scroll', function() {
+      var scrollY = window.scrollY;
+      var translate = scrollY * 0.3;
+      heroBg.style.transform = 'translate3d(0, ' + translate + 'px, 0) scale(1.05)';
+    }, { passive: true });
+  }
+
+  var certTrack = document.getElementById('dz-certs-track');
+  if (certTrack) {
+    var certObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          certTrack.style.animationPlayState = '';
+          certObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    certObserver.observe(certTrack);
+  }
+
+  var forms = document.querySelectorAll('.dz__contact-panel form');
+  forms.forEach(function(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('.dz__btn');
+      var originalText = btn.textContent;
+      btn.textContent = 'Enviado';
+      btn.style.opacity = '0.6';
+      btn.style.pointerEvents = 'none';
+      setTimeout(function() {
+        btn.textContent = originalText;
+        btn.style.opacity = '';
+        btn.style.pointerEvents = '';
+        form.reset();
+      }, 2500);
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        var navHeight = nav ? nav.offsetHeight : 0;
+        var targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        if (navLinks && isOpen) {
+          isOpen = false;
+          navLinks.style.display = '';
+          navLinks.style.flexDirection = '';
+          navLinks.style.position = '';
+          navLinks.style.top = '';
+          navLinks.style.left = '';
+          navLinks.style.right = '';
+          navLinks.style.background = '';
+          navLinks.style.backdropFilter = '';
+          navLinks.style.padding = '';
+          navLinks.style.gap = '';
+          navLinks.style.borderBottom = '';
+        }
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaibos Dive Center &mdash; SSI Certified Dive School Tampico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Epilogue:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --jb-sand:oklch(0.94 0.01 75);
+  --jb-teal:oklch(0.5 0.18 185);
+  --jb-teal-dark:oklch(0.38 0.14 185);
+  --jb-gold:oklch(0.72 0.12 60);
+  --jb-dark:oklch(0.15 0.02 240);
+  --jb-surface:oklch(0.97 0.005 80);
+  --jb-muted:oklch(0.55 0.03 240);
+  --jb-shadow:oklch(0.15 0.02 240 / 0.08);
+  --jb-shadow-gold:oklch(0.72 0.08 60 / 0.25);
+  --jb-shadow-teal:oklch(0.48 0.12 185 / 0.35);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:Epilogue,sans-serif;
+  background:var(--jb-sand);
+  color:var(--jb-dark);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.jb__wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.jb__heading{
+  font-family:Fraunces,serif;
+  font-variation-settings:"opsz"72;
+  line-height:1.1;
+  letter-spacing:-0.02em;
+}
+.jb__reveal{
+  opacity:0;
+  transform:translateY(36px) scale(0.96);
+  transition:opacity 0.7s cubic-bezier(0.34,1.56,0.64,1),transform 0.7s cubic-bezier(0.34,1.56,0.64,1);
+}
+.jb__reveal--in{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.jb__reveal-d1{transition-delay:0.1s}
+.jb__reveal-d2{transition-delay:0.2s}
+.jb__reveal-d3{transition-delay:0.3s}
+.jb__reveal-d4{transition-delay:0.4s}
+.jb__reveal-d5{transition-delay:0.5s}
+
+/* HERO */
+.jb__hero{
+  min-height:100dvh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:100px 24px 80px;
+  background:linear-gradient(135deg,var(--jb-teal-dark),var(--jb-teal));
+}
+.jb__hero-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.jb__hero-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.jb__hero-bg::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,oklch(0.15 0.02 240 / 0.35) 0%,oklch(0.48 0.12 185 / 0.4) 40%,oklch(0.38 0.14 185 / 0.5) 100%);
+  pointer-events:none;
+}
+.jb__bubbles{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:2;
+}
+.jb__bubble{
+  position:absolute;
+  bottom:-30px;
+  border-radius:50%;
+  animation:jb__bubbleUp var(--d) ease-in-out infinite;
+  animation-delay:var(--del);
+  opacity:var(--o);
+  width:var(--s);
+  height:var(--s);
+  left:var(--x);
+  background:radial-gradient(circle at 30% 30%,oklch(1 0 0 / 0.35),oklch(0.85 0.03 190 / 0.12));
+  box-shadow:inset 0 -2px 6px oklch(1 0 0 / 0.15);
+}
+@keyframes jb__bubbleUp{
+  0%{transform:translateY(0) scale(1);opacity:0}
+  10%{opacity:1}
+  90%{opacity:0.5}
+  100%{transform:translateY(-110dvh) scale(0.5);opacity:0}
+}
+.jb__hero-content{
+  position:relative;
+  z-index:3;
+  text-align:center;
+  max-width:820px;
+}
+.jb__hero-ssi{
+  position:absolute;
+  top:-12px;
+  right:0;
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  background:var(--jb-gold);
+  color:var(--jb-dark);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-family:Fraunces,serif;
+  font-weight:700;
+  font-size:0.7rem;
+  letter-spacing:0.06em;
+  line-height:1.2;
+  text-align:center;
+  box-shadow:0 8px 28px oklch(0.72 0.08 60 / 0.4);
+  z-index:4;
+}
+.jb__hero-ssi span{display:block}
+.jb__hero-ssi-lg{font-size:1.15rem;font-weight:800}
+.jb__hero-title{
+  font-family:Fraunces,serif;
+  font-variation-settings:"opsz"72;
+  font-weight:700;
+  font-size:clamp(2.4rem,7vw,4.8rem);
+  color:#fff;
+  line-height:1.05;
+  margin-bottom:8px;
+  letter-spacing:-0.03em;
+  text-shadow:0 2px 24px oklch(0 0 0 / 0.3);
+}
+.jb__hero-wave{
+  display:block;
+  width:180px;
+  height:10px;
+  margin:20px auto 24px;
+}
+.jb__hero-wave svg{width:100%;height:auto;display:block;overflow:visible}
+.jb__hero-sub{
+  font-size:clamp(1.05rem,2vw,1.3rem);
+  color:oklch(0.92 0.01 80);
+  font-weight:500;
+  margin-bottom:40px;
+  letter-spacing:0.02em;
+  text-shadow:0 1px 12px oklch(0 0 0 / 0.2);
+}
+.jb__hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  justify-content:center;
+}
+.jb__btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:15px 38px;
+  border-radius:999px;
+  font-family:Nunito,sans-serif;
+  font-weight:700;
+  font-size:0.95rem;
+  text-decoration:none;
+  transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  cursor:pointer;
+  border:2.5px solid transparent;
+}
+.jb__btn--primary{
+  background:var(--jb-teal);
+  color:#fff;
+  box-shadow:0 4px 20px var(--jb-shadow-teal);
+}
+.jb__btn--primary:hover{
+  background:var(--jb-teal-dark);
+  transform:translateY(-4px) scale(1.04);
+  box-shadow:0 10px 32px var(--jb-shadow-teal);
+}
+.jb__btn--outline{
+  background:transparent;
+  color:#fff;
+  border-color:oklch(1 0 0 / 0.85);
+}
+.jb__btn--outline:hover{
+  background:oklch(1 0 0 / 0.12);
+  transform:translateY(-4px) scale(1.04);
+}
+.jb__btn--accent{
+  background:var(--jb-gold);
+  color:var(--jb-dark);
+  box-shadow:0 4px 20px var(--jb-shadow-gold);
+}
+.jb__btn--accent:hover{
+  background:oklch(0.66 0.1 60);
+  transform:translateY(-4px) scale(1.04);
+  box-shadow:0 10px 32px oklch(0.72 0.08 60 / 0.45);
+}
+
+/* SECTION BASE */
+.jb__section{padding:96px 0}
+.jb__section--surface{background:var(--jb-surface)}
+.jb__section--sand{background:var(--jb-sand)}
+.jb__section--teal{
+  background:var(--jb-teal-dark);
+  position:relative;
+  overflow:hidden;
+}
+.jb__section--teal::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse 80% 50% at 50% 0%,oklch(0.5 0.12 185 / 0.3),transparent);
+  pointer-events:none;
+}
+.jb__label{
+  font-family:Fraunces,serif;
+  font-variation-settings:"opsz"36;
+  font-weight:600;
+  font-size:clamp(1.8rem,4vw,2.6rem);
+  color:var(--jb-teal);
+  text-align:center;
+  margin-bottom:8px;
+  letter-spacing:-0.02em;
+}
+.jb__label--light{color:#fff}
+.jb__desc{
+  text-align:center;
+  color:var(--jb-muted);
+  font-size:1.05rem;
+  max-width:600px;
+  margin:0 auto 56px;
+}
+.jb__desc--light{color:oklch(0.82 0.01 80)}
+
+/* COURSE GRID */
+.jb__course-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.jb__course-card{
+  background:#fff;
+  border-radius:24px;
+  padding:32px 26px 28px;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 2px 12px var(--jb-shadow);
+  transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  position:relative;
+  overflow:hidden;
+}
+.jb__course-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:4px;
+  background:var(--jb-gold);
+  opacity:0.6;
+}
+.jb__course-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 48px var(--jb-shadow);
+}
+.jb__course-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  align-self:flex-start;
+  font-size:0.7rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  padding:4px 14px;
+  border-radius:999px;
+  color:#fff;
+  margin-bottom:14px;
+}
+.jb__course-badge--1{background:oklch(0.62 0.07 60)}
+.jb__course-badge--2{background:oklch(0.68 0.04 220)}
+.jb__course-badge--3{background:var(--jb-teal)}
+.jb__course-badge--4{background:oklch(0.45 0.14 260)}
+.jb__course-name{
+  font-family:Fraunces,serif;
+  font-variation-settings:"opsz"48;
+  font-weight:600;
+  font-size:1.2rem;
+  color:var(--jb-dark);
+  margin-bottom:4px;
+}
+.jb__course-duration{
+  font-size:0.82rem;
+  color:var(--jb-muted);
+  font-weight:600;
+  margin-bottom:10px;
+}
+.jb__course-price{
+  font-family:Fraunces,serif;
+  font-variation-settings:"opsz"36;
+  font-weight:700;
+  font-size:1.6rem;
+  color:var(--jb-teal);
+  margin-bottom:14px;
+  letter-spacing:-0.02em;
+}
+.jb__course-features{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-bottom:20px;
+  flex:1;
+}
+.jb__course-features li{
+  font-size:0.88rem;
+  color:var(--jb-muted);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.jb__course-features li svg{
+  width:16px;
+  height:16px;
+  color:var(--jb-gold);
+  flex-shrink:0;
+}
+.jb__course-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  padding:12px 24px;
+  border-radius:999px;
+  background:var(--jb-teal);
+  color:#fff;
+  font-family:Nunito,sans-serif;
+  font-weight:700;
+  font-size:0.88rem;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.jb__course-btn:hover{
+  background:var(--jb-teal-dark);
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px var(--jb-shadow-teal);
+}
+
+/* SSI TRUST */
+.jb__trust{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:48px;
+  padding:10px 0;
+}
+.jb__trust-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  text-align:center;
+}
+.jb__trust-icon{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:var(--jb-surface);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--jb-teal);
+  box-shadow:0 2px 8px var(--jb-shadow);
+}
+.jb__trust-icon svg{width:28px;height:28px}
+.jb__trust-text{
+  font-family:Fraunces,serif;
+  font-variation-settings:"opsz"24;
+  font-weight:600;
+  font-size:0.78rem;
+  color:var(--jb-dark);
+  letter-spacing:0.04em;
+}
+.jb__trust-stars{
+  font-size:0.9rem;
+  color:var(--jb-gold);
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+/* INSTRUCTORS */
+.jb__instructors{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+.jb__instructor{
+  background:#fff;
+  border-radius:24px;
+  padding:40px 28px 32px;
+  text-align:center;
+  box-shadow:0 2px 12px var(--jb-shadow);
+  transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.jb__instructor:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 40px var(--jb-shadow);
+}
+.jb__inst-photo{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  margin:0 auto 20px;
+  overflow:hidden;
+  border:3px solid var(--jb-gold);
+}
+.jb__inst-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.jb__inst-name{
+  font-family:Fraunces,serif;
+  font-variation-settings:"opsz"48;
+  font-weight:600;
+  font-size:1.2rem;
+  color:var(--jb-dark);
+  margin-bottom:4px;
+}
+.jb__inst-cred{
+  display:inline-block;
+  font-size:0.72rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  padding:4px 16px;
+  border-radius:999px;
+  background:oklch(0.48 0.12 185 / 0.1);
+  color:var(--jb-teal);
+  margin-bottom:12px;
+}
+.jb__inst-bio{
+  color:var(--jb-muted);
+  font-size:0.9rem;
+  line-height:1.65;
+}
+
+/* EQUIPMENT */
+.jb__equip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.jb__equip-card{
+  background:#fff;
+  border-radius:20px;
+  padding:28px 20px 24px;
+  text-align:center;
+  box-shadow:0 2px 10px var(--jb-shadow);
+  transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  cursor:default;
+  border-left:3px solid var(--jb-teal);
+}
+.jb__equip-card:hover{
+  transform:translateY(-6px) rotate(2deg);
+  box-shadow:0 16px 40px var(--jb-shadow-gold);
+}
+.jb__equip-card:nth-child(even):hover{transform:translateY(-6px) rotate(-3deg)}
+.jb__equip-icon{
+  width:44px;
+  height:44px;
+  color:var(--jb-teal);
+  margin-bottom:12px;
+  display:inline-block;
+}
+.jb__equip-name{
+  font-family:Fraunces,serif;
+  font-variation-settings:"opsz"36;
+  font-weight:600;
+  font-size:1rem;
+  color:var(--jb-dark);
+  margin-bottom:4px;
+}
+.jb__equip-price{
+  font-size:0.9rem;
+  font-weight:700;
+  color:var(--jb-teal);
+}
+
+/* GALLERY */
+.jb__gallery{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.jb__gallery-item{
+  position:relative;
+  border-radius:20px;
+  overflow:hidden;
+  aspect-ratio:4/3;
+  cursor:pointer;
+}
+.jb__gallery-item:nth-child(3){
+  grid-column:1/-1;
+  aspect-ratio:3/1;
+}
+.jb__gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform 0.6s cubic-bezier(0.34,1.56,0.64,1);
+}
+.jb__gallery-item:hover img{transform:scale(1.08)}
+.jb__gallery-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,oklch(0 0 0 / 0.7) 0%,oklch(0 0 0 / 0) 60%);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:24px;
+}
+.jb__gallery-name{
+  font-family:Fraunces,serif;
+  font-variation-settings:"opsz"48;
+  font-weight:600;
+  font-size:1.15rem;
+  color:#fff;
+  margin-bottom:2px;
+}
+.jb__gallery-depth{
+  font-size:0.85rem;
+  color:oklch(0.85 0.01 80);
+  font-weight:500;
+}
+
+/* CONTACT */
+.jb__contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:start;
+  position:relative;
+  z-index:1;
+}
+.jb__form{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.jb__field{display:flex;flex-direction:column;gap:4px}
+.jb__field-label{
+  font-size:0.82rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:oklch(0.82 0.01 80);
+}
+.jb__input,.jb__textarea{
+  padding:13px 18px;
+  border-radius:14px;
+  border:2px solid oklch(1 0 0 / 0.15);
+  background:oklch(0.5 0.12 185 / 0.2);
+  font-family:Nunito,sans-serif;
+  font-size:0.95rem;
+  color:#fff;
+  transition:border-color 0.3s,background 0.3s;
+  outline:none;
+}
+.jb__input:focus,.jb__textarea:focus{
+  border-color:var(--jb-gold);
+  background:oklch(0.5 0.12 185 / 0.3);
+}
+.jb__input::placeholder,.jb__textarea::placeholder{color:oklch(1 0 0 / 0.3)}
+.jb__select{
+  padding:13px 18px;
+  border-radius:14px;
+  border:2px solid oklch(1 0 0 / 0.15);
+  background:oklch(0.5 0.12 185 / 0.2);
+  font-family:Nunito,sans-serif;
+  font-size:0.95rem;
+  color:oklch(1 0 0 / 0.6);
+  outline:none;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  padding-right:40px;
+  cursor:pointer;
+  transition:border-color 0.3s,background 0.3s;
+}
+.jb__select:focus{
+  border-color:var(--jb-gold);
+  background:oklch(0.5 0.12 185 / 0.3);
+}
+.jb__select option{color:var(--jb-dark);background:#fff}
+.jb__textarea{
+  resize:vertical;
+  min-height:110px;
+}
+.jb__submit{
+  padding:14px 38px;
+  border-radius:999px;
+  border:none;
+  background:var(--jb-gold);
+  color:var(--jb-dark);
+  font-family:Nunito,sans-serif;
+  font-weight:700;
+  font-size:0.95rem;
+  cursor:pointer;
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  align-self:flex-start;
+  box-shadow:0 4px 20px var(--jb-shadow-gold);
+}
+.jb__submit:hover{
+  background:oklch(0.66 0.1 60);
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 10px 32px oklch(0.72 0.08 60 / 0.5);
+}
+.jb__contact-info{
+  background:oklch(0.25 0.08 240 / 0.35);
+  border-radius:24px;
+  padding:36px 32px;
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+  backdrop-filter:blur(4px);
+}
+.jb__contact-ssi{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.jb__contact-ssi-badge{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:var(--jb-gold);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-family:Fraunces,serif;
+  font-weight:700;
+  font-size:0.6rem;
+  letter-spacing:0.08em;
+  text-align:center;
+  line-height:1.2;
+  color:var(--jb-dark);
+  flex-shrink:0;
+}
+.jb__contact-ssi-badge span{display:block}
+.jb__contact-ssi-lg{font-size:1.05rem;font-weight:800}
+.jb__contact-ssi-text{font-size:0.92rem;color:oklch(0.85 0.01 80)}
+.jb__contact-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:0.92rem;
+  color:oklch(0.9 0.01 80);
+}
+.jb__contact-row svg{
+  width:20px;
+  height:20px;
+  color:var(--jb-gold);
+  flex-shrink:0;
+}
+.jb__hours{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  font-size:0.9rem;
+  color:oklch(0.8 0.01 80);
+}
+.jb__hours strong{color:#fff}
+.jb__whatsapp{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 28px;
+  border-radius:999px;
+  background:oklch(0.62 0.18 145);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:0.92rem;
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  align-self:flex-start;
+}
+.jb__whatsapp:hover{
+  background:oklch(0.55 0.2 145);
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px oklch(0.62 0.18 145 / 0.35);
+}
+.jb__whatsapp svg{width:20px;height:20px;flex-shrink:0}
+
+/* FOOTER */
+.jb__footer{
+  background:var(--jb-sand);
+  padding:52px 24px;
+  text-align:center;
+}
+.jb__footer-inner{max-width:1140px;margin:0 auto}
+.jb__footer-name{
+  font-family:Fraunces,serif;
+  font-variation-settings:"opsz"48;
+  font-weight:600;
+  font-size:1.25rem;
+  color:var(--jb-dark);
+  margin-bottom:4px;
+}
+.jb__footer-loc{
+  font-size:0.92rem;
+  color:var(--jb-muted);
+  margin-bottom:22px;
+}
+.jb__socials{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+}
+.jb__social-link{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:var(--jb-teal);
+  color:#fff;
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  text-decoration:none;
+}
+.jb__social-link:hover{
+  background:var(--jb-teal-dark);
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px var(--jb-shadow-teal);
+}
+.jb__social-link svg{width:20px;height:20px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .jb__course-grid{grid-template-columns:repeat(2,1fr)}
+  .jb__instructors{grid-template-columns:repeat(2,1fr)}
+  .jb__gallery-item:nth-child(3){aspect-ratio:4/3}
+}
+@media(max-width:768px){
+  .jb__hero-ssi{width:76px;height:76px;font-size:0.6rem;top:-6px;right:-4px}
+  .jb__hero-ssi-lg{font-size:0.9rem}
+  .jb__hero{padding:80px 20px 60px}
+  .jb__section{padding:72px 0}
+  .jb__course-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .jb__course-card{padding:24px 20px 22px}
+  .jb__trust{gap:28px}
+  .jb__trust-item{min-width:100px}
+  .jb__gallery{grid-template-columns:1fr}
+  .jb__gallery-item:nth-child(3){grid-column:1;aspect-ratio:4/3}
+  .jb__contact-grid{grid-template-columns:1fr;gap:32px}
+  .jb__instructors{grid-template-columns:1fr;max-width:400px;margin:0 auto}
+  .jb__equip{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .jb__hero-actions{flex-direction:column;align-items:center}
+  .jb__btn{width:100%;justify-content:center}
+  .jb__section{padding:56px 0}
+  .jb__course-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}
+  .jb__equip{grid-template-columns:1fr 1fr;gap:12px}
+  .jb__equip-card{padding:20px 14px 18px}
+  .jb__contact-info{padding:24px 20px}
+  .jb__trust{gap:20px}
+  .jb__desc{margin-bottom:36px}
+}
+</style>
+</head>
+<body>
+
+<section class="jb__hero" aria-label="Jaibos Dive Center hero">
+  <div class="jb__hero-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=1600&q=80" alt="">
+  </div>
+  <div class="jb__bubbles" aria-hidden="true">
+    <div class="jb__bubble" style="--s:6px;--x:8%;--d:14s;--del:0s;--o:0.2"></div>
+    <div class="jb__bubble" style="--s:12px;--x:22%;--d:18s;--del:2s;--o:0.25"></div>
+    <div class="jb__bubble" style="--s:20px;--x:35%;--d:12s;--del:4s;--o:0.15"></div>
+    <div class="jb__bubble" style="--s:8px;--x:48%;--d:16s;--del:1s;--o:0.3"></div>
+    <div class="jb__bubble" style="--s:16px;--x:60%;--d:20s;--del:6s;--o:0.2"></div>
+    <div class="jb__bubble" style="--s:10px;--x:72%;--d:13s;--del:3s;--o:0.25"></div>
+    <div class="jb__bubble" style="--s:24px;--x:85%;--d:17s;--del:7s;--o:0.15"></div>
+    <div class="jb__bubble" style="--s:14px;--x:92%;--d:15s;--del:5s;--o:0.2"></div>
+    <div class="jb__bubble" style="--s:7px;--x:15%;--d:19s;--del:8s;--o:0.3"></div>
+    <div class="jb__bubble" style="--s:18px;--x:50%;--d:11s;--del:9s;--o:0.15"></div>
+    <div class="jb__bubble" style="--s:5px;--x:40%;--d:22s;--del:10s;--o:0.2"></div>
+    <div class="jb__bubble" style="--s:22px;--x:75%;--d:14s;--del:12s;--o:0.15"></div>
+    <div class="jb__bubble" style="--s:9px;--x:30%;--d:16s;--del:11s;--o:0.25"></div>
+    <div class="jb__bubble" style="--s:15px;--x:10%;--d:21s;--del:14s;--o:0.2"></div>
+    <div class="jb__bubble" style="--s:11px;--x:68%;--d:12s;--del:13s;--o:0.3"></div>
+    <div class="jb__bubble" style="--s:25px;--x:55%;--d:18s;--del:15s;--o:0.15"></div>
+  </div>
+  <div class="jb__hero-content">
+    <div class="jb__hero-ssi" aria-label="SSI Certified Dive Center">
+      <span><span class="jb__hero-ssi-lg">SSI</span><span>Dive Center</span></span>
+    </div>
+    <h1 class="jb__hero-title">Explora el Mundo Submarino</h1>
+    <span class="jb__hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 6C22 2 34 10 56 6C78 2 100 10 122 6C144 2 156 10 180 6" stroke="oklch(0.72 0.08 60)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <circle cx="180" cy="6" r="5" fill="oklch(0.72 0.08 60)"/>
+      </svg>
+    </span>
+    <p class="jb__hero-sub">SSI Certified Dive Center &mdash; Tampico</p>
+    <div class="jb__hero-actions">
+      <a href="#cursos" class="jb__btn jb__btn--primary">VER CURSOS</a>
+      <a href="#contacto" class="jb__btn jb__btn--outline">CONTACTANOS</a>
+    </div>
+  </div>
+</section>
+
+<section id="cursos" class="jb__section jb__section--surface" aria-label="Cursos y precios">
+  <div class="jb__wrap">
+    <h2 class="jb__label jb__reveal">Cursos de Certificacion</h2>
+    <p class="jb__desc jb__reveal jb__reveal-d1">Certificacion SSI internacional. Desde principiante hasta profesional, encuentra tu nivel.</p>
+    <div class="jb__course-grid">
+      <div class="jb__course-card jb__reveal">
+        <span class="jb__course-badge jb__course-badge--1">Nivel 1</span>
+        <h3 class="jb__course-name">Open Water Diver</h3>
+        <p class="jb__course-duration">4 Dias &bull; 5 inmersiones</p>
+        <p class="jb__course-price">$4,500 MXN</p>
+        <ul class="jb__course-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Sin experiencia previa
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Certificacion SSI internacional
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Equipo basico incluido
+          </li>
+        </ul>
+        <a href="#" class="jb__course-btn" aria-label="Inscribirse Open Water Diver">INSCRIBIRSE</a>
+      </div>
+      <div class="jb__course-card jb__reveal jb__reveal-d1">
+        <span class="jb__course-badge jb__course-badge--2">Nivel 2</span>
+        <h3 class="jb__course-name">Advanced Adventurer</h3>
+        <p class="jb__course-duration">3 Dias &bull; 5 inmersiones</p>
+        <p class="jb__course-price">$4,200 MXN</p>
+        <ul class="jb__course-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Requiere Open Water
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Inmersion profunda y nocturna
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Navegacion y fotografia
+          </li>
+        </ul>
+        <a href="#" class="jb__course-btn" aria-label="Inscribirse Advanced Adventurer">INSCRIBIRSE</a>
+      </div>
+      <div class="jb__course-card jb__reveal jb__reveal-d2">
+        <span class="jb__course-badge jb__course-badge--3">Nivel 3</span>
+        <h3 class="jb__course-name">Rescue Diver</h3>
+        <p class="jb__course-duration">4 Dias &bull; 6 inmersiones</p>
+        <p class="jb__course-price">$5,200 MXN</p>
+        <ul class="jb__course-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Requiere Advanced
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Tecnicas de rescate y RCP
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Manejo de emergencias
+          </li>
+        </ul>
+        <a href="#" class="jb__course-btn" aria-label="Inscribirse Rescue Diver">INSCRIBIRSE</a>
+      </div>
+      <div class="jb__course-card jb__reveal jb__reveal-d3">
+        <span class="jb__course-badge jb__course-badge--4">Nivel 4</span>
+        <h3 class="jb__course-name">Dive Master</h3>
+        <p class="jb__course-duration">30 Dias &bull; 20 inmersiones</p>
+        <p class="jb__course-price">$12,000 MXN</p>
+        <ul class="jb__course-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Requiere Rescue
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Liderazgo y guia de grupos
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Primer nivel profesional
+          </li>
+        </ul>
+        <a href="#" class="jb__course-btn" aria-label="Inscribirse Dive Master">INSCRIBIRSE</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="jb__section jb__section--sand" aria-label="Certificaciones y confianza">
+  <div class="jb__wrap">
+    <h2 class="jb__label jb__reveal" style="font-size:clamp(1.3rem,2.5vw,1.6rem);margin-bottom:36px">Certificado y Avalado por</h2>
+    <div class="jb__trust">
+      <div class="jb__trust-item jb__reveal">
+        <div class="jb__trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span class="jb__trust-text">SSI Certified</span>
+      </div>
+      <div class="jb__trust-item jb__reveal jb__reveal-d1">
+        <div class="jb__trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <span class="jb__trust-text">ISO Certified</span>
+      </div>
+      <div class="jb__trust-item jb__reveal jb__reveal-d2">
+        <div class="jb__trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <span class="jb__trust-text">Equipo Profesional</span>
+      </div>
+      <div class="jb__trust-item jb__reveal jb__reveal-d3">
+        <div class="jb__trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <span class="jb__trust-text"><span class="jb__trust-stars">5.0</span> Reviews</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="instructores" class="jb__section jb__section--surface" aria-label="Nuestros instructores">
+  <div class="jb__wrap">
+    <h2 class="jb__label jb__reveal">Instructores</h2>
+    <p class="jb__desc jb__reveal jb__reveal-d1">Profesionales SSI con experiencia internacional y pasion por el buceo.</p>
+    <div class="jb__instructors">
+      <div class="jb__instructor jb__reveal">
+        <div class="jb__inst-photo">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Carlos Mendez instructor SSI" loading="lazy">
+        </div>
+        <h3 class="jb__inst-name">Carlos Mendez</h3>
+        <span class="jb__inst-cred">Instructor SSI Open Water</span>
+        <p class="jb__inst-bio">15 anos formando buzos en el Golfo de Mexico. Especialista en rescate y fotografia submarina con mas de 500 estudiantes certificados.</p>
+      </div>
+      <div class="jb__instructor jb__reveal jb__reveal-d1">
+        <div class="jb__inst-photo">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="Ana Laura Rivas biologa marina" loading="lazy">
+        </div>
+        <h3 class="jb__inst-name">Ana Laura Rivas</h3>
+        <span class="jb__inst-cred">SSI Dive Master</span>
+        <p class="jb__inst-bio">Biologa marina apasionada por la conservacion de arrecifes. Guia experta en identificacion de especies del Golfo de Mexico.</p>
+      </div>
+      <div class="jb__instructor jb__reveal jb__reveal-d2">
+        <div class="jb__inst-photo">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Rafael Soto instructor de buceo" loading="lazy">
+        </div>
+        <h3 class="jb__inst-name">Rafael Soto</h3>
+        <span class="jb__inst-cred">SSI Open Water Instructor</span>
+        <p class="jb__inst-bio">Ha certificado a mas de 300 buzos y liderado expediciones en Tamaulipas. Apasionado del buceo profundo y la ensenanza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="equipo" class="jb__section jb__section--sand" aria-label="Renta de equipo">
+  <div class="jb__wrap">
+    <h2 class="jb__label jb__reveal">Renta de Equipo</h2>
+    <p class="jb__desc jb__reveal jb__reveal-d1">Mantenimiento certificado, marcas profesionales, maxima seguridad para tu inmersion.</p>
+    <div class="jb__equip">
+      <div class="jb__equip-card jb__reveal">
+        <svg class="jb__equip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a8 8 0 0 0-8 8c0 3 2 5.5 4 7l4 5 4-5c2-1.5 4-4 4-7a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3 class="jb__equip-name">Tanque</h3>
+        <span class="jb__equip-price">$200 / dia</span>
+      </div>
+      <div class="jb__equip-card jb__reveal jb__reveal-d1">
+        <svg class="jb__equip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h3 class="jb__equip-name">Regulador</h3>
+        <span class="jb__equip-price">$200 / dia</span>
+      </div>
+      <div class="jb__equip-card jb__reveal jb__reveal-d2">
+        <svg class="jb__equip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M4 16v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/><rect x="2" y="8" width="20" height="8" rx="2"/></svg>
+        <h3 class="jb__equip-name">BCD</h3>
+        <span class="jb__equip-price">$200 / dia</span>
+      </div>
+      <div class="jb__equip-card jb__reveal jb__reveal-d3">
+        <svg class="jb__equip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3.5A2 2 0 0 1 16 3h2a2 2 0 0 1 2 2v1"/><path d="M4 12h16"/><path d="M6 12v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-6"/><path d="M8 3v3a3 3 0 0 0 6 0V3"/></svg>
+        <h3 class="jb__equip-name">Traje de Neopreno</h3>
+        <span class="jb__equip-price">$200 / dia</span>
+      </div>
+      <div class="jb__equip-card jb__reveal jb__reveal-d4">
+        <svg class="jb__equip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><circle cx="9" cy="9" r="3"/><path d="M9 15a6 6 0 0 0 6-6"/><path d="M15 9a6 6 0 0 0-6-6"/><path d="M21 21l-6-6"/></svg>
+        <h3 class="jb__equip-name">Aletas</h3>
+        <span class="jb__equip-price">$200 / dia</span>
+      </div>
+      <div class="jb__equip-card jb__reveal jb__reveal-d5">
+        <svg class="jb__equip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22L9 15"/><path d="M22 2L15 9"/><path d="M15 9l-2-2"/><path d="M9 15l2 2"/><path d="M2 2l7 7"/><path d="M22 22l-7-7"/></svg>
+        <h3 class="jb__equip-name">Mascara</h3>
+        <span class="jb__equip-price">$200 / dia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sitios" class="jb__section jb__section--surface" aria-label="Sitios de inmersion">
+  <div class="jb__wrap">
+    <h2 class="jb__label jb__reveal">Sitios de Inmersion</h2>
+    <p class="jb__desc jb__reveal jb__reveal-d1">Descubre los puntos de buceo mas espectaculares de la costa de Tamaulipas.</p>
+    <div class="jb__gallery">
+      <div class="jb__gallery-item jb__reveal">
+        <img src="https://images.unsplash.com/photo-1535069652397-292cbe9da15b?w=800&q=80" alt="Arrecife La Mora" loading="lazy">
+        <div class="jb__gallery-overlay">
+          <h3 class="jb__gallery-name">La Mora</h3>
+          <span class="jb__gallery-depth">18 m max &bull; Arrecife rocoso</span>
+        </div>
+      </div>
+      <div class="jb__gallery-item jb__reveal jb__reveal-d1">
+        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" alt="Isla de Lobos" loading="lazy">
+        <div class="jb__gallery-overlay">
+          <h3 class="jb__gallery-name">Isla de Lobos</h3>
+          <span class="jb__gallery-depth">24 m max &bull; Arrecife coralino</span>
+        </div>
+      </div>
+      <div class="jb__gallery-item jb__reveal jb__reveal-d2">
+        <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=800&q=80" alt="Arrecife Tamaulipas" loading="lazy">
+        <div class="jb__gallery-overlay">
+          <h3 class="jb__gallery-name">Arrecife Tamaulipas</h3>
+          <span class="jb__gallery-depth">30 m max &bull; Parque nacional marino</span>
+        </div>
+      </div>
+      <div class="jb__gallery-item jb__reveal jb__reveal-d3">
+        <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?w=800&q=80" alt="El Verde playa de inmersion" loading="lazy">
+        <div class="jb__gallery-overlay">
+          <h3 class="jb__gallery-name">El Verde</h3>
+          <span class="jb__gallery-depth">15 m max &bull; Inmersion playera</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="jb__section jb__section--teal" aria-label="Contacto y reservaciones">
+  <div class="jb__wrap">
+    <h2 class="jb__label jb__label--light jb__reveal">Listo para Bucear?</h2>
+    <p class="jb__desc jb__desc--light jb__reveal jb__reveal-d1">Reserva tu curso o preguntanos lo que necesites. Te respondemos en menos de 24 horas.</p>
+    <div class="jb__contact-grid">
+      <form class="jb__form jb__reveal" action="#" method="post" aria-label="Formulario de contacto">
+        <div class="jb__field">
+          <label class="jb__field-label" for="jb-nombre">Nombre Completo</label>
+          <input class="jb__input" id="jb-nombre" name="nombre" type="text" placeholder="Tu nombre" required aria-required="true">
+        </div>
+        <div class="jb__field">
+          <label class="jb__field-label" for="jb-email">Correo Electronico</label>
+          <input class="jb__input" id="jb-email" name="email" type="email" placeholder="tu@correo.com" required aria-required="true">
+        </div>
+        <div class="jb__field">
+          <label class="jb__field-label" for="jb-tel">Telefono</label>
+          <input class="jb__input" id="jb-tel" name="telefono" type="tel" placeholder="+52 833 123 4567" aria-label="Numero de telefono">
+        </div>
+        <div class="jb__field">
+          <label class="jb__field-label" for="jb-nivel">Nivel de Experiencia</label>
+          <select class="jb__select" id="jb-nivel" name="nivel" aria-label="Selecciona tu nivel">
+            <option value="">Selecciona tu nivel</option>
+            <option value="principiante">Principiante (nunca he buceado)</option>
+            <option value="bautizo">Bautizo (buceo recreativo)</option>
+            <option value="certificado">Certificado (Open Water o superior)</option>
+            <option value="avanzado">Avanzado (Advanced o Dive Master)</option>
+          </select>
+        </div>
+        <div class="jb__field">
+          <label class="jb__field-label" for="jb-msg">Mensaje</label>
+          <textarea class="jb__textarea" id="jb-msg" name="mensaje" placeholder="Cuentanos en que curso o servicio estas interesado..." aria-label="Escribe tu mensaje"></textarea>
+        </div>
+        <button class="jb__submit" type="submit" aria-label="Enviar mensaje">ENVIAR</button>
+      </form>
+      <div class="jb__contact-info jb__reveal jb__reveal-d1">
+        <div class="jb__contact-ssi">
+          <div class="jb__contact-ssi-badge" aria-label="SSI Certified Facility">
+            <span><span class="jb__contact-ssi-lg">SSI</span><span>Certified</span></span>
+          </div>
+          <p class="jb__contact-ssi-text">Centro certificado SSI con los mas altos estandares de seguridad y calidad en la ensenanza.</p>
+        </div>
+        <div class="jb__contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Blvd. Costero 245, Tampico, Tamaulipas</span>
+        </div>
+        <div class="jb__contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+52 833 123 4567</span>
+        </div>
+        <div class="jb__hours">
+          <div class="jb__contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <strong>Horario</strong>
+          </div>
+          <span>Lunes a Sabado: 8:00 AM &mdash; 6:00 PM</span>
+          <span>Domingo: 9:00 AM &mdash; 2:00 PM</span>
+        </div>
+        <a href="https://wa.me/528331234567" class="jb__whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribenos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="jb__footer" aria-label="Pie de pagina">
+  <div class="jb__footer-inner">
+    <h3 class="jb__footer-name">Jaibos Dive Center</h3>
+    <p class="jb__footer-loc">Tampico, Tamaulipas, Mexico &mdash; SSI Certified Dive Center</p>
+    <nav class="jb__socials" aria-label="Redes sociales">
+      <a href="#" class="jb__social-link" aria-label="Facebook de Jaibos Dive Center">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.5l.5-4h-4V7a1 1 0 0 1 1-1h3V2z"/></svg>
+      </a>
+      <a href="#" class="jb__social-link" aria-label="Instagram de Jaibos Dive Center">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="jb__social-link" aria-label="YouTube de Jaibos Dive Center">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      </a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reveals=document.querySelectorAll('.jb__reveal');
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('jb__reveal--in');
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -30px 0px'});
+  reveals.forEach(function(el){obs.observe(el)});
+
+  if(window.innerWidth>768){
+    var equipCards=document.querySelectorAll('.jb__equip-card');
+    equipCards.forEach(function(card){
+      card.addEventListener('mousemove',function(e){
+        var rect=card.getBoundingClientRect();
+        var x=e.clientX-rect.left;
+        var y=e.clientY-rect.top;
+        var centerX=rect.width/2;
+        var centerY=rect.height/2;
+        var rotateX=((y-centerY)/centerY)*-8;
+        var rotateY=((x-centerX)/centerX)*8;
+        card.style.transform='perspective(600px) rotateX('+rotateX+'deg) rotateY('+rotateY+'deg) translateY(-6px)';
+      });
+      card.addEventListener('mouseleave',function(){
+        card.style.transform='';
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

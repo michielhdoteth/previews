@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Tampico - Comprar, Rentar o Vender Propiedades</title>
+  <meta name="description" content="Real Estate Tampico. Compra, renta y renta temporal de casas, departamentos y terrenos en Tampico. Tu tranquilidad, nuestra prioridad inmobiliaria.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    :root{
+      --navy:oklch(0.14 0.025 260);--navy-light:oklch(0.2 0.03 260);
+      --teal:oklch(0.5 0.12 185);--teal-dark:oklch(0.42 0.14 185);--teal-pale:oklch(0.88 0.04 185);
+      --sand:oklch(0.94 0.012 75);--sand-dark:oklch(0.88 0.015 75);
+      --warm:oklch(0.35 0.03 55);--warm-light:oklch(0.92 0.015 55);
+      --bg:oklch(0.965 0.005 80);--card:oklch(0.99 0.002 80);
+      --text:oklch(0.18 0.02 55);--text-muted:oklch(0.45 0.015 55);--text-dim:oklch(0.6 0.01 55);
+      --border:oklch(0.88 0.008 75);
+      --shadow:0 2px 8px oklch(0.14 0.025 260 / 0.06);
+      --shadow-lg:0 8px 32px oklch(0.14 0.025 260 / 0.1);
+      --radius:6px;
+    }
+    body{font-family:'DM Sans',system-ui,sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden;opacity:0;transition:opacity 0.6s ease}
+    body.loaded{opacity:1}
+    h1,h2,h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.1}
+    h2{font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--navy)}
+    h3{font-size:clamp(1.2rem,2vw,1.6rem)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:1240px;margin:0 auto;padding:0 28px}
+    .section{padding:100px 0}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;font-family:'DM Sans',sans-serif;font-weight:500;font-size:0.85rem;cursor:pointer;border:none;transition:all 0.3s ease;border-radius:var(--radius)}
+    .btn:active{transform:scale(0.97)}
+    .btn-solid{background:var(--teal);color:var(--card)}.btn-solid:hover{background:var(--teal-dark)}
+    .btn-navy{background:var(--navy);color:var(--card)}.btn-navy:hover{background:var(--navy-light)}
+    .btn-outline{background:transparent;border:1.5px solid var(--border);color:var(--text)}.btn-outline:hover{border-color:var(--teal);color:var(--teal)}
+    .up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+    .up.visible{opacity:1;transform:translateY(0)}
+
+    /* NAV - dark, full-width */
+    nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid oklch(1 0 0 / 0.06)}
+    nav .container{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:60px}
+    .nav-logo{font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;color:var(--card);letter-spacing:-0.02em}
+    .nav-links{display:flex;gap:2px;list-style:none}
+    .nav-links a{padding:8px 16px;font-size:0.82rem;font-weight:500;color:oklch(0.8 0.01 80);border-radius:var(--radius);transition:all 0.2s ease}
+    .nav-links a:hover{color:var(--card);background:oklch(1 0 0 / 0.06)}
+    .nav-links .cta{background:var(--teal);color:var(--card);padding:8px 18px}.nav-links .cta:hover{background:var(--teal-dark)}
+    .nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--card);padding:6px}
+    @media(max-width:768px){
+      .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy);flex-direction:column;padding:12px 16px;border-top:1px solid oklch(1 0 0 / 0.06);gap:2px}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:10px 14px}
+      .nav-links .cta{margin-top:4px;text-align:center}
+      .nav-toggle{display:block}
+    }
+
+    /* HERO - split screen */
+    .hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100dvh - 60px);background:var(--navy)}
+    .hero-left{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;max-width:580px}
+    .hero-left h1{font-size:clamp(2.5rem,5vw,4rem);color:var(--card);line-height:1.05;margin-bottom:16px}
+    .hero-left p{font-size:1rem;color:oklch(0.75 0.01 80 / 0.7);line-height:1.7;margin-bottom:32px}
+    .hero-right{overflow:hidden;position:relative}
+    .hero-right img{width:100%;height:100%;object-fit:cover;filter:saturate(0.9)}
+    .hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,transparent 30%)}
+    .hero-search{background:var(--card);padding:20px;border-radius:var(--radius);display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}
+    .hero-search label{display:block;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-dim);margin-bottom:4px}
+    .hero-search select,.hero-search input{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:0.85rem;background:var(--bg);color:var(--text)}
+    .hero-search select:focus,.hero-search input:focus{outline:none;border-color:var(--teal)}
+    .hero-search .btn{height:40px;padding:0 24px}
+    @media(max-width:968px){
+      .hero{grid-template-columns:1fr;min-height:auto}
+      .hero-left{padding:48px 28px}
+      .hero-right{min-height:300px;order:-1}
+      .hero-right::after{background:linear-gradient(0deg,var(--navy) 0%,transparent 40%)}
+      .hero-search{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:480px){.hero-search{grid-template-columns:1fr}}
+
+    /* STATS - bar */
+    .stats{background:var(--card);border-bottom:1px solid var(--border)}
+    .stats-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+    .stat-item{text-align:center;padding:32px 20px;border-right:1px solid var(--border)}
+    .stat-item:last-child{border-right:none}
+    .stat-item .num{font-family:'DM Serif Display',Georgia,serif;font-size:2rem;color:var(--teal);line-height:1;margin-bottom:4px}
+    .stat-item .label{font-size:0.78rem;color:var(--text-dim);font-weight:500;text-transform:uppercase;letter-spacing:0.5px}
+    @media(max-width:768px){.stats-inner{grid-template-columns:repeat(2,1fr)}.stat-item:nth-child(2){border-right:none}}
+
+    /* PROPERTIES - masonry */
+    .properties-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:16px}
+    .properties-header .section-sub{font-size:0.92rem;color:var(--text-dim);margin-top:8px}
+    .prop-tabs{display:flex;gap:4px}
+    .prop-tabs button{padding:8px 20px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;border:1.5px solid var(--border);background:var(--card);cursor:pointer;border-radius:var(--radius);transition:all 0.2s ease;color:var(--text-muted)}
+    .prop-tabs button.active{background:var(--navy);color:var(--card);border-color:var(--navy)}
+    .prop-tabs button:hover:not(.active){border-color:var(--teal);color:var(--teal)}
+    .prop-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+    .prop-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform 0.3s ease,box-shadow 0.3s ease}
+    .prop-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .prop-card-img{position:relative;height:220px;overflow:hidden;background:var(--sand)}
+    .prop-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease}
+    .prop-card:hover .prop-card-img img{transform:scale(1.06)}
+    .prop-card-tag{position:absolute;top:12px;left:12px;padding:4px 12px;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;border-radius:var(--radius);background:var(--teal);color:var(--card)}
+    .prop-card-tag.sale{background:var(--navy)}
+    .prop-card-tag.temp{background:oklch(0.65 0.1 65);color:var(--navy)}
+    .prop-body{padding:18px 20px 20px}
+    .prop-body .prop-type{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--teal);margin-bottom:2px}
+    .prop-body h3{font-size:1.05rem;margin-bottom:4px;color:var(--navy)}
+    .prop-body .prop-loc{font-size:0.82rem;color:var(--text-dim);margin-bottom:8px}
+    .prop-body .prop-price{font-family:'DM Serif Display',Georgia,serif;font-size:1.3rem;color:var(--teal-dark)}
+    .prop-body .prop-details{display:flex;gap:14px;margin:10px 0 14px;font-size:0.78rem;color:var(--text-dim)}
+    .prop-body .prop-details span{display:flex;align-items:center;gap:4px}
+    @media(max-width:1024px){.prop-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.prop-grid{grid-template-columns:1fr}.properties-header{flex-direction:column;align-items:flex-start}}
+
+    /* ABOUT - minimal */
+    .about{background:var(--navy);color:var(--card)}
+    .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .about-text .about-label{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:8px}
+    .about-text h2{color:var(--card)}
+    .about-text p{font-size:0.92rem;color:oklch(0.8 0.01 80 / 0.7);line-height:1.8;margin-top:16px}
+    .about-text .val-list{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:12px;list-style:none;font-size:0.85rem;color:oklch(0.82 0.01 80 / 0.8)}
+    .about-text .val-list li::before{content:'— ';color:var(--teal)}
+    .about-img{border-radius:var(--radius);overflow:hidden}
+    .about-img img{width:100%;height:100%;object-fit:cover}
+    @media(max-width:768px){.about-inner{grid-template-columns:1fr;gap:28px}.about-img{min-height:260px}.about-text .val-list{grid-template-columns:1fr}}
+
+    /* SERVICES */
+    .services{background:var(--bg)}
+    .serv-header{text-align:center;margin-bottom:48px}
+    .serv-header .section-sub{font-size:0.92rem;color:var(--text-dim);margin-top:8px}
+    .serv-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+    .serv-card{padding:36px 28px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);transition:all 0.3s ease}
+    .serv-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+    .serv-card .icon{margin-bottom:16px;color:var(--teal)}
+    .serv-card h3{font-size:1.15rem;margin-bottom:8px;color:var(--navy)}
+    .serv-card p{font-size:0.85rem;color:var(--text-dim);line-height:1.6}
+    @media(max-width:768px){.serv-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.serv-grid{grid-template-columns:1fr}}
+
+    /* CONTACT */
+    .contact{background:var(--card);border-top:1px solid var(--border)}
+    .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .contact-left h2{margin-bottom:12px}
+    .contact-left p{font-size:0.9rem;color:var(--text-dim);line-height:1.7;margin-bottom:24px}
+    .contact-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;font-size:0.88rem}
+    .contact-row svg{flex-shrink:0;color:var(--teal)}
+    .contact-row a{color:var(--teal)}.contact-row a:hover{color:var(--teal-dark)}
+    .contact-row strong{display:block;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-dim);margin-bottom:2px}
+    .contact-form{display:grid;gap:14px}
+    .contact-form input,.contact-form textarea{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:0.9rem;background:var(--bg);color:var(--text);transition:border-color 0.2s}
+    .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--teal)}
+    .contact-form textarea{resize:vertical;min-height:90px}
+    .contact-form .btn{justify-content:center}
+    @media(max-width:768px){.contact-inner{grid-template-columns:1fr}}
+
+    /* FOOTER */
+    footer{background:var(--navy);color:oklch(0.7 0.01 80 / 0.5);padding:36px 0;font-size:0.82rem}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    footer a{color:var(--teal)}footer a:hover{color:var(--card)}
+    .footer-legal{display:flex;gap:20px}
+    @media(max-width:480px){.section{padding:64px 0}.container{padding:0 18px}}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav role="navigation" aria-label="Navegacion">
+    <div class="container">
+      <a href="#" class="nav-logo">RET</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#properties">Propiedades</a></li>
+        <li><a href="#about">Nosotros</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#contact">Contacto</a></li>
+        <li><a href="#contact" class="cta">WhatsApp</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero-left">
+      <h1 class="up">Tu tranquilidad,<br>nuestra prioridad</h1>
+      <p class="up" style="transition-delay:0.1s">Encuentra la propiedad que buscas en Tampico. Casas, departamentos, terrenos — venta, renta o renta temporal.</p>
+      <div class="hero-search up" style="transition-delay:0.2s">
+        <div>
+          <label for="op-type">Operacion</label>
+          <select id="op-type">
+            <option>Comprar</option>
+            <option>Rentar</option>
+            <option>Renta Temporal</option>
+          </select>
+        </div>
+        <div>
+          <label for="prop-type">Tipo</label>
+          <select id="prop-type">
+            <option>Casa</option>
+            <option>Departamento</option>
+            <option>Terreno</option>
+            <option>Local</option>
+          </select>
+        </div>
+        <button class="btn btn-solid" style="width:100%">Buscar</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1000" alt="Tampico skyline" loading="lazy">
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="Estadisticas">
+    <div class="container">
+      <div class="stats-inner">
+        <div class="stat-item"><div class="num">150+</div><div class="label">Propiedades</div></div>
+        <div class="stat-item"><div class="num">12</div><div class="label">Anos de Experiencia</div></div>
+        <div class="stat-item"><div class="num">98%</div><div class="label">Clientes Satisfechos</div></div>
+        <div class="stat-item"><div class="num">24/7</div><div class="label">Disponibles</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTIES -->
+  <section class="section" id="properties" aria-label="Propiedades">
+    <div class="container">
+      <div class="properties-header up">
+        <div>
+          <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:4px">Propiedades</div>
+          <h2>Encuentra tu hogar</h2>
+          <p class="section-sub">Propiedades seleccionadas en las mejores zonas de Tampico.</p>
+        </div>
+        <div class="prop-tabs">
+          <button class="active">Todas</button>
+          <button>Venta</button>
+          <button>Renta</button>
+        </div>
+      </div>
+      <div class="prop-grid up" style="transition-delay:0.1s">
+        <div class="prop-card">
+          <div class="prop-card-img">
+            <span class="prop-card-tag sale">Venta</span>
+            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500" alt="Casa en venta" loading="lazy">
+          </div>
+          <div class="prop-body">
+            <div class="prop-type">Casa</div>
+            <h3>Colonia Smith</h3>
+            <div class="prop-loc">Av. Hidalgo #234</div>
+            <div class="prop-price">$2,450,000</div>
+            <div class="prop-details">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg> 3 rec.</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.125V3.125M19.125 21h-4.125M19.125 3.125H4.875m14.25 0L17.25 21M4.875 3.125 6.75 21"/></svg> 2 banos</span>
+              <span>130 m2</span>
+            </div>
+            <a href="#contact" class="btn btn-solid" style="width:100%;justify-content:center">Ver Detalles</a>
+          </div>
+        </div>
+        <div class="prop-card">
+          <div class="prop-card-img">
+            <span class="prop-card-tag">Renta</span>
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500" alt="Departamento en renta" loading="lazy">
+          </div>
+          <div class="prop-body">
+            <div class="prop-type">Departamento</div>
+            <h3>Zona Centro</h3>
+            <div class="prop-loc">Calle Hidalgo #108</div>
+            <div class="prop-price">$12,500/mes</div>
+            <div class="prop-details">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg> 2 rec.</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.125V3.125M19.125 21h-4.125M19.125 3.125H4.875m14.25 0L17.25 21M4.875 3.125 6.75 21"/></svg> 1 bano</span>
+              <span>85 m2</span>
+            </div>
+            <a href="#contact" class="btn btn-solid" style="width:100%;justify-content:center">Ver Detalles</a>
+          </div>
+        </div>
+        <div class="prop-card">
+          <div class="prop-card-img">
+            <span class="prop-card-tag sale">Venta</span>
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500" alt="Casa residencial" loading="lazy">
+          </div>
+          <div class="prop-body">
+            <div class="prop-type">Casa</div>
+            <h3>Colonia Alta Vista</h3>
+            <div class="prop-loc">Av. Ejercito #456</div>
+            <div class="prop-price">$3,800,000</div>
+            <div class="prop-details">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg> 4 rec.</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.125V3.125M19.125 21h-4.125M19.125 3.125H4.875m14.25 0L17.25 21M4.875 3.125 6.75 21"/></svg> 3 banos</span>
+              <span>200 m2</span>
+            </div>
+            <a href="#contact" class="btn btn-solid" style="width:100%;justify-content:center">Ver Detalles</a>
+          </div>
+        </div>
+        <div class="prop-card">
+          <div class="prop-card-img">
+            <span class="prop-card-tag temp">Renta Temp</span>
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500" alt="Departamento amueblado" loading="lazy">
+          </div>
+          <div class="prop-body">
+            <div class="prop-type">Departamento</div>
+            <h3>Plaza Altavista</h3>
+            <div class="prop-loc">Av. Hidalgo #2005</div>
+            <div class="prop-price">$8,500/mes</div>
+            <div class="prop-details">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg> 2 rec.</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.125V3.125M19.125 21h-4.125M19.125 3.125H4.875m14.25 0L17.25 21M4.875 3.125 6.75 21"/></svg> 1 bano</span>
+              <span>70 m2</span>
+            </div>
+            <a href="#contact" class="btn btn-solid" style="width:100%;justify-content:center">Ver Detalles</a>
+          </div>
+        </div>
+        <div class="prop-card">
+          <div class="prop-card-img">
+            <span class="prop-card-tag sale">Venta</span>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500" alt="Terreno en venta" loading="lazy">
+          </div>
+          <div class="prop-body">
+            <div class="prop-type">Terreno</div>
+            <h3>Zona Norte</h3>
+            <div class="prop-loc">Carretera Tampico-Mante</div>
+            <div class="prop-price">$1,200,000</div>
+            <div class="prop-details">
+              <span>500 m2</span>
+              <span>Esquinero</span>
+              <span>Servicios</span>
+            </div>
+            <a href="#contact" class="btn btn-solid" style="width:100%;justify-content:center">Ver Detalles</a>
+          </div>
+        </div>
+        <div class="prop-card">
+          <div class="prop-card-img">
+            <span class="prop-card-tag">Renta</span>
+            <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500" alt="Local comercial" loading="lazy">
+          </div>
+          <div class="prop-body">
+            <div class="prop-type">Local Comercial</div>
+            <h3>Centro Historico</h3>
+            <div class="prop-loc">Zona peatonal</div>
+            <div class="prop-price">$18,000/mes</div>
+            <div class="prop-details">
+              <span>120 m2</span>
+              <span>Vitrina</span>
+              <span>Estac.</span>
+            </div>
+            <a href="#contact" class="btn btn-solid" style="width:100%;justify-content:center">Ver Detalles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about" aria-label="Nosotros">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-text up">
+          <div class="about-label">Nosotros</div>
+          <h2>Real Estate Tampico</h2>
+          <p>Con mas de 12 anos de experiencia en el mercado inmobiliario de Tampico, ayudamos a familias e inversionistas a encontrar la propiedad ideal. Nuestro compromiso es hacer de cada transaccion una experiencia transparente, segura y satisfactoria.</p>
+          <ul class="val-list">
+            <li>Transparencia total</li>
+            <li>Asesoria personalizada</li>
+            <li>Mejores zonas</li>
+            <li>Financiamiento</li>
+          </ul>
+        </div>
+        <div class="about-img up" style="transition-delay:0.1s">
+          <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=600" alt="Oficina inmobiliaria" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services" id="services" aria-label="Servicios">
+    <div class="container">
+      <div class="serv-header up">
+        <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:4px">Servicios</div>
+        <h2>Te acompanamos en cada paso</h2>
+        <p class="section-sub">Asesoria completa para comprar, vender o rentar tu propiedad.</p>
+      </div>
+      <div class="serv-grid up" style="transition-delay:0.1s">
+        <div class="serv-card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg></div>
+          <h3>Compra y Venta</h3>
+          <p>Asesoria completa para la compra o venta de tu propiedad. Evaluamos el mercado y te guiamos en cada etapa del proceso.</p>
+        </div>
+        <div class="serv-card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.125V3.125M19.125 21h-4.125M19.125 3.125H4.875m14.25 0L17.25 21M4.875 3.125 6.75 21"/></svg></div>
+          <h3>Renta y Renta Temporal</h3>
+          <p>Encuentra la propiedad perfecta para renta a corto o largo plazo. Contratos claros y seguros para ambas partes.</p>
+        </div>
+        <div class="serv-card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
+          <h3>Valuacion Profesional</h3>
+          <p>Conoce el valor real de tu propiedad con nuestros estudios de mercado. Ideal para vender, comprar o asegurar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact" aria-label="Contacto">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-left up">
+          <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:4px">Contacto</div>
+          <h2>Hablemos de tu proxima propiedad</h2>
+          <p>Estamos listos para ayudarte a encontrar el hogar que buscas o a vender tu propiedad al mejor precio.</p>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+            <div><strong>Telefono</strong><a href="tel:+528331305263">833 130 5263</a></div>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+            <div><strong>Correo</strong><a href="mailto:info@realestatetampico.com">info@realestatetampico.com</a></div>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0 1 15 0Z"/></svg>
+            <div><strong>Direccion</strong><p style="color:var(--text-dim);margin-top:2px">Tampico, Tamaulipas</p></div>
+          </div>
+        </div>
+        <form class="contact-form up" style="transition-delay:0.1s" onsubmit="event.preventDefault();alert('Gracias por contactarnos. Te responderemos a la brevedad.');">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <input type="text" placeholder="Nombre" required>
+            <input type="tel" placeholder="Telefono">
+          </div>
+          <input type="email" placeholder="Correo electronico" required>
+          <select style="padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:0.9rem;background:var(--bg);color:var(--text-dim)">
+            <option>Me interesa comprar</option>
+            <option>Me interesa rentar</option>
+            <option>Quiero vender</option>
+            <option>Otro</option>
+          </select>
+          <textarea placeholder="Cuentanos lo que buscas..."></textarea>
+          <button type="submit" class="btn btn-solid">Enviar Mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span>&copy; 2026 Real Estate Tampico. Todos los derechos reservados.</span>
+        <div class="footer-legal">
+          <a href="#">Aviso de Privacidad</a>
+          <a href="#">Terminos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      document.body.classList.add('loaded');
+      var els=document.querySelectorAll('.up');
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+        });
+      },{threshold:0.1});
+      els.forEach(function(el){obs.observe(el)});
+      var nt=document.getElementById('navToggle');
+      var nl=document.getElementById('navLinks');
+      if(nt&&nl){
+        nt.addEventListener('click',function(){
+          var o=nl.classList.toggle('open');
+          nt.setAttribute('aria-expanded',o);
+        });
+        nl.querySelectorAll('a').forEach(function(l){
+          l.addEventListener('click',function(){nl.classList.remove('open');nt.setAttribute('aria-expanded','false')});
+        });
+      }
+      var nav=document.querySelector('nav');
+      window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>10)});
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inmobiliaria Guadalajara Oriente — Casas, Terrenos y Departamentos</title>
+  <meta name="description" content="Encuentra la casa de tus sueños en Guadalajara Oriente. Casas, terrenos y departamentos en venta y renta. 5+ años de experiencia, 125+ propiedades vendidas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --terracotta: #C15B3D;
+      --terracotta-dark: #9E4227;
+      --terracotta-light: #E88365;
+      --cream: #F3EDE4;
+      --cream-light: #F9F5EF;
+      --dark: #1E110A;
+      --dark-card: rgba(255,255,255,0.04);
+      --text: #2E1C12;
+      --text-secondary: #6B5A4A;
+      --text-muted: #9B8B7C;
+      --gold: #D4A84B;
+      --gold-light: rgba(212,168,75,0.15);
+      --white: #FCFAF5;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --max-w: 1200px;
+      --header-h: 72px;
+      --shadow: 0 4px 16px rgba(30,17,10,0.08);
+      --shadow-lg: 0 12px 40px rgba(30,17,10,0.12);
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--cream-light); line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 1.25rem; }
+
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.15; color: var(--dark); }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.625rem;
+      font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.7rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta);
+      margin-bottom: 0.75rem;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 1.25rem; height: 2px; background: var(--terracotta);
+    }
+    .section-title { font-size: clamp(1.75rem, 4vw, 2.75rem); margin-bottom: 0.75rem; }
+    .section-subtitle { font-size: 0.95rem; color: var(--text-secondary); max-width: 560px; line-height: 1.7; }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .section { padding: 4.5rem 0; }
+
+    .section-diagonal {
+      position: relative;
+      clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%);
+      padding: 5.5rem 0;
+      margin: -1px 0;
+    }
+    .section-diagonal-offset {
+      position: relative;
+      clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 96%);
+      padding: 5.5rem 0;
+      margin: -1px 0;
+    }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(249,245,239,0.94); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(30,17,10,0.06); height: var(--header-h);
+      transition: box-shadow 0.3s;
+    }
+    .header.scrolled { box-shadow: var(--shadow); }
+
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: var(--header-h); max-width: var(--max-w); margin: 0 auto; padding: 0 1.25rem;
+    }
+
+    .header-logo {
+      display: flex; align-items: center; gap: 0.625rem;
+    }
+    .header-logo-icon {
+      width: 38px; height: 38px; background: var(--terracotta); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-size: 1rem; flex-shrink: 0;
+    }
+    .header-logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; color: var(--dark); line-height: 1.2; }
+    .header-logo-text span { display: block; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+
+    .header-nav { display: none; gap: 1.5rem; align-items: center; }
+    .header-nav a { font-size: 0.8125rem; font-weight: 500; color: var(--text-secondary); transition: color 0.3s; white-space: nowrap; }
+    .header-nav a:hover { color: var(--terracotta); }
+
+    .header-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--terracotta); color: var(--white); padding: 0.5rem 1rem;
+      border-radius: 50px; font-size: 0.8125rem; font-weight: 600;
+      transition: background 0.3s, transform 0.2s; white-space: nowrap;
+    }
+    .header-cta:hover { background: var(--terracotta-dark); transform: scale(1.03); }
+    .header-cta i { font-size: 0.875rem; }
+
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; padding-top: var(--header-h);
+      background: var(--dark);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('assets/inmobiliaria-hero-gpt.png') center/cover no-repeat;
+      opacity: 0.4;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(30,17,10,0.88) 35%, rgba(30,17,10,0.35) 100%);
+    }
+    .hero-content { position: relative; z-index: 1; padding: 3rem 0; max-width: 620px; }
+
+    .hero-stamp {
+      position: absolute; top: 2rem; right: 0; z-index: 2;
+      width: 90px; height: 90px; border: 3px solid var(--gold);
+      border-radius: 50%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      transform: rotate(8deg); opacity: 0;
+      animation: stampFade 0.8s 0.8s forwards;
+    }
+    .hero-stamp-inner { text-align: center; }
+    .hero-stamp-inner div:first-child {
+      font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.25rem;
+      color: var(--gold); line-height: 1;
+    }
+    .hero-stamp-inner div:last-child {
+      font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 0.45rem;
+      color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    @keyframes stampFade { to { opacity: 1; } }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.08); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.1); padding: 0.35rem 0.9rem;
+      border-radius: 50px; font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.7);
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge i { color: var(--gold); font-size: 0.65rem; }
+    .hero-title { font-size: clamp(2.2rem, 5.5vw, 3.75rem); font-weight: 400; line-height: 1.05; margin-bottom: 1.25rem; color: var(--white); }
+    .hero-title em { font-style: italic; color: var(--terracotta-light); }
+    .hero-subtitle { font-size: clamp(0.9rem, 1.8vw, 1.1rem); color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 480px; margin-bottom: 2rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.625rem;
+      background: var(--terracotta); color: var(--white); padding: 0.875rem 2rem;
+      border-radius: 50px; font-weight: 600; font-size: 0.9375rem;
+      transition: background 0.3s, transform 0.2s; box-shadow: 0 4px 14px rgba(193,91,61,0.3);
+    }
+    .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(193,91,61,0.35); }
+    .btn-primary i { font-size: 0.875rem; }
+    .btn-outline-light {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--white); padding: 0.875rem 1.75rem;
+      border-radius: 50px; font-weight: 600; font-size: 0.9375rem;
+      border: 2px solid rgba(255,255,255,0.2); transition: border-color 0.3s, background 0.3s, transform 0.2s;
+    }
+    .btn-outline-light:hover { border-color: var(--terracotta-light); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 2.5rem; padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-stat-number { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--gold); }
+    .hero-stat-label { font-size: 0.68rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.125rem; }
+
+    #propiedades { background: var(--cream-light); }
+    .properties-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .property-card {
+      position: relative;
+      background: var(--white); border-radius: var(--radius-lg); overflow: hidden;
+      border: 2px solid var(--terracotta); transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .property-card::before {
+      content: ''; position: absolute; inset: -6px; z-index: -1;
+      border: 1.5px solid var(--gold); border-radius: calc(var(--radius-lg) + 4px);
+      opacity: 0.4; transition: opacity 0.3s;
+    }
+    .property-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .property-card:hover::before { opacity: 0.8; }
+    .property-image {
+      height: 220px; background-size: cover; background-position: center;
+      position: relative;
+    }
+    .property-image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(transparent 60%, rgba(30,17,10,0.5));
+    }
+    .property-badge {
+      position: absolute; top: 0.75rem; left: 0.75rem; z-index: 2;
+      background: var(--terracotta); color: var(--white); padding: 0.25rem 0.75rem;
+      border-radius: 50px; font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+    }
+    .property-badge.renta { background: #6F8A5E; }
+    .property-body { padding: 1.25rem 1.25rem 1.5rem; }
+    .property-price { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--terracotta); margin-bottom: 0.25rem; }
+    .property-price span { font-family: 'Open Sans', sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--text-muted); }
+    .property-title { font-size: 1.05rem; font-weight: 600; color: var(--dark); margin-bottom: 0.25rem; }
+    .property-location { display: flex; align-items: center; gap: 0.375rem; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .property-location i { font-size: 0.7rem; color: var(--terracotta-light); }
+    .property-features { display: flex; gap: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(30,17,10,0.06); }
+    .property-feature { display: flex; align-items: center; gap: 0.375rem; font-size: 0.8rem; color: var(--text-secondary); }
+    .property-feature i { color: #6F8A5E; font-size: 0.75rem; }
+    .properties-more {
+      text-align: center; margin-top: 2rem;
+    }
+    .properties-more a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--terracotta); font-weight: 600; font-size: 0.9rem;
+      transition: gap 0.3s;
+    }
+    .properties-more a:hover { gap: 0.75rem; }
+
+    .process-steps { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .process-step {
+      text-align: center; padding: 2rem 1.5rem;
+      background: var(--white); border-radius: var(--radius);
+      border: 1px solid rgba(30,17,10,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .process-step:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .process-icon {
+      width: 56px; height: 56px; margin: 0 auto 1.25rem;
+      background: var(--gold-light); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; color: var(--gold);
+    }
+    .process-step h3 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .process-step p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; }
+    .process-arrow {
+      display: none; align-items: center; justify-content: center;
+      font-size: 1.25rem; color: var(--terracotta-light); opacity: 0.4;
+    }
+
+    #por-que-nosotros { background: var(--dark); position: relative; overflow: hidden; }
+    #por-que-nosotros .section-title { color: var(--white); }
+    #por-que-nosotros .section-subtitle { color: rgba(255,255,255,0.6); }
+    #por-que-nosotros .section-label::before { background: var(--terracotta-light); }
+    #por-que-nosotros .section-label { color: var(--terracotta-light); }
+
+    .why-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; position: relative; z-index: 1; }
+    .why-card {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.25rem; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .why-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-2px); }
+    .why-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: rgba(212,168,75,0.1); display: flex; align-items: center; justify-content: center;
+      font-size: 1.125rem; color: var(--gold); flex-shrink: 0;
+    }
+    .why-label { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+    .why-desc { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+    #servicios { background: var(--cream-light); }
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    .service-card {
+      background: var(--white); border: 1px solid rgba(30,17,10,0.06);
+      border-radius: var(--radius); padding: 1.75rem;
+      transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--terracotta); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(193,91,61,0.12); }
+    .service-icon {
+      width: 48px; height: 48px; background: rgba(193,91,61,0.08); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; color: var(--terracotta); margin-bottom: 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .service-card:hover .service-icon { background: var(--terracotta); color: var(--white); }
+    .service-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--dark); }
+    .service-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+    #testimonios { background: var(--cream-light); }
+    .testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    .testimonial-card {
+      background: var(--white); border-radius: var(--radius); padding: 1.75rem;
+      border: 1px solid rgba(30,17,10,0.06); position: relative; overflow: hidden;
+    }
+    .testimonial-card::before {
+      content: '\201C'; font-family: 'Montserrat', sans-serif; font-size: 4rem;
+      line-height: 1; color: rgba(193,91,61,0.1);
+      position: absolute; top: 0.5rem; right: 1.25rem;
+    }
+    .testimonial-stamp {
+      position: absolute; bottom: 1rem; right: 1rem;
+      border: 2px solid var(--gold); border-radius: 4px;
+      padding: 0.2rem 0.5rem; transform: rotate(-6deg);
+      font-size: 0.5rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--gold); opacity: 0.5;
+    }
+    .testimonial-stars { display: flex; gap: 0.25rem; color: var(--gold); font-size: 0.8125rem; margin-bottom: 0.75rem; }
+    .testimonial-text { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testimonial-avatar {
+      width: 40px; height: 40px; border-radius: 50%; background: var(--terracotta);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-weight: 700; font-size: 0.875rem;
+      font-family: 'Montserrat', sans-serif; flex-shrink: 0;
+    }
+    .testimonial-name { font-size: 0.85rem; font-weight: 600; color: var(--dark); }
+    .testimonial-role { font-size: 0.75rem; color: var(--text-muted); }
+
+    #faq { background: var(--cream-light); }
+    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq-item { background: var(--white); border: 1px solid rgba(30,17,10,0.06); border-radius: 8px; overflow: hidden; }
+    .faq-question {
+      width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1rem 1.25rem; background: none; border: none; cursor: pointer;
+      font-family: 'Montserrat', sans-serif; font-size: 0.88rem; font-weight: 600;
+      color: var(--text); text-align: left; transition: color 0.3s;
+    }
+    .faq-question:hover { color: var(--terracotta); }
+    .faq-question i { font-size: 0.75rem; color: var(--terracotta); transition: transform 0.3s; flex-shrink: 0; }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner { padding: 0 1.25rem 1rem; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
+
+    #contacto { background: var(--dark); position: relative; overflow: hidden; }
+    #contacto .section-title { color: var(--white); }
+    #contacto .section-subtitle { color: rgba(255,255,255,0.6); }
+    .cta-whatsapp {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      background: #25D366; color: var(--white); padding: 1rem 2.5rem;
+      border-radius: 50px; font-weight: 600; font-size: 1.05rem;
+      transition: background 0.3s, transform 0.2s; box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+      position: relative; z-index: 1;
+    }
+    .cta-whatsapp:hover { background: #1DA851; transform: translateY(-3px); box-shadow: 0 12px 32px rgba(37,211,102,0.35); }
+    .cta-whatsapp i { font-size: 1.25rem; }
+    .cta-contact-row { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 1.5rem; position: relative; z-index: 1; }
+    .cta-contact-item { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.5); transition: color 0.3s; }
+    .cta-contact-item:hover { color: var(--white); }
+    .cta-contact-item i { color: var(--gold); font-size: 0.75rem; }
+
+    .footer { background: #0D0906; padding: 2.5rem 0 1.5rem; }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    .footer-brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .footer-brand-icon { width: 36px; height: 36px; background: var(--terracotta); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1rem; flex-shrink: 0; }
+    .footer-brand-text { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--white); }
+    .footer-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 320px; }
+    .footer-heading { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); margin-bottom: 0.75rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: rgba(255,255,255,0.45); transition: color 0.3s; }
+    .footer-links a:hover { color: var(--terracotta-light); }
+    .footer-links i { font-size: 0.68rem; width: 0.9rem; color: rgba(255,255,255,0.2); }
+    .footer-bottom { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+    .footer-social { display: flex; gap: 0.625rem; }
+    .footer-social a { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.35); font-size: 0.75rem; transition: background 0.3s, color 0.3s; }
+    .footer-social a:hover { background: var(--terracotta); color: var(--white); }
+
+    .floating-whatsapp {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
+      width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-size: 1.5rem;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.3s;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    .floating-whatsapp:hover { transform: scale(1.1); }
+    @keyframes pulse { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.35); } 50% { box-shadow: 0 4px 30px rgba(37,211,102,0.55); } }
+
+    @media (min-width: 640px) {
+      .properties-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: repeat(3, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 768px) {
+      .process-steps { grid-template-columns: repeat(3, 1fr); align-items: center; }
+      .process-step { padding: 2.5rem 1.5rem; }
+    }
+
+    @media (min-width: 900px) {
+      .header-nav { display: flex; }
+    }
+
+    @media (min-width: 1024px) {
+      .properties-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(3, 1fr); }
+      .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+      .services-grid { grid-template-columns: repeat(4, 1fr); }
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+      .section { padding: 6rem 0; }
+      .section-diagonal, .section-diagonal-offset { padding: 7rem 0; }
+    }
+
+    @media (min-width: 1200px) {
+      .hero-stamp { right: 4rem; width: 110px; height: 110px; }
+      .hero-stamp-inner div:first-child { font-size: 1.5rem; }
+      .hero-stamp-inner div:last-child { font-size: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#" class="header-logo">
+        <div class="header-logo-icon"><i class="fas fa-house"></i></div>
+        <div class="header-logo-text">Inmobiliaria GDL Oriente<span>Tu hogar en Guadalajara</span></div>
+      </a>
+      <nav class="header-nav">
+        <a href="#propiedades">Propiedades</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#por-que-nosotros">Por Qu&eacute; Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="https://wa.me/523312978339?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20propiedades" target="_blank" rel="noopener" class="header-cta"><i class="fab fa-whatsapp"></i> Contactar</a>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-stamp" aria-hidden="true">
+      <div class="hero-stamp-inner">
+        <div>5+</div>
+        <div>A&ntilde;os de experiencia</div>
+      </div>
+    </div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="hero-content">
+        <div class="hero-badge reveal"><i class="fas fa-star"></i> 5+ a&ntilde;os de experiencia en Guadalajara Oriente</div>
+        <h1 class="hero-title reveal reveal-d1">Encuentra la casa de tus <em>sue&ntilde;os</em></h1>
+        <p class="hero-subtitle reveal reveal-d2">Casas, terrenos y departamentos en venta y renta en Guadalajara Oriente. Te acompa&ntilde;amos en cada paso para encontrar el hogar que mereces.</p>
+        <div class="hero-actions reveal reveal-d3">
+          <a href="https://wa.me/523312978339?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20propiedades" target="_blank" rel="noopener" class="btn-primary"><i class="fab fa-whatsapp"></i> Escr&iacute;benos por WhatsApp</a>
+          <a href="#propiedades" class="btn-outline-light">Ver propiedades <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="hero-stats reveal reveal-d4">
+          <div><div class="hero-stat-number">5+</div><div class="hero-stat-label">A&ntilde;os de experiencia</div></div>
+          <div><div class="hero-stat-number">125+</div><div class="hero-stat-label">Propiedades vendidas</div></div>
+          <div><div class="hero-stat-number">98%</div><div class="hero-stat-label">Clientes satisfechos</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="propiedades">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label">Propiedades destacadas</span>
+        <h2 class="section-title">Encuentra tu pr&oacute;ximo hogar</h2>
+        <p class="section-subtitle mx-auto">Propiedades seleccionadas en las mejores zonas de Guadalajara Oriente, Tonal&aacute;, Tlaquepaque y Zapotlanejo.</p>
+      </div>
+
+      <div class="properties-grid">
+        <div class="property-card reveal reveal-d1">
+          <div class="property-image" style="background-image:url('assets/inmobiliaria-property-1-gpt.png')">
+            <span class="property-badge">Venta</span>
+          </div>
+          <div class="property-body">
+            <div class="property-price">$2,450,000 <span>MXN</span></div>
+            <h3 class="property-title">Departamento en Tlaquepaque</h3>
+            <div class="property-location"><i class="fas fa-location-dot"></i> Tlaquepaque, Jalisco</div>
+            <div class="property-features">
+              <span class="property-feature"><i class="fas fa-bed"></i> 2 rec&aacute;maras</span>
+              <span class="property-feature"><i class="fas fa-bath"></i> 2 ba&ntilde;os</span>
+              <span class="property-feature"><i class="fas fa-arrows-alt"></i> 95 m2</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card reveal reveal-d2">
+          <div class="property-image" style="background-image:url('assets/inmobiliaria-property-2-gpt.png')">
+            <span class="property-badge">Venta</span>
+          </div>
+          <div class="property-body">
+            <div class="property-price">$1,850,000 <span>MXN</span></div>
+            <h3 class="property-title">Casa en Tonal&aacute; Centro</h3>
+            <div class="property-location"><i class="fas fa-location-dot"></i> Tonal&aacute;, Jalisco</div>
+            <div class="property-features">
+              <span class="property-feature"><i class="fas fa-bed"></i> 3 rec&aacute;maras</span>
+              <span class="property-feature"><i class="fas fa-bath"></i> 2 ba&ntilde;os</span>
+              <span class="property-feature"><i class="fas fa-arrows-alt"></i> 120 m2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="properties-more reveal reveal-d3">
+        <a href="https://wa.me/523312978339?text=Hola,%20quiero%20ver%20m%C3%A1s%20propiedades%20disponibles" target="_blank" rel="noopener">
+          Ver m&aacute;s propiedades disponibles <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="proceso">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label">Proceso</span>
+        <h2 class="section-title">Tu camino a casa</h2>
+        <p class="section-subtitle mx-auto">Tres pasos simples para encontrar la propiedad ideal, sin complicaciones.</p>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step reveal reveal-d1">
+          <div class="process-icon"><i class="fas fa-compass"></i></div>
+          <h3>Elige</h3>
+          <p>Explora nuestras propiedades destacadas o cu&eacute;ntanos qu&eacute; buscas y te enviaremos opciones que se ajusten a tus necesidades y presupuesto.</p>
+        </div>
+        <div class="process-step reveal reveal-d2">
+          <div class="process-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>Visita</h3>
+          <p>Agenda una cita para conocer la propiedad en persona. Te acompa&ntilde;amos en la visita y resolvemos todas tus dudas en el momento.</p>
+        </div>
+        <div class="process-step reveal reveal-d3">
+          <div class="process-icon"><i class="fas fa-file-signature"></i></div>
+          <h3>Firma</h3>
+          <p>Te apoyamos con la negociaci&oacute;n, tr&aacute;mites legales y financiamiento hasta que firmes la escritura. Sin prisas, sin presiones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-diagonal" id="por-que-nosotros">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label" style="color:var(--terracotta-light)">Por qu&eacute; nosotros</span>
+        <h2 class="section-title">Tu tranquilidad es nuestra prioridad</h2>
+        <p class="section-subtitle mx-auto">No solo vendemos propiedades, construimos relaciones de confianza con cada cliente.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal reveal-d1">
+          <div class="why-icon"><i class="fas fa-calendar-check"></i></div>
+          <div>
+            <div class="why-label">5+ A&ntilde;os de experiencia</div>
+            <div class="why-desc">Conocimiento profundo del mercado inmobiliario en Guadalajara Oriente y sus alrededores.</div>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-d1">
+          <div class="why-icon"><i class="fas fa-building"></i></div>
+          <div>
+            <div class="why-label">125+ Propiedades vendidas</div>
+            <div class="why-desc">M&aacute;s de 125 transacciones exitosas que avalan nuestra experiencia y compromiso.</div>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-d2">
+          <div class="why-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <div>
+            <div class="why-label">Atenci&oacute;n personalizada</div>
+            <div class="why-desc">Te asignamos un asesor exclusivo que te acompa&ntilde;a de principio a fin.</div>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-d2">
+          <div class="why-icon"><i class="fas fa-file-contract"></i></div>
+          <div>
+            <div class="why-label">Asesor&iacute;a jur&iacute;dica completa</div>
+            <div class="why-desc">Te apoyamos con contratos, aval&uacute;os y todo el proceso legal sin preocupaciones.</div>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-d3">
+          <div class="why-icon"><i class="fas fa-camera"></i></div>
+          <div>
+            <div class="why-label">Marketing profesional</div>
+            <div class="why-desc">Fotograf&iacute;a profesional, publicaci&oacute;n en portales y promoci&oacute;n en redes sociales.</div>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-d3">
+          <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+          <div>
+            <div class="why-label">Transparencia total</div>
+            <div class="why-desc">Sin sorpresas ni cargos ocultos. Te mantenemos informado en cada etapa del proceso.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label">Nuestros servicios</span>
+        <h2 class="section-title">Todo lo que necesitas para tu hogar</h2>
+        <p class="section-subtitle mx-auto">Ofrecemos soluciones completas para que comprar, vender o rentar sea una experiencia sencilla y segura.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal reveal-d1">
+          <div class="service-icon"><i class="fas fa-handshake"></i></div>
+          <h3>Compra / Venta de Propiedades</h3>
+          <p>Te ayudamos a comprar o vender tu propiedad con asesor&iacute;a profesional, tr&aacute;mites y negociaci&oacute;n incluidos.</p>
+        </div>
+        <div class="service-card reveal reveal-d2">
+          <div class="service-icon"><i class="fas fa-file-signature"></i></div>
+          <h3>Renta de Inmuebles</h3>
+          <p>Administramos la renta de tu propiedad o te ayudamos a encontrar el lugar ideal con contratos seguros.</p>
+        </div>
+        <div class="service-card reveal reveal-d3">
+          <div class="service-icon"><i class="fas fa-calculator"></i></div>
+          <h3>Aval&uacute;os Inmobiliarios</h3>
+          <p>Realizamos aval&uacute;os profesionales con precios justos de mercado para venta, renta o tr&aacute;mites bancarios.</p>
+        </div>
+        <div class="service-card reveal reveal-d4">
+          <div class="service-icon"><i class="fas fa-coins"></i></div>
+          <h3>Asesor&iacute;a Hipotecaria</h3>
+          <p>Te guiamos en todo el proceso de cr&eacute;dito hipotecario para que obtengas las mejores condiciones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonios">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label">Testimonios</span>
+        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+        <p class="section-subtitle mx-auto">La satisfacci&oacute;n de nuestros clientes es nuestra mejor carta de presentaci&oacute;n.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-d1">
+          <div class="testimonial-stamp">VERIFICADO</div>
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">&ldquo;Encontr&eacute; la casa perfecta para mi familia gracias a Inmobiliaria Guadalajara Oriente. Su asesor&iacute;a fue clave en todo el proceso. Altamente recomendados.&rdquo;</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MG</div>
+            <div><div class="testimonial-name">Mar&iacute;a Guadalupe</div><div class="testimonial-role">Compr&oacute; casa en Tonal&aacute;</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-d2">
+          <div class="testimonial-stamp">VERIFICADO</div>
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">&ldquo;Vend&iacute; mi departamento en tiempo r&eacute;cord. La asesor&iacute;a hipotecaria que me ofrecieron hizo toda la diferencia. Muy profesionales y atentos en todo momento.&rdquo;</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RH</div>
+            <div><div class="testimonial-name">Roberto Hern&aacute;ndez</div><div class="testimonial-role">Vendi&oacute; departamento</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-d3">
+          <div class="testimonial-stamp">VERIFICADO</div>
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">&ldquo;Rentar nunca hab&iacute;a sido tan f&aacute;cil. Me mostraron varias opciones y me ayudaron con todos los tr&aacute;mites. Sin duda los recomiendo.&rdquo;</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AL</div>
+            <div><div class="testimonial-name">Ana Laura</div><div class="testimonial-role">Rent&oacute; departamento</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label">Preguntas frecuentes</span>
+        <h2 class="section-title">Resuelve tus dudas</h2>
+        <p class="section-subtitle mx-auto">Las preguntas m&aacute;s comunes sobre el proceso de compra, venta y renta de inmuebles.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question"><span>&iquest;Qu&eacute; documentos necesito para comprar una casa?</span><i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Generalmente necesitas: identificaci&oacute;n oficial (INE), comprobante de ingresos, acta de matrimonio (si aplica) y aval&uacute;o bancario. Si requieres cr&eacute;dito hipotecario, te ayudamos a preparar todo el expediente.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-d1">
+          <button class="faq-question"><span>&iquest;Cu&aacute;nto tiempo toma vender una propiedad?</span><i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer"><div class="faq-answer-inner">En promedio, una propiedad bien valuada y en buena ubicaci&oacute;n puede venderse entre 2 y 6 meses. Nosotros trabajamos con estrategias de marketing y promoci&oacute;n para acelerar el proceso.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-d2">
+          <button class="faq-question"><span>&iquest;Qu&eacute; comisi&oacute;n cobran por vender mi propiedad?</span><i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Nuestra comisi&oacute;n es del 3% + IVA sobre el precio de venta. Incluye: sesi&oacute;n de fotos, publicaci&oacute;n en portales, asesor&iacute;a jur&iacute;dica y acompa&ntilde;amiento en todo el proceso hasta la firma.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-d3">
+          <button class="faq-question"><span>&iquest;Qu&eacute; zonas de Guadalajara Oriente cubren?</span><i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Cubrimos toda la zona Oriente de Guadalajara, incluyendo Tonal&aacute;, Tlaquepaque, Zapotlanejo, El Salto, y colonias como Jardines del Valle, Los Arrayanes, Loma Dorada, y Santa Fe.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-diagonal-offset" id="contacto">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label" style="color:var(--terracotta-light)">Contacto</span>
+        <h2 class="section-title">&iquest;Listo para encontrar tu hogar?</h2>
+        <p class="section-subtitle mx-auto" style="margin-bottom:2rem;">Escr&iacute;benos hoy y descubre c&oacute;mo podemos ayudarte a dar el siguiente paso.</p>
+        <a href="https://wa.me/523312978339?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20propiedades" target="_blank" rel="noopener" class="cta-whatsapp"><i class="fab fa-whatsapp"></i> Enviar mensaje por WhatsApp</a>
+        <div class="cta-contact-row">
+          <span class="cta-contact-item"><i class="fas fa-phone"></i> 33 1297 8339</span>
+          <span class="cta-contact-item"><i class="fas fa-envelope"></i> contacto@inmobiliariagdl.mx</span>
+          <span class="cta-contact-item"><i class="fas fa-location-dot"></i> Graciela Olmos 2239, Guadalajara, Jal.</span>
+          <span class="cta-contact-item"><i class="fas fa-clock"></i> Lun&ndash;Dom 9:00 AM &ndash; 7:00 PM</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <div class="footer-brand-icon"><i class="fas fa-house"></i></div>
+            <span class="footer-brand-text">Inmobiliaria Guadalajara Oriente</span>
+          </div>
+          <p class="footer-desc">Tu aliado de confianza para encontrar la propiedad ideal en Guadalajara Oriente. Con m&aacute;s de 5 a&ntilde;os de experiencia y 125+ propiedades vendidas.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Servicios</div>
+          <ul class="footer-links">
+            <li><a href="#servicios"><i class="fas fa-circle"></i> Compra/Venta</a></li>
+            <li><a href="#servicios"><i class="fas fa-circle"></i> Renta</a></li>
+            <li><a href="#servicios"><i class="fas fa-circle"></i> Aval&uacute;os</a></li>
+            <li><a href="#servicios"><i class="fas fa-circle"></i> Asesor&iacute;a hipotecaria</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contacto</div>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/523312978339" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> 33 1297 8339</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> contacto@inmobiliariagdl.mx</a></li>
+            <li><a href="#"><i class="fas fa-location-dot"></i> Guadalajara, Jalisco</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">S&iacute;guenos</div>
+          <ul class="footer-links">
+            <li><a href="#" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+            <li><a href="#" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Inmobiliaria Guadalajara Oriente. Todos los derechos reservados.</span>
+        <div class="footer-social">
+          <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/523312978339" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/523312978339?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20propiedades" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+  <script>
+    (function() {
+      const revealEls = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(el => observer.observe(el));
+    })();
+
+    (function() {
+      const header = document.getElementById('header');
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        if (!item) return;
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          if (el !== item) el.classList.remove('open');
+        });
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

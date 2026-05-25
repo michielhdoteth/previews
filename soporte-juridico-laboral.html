@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soporte Jur&iacute;dico Laboral — Defensa Laboral en Guadalajara</title>
+  <meta name="description" content="Defensa laboral estrat&eacute;gica en Guadalajara. 4.9 estrellas, 356+ casos exitosos. Consulta gratis por WhatsApp en 30 minutos. Sin ganar, no pagas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <script defer src="/previews/assets/fontawesome/js/all.min.js"></script>
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"></noscript>
+<style>
+/* ================================================================
+   SOPORTE JURIDICO LABORAL — "THE CONFIDENTIAL FILE"
+   Design system: legal document aesthetic, vellum paper, gold seal
+   Version: Rebuilt with animations, custom logo, custom SVG icons
+   ================================================================ */
+
+:root {
+  --navy: #0f1b33;
+  --navy-80: #1a2d52;
+  --gold: #c9953e;
+  --gold-light: #dfb168;
+  --gold-dark: #a87a2e;
+  --vellum: #f5f0e8;
+  --vellum-dark: #e8e0d4;
+  --ink: #1a1a18;
+  --ink-70: #4a4844;
+  --ink-50: #7a7874;
+  --ink-30: #b0ada8;
+  --white: #fcfaf5;
+  --red-stamp: #9e1b1b;
+  --red-stamp-light: rgba(158,27,27,0.12);
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+}
+
+/* ---------- Reset ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.65;
+  color:var(--ink-70);
+  background:var(--vellum);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font:inherit}
+
+/* ---------- Typography ---------- */
+h1,h2,h3,h4{
+  font-family:var(--font-heading);
+  font-weight:700;
+  color:var(--navy);
+  line-height:1.15;
+}
+h1{
+  font-size:clamp(2rem,5vw,3.25rem);
+  letter-spacing:-0.015em;
+}
+h2{
+  font-size:clamp(1.6rem,3.5vw,2.4rem);
+  letter-spacing:-0.01em;
+}
+h3{
+  font-size:clamp(1.1rem,2vw,1.4rem);
+  font-weight:600;
+}
+
+/* ---------- Paper texture ---------- */
+.paper-bg{
+  background-color:var(--vellum);
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.015) 2px,rgba(0,0,0,0.015) 3px),
+    repeating-linear-gradient(90deg,transparent,transparent 3px,rgba(0,0,0,0.008) 3px,rgba(0,0,0,0.008) 4px);
+}
+.paper-bg-dark{
+  background-color:var(--navy);
+}
+
+/* ---------- Layout ---------- */
+.container{
+  width:100%;max-width:1120px;margin:0 auto;padding:0 24px;
+}
+.section{padding:clamp(56px,10vw,96px) 0;}
+
+/* ---------- Gold filigree divider ---------- */
+.filigree{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:24px 0;margin:0 auto;max-width:320px;
+}
+.filigree-line{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.filigree-diamond{
+  width:8px;height:8px;flex-shrink:0;
+  border:1.5px solid var(--gold);transform:rotate(45deg);
+}
+
+/* ---------- Ruled section title ---------- */
+.section-title-wrap{
+  margin-bottom:40px;max-width:680px;
+}
+.section-title-wrap.centered{margin-left:auto;margin-right:auto;text-align:center}
+.section-ruled{
+  display:flex;align-items:baseline;gap:16px;margin-bottom:8px;
+}
+.section-ruled::before{
+  content:'';flex-shrink:0;
+  width:32px;height:1px;background:var(--gold);
+}
+.section-ruled-label{
+  font-family:var(--font-heading);
+  font-size:0.7rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.12em;color:var(--gold);
+}
+.section-ruled.centered{justify-content:center}
+.section-ruled.centered::before{display:none}
+.section-desc{
+  font-size:1rem;color:var(--ink-50);line-height:1.6;
+}
+
+/* ---------- File side-border ---------- */
+.file-border{
+  position:relative;
+}
+.file-border::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;bottom:0;
+  width:4px;
+  background:linear-gradient(180deg,var(--gold),var(--gold-dark),var(--gold));
+  opacity:0.3;
+}
+
+/* ================================================================
+   ANIMATIONS — keyframes
+   ================================================================ */
+@keyframes floatUp {
+  0% { opacity:0; transform:translateY(40px); }
+  100% { opacity:1; transform:translateY(0); }
+}
+@keyframes floatUpSmall {
+  0% { opacity:0; transform:translateY(20px); }
+  100% { opacity:1; transform:translateY(0); }
+}
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}
+@keyframes fadeInScale {
+  0% { opacity:0; transform:scale(0.85); }
+  100% { opacity:1; transform:scale(1); }
+}
+@keyframes slideLeft {
+  0% { opacity:0; transform:translateX(-30px); }
+  100% { opacity:1; transform:translateX(0); }
+}
+@keyframes slideRight {
+  0% { opacity:0; transform:translateX(30px); }
+  100% { opacity:1; transform:translateX(0); }
+}
+
+/* Scroll-revealed elements (initial hidden state) */
+[data-reveal] {
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+[data-reveal].revealed {
+  opacity:1;
+  transform:translateY(0);
+}
+[data-reveal="left"] { transform:translateX(-40px); }
+[data-reveal="left"].revealed { transform:translateX(0); }
+[data-reveal="right"] { transform:translateX(40px); }
+[data-reveal="right"].revealed { transform:translateX(0); }
+[data-reveal="scale"] { transform:scale(0.9); }
+[data-reveal="scale"].revealed { transform:scale(1); }
+
+/* CONFIDENCIAL stamp animation — drift slowly */
+@keyframes stampDrift {
+  0% { transform:translate(-50%,-50%) rotate(-18deg) scale(1.8) translate(0,0); }
+  25% { transform:translate(-50%,-50%) rotate(-17deg) scale(1.82) translate(6px,-4px); }
+  50% { transform:translate(-50%,-50%) rotate(-19deg) scale(1.78) translate(-4px,6px); }
+  75% { transform:translate(-50%,-50%) rotate(-17.5deg) scale(1.81) translate(8px,2px); }
+  100% { transform:translate(-50%,-50%) rotate(-18deg) scale(1.8) translate(0,0); }
+}
+@media(max-width:767px){
+  @keyframes stampDrift {
+    0% { transform:translate(-50%,-50%) rotate(-18deg) scale(1.2) translate(0,0); }
+    25% { transform:translate(-50%,-50%) rotate(-17deg) scale(1.22) translate(4px,-3px); }
+    50% { transform:translate(-50%,-50%) rotate(-19deg) scale(1.18) translate(-3px,4px); }
+    75% { transform:translate(-50%,-50%) rotate(-17.5deg) scale(1.21) translate(5px,1px); }
+    100% { transform:translate(-50%,-50%) rotate(-18deg) scale(1.2) translate(0,0); }
+  }
+}
+@keyframes stampFadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}
+
+/* Gold seal pulse + gentle rotation */
+@keyframes sealPulse {
+  0% { transform:scale(1) rotate(0deg); box-shadow:0 0 0 0 rgba(201,149,62,0.3); }
+  50% { transform:scale(1.03) rotate(1deg); box-shadow:0 0 20px 4px rgba(201,149,62,0.1); }
+  100% { transform:scale(1) rotate(0deg); box-shadow:0 0 0 0 rgba(201,149,62,0.3); }
+}
+@keyframes sealPulseMini {
+  0% { transform:scale(1); }
+  50% { transform:scale(1.05); }
+  100% { transform:scale(1); }
+}
+
+/* Floating particle document fragments */
+@keyframes particleFloat1 {
+  0% { transform:translateY(0) rotate(0deg) scale(0.6); opacity:0; }
+  10% { opacity:0.4; }
+  50% { opacity:0.2; }
+  90% { opacity:0.4; }
+  100% { transform:translateY(-320px) rotate(25deg) scale(0.6); opacity:0; }
+}
+@keyframes particleFloat2 {
+  0% { transform:translateY(0) rotate(0deg) scale(0.5); opacity:0; }
+  10% { opacity:0.3; }
+  50% { opacity:0.15; }
+  90% { opacity:0.3; }
+  100% { transform:translateY(-280px) rotate(-20deg) scale(0.5); opacity:0; }
+}
+@keyframes particleFloat3 {
+  0% { transform:translateY(0) rotate(0deg) scale(0.4); opacity:0; }
+  10% { opacity:0.25; }
+  50% { opacity:0.1; }
+  90% { opacity:0.25; }
+  100% { transform:translateY(-360px) rotate(35deg) scale(0.4); opacity:0; }
+}
+
+/* Load animation delays */
+.load-anim { animation:floatUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards; }
+.load-anim-1 { animation-delay:0.1s; }
+.load-anim-2 { animation-delay:0.25s; }
+.load-anim-3 { animation-delay:0.4s; }
+.load-anim-4 { animation-delay:0.55s; }
+.load-anim-5 { animation-delay:0.7s; }
+.load-anim-6 { animation-delay:0.85s; }
+
+/* ================================================================
+   1. FIXED LETTERHEAD BAR
+   ================================================================ */
+.top-bar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:38px;
+  background:var(--vellum);
+  border-bottom:1px solid rgba(201,149,62,0.2);
+  display:flex;align-items:center;
+}
+.top-bar .container{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 24px;
+}
+
+/* Custom SVG Logo */
+.top-bar-logo{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+}
+.top-bar-logo svg{
+  width:28px;height:28px;flex-shrink:0;
+}
+.top-bar-logo-text{
+  display:flex;flex-direction:column;
+}
+.top-bar-logo-text .brand-name{
+  font-family:var(--font-display);
+  font-size:0.78rem;font-weight:700;
+  color:var(--navy);letter-spacing:0.02em;
+  line-height:1.1;
+}
+.top-bar-logo-text .brand-tag{
+  font-family:var(--font-heading);
+  font-size:0.5rem;font-weight:500;
+  color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;
+  line-height:1;
+}
+.top-bar-meta{
+  font-family:var(--font-heading);
+  font-size:0.62rem;font-weight:500;
+  color:var(--ink-50);letter-spacing:0.02em;
+}
+.top-bar-meta .sep{margin:0 8px;color:var(--gold);opacity:0.4;}
+
+body{padding-top:38px;}
+
+/* ================================================================
+   2. HERO — THE LEGAL DOCUMENT
+   ================================================================ */
+.hero{
+  position:relative;overflow:hidden;
+  padding:clamp(32px,5vw,56px) 0 clamp(48px,8vw,72px);
+}
+.hero .container{position:relative;z-index:2;}
+
+/* Ruled paper lines in background */
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    0deg,transparent,transparent 23px,rgba(201,149,62,0.05) 23px,rgba(201,149,62,0.05) 24px
+  );
+  pointer-events:none;z-index:1;
+}
+
+/* Floating document fragment particles */
+.hero-particles{
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;
+}
+.hero-particle{
+  position:absolute;
+  width:28px;height:36px;
+  border:1px solid rgba(201,149,62,0.12);
+  background:rgba(255,255,255,0.3);
+  border-radius:1px;
+}
+.hero-particle:nth-child(1){
+  left:8%;top:70%;
+  animation:particleFloat1 14s ease-in-out infinite;
+  animation-delay:0s;
+  width:22px;height:30px;
+}
+.hero-particle:nth-child(2){
+  left:85%;top:60%;
+  animation:particleFloat2 12s ease-in-out infinite;
+  animation-delay:2s;
+  width:18px;height:26px;
+}
+.hero-particle:nth-child(3){
+  left:15%;top:50%;
+  animation:particleFloat3 16s ease-in-out infinite;
+  animation-delay:4s;
+  width:26px;height:34px;
+  border-color:rgba(201,149,62,0.08);
+}
+.hero-particle:nth-child(4){
+  left:75%;top:75%;
+  animation:particleFloat1 13s ease-in-out infinite;
+  animation-delay:6s;
+  width:20px;height:28px;
+}
+.hero-particle:nth-child(5){
+  left:92%;top:45%;
+  animation:particleFloat2 15s ease-in-out infinite;
+  animation-delay:3s;
+  width:16px;height:22px;
+}
+.hero-particle:nth-child(6){
+  left:5%;top:80%;
+  animation:particleFloat3 11s ease-in-out infinite;
+  animation-delay:7s;
+  width:24px;height:32px;
+}
+/* Mini dots */
+.hero-particle-dot{
+  position:absolute;
+  width:3px;height:3px;
+  border-radius:50%;
+  background:var(--gold);
+  opacity:0.15;
+}
+.hero-particle-dot:nth-child(7){
+  left:20%;top:65%;
+  animation:particleFloat1 18s ease-in-out infinite;
+  animation-delay:1s;
+}
+.hero-particle-dot:nth-child(8){
+  left:65%;top:55%;
+  animation:particleFloat2 16s ease-in-out infinite;
+  animation-delay:5s;
+  width:4px;height:4px;
+}
+.hero-particle-dot:nth-child(9){
+  left:40%;top:75%;
+  animation:particleFloat3 20s ease-in-out infinite;
+  animation-delay:8s;
+}
+
+/* CONFIDENCIAL watermark stamp — animated drift */
+.confidencial-stamp{
+  position:absolute;z-index:0;pointer-events:none;
+  top:50%;left:50%;
+  animation:stampFadeIn 2s ease forwards, stampDrift 20s ease-in-out infinite;
+  animation-delay:0s, 2s;
+  user-select:none;
+}
+@media(min-width:768px){
+  .confidencial-stamp{animation-name:stampFadeIn, stampDrift;}
+}
+.confidencial-stamp svg{width:clamp(200px,40vw,420px);height:auto;}
+.confidencial-stamp-text{
+  font-family:var(--font-heading);font-size:clamp(0.9rem,2vw,1.2rem);
+  font-weight:800;color:var(--red-stamp);opacity:0.13;
+  text-align:center;letter-spacing:0.28em;text-transform:uppercase;
+  margin-top:4px;
+}
+
+/* Hero inner layout */
+.hero-grid{
+  display:grid;grid-template-columns:1fr;gap:36px;align-items:start;
+}
+@media(min-width:900px){
+  .hero-grid{grid-template-columns:1.2fr 0.8fr;gap:60px;}
+}
+
+/* Document mockup on right */
+.doc-mockup{
+  display:none;position:relative;
+}
+@media(min-width:900px){
+  .doc-mockup{display:block;}
+}
+.doc-mockup-inner{
+  position:relative;
+  background:var(--white);border:1px solid rgba(201,149,62,0.15);
+  padding:32px 28px 28px;border-radius:2px;
+  box-shadow:0 8px 40px rgba(15,27,51,0.06);
+}
+.doc-mockup-inner::before{
+  content:'CONFIDENCIAL';
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) rotate(-25deg);
+  font-family:var(--font-heading);font-weight:800;
+  font-size:1.3rem;color:var(--red-stamp);opacity:0.15;
+  letter-spacing:0.2em; pointer-events:none;
+}
+.doc-mockup-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:20px;padding-bottom:14px;
+  border-bottom:2px solid var(--navy);
+}
+.doc-mockup-header h4{
+  font-size:0.75rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.04em;color:var(--ink-50);line-height:1.4;
+}
+.doc-mockup-header h4 strong{
+  display:block;font-size:0.85rem;color:var(--navy);font-weight:700;
+}
+.doc-mockup-seal{
+  width:52px;height:52px;flex-shrink:0;
+  border:2px solid var(--gold);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;
+  font-family:var(--font-heading);
+  font-size:0.45rem;font-weight:700;color:var(--gold);
+  line-height:1.1;text-align:center;text-transform:uppercase;
+  letter-spacing:0.04em;
+  animation:sealPulseMini 4s ease-in-out infinite;
+}
+.doc-mockup-body p{
+  font-size:0.82rem;color:var(--ink-50);line-height:1.7;
+  margin-bottom:8px;
+}
+.doc-mockup-body p strong{color:var(--navy);font-weight:600;}
+.doc-mockup-footer{
+  margin-top:16px;padding-top:12px;
+  border-top:1px solid var(--vellum-dark);
+  display:flex;justify-content:space-between;
+  font-size:0.65rem;color:var(--ink-30);
+  font-family:var(--font-heading);text-transform:uppercase;
+  letter-spacing:0.04em;
+}
+
+/* Gold decorative line */
+.gold-bar{
+  width:clamp(40px,6vw,80px);height:3px;background:var(--gold);
+  margin-bottom:20px;
+}
+
+/* Rating badge with custom star */
+.hero-rating{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px 6px 10px;
+  background:var(--white);
+  border:1px solid rgba(201,149,62,0.2);
+  font-family:var(--font-heading);
+  font-size:0.78rem;font-weight:600;color:var(--ink);
+  margin-bottom:20px;
+  position:relative;
+}
+.hero-rating svg{width:18px;height:18px;flex-shrink:0;}
+.hero-rating strong{color:var(--gold);font-weight:800;}
+.hero-rating-notch{
+  position:absolute;top:-1px;left:-1px;right:-1px;height:3px;
+  background:var(--gold);
+}
+
+/* Headline */
+.hero h1{margin-bottom:16px;}
+.hero h1 .gold-highlight{color:var(--gold-dark);font-style:italic;}
+
+/* Location line with custom icon */
+.hero-location{
+  font-size:0.88rem;color:var(--ink-50);
+  margin-bottom:28px;display:flex;align-items:center;gap:8px;
+}
+.hero-location svg{width:16px;height:16px;flex-shrink:0;}
+
+/* ================================================================
+   NOTARY SEAL CTA
+   ================================================================ */
+.seal-cta{
+  display:inline-flex;align-items:center;gap:20px;
+  padding:16px 24px 16px 20px;
+  background:var(--white);
+  border:2px solid var(--gold);
+  position:relative;
+  transition:box-shadow 0.25s;
+  text-decoration:none;
+}
+.seal-cta:hover{
+  box-shadow:0 4px 24px rgba(201,149,62,0.2);
+}
+.seal-cta-circle{
+  width:72px;height:72px;flex-shrink:0;
+  border-radius:50%;
+  border:2.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;
+  font-family:var(--font-heading);font-weight:700;color:var(--gold);
+  line-height:1.1;text-align:center;text-transform:uppercase;
+  position:relative;
+  transition:transform 0.2s;
+  animation:sealPulse 5s ease-in-out infinite;
+}
+.seal-cta:hover .seal-cta-circle{animation-play-state:paused;transform:scale(1.04);}
+.seal-cta-circle::after{
+  content:'';
+  position:absolute;inset:4px;
+  border-radius:50%;
+  border:1px solid rgba(201,149,62,0.2);
+}
+.seal-cta-circle .top-text{
+  font-size:0.42rem;letter-spacing:0.08em;
+}
+.seal-cta-circle .main-num{
+  font-size:0.9rem;letter-spacing:0.02em;margin:1px 0;
+}
+.seal-cta-circle .bot-text{
+  font-size:0.42rem;letter-spacing:0.06em;
+}
+.seal-cta-text{
+  display:flex;flex-direction:column;
+}
+.seal-cta-text .action{
+  font-family:var(--font-heading);
+  font-size:1.05rem;font-weight:700;color:var(--navy);
+  line-height:1.2;
+}
+.seal-cta-text .sub{
+  font-size:0.85rem;color:var(--ink-50);margin-top:2px;
+}
+.seal-cta-text .friction-row{
+  display:flex;flex-wrap:wrap;gap:4px 12px;
+  margin-top:6px;
+  font-family:var(--font-heading);
+  font-size:0.68rem;font-weight:500;
+  color:var(--ink-50);letter-spacing:0.02em;
+}
+.seal-cta-text .friction-row span{display:inline-flex;align-items:center;gap:4px;}
+.seal-cta-text .friction-row svg{width:12px;height:12px;}
+
+/* Inline mini seal for reuse */
+.seal-inline{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  padding:14px 28px;
+  background:var(--white);
+  border:2px solid var(--gold);
+  text-decoration:none;
+  transition:box-shadow 0.25s;
+  max-width:480px;margin:0 auto;
+}
+.seal-inline:hover{box-shadow:0 4px 24px rgba(201,149,62,0.2);}
+.seal-inline .mini-seal{
+  width:52px;height:52px;flex-shrink:0;
+  border-radius:50%;border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;
+  font-family:var(--font-heading);font-weight:700;color:var(--gold);
+  line-height:1;text-align:center;text-transform:uppercase;
+  font-size:0.4rem;
+}
+.seal-inline .mini-seal .num{font-size:0.75rem;letter-spacing:0.02em;}
+.seal-inline .seal-text{
+  font-family:var(--font-heading);
+  font-size:0.9rem;font-weight:700;color:var(--navy);
+}
+.seal-inline .seal-sub{
+  font-family:var(--font-body);
+  font-size:0.78rem;color:var(--ink-50);
+}
+
+/* ================================================================
+   3. EVIDENCE SECTION — exhibits with harm/remedy pairs
+   ================================================================ */
+.evidence{padding:0;}
+.evidence-header{
+  padding:clamp(40px,6vw,64px) 0 clamp(24px,4vw,32px);
+  background:var(--white);
+}
+.evidence-list{
+  display:flex;flex-direction:column;
+}
+.evidence-item{
+  display:grid;grid-template-columns:1fr;
+  gap:20px;padding:32px 24px;
+  border-bottom:1px solid rgba(201,149,62,0.1);
+  position:relative;
+}
+@media(min-width:680px){
+  .evidence-item{grid-template-columns:1fr 1fr;gap:40px;padding:40px 32px;}
+}
+.evidence-item:last-child{border-bottom:none;}
+.evidence-item:nth-child(odd){background:var(--white);}
+.evidence-item:nth-child(even){background:var(--vellum);}
+
+/* File folder tab with custom document icon */
+.evidence-tab{
+  display:inline-flex;align-items:center;gap:8px;
+  position:relative;top:-4px;
+  font-family:var(--font-heading);
+  font-size:0.65rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.08em;
+  padding:3px 14px 3px 10px;
+  background:var(--navy);color:var(--gold);
+  margin-bottom:12px;
+}
+.evidence-tab svg{width:14px;height:14px;}
+
+/* Harm column */
+.evidence-harm{padding-right:8px;}
+.evidence-harm-label{
+  font-family:var(--font-heading);
+  font-size:0.6rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--red-stamp);opacity:0.7;
+  margin-bottom:4px;
+}
+.evidence-item h3{
+  font-size:clamp(1.1rem,2vw,1.35rem);
+  margin-bottom:8px;
+}
+.evidence-desc{
+  font-size:0.92rem;color:var(--ink-50);line-height:1.6;
+}
+
+/* Remedy column */
+.evidence-remedy{
+  padding:16px 20px;
+  background:rgba(201,149,62,0.06);
+  border-left:3px solid var(--gold);
+  align-self:start;
+}
+.evidence-remedy-label{
+  font-family:var(--font-heading);
+  font-size:0.6rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--gold);
+  margin-bottom:4px;
+}
+.evidence-remedy p{
+  font-size:0.92rem;color:var(--navy);line-height:1.6;font-weight:500;
+}
+
+/* ================================================================
+   4. CASE OUTCOMES — verdict-style testimonials
+   ================================================================ */
+.outcomes{
+  background:var(--navy);color:var(--white);
+  position:relative;overflow:hidden;
+}
+.outcomes::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 50%, rgba(201,149,62,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(201,149,62,0.04) 0%, transparent 70%);
+  pointer-events:none;
+}
+.outcomes .container{position:relative;z-index:1;}
+.outcomes .section-ruled-label{color:var(--gold-light);}
+.outcomes .section-ruled::before{background:var(--gold-light);}
+.outcomes h2{color:var(--white);}
+.outcomes .section-desc{color:rgba(255,255,255,0.55);}
+
+.outcomes-grid{
+  display:grid;grid-template-columns:1fr;
+  gap:20px;margin-top:36px;
+}
+@media(min-width:600px){.outcomes-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:900px){.outcomes-grid{grid-template-columns:1fr 1fr 1fr;}}
+
+.verdict-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:28px 24px;
+  position:relative;
+  transition:background 0.2s, transform 0.3s;
+}
+.verdict-card:hover{
+  background:rgba(255,255,255,0.08);
+  transform:translateY(-2px);
+}
+
+.verdict-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px 4px 8px;
+  background:rgba(201,149,62,0.12);
+  border:1px solid rgba(201,149,62,0.2);
+  font-family:var(--font-heading);
+  font-size:0.6rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.04em;color:var(--gold-light);
+  margin-bottom:12px;
+}
+.verdict-badge svg{width:14px;height:14px;}
+
+.verdict-amount{
+  font-family:var(--font-heading);
+  font-size:1.3rem;font-weight:800;color:var(--gold-light);
+  margin-bottom:4px;
+}
+.verdict-case{
+  font-size:0.75rem;text-transform:uppercase;
+  letter-spacing:0.04em;color:rgba(255,255,255,0.4);
+  margin-bottom:14px;
+}
+.verdict-quote{
+  font-size:0.92rem;line-height:1.6;
+  color:rgba(255,255,255,0.85);
+  font-style:italic;
+  margin-bottom:14px;
+}
+.verdict-author{
+  font-family:var(--font-heading);
+  font-size:0.75rem;font-weight:600;
+  color:rgba(255,255,255,0.5);
+}
+
+
+/* ================================================================
+   5. LEGAL PROCESS — timeline
+   ================================================================ */
+.process{
+  background:var(--white);
+}
+.process-timeline{
+  position:relative;max-width:780px;margin:0 auto;
+  padding-left:40px;
+}
+.process-timeline::before{
+  content:'';position:absolute;top:0;bottom:0;left:16px;
+  width:2px;
+  background:repeating-linear-gradient(
+    0deg,var(--gold),var(--gold) 6px,transparent 6px,transparent 12px
+  );
+}
+.process-step{
+  position:relative;margin-bottom:36px;padding-left:24px;
+}
+.process-step:last-child{margin-bottom:0;}
+.process-step-num{
+  position:absolute;left:-40px;top:0;
+  width:32px;height:32px;
+  background:var(--white);
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-heading);
+  font-size:0.75rem;font-weight:700;color:var(--gold);
+  z-index:1;
+}
+.process-step h3{
+  font-size:1.05rem;margin-bottom:4px;
+}
+.process-step p{
+  font-size:0.88rem;color:var(--ink-50);line-height:1.5;
+}
+
+/* Years badge in timeline */
+.process-years{
+  display:flex;align-items:center;gap:16px;
+  margin-top:40px;padding:20px 24px;
+  background:var(--vellum);
+  border-left:3px solid var(--gold);
+}
+.process-years-num{
+  font-family:var(--font-heading);
+  font-size:2.2rem;font-weight:800;color:var(--gold);
+  line-height:1;
+}
+.process-years-text{
+  font-size:0.85rem;color:var(--ink-50);line-height:1.5;
+}
+.process-years-text strong{color:var(--navy);font-weight:600;}
+
+/* ================================================================
+   6. LEGAL FAQ — brief-style accordion
+   ================================================================ */
+.faq{
+  background:var(--vellum);
+}
+.faq-list{max-width:720px;margin:36px auto 0;}
+
+.faq-item{
+  margin-bottom:1px;
+  background:var(--white);
+  border:1px solid rgba(201,149,62,0.08);
+  border-left:3px solid transparent;
+  transition:border-color 0.2s;
+}
+.faq-item.active{border-left-color:var(--gold);}
+
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  width:100%;padding:20px 24px;
+  background:none;border:none;
+  font-family:var(--font-heading);
+  font-size:0.95rem;font-weight:600;color:var(--navy);
+  text-align:left;
+  transition:background 0.15s;
+}
+.faq-q:hover{background:rgba(201,149,62,0.03);}
+
+/* Custom legal-themed accordion icon */
+.faq-icon{
+  width:24px;height:24px;flex-shrink:0;
+  position:relative;
+  transition:transform 0.25s;
+}
+.faq-icon svg{width:24px;height:24px;display:block;}
+.faq-icon .icon-plus{transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);transform-origin:center;}
+.faq-item.active .faq-icon .icon-plus{transform:rotate(45deg);}
+
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.35s ease, padding 0.3s ease;
+  padding:0 24px;
+  font-size:0.9rem;color:var(--ink-50);line-height:1.65;
+}
+.faq-item.active .faq-a{
+  max-height:300px;
+  padding:0 24px 20px;
+}
+
+/* ================================================================
+   7. FIRM HISTORY
+   ================================================================ */
+.about{
+  background:var(--white);
+}
+.about-wrap{
+  display:grid;grid-template-columns:1fr;gap:36px;
+}
+@media(min-width:768px){
+  .about-wrap{grid-template-columns:1fr 1fr;gap:60px;}
+}
+.about-text p{
+  font-size:0.92rem;line-height:1.7;margin-bottom:14px;
+}
+.about-text p:last-child{margin-bottom:0;}
+.about-text .lawyers{
+  display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;
+}
+.about-text .lawyer-tag{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 14px;
+  background:var(--vellum);
+  border:1px solid rgba(201,149,62,0.15);
+  font-family:var(--font-heading);
+  font-size:0.75rem;font-weight:600;color:var(--navy);
+}
+.about-text .lawyer-tag svg{width:16px;height:16px;flex-shrink:0;}
+.about-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  align-self:start;
+}
+.about-stat{
+  padding:20px;text-align:center;
+  background:var(--vellum);
+  border:1px solid rgba(201,149,62,0.1);
+}
+.about-stat-num{
+  font-family:var(--font-heading);
+  font-size:1.8rem;font-weight:800;color:var(--gold);
+  line-height:1;
+}
+.about-stat-label{
+  font-family:var(--font-heading);
+  font-size:0.7rem;font-weight:500;text-transform:uppercase;
+  letter-spacing:0.04em;color:var(--ink-50);
+  margin-top:4px;
+}
+
+/* ================================================================
+   8. FINAL CTA — FILE YOUR CLAIM SEAL
+   ================================================================ */
+.final-cta{
+  background:var(--navy);
+  position:relative;overflow:hidden;text-align:center;
+}
+.final-cta::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(201,149,62,0.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+.final-cta .container{position:relative;z-index:1;}
+
+/* Giant notary seal with animation */
+.giant-seal{
+  width:160px;height:160px;margin:0 auto 28px;
+  border-radius:50%;
+  border:3px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;
+  position:relative;
+  animation:sealPulse 6s ease-in-out infinite;
+}
+.giant-seal::before{
+  content:'';position:absolute;inset:8px;
+  border-radius:50%;
+  border:1px solid rgba(201,149,62,0.2);
+}
+.giant-seal::after{
+  content:'';position:absolute;inset:14px;
+  border-radius:50%;
+  border:1px dashed rgba(201,149,62,0.15);
+}
+.giant-seal svg{width:28px;height:28px;margin-bottom:4px;}
+.giant-seal .seal-title{
+  font-family:var(--font-heading);
+  font-size:0.55rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--gold);
+}
+.giant-seal .seal-sub{
+  font-family:var(--font-heading);
+  font-size:0.45rem;font-weight:500;
+  color:rgba(201,149,62,0.5);margin-top:2px;
+}
+
+.final-cta h2{color:var(--white);margin-bottom:12px;}
+.final-cta .section-desc{color:rgba(255,255,255,0.55);margin-bottom:28px;}
+
+.final-seal-cta{
+  display:inline-flex;align-items:center;gap:24px;
+  padding:20px 32px 20px 28px;
+  background:rgba(255,255,255,0.05);
+  border:2px solid var(--gold);
+  text-decoration:none;
+  transition:background 0.2s,box-shadow 0.2s;
+}
+.final-seal-cta:hover{
+  background:rgba(255,255,255,0.08);
+  box-shadow:0 4px 32px rgba(201,149,62,0.15);
+}
+.final-seal-cta .seal-inner{
+  width:80px;height:80px;flex-shrink:0;
+  border-radius:50%;border:2.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;
+  font-family:var(--font-heading);font-weight:700;color:var(--gold);
+  line-height:1.1;text-align:center;text-transform:uppercase;
+  position:relative;
+}
+.final-seal-cta .seal-inner::after{
+  content:'';position:absolute;inset:5px;
+  border-radius:50%;border:1px solid rgba(201,149,62,0.2);
+}
+.final-seal-cta .seal-inner .st{font-size:0.5rem;letter-spacing:0.08em;}
+.final-seal-cta .seal-inner .nm{font-size:0.95rem;letter-spacing:0.02em;}
+.final-seal-cta .seal-inner .bt{font-size:0.45rem;letter-spacing:0.06em;}
+.final-seal-cta .seal-txt{
+  display:flex;flex-direction:column;align-items:flex-start;
+}
+.final-seal-cta .seal-txt .big{
+  font-family:var(--font-heading);
+  font-size:1.2rem;font-weight:700;color:var(--white);
+}
+.final-seal-cta .seal-txt .small{
+  font-size:0.85rem;color:rgba(255,255,255,0.55);
+  margin-top:2px;
+}
+.final-seal-cta .seal-txt .fr{
+  display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;
+  font-family:var(--font-heading);
+  font-size:0.68rem;font-weight:500;
+  color:rgba(255,255,255,0.4);letter-spacing:0.02em;
+}
+.final-seal-cta .seal-txt .fr span{display:inline-flex;align-items:center;gap:4px;}
+.final-seal-cta .seal-txt .fr svg{width:12px;height:12px;}
+
+/* ---------- Section CTA dividers ---------- */
+.section-cta-row{
+  padding:24px 0 8px;
+  display:flex;justify-content:center;
+}
+
+/* ================================================================
+   9. FOOTER — legal document footer
+   ================================================================ */
+.site-footer{
+  background:var(--navy);
+  border-top:3px solid var(--gold);
+  padding:36px 0 20px;
+  color:rgba(255,255,255,0.5);
+}
+.footer-grid{
+  display:grid;grid-template-columns:1fr;gap:24px;
+}
+@media(min-width:640px){
+  .footer-grid{grid-template-columns:1.5fr 1fr 1fr;gap:48px;}
+}
+.footer-brand .footer-logo-wrap{
+  display:flex;align-items:center;gap:12px;margin-bottom:8px;
+}
+.footer-brand .footer-logo-wrap svg{
+  width:36px;height:36px;flex-shrink:0;
+}
+.footer-brand .footer-logo-text .name{
+  font-family:var(--font-display);
+  font-size:0.95rem;font-weight:700;color:rgba(255,255,255,0.85);
+  letter-spacing:0.02em;line-height:1.15;
+}
+.footer-brand .footer-logo-text .name span{color:var(--gold);font-style:italic;}
+.footer-brand .tagline{
+  font-size:0.8rem;color:rgba(255,255,255,0.35);
+  margin-top:6px;line-height:1.5;
+}
+.footer-col h4{
+  font-family:var(--font-heading);
+  font-size:0.65rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.08em;color:var(--gold);
+  margin-bottom:10px;
+}
+.footer-col ul{list-style:none;}
+.footer-col ul li{
+  font-size:0.78rem;margin-bottom:4px;
+  display:flex;align-items:center;gap:6px;
+}
+.footer-col ul li svg{width:12px;height:12px;flex-shrink:0;opacity:0.5;}
+.footer-bottom{
+  margin-top:24px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;
+  font-family:var(--font-heading);
+  font-size:0.6rem;font-weight:500;
+  color:rgba(255,255,255,0.2);
+  text-transform:uppercase;letter-spacing:0.04em;
+}
+.footer-bottom .page-num{
+  color:rgba(255,255,255,0.3);
+}
+.footer-bottom .confidential-note{
+  color:var(--red-stamp);opacity:0.4;
+}
+
+/* ================================================================
+   RESPONSIVE refinements
+   ================================================================ */
+@media(min-width:600px){
+  .steps-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+  .steps-grid{grid-template-columns:repeat(3,1fr);}
+}
+
+/* ---------- Reduced motion ---------- */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}
+  [data-reveal]{opacity:1!important;transform:none!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     1. FIXED LETTERHEAD BAR
+     ================================================================ -->
+<div class="top-bar" role="banner">
+  <div class="container">
+    <a href="#" class="top-bar-logo" aria-label="Soporte Jur&iacute;dico Laboral Inicio">
+      <!-- CUSTOM SVG LOGO: Shield with scales of justice -->
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Shield background -->
+        <path d="M16 2L4 7v7c0 9.1 5.1 14.5 12 16 6.9-1.5 12-6.9 12-16V7L16 2z" fill="var(--navy)"/>
+        <path d="M16 2L4 7v7c0 9.1 5.1 14.5 12 16 6.9-1.5 12-6.9 12-16V7L16 2z" stroke="var(--gold)" stroke-width="0.8" opacity="0.6"/>
+        <!-- Gold border inside -->
+        <path d="M16 4.8L6 8.7v5.3c0 7.8 4.3 12.5 10 13.8 5.7-1.3 10-6 10-13.8V8.7L16 4.8z" fill="var(--navy)" stroke="var(--gold)" stroke-width="0.6"/>
+        <!-- Scales of justice -->
+        <path d="M12 13L16 10L20 13L18.5 14.5L20 16L16 19L12 16L13.5 14.5L12 13Z" fill="var(--gold)" opacity="0.9"/>
+        <circle cx="16" cy="14.5" r="1.5" fill="var(--navy)"/>
+        <line x1="16" y1="10" x2="16" y2="8.5" stroke="var(--gold)" stroke-width="0.8"/>
+        <!-- Gavel detail -->
+        <rect x="15.2" y="19" width="1.6" height="2.5" rx="0.3" fill="var(--gold)"/>
+        <rect x="13.5" y="21" width="5" height="1" rx="0.3" fill="var(--gold)"/>
+      </svg>
+      <div class="top-bar-logo-text">
+        <span class="brand-name">Soporte Jur&iacute;dico Laboral</span>
+        <span class="brand-tag">Defensa Laboral desde 2009</span>
+      </div>
+    </a>
+    <span class="top-bar-meta">
+      4.9 estrellas
+      <span class="sep">|</span>
+      Desde 2009
+    </span>
+  </div>
+</div>
+
+<main>
+<!-- ================================================================
+     2. HERO — THE LEGAL DOCUMENT
+     ================================================================ -->
+<section class="hero paper-bg" aria-label="Inicio">
+  <!-- Floating particle document fragments -->
+  <div class="hero-particles" aria-hidden="true">
+    <div class="hero-particle"></div>
+    <div class="hero-particle"></div>
+    <div class="hero-particle"></div>
+    <div class="hero-particle"></div>
+    <div class="hero-particle"></div>
+    <div class="hero-particle"></div>
+    <div class="hero-particle-dot"></div>
+    <div class="hero-particle-dot"></div>
+    <div class="hero-particle-dot"></div>
+  </div>
+
+  <!-- CONFIDENCIAL stamp — animated drift -->
+  <div class="confidencial-stamp" aria-hidden="true">
+    <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="196" height="116" rx="4" stroke="#9e1b1b" stroke-width="2" opacity="0.12"/>
+      <rect x="8" y="8" width="184" height="104" rx="2" stroke="#9e1b1b" stroke-width="0.5" opacity="0.08"/>
+      <text x="100" y="50" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="24" font-weight="800" fill="#9e1b1b" opacity="0.12" letter-spacing="6">CONFIDENCIAL</text>
+      <text x="100" y="75" text-anchor="middle" font-family="DM Serif Display, serif" font-size="12" fill="#9e1b1b" opacity="0.08" letter-spacing="4">DOCUMENTO PRIVADO</text>
+      <text x="100" y="95" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="8" fill="#9e1b1b" opacity="0.06" letter-spacing="3">ABOGADO-CLIENTE PRIVILEGE</text>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-rating load-anim load-anim-1">
+          <span class="hero-rating-notch"></span>
+          <!-- CUSTOM SVG STAR — judicial star with seal feel -->
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 1.5l2.2 4.5 4.9.7-3.6 3.5.9 4.9L10 12.7l-4.4 2.4.9-4.9L2.9 6.7l4.9-.7L10 1.5z" fill="#f5b342" stroke="#d49a2a" stroke-width="0.3"/>
+          </svg>
+          <i class="fas fa-star-half-alt" style="color:#f5b342;font-size:15px;margin-left:2px;"></i>
+          4.9 <strong>estrellas</strong> &middot; 356+ casos
+        </div>
+
+        <div class="gold-bar load-anim load-anim-2"></div>
+
+        <h1 class="load-anim load-anim-2">Defensa laboral estrat&eacute;gica para <span class="gold-highlight">trabajadores en Guadalajara</span></h1>
+
+        <p style="font-size:1.08rem;color:var(--ink-50);line-height:1.6;margin-bottom:20px;font-style:italic;" class="load-anim load-anim-3">
+          Protegemos tus derechos laborales con resultados comprobados. Sin ganar, no pagas.
+        </p>
+
+        <div class="hero-location load-anim load-anim-4">
+          <!-- CUSTOM SVG LOCATION PIN — map pin with legal document scroll -->
+          <svg viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 0C4.1 0 1 3.1 1 7c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" fill="var(--gold)" opacity="0.15"/>
+            <path d="M8 0C4.1 0 1 3.1 1 7c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" stroke="var(--gold)" stroke-width="1.2"/>
+            <circle cx="8" cy="7" r="3" fill="var(--gold)" opacity="0.3"/>
+            <circle cx="8" cy="7" r="1.5" fill="var(--gold)"/>
+            <!-- Legal scroll lines -->
+            <line x1="6.5" y1="9" x2="9.5" y2="9" stroke="var(--gold)" stroke-width="0.4" opacity="0.4"/>
+            <line x1="6.5" y1="9.8" x2="8.5" y2="9.8" stroke="var(--gold)" stroke-width="0.4" opacity="0.3"/>
+          </svg>
+          Av Juarez 570-105, Zona Centro, Guadalajara
+        </div>
+
+        <!-- Notary seal CTA -->
+        <a href="https://wa.me/523310255492" target="_blank" rel="noopener" class="seal-cta load-anim load-anim-5">
+          <div class="seal-cta-circle">
+            <span class="top-text">Consulta</span>
+            <span class="main-num">33 1025</span>
+            <span class="bot-text">5492</span>
+          </div>
+          <div class="seal-cta-text">
+            <span class="action">Quiero mi consulta gratis</span>
+            <span class="sub">Responde en menos de 30 minutos</span>
+            <span class="friction-row">
+              <span>
+                <!-- CUSTOM CHECKMARK in circle -->
+                <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="6" cy="6" r="5" stroke="var(--gold)" stroke-width="1.2"/>
+                  <path d="M3.5 6L5 7.8L8.5 4" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Sin costo
+              </span>
+              <span>
+                <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="6" cy="6" r="5" stroke="var(--gold)" stroke-width="1.2"/>
+                  <path d="M3.5 6L5 7.8L8.5 4" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Sin compromiso
+              </span>
+              <span>
+                <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="6" cy="6" r="5" stroke="var(--gold)" stroke-width="1.2"/>
+                  <path d="M3.5 6L5 7.8L8.5 4" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                30 min respuesta
+              </span>
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <div class="doc-mockup">
+        <div class="doc-mockup-inner">
+          <div class="doc-mockup-header">
+            <h4>
+              <strong>Soporte Juridico Laboral</strong>
+              Defensa Laboral &bull; Guadalajara, Jal.
+            </h4>
+            <div class="doc-mockup-seal">
+              <!-- CUSTOM SVG SEAL — scales inside circle -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5L8 9l1.5 1.5L8 12l4 4 4-4-1.5-1.5L16 9l-4-4z" stroke="var(--gold)" stroke-width="1" fill="none"/>
+                <circle cx="12" cy="12" r="2" fill="var(--gold)" opacity="0.3"/>
+                <path d="M12 5V3M12 21v-2" stroke="var(--gold)" stroke-width="0.8"/>
+              </svg>
+              LEGAL
+            </div>
+          </div>
+          <div class="doc-mockup-body">
+            <p><strong>EXPEDIENTE:</strong> DEF-2024-001</p>
+            <p>
+              Por medio del presente, <strong>Soporte Jur&iacute;dico Laboral</strong> hace constar su representaci&oacute;n legal en materia de derecho laboral individual y colectiva, con domicilio en Av Juarez 570-105, Zona Centro, Guadalajara, Jalisco.
+            </p>
+            <p>
+              <strong>Objeto:</strong> prestaci&oacute;n de servicios de defensa y asesor&iacute;a legal a trabajadores en procedimientos laborales ante la Junta de Conciliaci&oacute;n y Arbitraje y tribunales federales.
+            </p>
+          </div>
+          <div class="doc-mockup-footer">
+            <span>Folio: SJL-2024</span>
+            <span>Vigente a partir de 2009</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     3. EVIDENCE — exhibits / PAS framework
+     ================================================================ -->
+<section class="evidence" aria-labelledby="evidence-h">
+  <div class="evidence-header" data-reveal>
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="section-ruled">
+          <span class="section-ruled-label">Expediente de evidencias</span>
+        </div>
+        <h2 id="evidence-h">Problemas que resolvemos con resultados comprobados</h2>
+        <p class="section-desc" style="margin-top:8px;">
+          Cada caso es diferente. Identificamos el da&ntilde;o y aplicamos la soluci&oacute;n legal correcta.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="evidence-list">
+    <!-- Evidence 1 -->
+    <div class="evidence-item" data-reveal="left">
+      <div class="evidence-harm">
+        <div class="evidence-tab">
+          <!-- CUSTOM SVG DOCUMENT / FILE tab icon -->
+          <svg viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 1.5h7l4 4v10a1 1 0 01-1 1H3a1 1 0 01-1-1v-13a1 1 0 011-1z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <path d="M10 1.5v4h4" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <line x1="5" y1="7.5" x2="11" y2="7.5" stroke="currentColor" stroke-width="0.8"/>
+            <line x1="5" y1="10" x2="11" y2="10" stroke="currentColor" stroke-width="0.8"/>
+            <line x1="5" y1="12.5" x2="9" y2="12.5" stroke="currentColor" stroke-width="0.8"/>
+          </svg>
+          Exhibit A
+        </div>
+        <div class="evidence-harm-label">El Problema</div>
+        <h3>Despido injustificado</h3>
+        <p class="evidence-desc">
+          Te despidieron sin causa justificada y no te pagan lo que te corresponde por ley. Muchos trabajadores aceptan liquidaciones muy por debajo de lo que les pertenece por desconocer sus derechos.
+        </p>
+      </div>
+      <div class="evidence-remedy" data-reveal="right">
+        <div class="evidence-remedy-label">La Soluci&oacute;n</div>
+        <p>Recuperamos tu indemnizaci&oacute;n constitucional de 3 meses, salarios ca&iacute;dos, prima de antig&uuml;edad y cualquier prestaci&oacute;n pendiente. Calculamos cada centavo que te corresponde y lo reclamamos ante la ley.</p>
+      </div>
+    </div>
+
+    <!-- Evidence 2 -->
+    <div class="evidence-item" data-reveal="left">
+      <div class="evidence-harm">
+        <div class="evidence-tab">
+          <svg viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 1.5h7l4 4v10a1 1 0 01-1 1H3a1 1 0 01-1-1v-13a1 1 0 011-1z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <path d="M10 1.5v4h4" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <line x1="5" y1="7.5" x2="11" y2="7.5" stroke="currentColor" stroke-width="0.8"/>
+            <line x1="5" y1="10" x2="11" y2="10" stroke="currentColor" stroke-width="0.8"/>
+            <line x1="5" y1="12.5" x2="9" y2="12.5" stroke="currentColor" stroke-width="0.8"/>
+          </svg>
+          Exhibit B
+        </div>
+        <div class="evidence-harm-label">El Problema</div>
+        <h3>Falta de pago de liquidaci&oacute;n</h3>
+        <p class="evidence-desc">
+          Tu empleador se niega a pagarte tu liquidaci&oacute;n o te ofrece una cantidad irrisoria. El tiempo corre y cada d&iacute;a que pasa pierdes dinero que te pertenece por ley.
+        </p>
+      </div>
+      <div class="evidence-remedy" data-reveal="right">
+        <div class="evidence-remedy-label">La Soluci&oacute;n</div>
+        <p>Presentamos un c&aacute;lculo detallado de tu liquidaci&oacute;n incluyendo salarios ca&iacute;dos, prima de antig&uuml;edad, vacaciones, aguinaldo y utilidades. Iniciamos demanda para recuperar el monto total.</p>
+      </div>
+    </div>
+
+    <!-- Evidence 3 -->
+    <div class="evidence-item" data-reveal="left">
+      <div class="evidence-harm">
+        <div class="evidence-tab">
+          <svg viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 1.5h7l4 4v10a1 1 0 01-1 1H3a1 1 0 01-1-1v-13a1 1 0 011-1z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <path d="M10 1.5v4h4" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <line x1="5" y1="7.5" x2="11" y2="7.5" stroke="currentColor" stroke-width="0.8"/>
+            <line x1="5" y1="10" x2="11" y2="10" stroke="currentColor" stroke-width="0.8"/>
+            <line x1="5" y1="12.5" x2="9" y2="12.5" stroke="currentColor" stroke-width="0.8"/>
+          </svg>
+          Exhibit C
+        </div>
+        <div class="evidence-harm-label">El Problema</div>
+        <h3>Acoso laboral y discriminaci&oacute;n</h3>
+        <p class="evidence-desc">
+          Sufres maltrato, hostigamiento o discriminaci&oacute;n en tu trabajo. El ambiente laboral se ha vuelto insostenible y no sabes c&oacute;mo defenderte sin perder tu empleo.
+        </p>
+      </div>
+      <div class="evidence-remedy" data-reveal="right">
+        <div class="evidence-remedy-label">La Soluci&oacute;n</div>
+        <p>Interponemos las denuncias correspondientes ante la PROFEDET y la Junta de Conciliaci&oacute;n. Buscamos la rescisi&oacute;n de tu relaci&oacute;n laboral con indemnizaci&oacute;n y la sanci&oacute;n al empleador.</p>
+      </div>
+    </div>
+
+    <!-- Evidence 4 -->
+    <div class="evidence-item" data-reveal="left">
+      <div class="evidence-harm">
+        <div class="evidence-tab">
+          <svg viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 1.5h7l4 4v10a1 1 0 01-1 1H3a1 1 0 01-1-1v-13a1 1 0 011-1z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <path d="M10 1.5v4h4" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <line x1="5" y1="7.5" x2="11" y2="7.5" stroke="currentColor" stroke-width="0.8"/>
+            <line x1="5" y1="10" x2="11" y2="10" stroke="currentColor" stroke-width="0.8"/>
+            <line x1="5" y1="12.5" x2="9" y2="12.5" stroke="currentColor" stroke-width="0.8"/>
+          </svg>
+          Exhibit D
+        </div>
+        <div class="evidence-harm-label">El Problema</div>
+        <h3>Accidentes y riesgos de trabajo</h3>
+        <p class="evidence-desc">
+          Sufriste un accidente laboral o tienes una enfermedad profesional. El IMSS o tu empleador no te est&aacute;n dando la atenci&oacute;n o las prestaciones que te corresponden.
+        </p>
+      </div>
+      <div class="evidence-remedy" data-reveal="right">
+        <div class="evidence-remedy-label">La Solucion</div>
+        <p>Gestionamos tu caso ante el IMSS para obtener tu dictamen de riesgo de trabajo, tu pensi&oacute;n correspondiente y las prestaciones econ&oacute;micas a las que tienes derecho por ley.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA after evidence -->
+  <div class="section-cta-row" style="padding:32px 24px;background:var(--vellum);" data-reveal>
+    <a href="https://wa.me/523310255492" target="_blank" rel="noopener" class="seal-inline">
+      <div class="mini-seal">
+        <span>CONSULTA</span>
+        <span class="num">33 1025 5492</span>
+      </div>
+      <div>
+        <div class="seal-text"><i class="fab fa-whatsapp" style="margin-right:6px;color:#25D366;"></i> Agenda tu consulta gratis ahora</div>
+        <div class="seal-sub">Te orientamos sin compromiso. Responde en 30 min.</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Gold filigree divider -->
+<div class="filigree" aria-hidden="true" data-reveal="scale">
+  <span class="filigree-line"></span>
+  <span class="filigree-diamond"></span>
+  <span class="filigree-line"></span>
+</div>
+
+<!-- ================================================================
+     4. CASE OUTCOMES — verdict testimonials
+     ================================================================ -->
+<section class="outcomes section" aria-labelledby="outcomes-h">
+  <div class="container">
+    <div class="section-title-wrap centered" data-reveal>
+      <div class="section-ruled centered">
+        <span class="section-ruled-label">Casos resueltos</span>
+      </div>
+      <h2 id="outcomes-h">Resultados que hablan por si solos</h2>
+      <p class="section-desc">
+        Cada numero representa una familia protegida y una victoria legal.
+      </p>
+    </div>
+
+    <div class="outcomes-grid">
+      <!-- Verdict 1 -->
+      <article class="verdict-card" data-reveal="scale">
+        <div class="verdict-badge">
+          <i class="fa-solid fa-shield-halved" style="margin-right:2px;font-size:13px;"></i>
+          <!-- CUSTOM CHECKMARK circle for verdict badge -->
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Sentencia favorable
+        </div>
+        <div class="verdict-amount">$450,000 MXN</div>
+        <div class="verdict-case">Despido injustificado &middot; 2024</div>
+        <blockquote class="verdict-quote">
+          "Recuper&eacute; mi indemnizaci&oacute;n completa m&aacute;s salarios ca&iacute;dos. Desde la primera consulta supe que estaba en las manos correctas. Profesionales y honestos."
+        </blockquote>
+        <div class="verdict-author">— Carlos M.</div>
+      </article>
+
+      <!-- Verdict 2 -->
+      <article class="verdict-card" data-reveal="scale">
+        <div class="verdict-badge">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Sentencia favorable
+        </div>
+        <div class="verdict-amount">$280,000 MXN</div>
+        <div class="verdict-case">Liquidaci&oacute;n impaga &middot; 2024</div>
+        <blockquote class="verdict-quote">
+          "Me deb&iacute;an mi liquidaci&oacute;n desde hac&iacute;a 8 meses. Ellos iniciaron el juicio y en menos de 4 meses ten&iacute;a mi dinero. Los recomiendo ampliamente."
+        </blockquote>
+        <div class="verdict-author">— Laura G.</div>
+      </article>
+
+      <!-- Verdict 3 -->
+      <article class="verdict-card" data-reveal="scale">
+        <div class="verdict-badge">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Sentencia favorable
+        </div>
+        <div class="verdict-amount">$180,000 MXN</div>
+        <div class="verdict-case">Acoso laboral &middot; 2023</div>
+        <blockquote class="verdict-quote">
+          "Pase meses sufriendo acoso sin saber que hacer. Me explicaron todo el proceso, me orientaron y ganaron mi caso. Cambiaron mi vida."
+        </blockquote>
+        <div class="verdict-author">— Javier R.</div>
+      </article>
+    </div>
+
+    <!-- CTA -->
+    <div class="section-cta-row" style="margin-top:16px;" data-reveal>
+      <a href="https://wa.me/523310255492" target="_blank" rel="noopener" class="seal-inline" style="background:rgba(255,255,255,0.05);border-color:var(--gold);">
+        <div class="mini-seal" style="border-color:var(--gold);color:var(--gold);">
+          <span>CONSULTA</span>
+          <span class="num">33 1025 5492</span>
+        </div>
+        <div>
+          <div class="seal-text" style="color:var(--white);">Revisa tu caso gratis</div>
+          <div class="seal-sub" style="color:rgba(255,255,255,0.5);">Sin compromiso. Te decimos si tienes demanda.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Gold filigree divider -->
+<div class="filigree" aria-hidden="true" data-reveal="scale">
+  <span class="filigree-line"></span>
+  <span class="filigree-diamond"></span>
+  <span class="filigree-line"></span>
+</div>
+
+<!-- ================================================================
+     5. LEGAL PROCESS — timeline
+     ================================================================ -->
+<section class="process section" aria-labelledby="process-h">
+  <div class="container">
+    <div class="section-title-wrap" data-reveal>
+      <div class="section-ruled">
+        <span class="section-ruled-label">El proceso legal</span>
+      </div>
+      <h2 id="process-h">C&oacute;mo trabajamos tu caso</h2>
+      <p class="section-desc">
+        Un proceso claro, transparente y sin sorpresas. Te acompa&ntilde;amos en cada etapa.
+      </p>
+    </div>
+
+    <div class="process-timeline">
+      <div class="process-step" data-reveal="left">
+        <div class="process-step-num">1</div>
+        <h3>Consulta inicial gratuita</h3>
+        <p>Nos cuentas tu caso por WhatsApp o en persona. Te orientamos sobre tus derechos y las opciones legales disponibles. Sin ning&uacute;n costo.</p>
+      </div>
+      <div class="process-step" data-reveal="left">
+        <div class="process-step-num">2</div>
+        <h3>evaluaci&oacute;n de tu caso</h3>
+        <p>Analizamos tu situaci&oacute;n laboral, revisamos documentos y determinamos si procede una demanda. Te explicamos todo antes de empezar.</p>
+      </div>
+      <div class="process-step" data-reveal="left">
+        <div class="process-step-num">3</div>
+        <h3>Inicio de demanda</h3>
+        <p>Preparamos y presentamos tu demanda ante la autoridad laboral correspondiente. Te representamos en todo el proceso legal.</p>
+      </div>
+      <div class="process-step" data-reveal="left">
+        <div class="process-step-num">4</div>
+        <h3>Seguimiento y negociaci&oacute;n</h3>
+        <p>Damos seguimiento puntual a tu caso, asistimos a audiencias y negociamos el mejor acuerdo posible. Te mantenemos informado en todo momento.</p>
+      </div>
+      <div class="process-step" data-reveal="left">
+        <div class="process-step-num">5</div>
+        <h3>Resoluci&oacute;n y cobro</h3>
+        <p>Obtenemos la sentencia favorable o el acuerdo y nos aseguramos de que recibas cada centavo que te corresponde. Sin ganar, no pagas.</p>
+      </div>
+    </div>
+
+    <div class="process-years" data-reveal>
+      <div class="process-years-num">15+</div>
+      <div class="process-years-text">
+        <strong>A&ntilde;os de experiencia</strong> defendiendo los derechos de los trabajadores en Guadalajara y todo Jalisco. Miles de casos resueltos con &eacute;xito desde 2009.
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section-cta-row" style="margin-top:28px;" data-reveal>
+      <a href="https://wa.me/523310255492" target="_blank" rel="noopener" class="seal-inline">
+        <div class="mini-seal">
+          <span>CONSULTA</span>
+          <span class="num">33 1025 5492</span>
+        </div>
+        <div>
+          <div class="seal-text">Inicia tu proceso hoy</div>
+          <div class="seal-sub">Primera consulta gratuita. Responde en 30 minutos.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Gold filigree divider -->
+<div class="filigree" aria-hidden="true" data-reveal="scale">
+  <span class="filigree-line"></span>
+  <span class="filigree-diamond"></span>
+  <span class="filigree-line"></span>
+</div>
+
+<!-- ================================================================
+     6. LEGAL FAQ — brief-style accordion
+     ================================================================ -->
+<section class="faq section" aria-labelledby="faq-h">
+  <div class="container">
+    <div class="section-title-wrap centered" data-reveal>
+      <div class="section-ruled centered">
+        <span class="section-ruled-label">Preguntas frecuentes</span>
+      </div>
+      <h2 id="faq-h">Lo que necesitas saber antes de demandar</h2>
+      <p class="section-desc">
+        Resolvemos tus dudas m&aacute;s comunes sobre el proceso laboral en M&eacute;xico.
+      </p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item" data-reveal>
+        <button class="faq-q" aria-expanded="false">
+          <span>&iquest;Cu&aacute;nto tiempo tengo para demandar a mi empleador?</span>
+          <span class="faq-icon">
+            <!-- CUSTOM ACCORDION ICON — gavel cross -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="var(--gold)" stroke-width="1.5"/>
+              <g class="icon-plus">
+                <line x1="12" y1="7" x2="12" y2="17" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="7" y1="12" x2="17" y2="12" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <p>En materia laboral, el plazo general es de <strong>2 meses</strong> a partir del despido o la violaci&oacute;n de tus derechos laborales. Sin embargo, hay excepciones que pueden acortar o alargar este plazo. Por eso es importante que no esperes y nos consultes cuanto antes para no perder tu derecho a demandar.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-reveal>
+        <button class="faq-q" aria-expanded="false">
+          <span>&iquest;Cu&aacute;nto cuesta una demanda laboral?</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="var(--gold)" stroke-width="1.5"/>
+              <g class="icon-plus">
+                <line x1="12" y1="7" x2="12" y2="17" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="7" y1="12" x2="17" y2="12" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <p>La <strong>consulta inicial es completamente gratis</strong>. Si decides iniciar un juicio laboral con nosotros, trabajamos bajo el esquema <strong>"Sin ganar, no pagas"</strong>. Esto significa que no cobramos honorarios a menos que recuperemos tu dinero. Solo pagas si ganamos tu caso.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-reveal>
+        <button class="faq-q" aria-expanded="false">
+          <span>&iquest;Qu&eacute; documentos necesito para iniciar una demanda?</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="var(--gold)" stroke-width="1.5"/>
+              <g class="icon-plus">
+                <line x1="12" y1="7" x2="12" y2="17" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="7" y1="12" x2="17" y2="12" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <p>Para empezar, solo necesitas tu identificaci&oacute;n oficial (INE) y cualquier documento relacionado con tu trabajo: contratos, recibos de n&oacute;mina, comprobantes de pago, tu RFC, y cualquier comunicaci&oacute;n con tu empleador. Si no tienes todos estos documentos, no te preocupes — nosotros te guiamos sobre c&oacute;mo conseguirlos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-reveal>
+        <button class="faq-q" aria-expanded="false">
+          <span>&iquest;Cu&aacute;nto tiempo dura un juicio laboral?</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="var(--gold)" stroke-width="1.5"/>
+              <g class="icon-plus">
+                <line x1="12" y1="7" x2="12" y2="17" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="7" y1="12" x2="17" y2="12" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <p>La duraci&oacute;n promedio de un juicio laboral en Jalisco es de <strong>4 a 8 meses</strong>, dependiendo de la complejidad del caso y si el empleador se allana o no. Trabajamos para resolver tu caso en el menor tiempo posible, buscando siempre la v&iacute;a m&aacute;s r&aacute;pida sin sacrificar el monto de tu recuperaci&oacute;n.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-reveal>
+        <button class="faq-q" aria-expanded="false">
+          <span>&iquest;Puedo cambiar de abogado si ya tengo uno?</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="var(--gold)" stroke-width="1.5"/>
+              <g class="icon-plus">
+                <line x1="12" y1="7" x2="12" y2="17" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="7" y1="12" x2="17" y2="12" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <p>S&iacute;, absolutamente. Puedes cambiar de abogado en cualquier momento del proceso. Nosotros nos encargamos de todos los tr&aacute;mites de sustituci&oacute;n para que t&uacute; no tengas que hacer nada. Muchos clientes llegan con nosotros despu&eacute;s de haber tenido malas experiencias con otros abogados.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section-cta-row" style="margin-top:32px;" data-reveal>
+      <a href="https://wa.me/523310255492" target="_blank" rel="noopener" class="seal-inline">
+        <div class="mini-seal">
+          <span>CONSULTA</span>
+          <span class="num">33 1025 5492</span>
+        </div>
+        <div>
+          <div class="seal-text">&iquest;Tienes m&aacute;s dudas? Preg&uacute;ntanos</div>
+          <div class="seal-sub">Respuesta en menos de 30 minutos. Sin costo.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Gold filigree divider -->
+<div class="filigree" aria-hidden="true" data-reveal="scale">
+  <span class="filigree-line"></span>
+  <span class="filigree-diamond"></span>
+  <span class="filigree-line"></span>
+</div>
+
+<!-- ================================================================
+     7. FIRM HISTORY + TEAM
+     ================================================================ -->
+<section class="about section" aria-labelledby="about-h">
+  <div class="container">
+    <div class="section-title-wrap" data-reveal>
+      <div class="section-ruled">
+        <span class="section-ruled-label">Nuestra historia</span>
+      </div>
+      <h2 id="about-h">Defendiendo trabajadores desde 2009</h2>
+    </div>
+
+    <div class="about-wrap">
+      <div class="about-text" data-reveal="left">
+        <!-- CUSTOM SHIELD SVG decor -->
+        <svg style="width:40px;height:40px;margin-bottom:16px;" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 3L5 9v9c0 11.4 6.4 18.1 15 20 8.6-1.9 15-8.6 15-20V9L20 3z" fill="var(--vellum)" stroke="var(--gold)" stroke-width="1.2"/>
+          <path d="M20 6.5L8.5 11v7c0 9.5 5.1 15.1 11.5 16.7 6.4-1.6 11.5-7.2 11.5-16.7V11L20 6.5z" fill="var(--white)" stroke="var(--gold)" stroke-width="0.8" opacity="0.5"/>
+          <text x="20" y="20" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="7" font-weight="700" fill="var(--gold)">SJL</text>
+        </svg>
+        <p>
+          <strong>Soporte Jur&iacute;dico Laboral</strong> naci&oacute; en Guadalajara con una misi&oacute;n clara: nivelar el campo de juego entre trabajadores y empleadores. Desde 2009, hemos representado a miles de trabajadores en Jalisco, recuperando millones de pesos en indemnizaciones, liquidaciones y prestaciones laborales.
+        </p>
+        <p>
+          Nuestro equipo est&aacute; especializado en derecho laboral individual y colectivo. Conocemos a fondo la Ley Federal del Trabajo y los criterios de las Juntas de Conciliaci&oacute;n y Arbitraje. No somos abogados generales — somos <strong>especialistas en laboral</strong>.
+        </p>
+        <p>
+          Creemos en la justicia laboral accesible. Por eso ofrecemos consultas gratis y trabajamos bajo el esquema de "Sin ganar, no pagas". Tu recuperaci&oacute;n econ&oacute;mica es nuestra prioridad.
+        </p>
+        <div class="lawyers" data-reveal>
+          <!-- CUSTOM gavel icon for lawyers -->
+          <span class="lawyer-tag">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="7" y="10" width="2" height="4" rx="0.5" fill="var(--gold)" opacity="0.5"/>
+              <path d="M5 12h6l-1 2H6l-1-2z" fill="var(--gold)" opacity="0.3"/>
+              <path d="M8 3L4 7l1.5 1.5L4 10l4 4 4-4-1.5-1.5L12 7 8 3z" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
+              <line x1="8" y1="3" x2="8" y2="1.5" stroke="var(--gold)" stroke-width="0.8"/>
+            </svg>
+            Lic. Israel Flores Dominguez
+          </span>
+          <span class="lawyer-tag">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="7" y="10" width="2" height="4" rx="0.5" fill="var(--gold)" opacity="0.5"/>
+              <path d="M5 12h6l-1 2H6l-1-2z" fill="var(--gold)" opacity="0.3"/>
+              <path d="M8 3L4 7l1.5 1.5L4 10l4 4 4-4-1.5-1.5L12 7 8 3z" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
+              <line x1="8" y1="3" x2="8" y2="1.5" stroke="var(--gold)" stroke-width="0.8"/>
+            </svg>
+            Lic. Angelica Segoviano
+          </span>
+        </div>
+      </div>
+
+      <div class="about-stats" data-reveal="right">
+        <div class="about-stat">
+          <div class="about-stat-num">2009</div>
+          <div class="about-stat-label">Fundaci&oacute;n</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">4.9</div>
+          <div class="about-stat-label">Calificaci&oacute;n Google</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">356+</div>
+          <div class="about-stat-label">Casos exitosos</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">$10M+</div>
+          <div class="about-stat-label">Recuperado para clientes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section-cta-row" style="margin-top:36px;" data-reveal>
+      <a href="https://wa.me/523310255492" target="_blank" rel="noopener" class="seal-inline">
+        <div class="mini-seal">
+          <span>CONSULTA</span>
+          <span class="num">33 1025 5492</span>
+        </div>
+        <div>
+          <div class="seal-text">Conoce a tu abogado</div>
+          <div class="seal-sub">Agenda una cita gratuita. Te esperamos.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Gold filigree divider -->
+<div class="filigree" aria-hidden="true" data-reveal="scale">
+  <span class="filigree-line"></span>
+  <span class="filigree-diamond"></span>
+  <span class="filigree-line"></span>
+</div>
+
+<!-- ================================================================
+     8. FINAL CTA — FILE YOUR CLAIM SEAL
+     ================================================================ -->
+<section class="final-cta section" aria-labelledby="final-h">
+  <div class="container">
+    <div class="giant-seal" aria-hidden="true" data-reveal="scale">
+      <!-- Custom gavel / scales icon for final seal -->
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="12" stroke="var(--gold)" stroke-width="0.8" opacity="0.3"/>
+        <!-- Scales -->
+        <path d="M14 5l-3 3.5 1.2 1.2L11 11.5l3 3 3-3-1.2-1.2L17 8.5 14 5z" stroke="var(--gold)" stroke-width="1" fill="none"/>
+        <circle cx="14" cy="11" r="1.5" fill="var(--gold)" opacity="0.4"/>
+        <line x1="14" y1="5" x2="14" y2="3.5" stroke="var(--gold)" stroke-width="0.8"/>
+        <!-- Gavel base -->
+        <rect x="13.2" y="17.5" width="1.6" height="2.5" rx="0.3" fill="var(--gold)"/>
+        <rect x="11.5" y="19.5" width="5" height="1" rx="0.3" fill="var(--gold)"/>
+      </svg>
+      <div class="seal-title">Sin Ganar</div>
+      <div class="seal-sub">No Pagas</div>
+    </div>
+
+    <h2 id="final-h" data-reveal>Listo para defender tus derechos?</h2>
+    <p class="section-desc" style="max-width:520px;margin-left:auto;margin-right:auto;" data-reveal>
+      Una llamada o un mensaje de WhatsApp es todo lo que necesitas para empezar. Sin burocracia, sin costos ocultos.
+    </p>
+
+    <a href="https://wa.me/523310255492" target="_blank" rel="noopener" class="final-seal-cta" data-reveal="scale">
+      <div class="seal-inner">
+        <span class="st">Consulta</span>
+        <span class="nm">33 1025</span>
+        <span class="bt">5492</span>
+      </div>
+      <div class="seal-txt">
+        <span class="big">Presenta tu caso ahora</span>
+        <span class="small">Respuesta en menos de 30 minutos</span>
+        <span class="fr">
+          <span>
+            <!-- Custom checkmark -->
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="6" cy="6" r="5" stroke="var(--gold)" stroke-width="1.2"/>
+              <path d="M3.5 6L5 7.8L8.5 4" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Sin costo
+          </span>
+          <span>
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="6" cy="6" r="5" stroke="var(--gold)" stroke-width="1.2"/>
+              <path d="M3.5 6L5 7.8L8.5 4" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Sin compromiso
+          </span>
+          <span>
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="6" cy="6" r="5" stroke="var(--gold)" stroke-width="1.2"/>
+              <path d="M3.5 6L5 7.8L8.5 4" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            30 min respuesta
+          </span>
+        </span>
+      </div>
+    </a>
+
+    <p style="margin-top:20px;font-family:var(--font-heading);font-size:0.7rem;font-weight:500;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.08em;" data-reveal>
+      Atendemos un numero limitado de casos por semana. No esperes.
+    </p>
+  </div>
+</section>
+</main>
+
+<!-- ================================================================
+     9. FOOTER — legal document style
+     ================================================================ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <!-- Small logo SVG in footer -->
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2L4 7v7c0 9.1 5.1 14.5 12 16 6.9-1.5 12-6.9 12-16V7L16 2z" fill="var(--navy)" stroke="var(--gold)" stroke-width="0.6" opacity="0.8"/>
+            <path d="M16 4.8L6 8.7v5.3c0 7.8 4.3 12.5 10 13.8 5.7-1.3 10-6 10-13.8V8.7L16 4.8z" fill="var(--navy)" stroke="var(--gold)" stroke-width="0.5"/>
+            <path d="M12 13L16 10L20 13L18.5 14.5L20 16L16 19L12 16L13.5 14.5L12 13Z" fill="var(--gold)" opacity="0.7"/>
+            <circle cx="16" cy="14.5" r="1.5" fill="var(--navy)"/>
+            <line x1="16" y1="10" x2="16" y2="8.5" stroke="var(--gold)" stroke-width="0.6"/>
+          </svg>
+          <div class="footer-logo-text">
+            <span class="name">Soporte Juridico <span>Laboral</span></span>
+          </div>
+        </div>
+        <p class="tagline">Defensa laboral en Guadalajara desde 2009. Protegiendo los derechos de los trabajadores con resultados comprobados.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li>
+            <!-- Custom legal document email icon -->
+            <svg viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1.5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1"/>
+              <path d="M1 2.5l5 3 5-3" stroke="currentColor" stroke-width="1"/>
+            </svg>
+            <a href="https://wa.me/523310255492" target="_blank" rel="noopener">33 1025 5492</a>
+          </li>
+          <li>
+            <!-- Custom location pin -->
+            <svg viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 1C3.8 1 2 2.8 2 5c0 3.5 4 8 4 8s4-4.5 4-8c0-2.2-1.8-4-4-4z" stroke="currentColor" stroke-width="1"/>
+              <circle cx="6" cy="5" r="1.5" fill="currentColor" opacity="0.4"/>
+            </svg>
+            Av Juarez 570-105, Zona Centro, 44100 Guadalajara, Jal.
+          </li>
+          <li>
+            <!-- Custom clock icon -->
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1"/>
+              <path d="M6 3.5V6L7.5 7" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
+            </svg>
+            Lun-Vie: 9:00 - 18:00
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li>Despido injustificado</li>
+          <li>Liquidacion laboral</li>
+          <li>Acoso en el trabajo</li>
+          <li>Riesgos de trabajo IMSS</li>
+          <li>Juicios laborales</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 Soporte Juridico Laboral. Derechos reservados.</span>
+      <span class="page-num">Pagina 1 de 1</span>
+      <span class="confidential-note">Documento confidencial</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ Accordion
+(function(){
+  const items = document.querySelectorAll('.faq-item');
+  items.forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    btn.addEventListener('click', function() {
+      const isOpen = item.classList.contains('active');
+      items.forEach(i => i.classList.remove('active'));
+      if (!isOpen) {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      } else {
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+})();
+
+// Intersection Observer — scroll-triggered reveal animations
+(function(){
+  if (!window.IntersectionObserver) {
+    // Fallback: show everything
+    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('revealed'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
+  document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+})();
+</script>
+
+</body>
+</html>
+

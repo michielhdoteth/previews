@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angel Contador | Contador Publico en Guadalajara</title>
+  <meta name="description" content="Su contador de confianza en Guadalajara. 30+ anos de experiencia, 500+ clientes. Servicios fiscales, contables y consultoria financiera para su negocio.">
+  <meta name="theme-color" content="oklch(0.18 0.03 260)">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+       ============================================================ */
+    :root {
+      --navy: oklch(0.20 0.018 20);
+      --navy-light: oklch(0.28 0.022 20);
+      --navy-mid: oklch(0.42 0.024 22);
+      --emerald: oklch(0.62 0.14 35);
+      --emerald-dark: oklch(0.50 0.13 28);
+      --emerald-subtle: oklch(0.92 0.03 38);
+      --gold: oklch(0.70 0.12 105);
+      --gold-dark: oklch(0.56 0.10 96);
+      --gold-subtle: oklch(0.91 0.028 102);
+      --warm-white: oklch(0.988 0.004 84);
+      --cool-gray: oklch(0.955 0.008 58);
+      --cool-gray-mid: oklch(0.84 0.014 44);
+      --body: oklch(0.21 0.018 20);
+      --body-soft: oklch(0.39 0.016 22);
+      --body-muted: oklch(0.56 0.014 26);
+      --border-light: oklch(0.87 0.012 50);
+      --shadow-sm: 0 2px 5px oklch(0.20 0.018 20 / 0.05);
+      --shadow-md: 0 16px 38px oklch(0.20 0.018 20 / 0.09);
+      --shadow-lg: 0 24px 60px oklch(0.20 0.018 20 / 0.13);
+      --shadow-xl: 0 34px 92px oklch(0.20 0.018 20 / 0.16);
+      --radius-sm: 6px;
+      --radius-md: 18px;
+      --radius-lg: 30px;
+      --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      --container: 1180px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      color: var(--body);
+      background: var(--warm-white);
+      line-height: 1.75;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -0.01em;
+    }
+    a { text-decoration: none; color: inherit; }
+    img, svg { max-width: 100%; display: block; }
+    button { font: inherit; cursor: pointer; }
+    ul { list-style: none; }
+    input, textarea { font: inherit; }
+
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+    .section { padding: 112px 0; }
+    .section-label {
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      color: var(--navy);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+    }
+    .section-title .emerald { color: var(--gold-dark); }
+    .section-title .gold { color: var(--gold-dark); }
+    .section-subtitle {
+      font-size: 1.02rem;
+      color: var(--body-soft);
+      max-width: 620px;
+      margin-top: 16px;
+      line-height: 1.85;
+    }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 15px 30px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      outline: none;
+    }
+    .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-primary {
+      background: var(--navy);
+      color: var(--warm-white);
+      box-shadow: 0 10px 28px oklch(0.24 0.02 38 / 0.16);
+    }
+    .btn-primary:hover {
+      background: var(--navy-light);
+      box-shadow: 0 14px 32px oklch(0.24 0.02 38 / 0.22);
+      transform: translateY(-2px);
+    }
+    .btn-primary:active { transform: scale(0.97) translateY(-1px); }
+
+    .btn-outline-light {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid oklch(0.24 0.02 38 / 0.18);
+    }
+    .btn-outline-light:hover {
+      border-color: var(--gold-dark);
+      color: var(--gold-dark);
+      background: oklch(0.66 0.11 58 / 0.08);
+      transform: translateY(-2px);
+    }
+    .btn-outline-light:active { transform: scale(0.97) translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid oklch(0.24 0.02 38 / 0.16);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold-dark);
+      color: var(--gold-dark);
+      background: oklch(0.66 0.11 58 / 0.08);
+      transform: translateY(-2px);
+    }
+    .btn-outline:active { transform: scale(0.97) translateY(-1px); }
+
+    .btn-sm { padding: 12px 26px; font-size: 0.88rem; }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 0;
+      transition: all var(--transition);
+      background: oklch(0.985 0.004 80 / 0.84);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid oklch(0.88 0.008 60 / 0.65);
+    }
+    .nav.scrolled {
+      background: oklch(0.985 0.004 80 / 0.96);
+      padding: 12px 0;
+      box-shadow: 0 8px 24px oklch(0.24 0.02 38 / 0.08);
+    }
+    .nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--gold-dark); }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .nav-link {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--body-soft);
+      position: relative;
+      padding: 4px 0;
+      transition: color var(--transition);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold-dark);
+      transition: width var(--transition);
+    }
+    .nav-link:hover { color: var(--navy); }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: var(--navy); }
+    .nav-link.active::after { width: 100%; background: var(--gold-dark); }
+
+    .nav-cta {
+      background: var(--navy);
+      color: var(--warm-white);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: background var(--transition);
+    }
+    .nav-cta:hover { background: var(--navy-light); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--navy);
+      padding: 8px;
+      cursor: pointer;
+    }
+    .nav-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    /* ============================================================
+       HERO (Split screen)
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at top right, oklch(0.91 0.05 34 / 0.72), transparent 24%),
+        radial-gradient(circle at 18% 78%, oklch(0.90 0.03 108 / 0.45), transparent 22%),
+        linear-gradient(180deg, oklch(0.992 0.004 84), oklch(0.94 0.014 54));
+      overflow: hidden;
+      padding: 156px 0 104px;
+    }
+    .hero-accent-line {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+    }
+    .hero .container { position: relative; z-index: 2; width: 100%; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: 84px;
+      align-items: start;
+    }
+    .hero-text {
+      position: relative;
+      padding-top: 28px;
+    }
+    .hero-text::before {
+      content: 'Guadalajara / Fiscal / Contable';
+      display: inline-block;
+      margin-bottom: 18px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(3.3rem, 6vw, 5.4rem);
+      color: var(--navy);
+      line-height: 0.9;
+      letter-spacing: -0.045em;
+      margin-bottom: 22px;
+      max-width: 8ch;
+    }
+    .hero h1 .gold-underline {
+      color: var(--gold-dark);
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .hero p {
+      font-size: 1.06rem;
+      color: var(--body-soft);
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 34px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    /* Hero right: Counter display */
+    .hero-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      padding-top: 24px;
+    }
+    .hero-media {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+    .hero-photo-frame {
+      position: relative;
+      width: min(100%, 540px);
+      aspect-ratio: 4 / 5;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      background:
+        linear-gradient(145deg, oklch(0.99 0.004 84), oklch(0.92 0.012 46)),
+        var(--warm-white);
+    }
+    .hero-photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      border-radius: 22px;
+      border: 1px solid oklch(0.99 0.004 84 / 0.55);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-note {
+      position: absolute;
+      left: 0;
+      bottom: 58px;
+      max-width: 240px;
+      padding: 22px 20px;
+      border-radius: 22px;
+      background: oklch(0.985 0.004 84 / 0.96);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-md);
+      z-index: 3;
+    }
+    .hero-note-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .hero-note p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--body);
+    }
+    .hero-stat-card {
+      background: oklch(0.985 0.004 80 / 0.8);
+      border: 1px solid oklch(0.88 0.008 60 / 0.8);
+      border-radius: var(--radius-md);
+      padding: 26px 22px;
+      text-align: left;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-stat-card:nth-child(1) {
+      grid-column: span 2;
+      padding: 34px 28px;
+      background:
+        linear-gradient(135deg, oklch(0.24 0.02 20), oklch(0.29 0.024 24)),
+        var(--navy);
+      border-color: oklch(0.70 0.12 105 / 0.16);
+      transform: translateX(-18px);
+    }
+    .hero-stat-card:nth-child(1) .num,
+    .hero-stat-card:nth-child(1) .label {
+      color: var(--warm-white);
+    }
+    .hero-stat-card:nth-child(1) .label {
+      opacity: 0.78;
+    }
+    .hero-stat-card:nth-child(2) { transform: translateY(28px); }
+    .hero-stat-card:nth-child(4) { transform: translateY(-18px); }
+    .hero-stat-card:hover {
+      border-color: oklch(0.66 0.11 58 / 0.22);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .hero-stat-card:nth-child(1):hover { transform: translateX(-18px) translateY(-2px); }
+    .hero-stat-card:nth-child(2):hover { transform: translateY(26px); }
+    .hero-stat-card:nth-child(4):hover { transform: translateY(-20px); }
+    .hero-stat-card .num {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--navy);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .hero-stat-card .label {
+      font-size: 0.76rem;
+      color: var(--body-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       TRUST BAR
+       ============================================================ */
+    .trust-bar {
+      background: var(--warm-white);
+      padding: 0 0 44px;
+      overflow: hidden;
+    }
+    .trust-bar-inner {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin-top: -24px;
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--body-soft);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      padding: 11px 16px;
+      background: oklch(0.98 0.004 80 / 0.9);
+      box-shadow: var(--shadow-sm);
+    }
+    .trust-badge svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      color: var(--gold-dark);
+    }
+
+    /* ============================================================
+       BY THE NUMBERS (full width stat bar)
+       ============================================================ */
+    .stats-bar {
+      background:
+        radial-gradient(circle at left, oklch(0.90 0.03 108 / 0.28), transparent 24%),
+        linear-gradient(180deg, oklch(0.955 0.01 64), oklch(0.98 0.004 80));
+      padding: 92px 0;
+    }
+    .stats-bar-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      text-align: left;
+    }
+    .stat-bar-item {
+      padding: 28px 26px;
+      border-radius: var(--radius-md);
+      background: oklch(0.986 0.004 84 / 0.78);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-bar-item .num {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      color: var(--navy);
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-bar-item .label {
+      font-size: 0.88rem;
+      color: var(--body-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       SERVICES (full-width alternating rows)
+       ============================================================ */
+    .services { background: var(--warm-white); }
+    .services-list { margin-top: 56px; }
+    .service-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;
+      padding: 44px 0;
+      border-bottom: 1px solid var(--border-light);
+      align-items: start;
+      position: relative;
+    }
+    .service-row::before {
+      content: '';
+      position: absolute;
+      left: 36px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, oklch(0.56 0.10 96 / 0.24), transparent);
+    }
+    .service-row:first-child { padding-top: 0; }
+    .service-row:last-child { border-bottom: none; }
+    .service-row-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-sm);
+      background: oklch(0.66 0.11 58 / 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .service-row-icon svg {
+      width: 34px;
+      height: 34px;
+      color: var(--gold-dark);
+    }
+    .service-row-icon.gold-icon {
+      background: oklch(0.55 0.09 145 / 0.08);
+    }
+    .service-row-icon.gold-icon svg {
+      color: var(--emerald-dark);
+    }
+    .service-row-content h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .service-row-content p {
+      color: var(--body-soft);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 14px;
+      max-width: 640px;
+    }
+    .service-bullets {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 28px;
+      max-width: 640px;
+    }
+    .service-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--body-soft);
+    }
+    .service-bullets li svg {
+      width: 14px;
+      height: 14px;
+      color: var(--emerald);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       INDUSTRIES SERVED
+       ============================================================ */
+    .industries { background: linear-gradient(180deg, oklch(0.97 0.004 75), oklch(0.94 0.008 68)); }
+    .industries-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .industry-card {
+      background: oklch(0.985 0.004 80 / 0.92);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: all var(--transition);
+    }
+    .industry-card:nth-child(1),
+    .industry-card:nth-child(4) {
+      transform: translateY(18px);
+    }
+    .industry-card:hover {
+      border-color: oklch(0.66 0.11 58 / 0.18);
+      box-shadow: var(--shadow-md);
+    }
+    .industry-card svg {
+      width: 32px;
+      height: 32px;
+      color: var(--gold-dark);
+      flex-shrink: 0;
+    }
+    .industry-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .industry-card p {
+      font-size: 0.88rem;
+      color: var(--body-soft);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       TESTIMONIAL (single quote)
+       ============================================================ */
+    .testimonial-single {
+      background:
+        radial-gradient(circle at top left, oklch(0.66 0.11 58 / 0.09), transparent 24%),
+        linear-gradient(180deg, oklch(0.25 0.02 38), oklch(0.20 0.018 38));
+      padding: 100px 0;
+      position: relative;
+    }
+    .testimonial-single-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .testimonial-quote-mark {
+      width: 64px;
+      height: 64px;
+      color: var(--gold);
+      opacity: 0.3;
+      margin: 0 auto 28px;
+    }
+    .testimonial-single blockquote {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-style: italic;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      color: var(--warm-white);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .testimonial-single .author-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .testimonial-single .author-role {
+      font-size: 0.88rem;
+      color: oklch(0.97 0.005 90 / 0.45);
+      margin-top: 4px;
+    }
+
+    /* ============================================================
+       CONTACT (split)
+       ============================================================ */
+    .contact { background: var(--warm-white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      margin-top: 48px;
+    }
+
+    .contact-form { display: flex; flex-direction: column; gap: 18px; }
+    .contact-form label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--body);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 13px 16px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      background: var(--warm-white);
+      color: var(--body);
+      font-size: 0.95rem;
+      transition: border-color var(--transition);
+      outline: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 3px oklch(0.55 0.15 160 / 0.1);
+    }
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .contact-form .btn { align-self: flex-start; }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .contact-info-item svg {
+      width: 20px; height: 20px;
+      color: var(--emerald);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+    .contact-info-item .info-label {
+      font-size: 0.78rem;
+      color: var(--body-muted);
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .contact-info-item .info-value {
+      font-size: 0.95rem;
+      color: var(--body);
+      font-weight: 500;
+    }
+    .contact-info-item .info-value a { color: var(--emerald); }
+    .contact-info-item .info-value a:hover { text-decoration: underline; }
+
+    .contact-hours-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+      margin-top: 24px;
+      padding: 20px;
+      background: oklch(0.97 0.004 76);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+    }
+    .contact-hours-box .day {
+      font-size: 0.85rem;
+      color: var(--body-soft);
+    }
+    .contact-hours-box .time {
+      font-size: 0.85rem;
+      color: var(--body);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    /* ============================================================
+       FOOTER (minimal)
+       ============================================================ */
+    .footer {
+      background: oklch(0.22 0.02 38);
+      color: oklch(0.97 0.005 90 / 0.6);
+      padding: 56px 0 32px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--warm-white);
+    }
+    .footer-brand span { color: var(--gold); }
+    .footer-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 40px;
+      font-size: 0.88rem;
+    }
+    .footer-info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-info-item svg {
+      width: 16px; height: 16px;
+      color: var(--emerald);
+      flex-shrink: 0;
+    }
+    .footer-info-item a { color: oklch(0.97 0.005 90 / 0.6); }
+    .footer-info-item a:hover { color: var(--gold); }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid oklch(0.97 0.005 90 / 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: oklch(0.97 0.005 90 / 0.4);
+      transition: all var(--transition);
+    }
+    .footer-social a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .footer-social a svg { width: 16px; height: 16px; }
+    .footer-bottom {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid oklch(0.97 0.005 90 / 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.82rem;
+    }
+
+    /* ============================================================
+       FLOATING WHATSAPP
+       ============================================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .whatsapp-float-btn {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      color: var(--warm-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px oklch(0.62 0.25 145 / 0.3);
+      transition: all var(--transition);
+    }
+    .whatsapp-float-btn svg { width: 26px; height: 26px; }
+    .whatsapp-float-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 36px oklch(0.62 0.25 145 / 0.45);
+    }
+    .whatsapp-float-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+    .whatsapp-float-label {
+      font-size: 0.68rem;
+      background: oklch(0 0 0 / 0.75);
+      color: var(--warm-white);
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+    }
+    .whatsapp-float:hover .whatsapp-float-label { opacity: 1; }
+
+    /* ============================================================
+       BACK TO TOP
+       ============================================================ */
+    .back-to-top {
+      position: fixed;
+      bottom: 96px;
+      right: 28px;
+      z-index: 998;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--warm-white);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      outline: none;
+    }
+    .back-to-top:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .back-to-top:hover { background: var(--emerald); transform: translateY(-3px); }
+    .back-to-top.visible:hover { transform: translateY(-3px); }
+    .back-to-top svg { width: 18px; height: 18px; }
+    .back-to-top:active { transform: scale(0.92); }
+
+    /* ============================================================
+       REVEAL ANIMATIONS
+       ============================================================ */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity var(--transition-slow), transform var(--transition-slow); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity var(--transition-slow), transform var(--transition-slow); }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity var(--transition-slow), transform var(--transition-slow); }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity var(--transition-slow), transform var(--transition-slow); }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    .reveal-stagger > * {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
+
+    /* ============================================================
+       MOBILE NAV
+       ============================================================ */
+    @media (max-width: 900px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 280px;
+        height: 100dvh;
+        background: var(--warm-white);
+        flex-direction: column;
+        padding: 80px 32px 32px;
+        gap: 20px;
+        align-items: flex-start;
+        transition: right var(--transition);
+        box-shadow: -10px 0 32px oklch(0.24 0.02 38 / 0.14);
+        z-index: 1001;
+      }
+      .nav-links .nav-link { color: var(--body); }
+      .nav-links .nav-cta { margin-top: 8px; }
+      .nav-links.open { right: 0; }
+      .nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: oklch(0 0 0 / 0.4);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition);
+      }
+      .nav-overlay.open { opacity: 1; pointer-events: auto; }
+      .nav-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: none;
+        border: none;
+        color: var(--navy);
+        padding: 8px;
+      }
+      .nav-close svg { width: 24px; height: 24px; }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .hero-text { padding-top: 0; }
+      .hero-text::before { display: block; }
+      .hero p { margin: 0 auto 28px; }
+      .hero-actions { justify-content: center; }
+      .hero-media { min-height: auto; justify-content: center; }
+      .hero-note { left: 16px; bottom: 16px; text-align: left; }
+      .hero-stats-grid { max-width: 520px; margin: 0 auto; padding-top: 0; }
+      .hero-stat-card:nth-child(1),
+      .hero-stat-card:nth-child(2),
+      .hero-stat-card:nth-child(4) { transform: none; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 72px 0; }
+      .hero { padding: 100px 0 60px; min-height: auto; }
+      .hero-media { display: block; }
+      .hero-photo-frame { width: 100%; }
+      .hero-note { position: relative; left: auto; bottom: auto; max-width: none; margin: 18px 0 0; }
+      .stats-bar-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .service-row { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+      .service-row::before { display: none; }
+      .service-row-icon { width: 56px; height: 56px; }
+      .service-row-icon svg { width: 26px; height: 26px; }
+      .service-bullets { grid-template-columns: 1fr; }
+      .industries-grid { grid-template-columns: 1fr; }
+      .industry-card:nth-child(1),
+      .industry-card:nth-child(4) { transform: none; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-info { justify-content: center; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .contact-hours-box { grid-template-columns: 1fr 1fr; }
+      .whatsapp-float-btn { width: 50px; height: 50px; }
+      .whatsapp-float-btn svg { width: 22px; height: 22px; }
+      .back-to-top { bottom: 80px; right: 22px; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .hero h1 { font-size: 1.9rem; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .hero-stats-grid { grid-template-columns: 1fr; }
+      .stats-bar-grid { grid-template-columns: 1fr; gap: 16px; }
+      .trust-bar-inner { gap: 10px; }
+      .contact-form .btn { width: 100%; justify-content: center; }
+    }
+
+    /* ============================================================
+       UTILITY
+       ============================================================ */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegacion principal">
+    <div class="container">
+      <a href="#hero" class="nav-logo" aria-label="Angel Contador inicio">Angel <span>Contador</span></a>
+
+      <div class="nav-overlay" id="navOverlay"></div>
+
+      <div class="nav-links" id="navLinks">
+        <button class="nav-close" id="navClose" aria-label="Cerrar menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+        <a href="#trust" class="nav-link">Trayectoria</a>
+        <a href="#stats" class="nav-link">Cifras</a>
+        <a href="#services" class="nav-link">Servicios</a>
+        <a href="#industries" class="nav-link">Sectores</a>
+        <a href="#testimonial" class="nav-link">Clientes</a>
+        <a href="#contact" class="nav-link">Contacto</a>
+        <a href="https://wa.me/523312345678?text=Hola%20Angel%2C%20quiero%20agendar%20una%20consulta" target="_blank" class="nav-cta" rel="noopener">Agendar</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO (Split: Left copy, Right counter display)
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-accent-line"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1 class="reveal" style="transition-delay:0.1s">
+            Orden fiscal, <span class="gold-underline">criterio contable</span>
+          </h1>
+
+          <p class="reveal" style="transition-delay:0.2s">
+            Despacho contable en Guadalajara para empresas y profesionistas que
+            necesitan cumplimiento serio, control financiero y una asesoria que
+            hable claro. Menos ruido, menos improvisacion y mejores decisiones.
+          </p>
+
+          <div class="hero-actions reveal" style="transition-delay:0.3s">
+            <a href="#contact" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              Agendar consulta
+            </a>
+            <a href="#services" class="btn btn-outline-light">
+              Explorar servicios
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-stats-grid reveal-scale" style="transition-delay:0.25s" role="group" aria-label="Estadisticas de desempeno">
+          <div class="hero-stat-card">
+            <span class="num" data-target="30" data-suffix="+" data-start="0">0</span>
+            <span class="label">Anos de practica</span>
+          </div>
+          <div class="hero-stat-card">
+            <span class="num" data-target="500" data-suffix="+" data-start="0">0</span>
+            <span class="label">Clientes asesorados</span>
+          </div>
+          <div class="hero-stat-card">
+            <span class="num" data-target="5000" data-suffix="+" data-start="0">0</span>
+            <span class="label">Procesos fiscales</span>
+          </div>
+          <div class="hero-stat-card">
+            <span class="num" data-target="50" data-suffix="M+" data-start="0">0</span>
+            <span class="label">Pesos supervisados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TRUST BAR (Certification Badges)
+       ============================================================ -->
+  <section class="trust-bar" id="trust" aria-label="Certificaciones y membresias">
+    <div class="container">
+      <div class="trust-bar-inner reveal">
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          CPA Mexico
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          IMCP
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/></svg>
+          CCPG
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          SAT Registro
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Cedula Profesional
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BY THE NUMBERS (Full-width stat bar)
+       ============================================================ -->
+  <section class="stats-bar" id="stats" aria-label="Resultados en numeros">
+    <div class="container">
+      <div class="stats-bar-grid reveal-stagger">
+        <div class="stat-bar-item">
+          <span class="num" data-target="30" data-suffix="+">0</span>
+          <span class="label">Anos de experiencia</span>
+        </div>
+        <div class="stat-bar-item">
+          <span class="num" data-target="500" data-suffix="+">0</span>
+          <span class="label">Clientes atendidos</span>
+        </div>
+        <div class="stat-bar-item">
+          <span class="num" data-target="5000" data-suffix="+">0</span>
+          <span class="label">Declaraciones presentadas</span>
+        </div>
+        <div class="stat-bar-item">
+          <span class="num" data-target="50" data-suffix="M+">0</span>
+          <span class="label">Pesos administrados</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES (Full-width alternating rows)
+       ============================================================ -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Servicios</span>
+        <h2 class="section-title">Soluciones fiscales y <span class="emerald">contables completas</span></h2>
+        <p class="section-subtitle">
+          Desde consultoria fiscal hasta contabilidad general, ofrecemos un
+          servicio integral para que usted se enfoque en hacer crecer su negocio
+          mientras nosotros cuidamos los numeros.
+        </p>
+      </div>
+
+      <div class="services-list">
+
+        <!-- Service 1: Tax -->
+        <div class="service-row reveal-left">
+          <div class="service-row-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8"/>
+              <path d="M12 17v4"/>
+              <path d="M8 7h8"/>
+              <path d="M8 11h8"/>
+            </svg>
+          </div>
+          <div class="service-row-content">
+            <h3>Preparacion y Planeacion Fiscal</h3>
+            <p>
+              Gestion completa de obligaciones fiscales ante el SAT. Trabajamos
+              con todos los regimenes: RESICO, Actividades Profesionales, Sueldos
+              y Arrendamiento. Planeacion fiscal estrategica para minimizar su
+              carga tributaria dentro de la ley.
+            </p>
+            <ul class="service-bullets">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Declaraciones mensuales y anuales
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Calculo de ISR e IVA
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Facturacion electronica CFDI 4.0
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Representacion ante el SAT
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 2: Accounting -->
+        <div class="service-row reveal-left" style="transition-delay:0.1s">
+          <div class="service-row-icon gold-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <div class="service-row-content">
+            <h3>Contabilidad y Teneduria de Libros</h3>
+            <p>
+              Contabilidad electronica completa, balanzas de comprobacion y
+              estados financieros mensuales. Mantenemos su contabilidad al dia
+              con reportes claros y accesibles para que usted tome decisiones
+              informadas sin sorpresas fiscales.
+            </p>
+            <ul class="service-bullets">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Contabilidad electronica SAT
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Balanzas de comprobacion
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Estados financieros mensuales
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Conciliaciones bancarias
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 3: Financial Consulting -->
+        <div class="service-row reveal-left" style="transition-delay:0.2s">
+          <div class="service-row-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+          </div>
+          <div class="service-row-content">
+            <h3>Consultoria Financiera</h3>
+            <p>
+              Asesoria estrategica para optimizar su situacion fiscal y financiera.
+              Analizamos su regimen, proyectamos escenarios y disenamos
+              estrategias para que su negocio crezca con bases solidas y
+              cumplimiento fiscal total.
+            </p>
+            <ul class="service-bullets">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Planeacion fiscal estrategica
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Optimizacion de regimen fiscal
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Proyecciones y flujo de efectivo
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Estudios de viabilidad
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 4: Business Advisory -->
+        <div class="service-row reveal-left" style="transition-delay:0.3s">
+          <div class="service-row-icon gold-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div class="service-row-content">
+            <h3>Asesoria Empresarial</h3>
+            <p>
+              Acompanamos a emprendedores y empresarios en la creacion y
+              crecimiento de sus negocios. Desde la constitucion legal hasta
+              la gestion de nominas y obligaciones patronales, todo en un
+              solo lugar.
+            </p>
+            <ul class="service-bullets">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Constitucion de empresas
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Nominas, IMSS e INFONAVIT
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Estructura legal y fiscal
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Outsourcing administrativo
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       INDUSTRIES SERVED (2x2 grid)
+       ============================================================ -->
+  <section class="section industries" id="industries">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Industrias</span>
+        <h2 class="section-title">Expertos en su <span class="emerald">sector</span></h2>
+        <p class="section-subtitle">
+          Conocemos las necesidades fiscales y contables especificas de cada
+          industria. No aplicamos formulas genericas, disenamos soluciones a la
+          medida de su giro.
+        </p>
+      </div>
+
+      <div class="industries-grid reveal-stagger">
+        <div class="industry-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <div>
+            <h3>Salud</h3>
+            <p>Consultorios, clinicas y profesionales de la salud. Facturacion electronica, regimen de honorarios y optimizacion fiscal especifica del sector medico.</p>
+          </div>
+        </div>
+        <div class="industry-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <div>
+            <h3>Bienes Raices</h3>
+            <p>Arrendamiento, compraventa de inmuebles y desarrolladores. Asesoria en regimen de arrendamiento, IVA en rentas y plusvalias.</p>
+          </div>
+        </div>
+        <div class="industry-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M8 2v4"/><path d="M16 2v4"/><rect x="8" y="10" width="8" height="7" rx="1"/></svg>
+          <div>
+            <h3>Pequena Empresa</h3>
+            <p>Comercios, talleres y servicios locales. Contabilidad completa, RESICO, facturacion y todo lo que su pequeno negocio necesita para cumplir.</p>
+          </div>
+        </div>
+        <div class="industry-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          <div>
+            <h3>Servicios Profesionales</h3>
+            <p>Abogados, arquitectos, disenadores y consultores. Honorarios, IVA, ISR y todo el soporte fiscal para profesionistas independientes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIAL (Single powerful quote)
+       ============================================================ -->
+  <section class="testimonial-single" id="testimonial" aria-label="Testimonio destacado">
+    <div class="container">
+      <div class="testimonial-single-inner reveal-scale">
+        <svg class="testimonial-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+        </svg>
+        <blockquote>
+          Angel Contador transformo la forma en que manejamos nuestras finanzas.
+          Su conocimiento profundo de la fiscalidad mexicana y su atencion
+          personalizada nos han ahorrado cientos de miles de pesos. Es el
+          contador mas confiable que hemos tenido en Guadalajara.
+        </blockquote>
+        <div>
+          <p class="author-name">Fernanda Ramirez</p>
+          <p class="author-role">Directora General, Grupo Nova &middot; Guadalajara</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT (Split: form + info)
+       ============================================================ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Contacto</span>
+        <h2 class="section-title">Solicite su <span class="emerald">consulta gratuita</span></h2>
+        <p class="section-subtitle">
+          Sin compromiso. Complete el formulario y le llamaremos en menos de
+          24 horas para agendar una reunion donde conoceremos su situacion
+          fiscal.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="reveal-left">
+          <form class="contact-form" action="#" method="post" aria-label="Formulario de consulta">
+            <label>
+              Nombre completo
+              <input type="text" name="nombre" required placeholder="Ej. Juan Perez" autocomplete="name">
+            </label>
+            <label>
+              Correo electronico
+              <input type="email" name="email" required placeholder="juan@ejemplo.com" autocomplete="email">
+            </label>
+            <label>
+              Telefono
+              <input type="tel" name="telefono" required placeholder="33 1234 5678" autocomplete="tel">
+            </label>
+            <label>
+              Mensaje
+              <textarea name="mensaje" placeholder="Cuentenos sobre su situacion fiscal o el servicio que necesita..."></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              Solicitar consulta
+            </button>
+          </form>
+        </div>
+
+        <div class="reveal-right">
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <span class="info-label">Ubicacion</span>
+              <span class="info-value">Guadalajara, Jalisco, Mexico</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <span class="info-label">Correo</span>
+              <span class="info-value"><a href="mailto:angel@contadorgdl.com">angel@contadorgdl.com</a></span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <div>
+              <span class="info-label">Telefono</span>
+              <span class="info-value"><a href="tel:+523312345678">33 1234 5678</a></span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <div>
+              <span class="info-label">WhatsApp</span>
+              <span class="info-value"><a href="https://wa.me/523312345678" target="_blank" rel="noopener">33 1234 5678</a></span>
+            </div>
+          </div>
+
+          <div class="contact-hours-box">
+            <span class="day">Lunes - Viernes</span>
+            <span class="time">9:00 - 18:00</span>
+            <span class="day">Sabado</span>
+            <span class="time">9:00 - 13:00</span>
+            <span class="day">Domingo</span>
+            <span class="time" style="color:var(--body-muted);">Cerrado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER (Minimal)
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          Angel <span>Contador</span>
+        </div>
+
+        <div class="footer-info">
+          <span class="footer-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Guadalajara, Jalisco
+          </span>
+          <span class="footer-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+523312345678">33 1234 5678</a>
+          </span>
+          <span class="footer-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:angel@contadorgdl.com">angel@contadorgdl.com</a>
+          </span>
+        </div>
+
+        <div class="footer-social">
+          <a href="https://wa.me/523312345678" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="mailto:angel@contadorgdl.com" aria-label="Correo electronico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Angel Contador. Contador Publico en Guadalajara. Todos los derechos reservados.</span>
+        <span>Confidencialidad y profesionalismo garantizados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       FLOATING WHATSAPP
+       ============================================================ -->
+  <div class="whatsapp-float" id="whatsappFloat">
+    <span class="whatsapp-float-label" role="tooltip">Escribeme ahora</span>
+    <a href="https://wa.me/523312345678?text=Hola%20Angel%2C%20vi%20su%20pagina%20y%20quiero%20agendar%20una%20consulta" target="_blank" class="whatsapp-float-btn" aria-label="Contactar por WhatsApp" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <!-- ============================================================
+       BACK TO TOP
+       ============================================================ -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* -------------------------------------------
+         NAV SCROLL
+         ------------------------------------------- */
+      var nav = document.getElementById('nav');
+      window.addEventListener('scroll', function() {
+        var y = window.scrollY;
+        if (y > 60) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }, { passive: true });
+
+      /* -------------------------------------------
+         MOBILE NAV TOGGLE
+         ------------------------------------------- */
+      var navToggle = document.getElementById('navToggle');
+      var navClose = document.getElementById('navClose');
+      var navLinks = document.getElementById('navLinks');
+      var navOverlay = document.getElementById('navOverlay');
+
+      function openNav() {
+        navLinks.classList.add('open');
+        navOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav() {
+        navLinks.classList.remove('open');
+        navOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      if (navToggle) navToggle.addEventListener('click', openNav);
+      if (navClose) navClose.addEventListener('click', closeNav);
+      if (navOverlay) navOverlay.addEventListener('click', closeNav);
+
+      document.querySelectorAll('.nav-link, .nav-cta').forEach(function(link) {
+        link.addEventListener('click', closeNav);
+      });
+
+      /* -------------------------------------------
+         SCROLL REVEALS (Intersection Observer)
+         ------------------------------------------- */
+      var revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger';
+      var revealElements = document.querySelectorAll(revealSelectors);
+
+      if (revealElements.length > 0) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(function(el) {
+          observer.observe(el);
+        });
+      }
+
+      /* -------------------------------------------
+         COUNTER ANIMATION (Intersection Observer)
+         ------------------------------------------- */
+      function animateCounter(el, target, suffix) {
+        if (!el) return;
+        var current = 0;
+        var steps = Math.min(target, 50);
+        var increment = target / steps;
+        var duration = 1200;
+        var stepTime = Math.floor(duration / steps);
+        var timer = setInterval(function() {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          el.textContent = Math.floor(current) + (suffix || '');
+        }, stepTime);
+      }
+
+      var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var target = parseInt(el.getAttribute('data-target'), 10);
+            var suffix = el.getAttribute('data-suffix') || '';
+            animateCounter(el, target, suffix);
+            counterObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      document.querySelectorAll('.hero-stat-card .num, .stat-bar-item .num').forEach(function(el) {
+        counterObserver.observe(el);
+      });
+
+      /* -------------------------------------------
+         SMOOTH SCROLL FOR ANCHORS
+         ------------------------------------------- */
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var href = anchor.getAttribute('href');
+          if (href === '#' || href === '') return;
+
+          var target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            var headerOffset = 80;
+            var elementPosition = target.getBoundingClientRect().top;
+            var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      /* -------------------------------------------
+         BACK TO TOP
+         ------------------------------------------- */
+      var backToTop = document.getElementById('backToTop');
+      if (backToTop) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 600) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        }, { passive: true });
+
+        backToTop.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      /* -------------------------------------------
+         WHATSAPP TOOLTIP
+         ------------------------------------------- */
+      var whatsappFloat = document.getElementById('whatsappFloat');
+      if (whatsappFloat) {
+        setTimeout(function() {
+          var tooltip = whatsappFloat.querySelector('.whatsapp-float-label');
+          if (tooltip) {
+            tooltip.style.opacity = '1';
+            setTimeout(function() {
+              tooltip.style.opacity = '0';
+            }, 5000);
+          }
+        }, 3000);
+      }
+
+      console.log('Angel Contador - Landing Page initialized.');
+    })();
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "Angel Contador - Contador Publico en Guadalajara",
+    "url": "https://angelcontador.mx",
+    "telephone": "+523312345678",
+    "email": "angel@contadorgdl.com",
+    "description": "Servicios contables y fiscales para empresas y profesionistas en Guadalajara. 30+ anos de experiencia. SAT, declaraciones, consultoria financiera.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Guadalajara",
+      "addressRegion": "Jalisco",
+      "addressCountry": "MX"
+    },
+    "priceRange": "$$",
+    "areaServed": ["Guadalajara", "Zapopan", "Tlaquepaque", "Tonala", "Mexico"],
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "sameAs": [
+      "https://wa.me/523312345678"
+    ]
+  }
+  </script>
+
+</body>
+</html>

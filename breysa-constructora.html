@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BREYSA CONSTRUCTORA S.A. DE C.V. | Proyecto de Construccion - Guadalajara</title>
+<meta name="description" content="BREYSA CONSTRUCTORA S.A. de C.V. - Construccion residencial y comercial en Guadalajara. Presupuesto cerrado, cronograma garantizado. Calidad 4.8 estrellas.">
+<script defer src="/previews/assets/fontawesome/js/all.min.js"></script>
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9pt,400;0,9pt,500;0,9pt,600;0,9pt,700;1,9pt,400;1,9pt,500&display=swap" rel="stylesheet">
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;color:#1a1a1a;background:#f7f5f0;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}
+:root{--bp-blue:#1a4b8c;--bp-blue-light:#3a7bd5;--bp-blue-faint:rgba(26,75,140,0.08);--bp-yellow:#f5c518;--bp-yellow-light:rgba(245,197,24,0.2);--bp-orange:#e85d2c;--bp-orange-faint:rgba(232,93,44,0.1);--bp-paper:#f7f5f0;--bp-paper-dark:#ece8df;--bp-text:#1a1a1a;--bp-text-light:#5a5a5a;--bp-text-faint:#999084;--bp-white:#FCFAF5;--bp-line:rgba(26,75,140,0.15);--bp-line-strong:rgba(26,75,140,0.35);--font-heading:'Bebas Neue',sans-serif;--font-body:'DM Sans',sans-serif;--gap-sect:clamp(4rem,10vw,7rem);--gap-blk:clamp(1.5rem,4vw,2.5rem);--max-w:1200px;--cta-h:clamp(3.25rem,6vw,3.75rem)}
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.bp-grid{background-color:var(--bp-paper);position:relative}
+.bp-grid::after{display:none}
+@keyframes gridFloat{0%{background-position:0 0}100%{background-position:clamp(30px,4vw,50px) clamp(30px,4vw,50px)}}
+.bp-grid>*{position:relative;z-index:1}
+.bp-grid-float{display:none}
+@keyframes floatDrift{0%{transform:translate(0,0) rotate(0deg)}100%{transform:translate(10px,8px) rotate(0.5deg)}}
+.title-block{background:var(--bp-paper);border-bottom:2px solid var(--bp-blue);padding:0.625rem 0;position:relative}
+.title-block::before{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:4px;background:var(--bp-yellow)}
+.title-block-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem 1rem}
+.title-block-left{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap}
+.tb-drawing-num{font-family:var(--font-body);font-size:0.625rem;font-weight:700;color:var(--bp-blue);letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--bp-blue);padding:0.125rem 0.5rem;line-height:1.4}
+.tb-logo{display:flex;align-items:center;gap:0.6rem;position:relative}
+.tb-logo-svg{width:clamp(2.2rem,5vw,3.2rem);height:clamp(2.2rem,5vw,3.2rem);flex-shrink:0}
+.tb-logo-text{display:flex;flex-direction:column}
+.tb-logo-wordmark{font-family:var(--font-heading);font-size:clamp(1.1rem,2.8vw,1.7rem);color:var(--bp-blue);letter-spacing:0.06em;line-height:0.9}
+.tb-logo-sub{font-family:var(--font-body);font-size:clamp(0.38rem,0.7vw,0.5rem);font-weight:600;letter-spacing:0.12em;color:var(--bp-text-light);text-transform:uppercase;line-height:1.2}
+.title-block-right{display:flex;align-items:center;gap:clamp(0.75rem,2vw,1.5rem);font-family:var(--font-body);font-size:0.625rem;font-weight:600;color:var(--bp-text-light);text-transform:uppercase;letter-spacing:0.04em}
+.tb-annotation{display:flex;align-items:center;gap:0.25rem}
+.tb-annotation::before{content:'';display:inline-block;width:0.375rem;height:0.375rem;background:var(--bp-blue);border-radius:50%}
+.tb-sep{width:1px;height:clamp(0.75rem,1.5vw,1rem);background:var(--bp-line-strong)}
+@media(max-width:639px){.title-block-right .tb-annotation:nth-child(n+2){display:none}.tb-sep:nth-child(n+3){display:none}}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-drawing{position:absolute;inset:0;z-index:0;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;opacity:0.12}
+@media(min-width:768px){.hero-drawing{opacity:0.22}}
+.hero-drawing svg{width:100%;height:100%;max-height:90vh}
+.hero-drawing .draw-line{stroke-dasharray:2000;stroke-dashoffset:2000;animation:drawStroke 3s ease forwards}
+.hero-drawing .draw-line-fast{stroke-dasharray:800;stroke-dashoffset:800;animation:drawStroke 1.5s ease forwards}
+.hero-drawing .draw-line-slow{stroke-dasharray:3000;stroke-dashoffset:3000;animation:drawStroke 4s ease forwards}
+@keyframes drawStroke{to{stroke-dashoffset:0}}
+.dl-1{animation-delay:0.2s}.dl-2{animation-delay:0.6s}.dl-3{animation-delay:1s}.dl-4{animation-delay:1.4s}.dl-5{animation-delay:1.8s}.dl-6{animation-delay:2.2s}.dl-7{animation-delay:2.6s}.dl-8{animation-delay:3s}.dl-9{animation-delay:3.4s}
+.hero-drawing .crane-arm{transform-origin:580px 120px;animation:craneSwing 4s ease-in-out infinite}
+@keyframes craneSwing{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.hero-drawing .crane-line{animation:craneBob 2.5s ease-in-out infinite}
+@keyframes craneBob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.hero-drawing .spark{animation:sparkPulse 1.5s ease-in-out infinite}
+@keyframes sparkPulse{0%,100%{opacity:0.3}50%{opacity:1}}
+.hero-drawing .measure-anno{opacity:0;animation:fadeMeasure 0.6s ease forwards}
+.m-1{animation-delay:3.5s}.m-2{animation-delay:3.9s}.m-3{animation-delay:4.3s}.m-4{animation-delay:4.7s}.m-5{animation-delay:5.1s}.m-6{animation-delay:5.5s}.m-7{animation-delay:5.9s}
+@keyframes fadeMeasure{to{opacity:1}}
+.hero-stamp-badge{position:absolute;top:clamp(0.75rem,3vw,1.5rem);right:clamp(0.75rem,3vw,1.5rem);z-index:3;transform:rotate(6deg);opacity:0;animation:fadeStamp 0.8s 1s ease forwards}
+@keyframes fadeStamp{to{opacity:1;transform:rotate(6deg)}}
+.hero-stamp-badge-inner{background:var(--bp-yellow);color:#1a1a1a;font-family:var(--font-heading);font-size:clamp(0.7rem,1.5vw,1rem);letter-spacing:0.15em;padding:0.35em 0.9em;line-height:1.1;border:2px solid #1a1a1a;position:relative}
+.hero-stamp-badge-inner::before{content:'';position:absolute;top:-4px;left:-4px;right:-4px;bottom:-4px;border:1px solid var(--bp-yellow);pointer-events:none}
+.hero-content{position:relative;z-index:2;width:100%;padding:clamp(2rem,6vw,4rem) 0}
+.hero-project-name{font-family:var(--font-heading);font-size:clamp(2.5rem,8vw,6rem);line-height:0.9;color:var(--bp-blue);letter-spacing:0.02em;margin-bottom:0.25rem;opacity:0;transform:translateY(30px);animation:heroReveal 0.8s 0.3s ease forwards}
+.hero-project-name small{display:block;font-family:var(--font-body);font-size:clamp(0.7rem,1.3vw,1rem);font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--bp-text-light);line-height:1.4;margin-bottom:0.25rem}
+@keyframes heroReveal{to{opacity:1;transform:translateY(0)}}
+.hero-metrics{display:flex;flex-wrap:wrap;gap:clamp(0.5rem,1.5vw,1.25rem);margin-bottom:clamp(1rem,3vw,2rem);align-items:center}
+.hero-metric{display:flex;align-items:center;gap:0.375rem;font-family:var(--font-body);font-size:clamp(0.7rem,1.1vw,0.85rem);font-weight:600;color:var(--bp-text);text-transform:uppercase;letter-spacing:0.04em}
+.hero-metric-dim{color:var(--bp-blue);font-weight:700}
+.hero-metric-value{background:var(--bp-yellow-light);color:#1a1a1a;padding:0.1em 0.5em;font-weight:700;border:1px solid var(--bp-yellow)}
+.hero-metric-sep{width:1px;height:1rem;background:var(--bp-line-strong)}
+.hero-measure{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-body);font-size:clamp(0.6rem,1vw,0.75rem);font-weight:600;color:var(--bp-blue);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1.5rem;border-left:3px solid var(--bp-yellow);padding-left:0.75rem}
+.hero-measure svg{width:1em;height:1em;stroke:var(--bp-blue);fill:none;stroke-width:2}
+.hero-sub{font-size:clamp(1rem,1.5vw,1.25rem);color:var(--bp-text-light);max-width:34rem;margin-bottom:1.75rem;line-height:1.5}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.625rem;font-family:var(--font-body);font-weight:700;font-size:clamp(0.9375rem,1.5vw,1.0625rem);height:var(--cta-h);padding:0 1.75rem;border:none;cursor:pointer;transition:all 0.25s ease;white-space:nowrap;position:relative}
+.btn svg{flex-shrink:0;width:1.25rem;height:1.25rem}
+.btn-stamp{background:var(--bp-white);color:var(--bp-text);border:3px solid #1a1a1a;font-family:var(--font-heading);font-size:clamp(1rem,2vw,1.35rem);letter-spacing:0.08em;padding:0 1.5rem;height:calc(var(--cta-h) + 0.5rem);position:relative;text-transform:uppercase}
+.btn-stamp:hover{background:#1a1a1a;color:var(--bp-white);transform:translateY(-3px);box-shadow:6px 6px 0 rgba(26,75,140,0.25)}
+.btn-stamp .stamp-ring{position:absolute;top:-6px;left:-6px;right:-6px;bottom:-6px;border:1.5px solid #1a1a1a;pointer-events:none;opacity:0.6}
+.btn-stamp .stamp-approved{display:block;font-family:var(--font-body);font-size:0.5rem;font-weight:700;letter-spacing:0.18em;color:var(--bp-orange);text-transform:uppercase;margin-top:-0.3em}
+.friction-row{display:flex;flex-wrap:wrap;gap:0.5rem 1.25rem;margin-top:0.75rem}
+.friction-row span{display:inline-flex;align-items:center;gap:0.375rem;font-size:0.75rem;font-weight:500;color:var(--bp-text-light)}
+.friction-row span svg{width:0.8rem;height:0.8rem;flex-shrink:0;stroke:var(--bp-blue);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.hero-cta-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:0.75rem;opacity:0;transform:translateY(30px);animation:heroReveal 0.8s 0.8s ease forwards}
+@media(min-width:640px){.hero-cta-wrap{flex-direction:row;align-items:center;flex-wrap:wrap}}
+.section-reveal{opacity:0;transform:translateY(50px);transition:opacity 0.8s ease,transform 0.8s ease}
+.section-reveal.revealed{opacity:1;transform:translateY(0)}
+.section-reveal-delay-1{transition-delay:0.1s}.section-reveal-delay-2{transition-delay:0.2s}.section-reveal-delay-3{transition-delay:0.3s}.section-reveal-delay-4{transition-delay:0.4s}
+.section-diagonal{clip-path:polygon(0 clamp(0.5rem,1vw,1.5rem),100% 0,100% calc(100% - clamp(0.5rem,1vw,1.5rem)),0 100%);margin-top:calc(-1 * clamp(0.5rem,1vw,1.5rem));margin-bottom:calc(-1 * clamp(0.5rem,1vw,1.5rem));padding-top:calc(var(--gap-sect) + clamp(1.5rem,3vw,3rem));padding-bottom:calc(var(--gap-sect) + clamp(1.5rem,3vw,3rem));position:relative;z-index:1}
+.section-diagonal-offset{clip-path:polygon(0 0,100% clamp(0.5rem,1vw,1.5rem),100% 100%,0 calc(100% - clamp(0.5rem,1vw,1.5rem)));margin-top:calc(-1 * clamp(0.5rem,1vw,1.5rem));margin-bottom:calc(-1 * clamp(0.5rem,1vw,1.5rem));padding-top:calc(var(--gap-sect) + clamp(1.5rem,3vw,3rem));padding-bottom:calc(var(--gap-sect) + clamp(1.5rem,3vw,3rem));position:relative;z-index:1}
+.section-bp{position:relative}
+.section-bp-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem}
+.section-bp-header-line{flex:1;height:1px;background:var(--bp-line-strong);min-width:2rem}
+.section-bp-tag{font-family:var(--font-body);font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--bp-blue);border:1px solid var(--bp-blue);padding:0.125rem 0.5rem;white-space:nowrap}
+.section-bp-title{font-family:var(--font-heading);font-size:clamp(1.75rem,5vw,3.25rem);line-height:0.95;color:var(--bp-text);letter-spacing:0.02em;margin-bottom:0.75rem}
+.section-bp-sub{font-size:clamp(0.9375rem,1.3vw,1.0625rem);color:var(--bp-text-light);max-width:36rem;line-height:1.5}
+.specs{background:var(--bp-paper-dark);position:relative}.specs-grid{display:grid;grid-template-columns:1fr;gap:0;border:2px solid var(--bp-blue);position:relative}.specs-grid::before{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;border:1px solid var(--bp-yellow);pointer-events:none}@media(min-width:640px){.specs-grid{grid-template-columns:1fr 1fr}}@media(min-width:1024px){.specs-grid{grid-template-columns:repeat(2,1fr)}}.spec-item{padding:clamp(1.25rem,3vw,2rem);border-bottom:1px solid var(--bp-line);border-right:1px solid var(--bp-line);position:relative;transition:background 0.3s}.spec-item:nth-child(odd){border-right:1px solid var(--bp-line)}.spec-item:last-child{border-bottom:none}@media(max-width:639px){.spec-item{border-right:none!important}}.spec-item:hover{background:var(--bp-blue-faint)}.spec-badge{display:inline-flex;align-items:center;gap:0.375rem;font-family:var(--font-body);font-size:0.55rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--bp-white);background:var(--bp-blue);padding:0.15em 0.6em;margin-bottom:0.75rem}.spec-badge svg{width:0.6rem;height:0.6rem;stroke:var(--bp-white);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.spec-item-title{font-family:var(--font-heading);font-size:clamp(1.1rem,2vw,1.35rem);color:var(--bp-text);letter-spacing:0.03em;margin-bottom:0.375rem;line-height:1.1}.spec-item-desc{font-size:0.875rem;color:var(--bp-text-light);line-height:1.5}.spec-note{font-family:var(--font-body);font-size:0.625rem;font-weight:600;color:var(--bp-orange);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.5rem;display:flex;align-items:center;gap:0.375rem}
+.testimonials{background:var(--bp-paper);position:relative}
+.testimonials-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}@media(min-width:640px){.testimonials-grid{grid-template-columns:1fr 1fr}}@media(min-width:1024px){.testimonials-grid{grid-template-columns:repeat(3,1fr)}}
+.testimonial-card{background:var(--bp-white);border:2px solid var(--bp-line-strong);padding:clamp(1.25rem,3vw,1.75rem);position:relative}.testimonial-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--bp-yellow)}
+.testimonial-stamp{position:absolute;top:0.75rem;right:0.75rem;transform:rotate(12deg);border:2px solid var(--bp-orange);color:var(--bp-orange);font-family:var(--font-body);font-size:0.45rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.2em 0.5em;line-height:1.1;text-align:center;background:var(--bp-white)}.testimonial-stamp svg{display:block;width:0.5rem;height:0.5rem;margin:0 auto 0.1rem;stroke:var(--bp-orange);fill:none;stroke-width:3}
+.testimonial-stars{display:flex;gap:2px;margin-bottom:0.625rem}.testimonial-stars svg{width:0.875rem;height:0.875rem;fill:var(--bp-yellow);stroke:var(--bp-yellow)}.testimonial-card blockquote{font-size:0.9rem;color:var(--bp-text);line-height:1.6;margin-bottom:0.75rem;font-style:italic;max-width:85%}.testimonial-author{font-size:0.75rem;font-weight:700;color:var(--bp-text)}.testimonial-author span{display:block;font-weight:400;color:var(--bp-text-light);font-size:0.675rem;margin-top:0.125rem}
+.rating-bar{display:inline-flex;align-items:center;gap:0.75rem;background:var(--bp-white);border:1px solid var(--bp-line-strong);padding:0.5rem 1rem;margin-bottom:var(--gap-blk);font-size:0.8125rem;font-weight:600;position:relative}.rating-bar::before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;bottom:-1px;border:1px solid var(--bp-yellow);pointer-events:none}.rating-stars{display:flex;gap:1px}.rating-stars svg{width:0.75rem;height:0.75rem;fill:var(--bp-yellow)}.rating-number{font-family:var(--font-heading);font-size:1.25rem;color:var(--bp-blue);letter-spacing:0.04em}
+.timeline{background:var(--bp-paper-dark);position:relative}.timeline-gantt{display:flex;flex-direction:column;gap:0;border-top:2px solid var(--bp-blue);position:relative;padding-top:clamp(0.5rem,1vw,0.75rem)}.timeline-gantt::before{content:'';position:absolute;top:0;left:clamp(6rem,12vw,10rem);bottom:0;width:1px;background:var(--bp-line);z-index:0}.gantt-row{display:grid;grid-template-columns:clamp(5.5rem,11vw,9rem) 1fr;gap:1rem;padding:clamp(0.6rem,1.2vw,0.9rem) 0;border-bottom:1px solid var(--bp-line);align-items:center;position:relative}.gantt-label{font-family:var(--font-body);font-size:clamp(0.6rem,0.9vw,0.7rem);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--bp-text-light);line-height:1.2}.gantt-track{position:relative;height:clamp(1.6rem,2.5vw,2rem);display:flex;align-items:center}.gantt-bar{height:clamp(0.75rem,1.2vw,1rem);background:var(--bp-blue);border-radius:0;position:relative;display:flex;align-items:center;justify-content:flex-end;padding-right:0.5rem;min-width:clamp(1.5rem,3vw,2.5rem)}.gantt-bar.gantt-done{background:var(--bp-blue)}.gantt-bar.gantt-current{background:var(--bp-orange)}.gantt-bar.gantt-future{background:var(--bp-line-strong)}.gantt-bar-label{font-family:var(--font-body);font-size:0.55rem;font-weight:700;color:var(--bp-white);text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;opacity:0}.gantt-bar:hover .gantt-bar-label{opacity:1}@media(min-width:640px){.gantt-bar-label{opacity:1}}
+.gantt-dot{position:absolute;left:-0.375rem;top:50%;transform:translateY(-50%);width:0.5rem;height:0.5rem;border-radius:50%;background:var(--bp-yellow);border:2px solid var(--bp-blue);z-index:2}.gantt-dot.done{background:var(--bp-blue)}.gantt-dot.current{background:var(--bp-orange);animation:pulseDot 2s infinite}@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(232,93,44,0.4)}50%{box-shadow:0 0 0 0.5rem rgba(232,93,44,0)}}
+.gantt-weeks{display:flex;gap:0;margin-top:0.5rem;border-top:1px solid var(--bp-line);position:relative}.gantt-week{flex:1;font-family:var(--font-body);font-size:0.5rem;font-weight:600;color:var(--bp-text-faint);text-align:center;padding-top:0.25rem;text-transform:uppercase}
+.contract{background:var(--bp-paper);position:relative}.contract-box{border:2px solid var(--bp-blue);padding:clamp(1.5rem,4vw,2.5rem);max-width:48rem;margin:0 auto;position:relative;background:var(--bp-white)}.contract-box::before{content:'';position:absolute;top:-4px;left:-4px;right:-4px;bottom:-4px;border:1px solid var(--bp-yellow);pointer-events:none}.contract-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem}.contract-title{font-family:var(--font-heading);font-size:clamp(1.25rem,3vw,1.75rem);color:var(--bp-text);letter-spacing:0.04em}.contract-warranty-stamp{border:2.5px solid var(--bp-orange);color:var(--bp-orange);font-family:var(--font-body);font-size:0.55rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.35em 0.7em;text-align:center;line-height:1.2;transform:rotate(5deg);background:var(--bp-white);white-space:nowrap}.contract-warranty-stamp strong{display:block;font-family:var(--font-heading);font-size:1.2rem;letter-spacing:0.06em}.contract-terms{display:grid;grid-template-columns:1fr;gap:0.75rem;margin-bottom:1.5rem}@media(min-width:480px){.contract-terms{grid-template-columns:1fr 1fr}}.contract-term{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.85rem;color:var(--bp-text);line-height:1.4}.contract-term svg{width:1rem;height:1rem;flex-shrink:0;stroke:var(--bp-blue);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;margin-top:0.125rem}.contract-term strong{color:var(--bp-text)}.contract-clause{font-size:0.75rem;color:var(--bp-text-light);line-height:1.5;padding:0.75rem;background:var(--bp-blue-faint);border-left:3px solid var(--bp-blue);margin-bottom:1.25rem}.contract-cta-wrap{text-align:center}
+.faq-section{background:var(--bp-paper-dark);position:relative}.faq-list{max-width:48rem;margin:0 auto;border-top:2px solid var(--bp-blue)}.faq-item{border-bottom:1px solid var(--bp-line);position:relative}.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;background:none;border:none;cursor:pointer;font-family:var(--font-body);font-size:0.9375rem;font-weight:600;color:var(--bp-text);text-align:left;transition:color 0.2s}.faq-q:hover{color:var(--bp-blue)}.faq-q svg{width:1rem;height:1rem;flex-shrink:0;transition:transform 0.3s;stroke:var(--bp-blue);fill:none;stroke-width:2.5;stroke-linecap:round}.faq-item.open .faq-q svg{transform:rotate(45deg)}.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease;padding:0}.faq-item.open .faq-a{max-height:300px;padding:0 0 1rem}.faq-a p{font-size:0.875rem;color:var(--bp-text-light);line-height:1.6}.faq-a p strong{color:var(--bp-blue)}
+.firm{background:var(--bp-paper);position:relative}.firm-grid{display:grid;grid-template-columns:1fr;gap:var(--gap-blk);align-items:center}@media(min-width:768px){.firm-grid{grid-template-columns:1fr 1fr}}.firm-drawing{position:relative;border:2px solid var(--bp-blue);background:var(--bp-white);padding:clamp(1rem,3vw,2rem);min-height:clamp(12rem,30vw,20rem);display:flex;align-items:center;justify-content:center;overflow:hidden}.firm-drawing svg{width:100%;height:auto;max-height:clamp(10rem,25vw,18rem)}.firm-drawing-label{position:absolute;bottom:0.5rem;right:0.5rem;font-family:var(--font-body);font-size:0.5rem;font-weight:600;color:var(--bp-text-faint);text-transform:uppercase;letter-spacing:0.1em}.firm-text p{font-size:0.9375rem;color:var(--bp-text-light);line-height:1.7;margin-bottom:0.75rem}.firm-metrics{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1rem}.firm-metric{display:flex;flex-direction:column;border-left:3px solid var(--bp-yellow);padding-left:0.625rem}.firm-metric-num{font-family:var(--font-heading);font-size:clamp(1.25rem,2.5vw,1.75rem);color:var(--bp-blue);line-height:1;letter-spacing:0.03em}.firm-metric-label{font-family:var(--font-body);font-size:0.625rem;font-weight:600;color:var(--bp-text-light);text-transform:uppercase;letter-spacing:0.06em}
+.cta-inline{text-align:center;padding:clamp(1.5rem,4vw,2.5rem) 0}
+.closeout{background:#1a1a1a;color:var(--bp-white);position:relative;border-top:4px solid var(--bp-yellow)}.closeout::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:rgba(255,255,255,0.1)}.closeout-grid{display:grid;grid-template-columns:1fr;gap:clamp(1.5rem,4vw,2.5rem)}@media(min-width:640px){.closeout-grid{grid-template-columns:1fr 1fr}}@media(min-width:768px){.closeout-grid{grid-template-columns:2fr 1fr 1fr}}.closeout-brand .closeout-name{font-family:var(--font-heading);font-size:clamp(1.25rem,2.5vw,1.75rem);letter-spacing:0.04em;color:var(--bp-white);margin-bottom:0.25rem}.closeout-brand .closeout-legacy{font-family:var(--font-body);font-size:0.6rem;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-bottom:0.5rem}.closeout-brand p{font-size:0.8125rem;color:rgba(255,255,255,0.5);line-height:1.5;max-width:22rem}.closeout h4{font-family:var(--font-heading);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--bp-yellow);margin-bottom:0.75rem}.closeout ul li{margin-bottom:0.4rem}.closeout ul li a,.closeout ul li span{font-size:0.8125rem;color:rgba(255,255,255,0.5);transition:color 0.2s}.closeout ul li a:hover{color:var(--bp-white)}.closeout-contact li{display:flex;align-items:flex-start;gap:0.5rem}.closeout-contact li svg{width:0.875rem;height:0.875rem;stroke:var(--bp-yellow);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:0.125rem}.closeout-bottom{border-top:1px solid rgba(255,255,255,0.08);margin-top:1.5rem;padding-top:1.25rem;text-align:center;font-size:0.6875rem;color:rgba(255,255,255,0.3)}
+@media(max-width:639px){.hero-project-name{font-size:2.25rem}.hero-project-name small{font-size:0.6rem}.hero-metric-sep:nth-child(4){display:none}.gantt-row{grid-template-columns:clamp(4rem,20vw,5.5rem) 1fr;gap:0.5rem}.gantt-label{font-size:0.55rem}.section-diagonal,.section-diagonal-offset{clip-path:none;margin-top:0;margin-bottom:0}.firm-metrics{grid-template-columns:1fr 1fr}.contract-warranty-stamp{transform:none}.testimonial-card blockquote{max-width:100%}}
+</style>
+</head>
+<body>
+<!-- TITLE BLOCK -->
+<div class="title-block">
+<div class="container title-block-inner">
+<div class="title-block-left">
+<span class="tb-drawing-num">BP-2026-BREY-01</span>
+<div class="tb-logo">
+<svg class="tb-logo-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><g transform="translate(40,40)"><polygon points="0,-32 27.71,-16 27.71,16 0,32 -27.71,16 -27.71,-16" fill="none" stroke="#1a4b8c" stroke-width="2.5"/><polygon points="0,-26 22.52,-13 22.52,13 0,26 -22.52,13 -22.52,-13" fill="#f7f5f0" stroke="#1a4b8c" stroke-width="1" stroke-dasharray="2 1"/><path d="M-10,-6L10,-6L13,0L10,6L-10,6L-13,0Z" fill="#1a4b8c"/><rect x="-5" y="-14" width="10" height="9" rx="1" fill="#f5c518"/><path d="M0,-18L0,-6" stroke="#1a4b8c" stroke-width="1.5"/><path d="M-18,-1L-8,-6M-18,1L-8,6M18,-1L8,-6M18,1L8,6" stroke="#1a4b8c" stroke-width="1.2"/><circle cx="0" cy="0" r="3" fill="#f5c518" stroke="#1a4b8c" stroke-width="1"/><path d="M-16,-16L-10,-11M16,-16L10,-11M-16,16L-10,11M16,16L10,11" stroke="#1a4b8c" stroke-width="1"/></g></svg>
+<div class="tb-logo-text">
+<span class="tb-logo-wordmark">BREYSA</span>
+<span class="tb-logo-sub">CONSTRUCTORA S.A. DE C.V. &bull; DESDE 2018</span>
+</div></div></div>
+<div class="title-block-right">
+<span class="tb-annotation">CLIENTE: BREYSA</span>
+<span class="tb-sep"></span>
+<span class="tb-annotation">PROYECTO: RESIDENCIAL</span>
+<span class="tb-sep"></span>
+<span class="tb-annotation">REV: 01</span>
+<span class="tb-sep"></span>
+<span class="tb-annotation">ESCALA: N/A</span>
+</div></div></div>
+<!-- HERO -->
+<section class="hero bp-grid" role="banner">
+<div class="bp-grid-float"></div>
+<div class="hero-stamp-badge"><div class="hero-stamp-badge-inner">CONSORCIO<br>BREYSA<br><span style="font-family:'DM Sans',sans-serif;font-size:0.5rem;font-weight:500;letter-spacing:0.02em;display:block;text-transform:none;margin-top:0.1em">CONSTRUCCION</span></div></div>
+<div class="hero-drawing" aria-hidden="true">
+<svg viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><style>.hl{stroke:#1a4b8c;stroke-width:1.5;fill:none}.hl2{stroke:#f5c518;stroke-width:1;fill:none;stroke-dasharray:4 3}.hl3{stroke:#e85d2c;stroke-width:1;fill:none}.hld{stroke:#1a4b8c;stroke-width:1;fill:none;stroke-dasharray:3 2}</style></defs>
+<g class="draw-line-fast dl-1"><path d="M40,40 L60,40 M50,30 L50,50" class="hl"/><path d="M1160,40 L1140,40 M1150,30 L1150,50" class="hl"/><path d="M40,860 L60,860 M50,870 L50,850" class="hl"/><path d="M1160,860 L1140,860 M1150,870 L1150,850" class="hl"/></g>
+<g class="draw-line dl-3">
+<path d="M100,680 L1100,680" class="hl" stroke-width="2"/>
+<path d="M340,680 L340,420 L460,420 L460,380 L480,380 L480,310 L720,310 L720,380 L740,380 L740,420 L860,420 L860,680" class="hl" stroke-width="2.5"/>
+<path d="M200,680 L200,520 L340,520 L340,680" class="hl"/>
+<path d="M200,520 L200,480 L240,480 L240,520" class="hl2"/>
+<path d="M860,680 L860,520 L1000,520 L1000,680" class="hl"/>
+<path d="M860,520 L860,480 L920,480 L920,520" class="hl2"/>
+<path d="M550,310 L550,220 L620,220 L620,190 L640,190 L640,140 L660,140 L660,190 L680,190 L680,220 L710,220 L710,310" class="hl" stroke-width="2"/>
+</g>
+<g class="draw-line dl-4">
+<path d="M370,540 L440,540 L440,590 L370,590Z M370,610 L440,610 L440,660 L370,660Z" class="hl"/>
+<path d="M480,530 L530,530 L530,570 L480,570Z M480,590 L530,590 L530,630 L480,630Z" class="hl"/>
+<path d="M670,530 L720,530 L720,570 L670,570Z M670,590 L720,590 L720,630 L670,630Z" class="hl"/>
+<path d="M760,540 L830,540 L830,590 L760,590Z M760,610 L830,610 L830,660 L760,660Z" class="hl"/>
+<path d="M230,550 L310,550 L310,590 L230,590Z M230,610 L310,610 L310,650 L230,650Z" class="hl"/>
+<path d="M890,550 L970,550 L970,590 L890,590Z M890,610 L970,610 L970,650 L890,650Z" class="hl"/>
+<path d="M565,240 L605,240 L605,270 L565,270Z M565,285 L605,285 L605,300 L565,300Z" class="hl"/>
+</g>
+<g class="draw-line dl-5"><path d="M580,680 L580,630 L620,630 L620,680" class="hl" stroke-width="1.5"/><path d="M590,680 L590,640 L610,640 L610,680" class="hl2"/><circle cx="606" cy="658" r="2" class="hl" fill="#1a4b8c"/></g>
+<g class="draw-line dl-5"><path d="M340,420 L460,420" class="hl" stroke-width="1.5"/><path d="M480,310 L720,310" class="hl" stroke-width="1.5"/><path d="M550,220 L620,220" class="hl2"/></g>
+<g class="draw-line dl-6">
+<path d="M340,685 L340,700 M460,685 L460,700 M480,685 L480,700 M550,685 L550,700 M620,685 L620,700 M720,685 L720,700 M740,685 L740,700 M860,685 L860,700" class="hl"/>
+<text x="340" y="714" font-family="'DM Sans',sans-serif" font-size="9" fill="#1a4b8c" text-anchor="middle">1</text>
+<text x="460" y="714" font-family="'DM Sans',sans-serif" font-size="9" fill="#1a4b8c" text-anchor="middle">2</text>
+<text x="550" y="714" font-family="'DM Sans',sans-serif" font-size="9" fill="#1a4b8c" text-anchor="middle">3</text>
+<text x="620" y="714" font-family="'DM Sans',sans-serif" font-size="9" fill="#1a4b8c" text-anchor="middle">4</text>
+<text x="720" y="714" font-family="'DM Sans',sans-serif" font-size="9" fill="#1a4b8c" text-anchor="middle">5</text>
+</g>
+<g class="measure-anno m-3">
+<path d="M200,736 L200,750 L1000,750 L1000,736" class="hl2"/>
+<path d="M200,742 L1000,742" class="hl" stroke-width="0.5"/>
+<text x="600" y="748" font-family="'DM Sans',sans-serif" font-size="8" fill="#1a4b8c" text-anchor="middle">LARGO TOTAL: 42.50 m</text>
+<path d="M195,736 L195,742 M200,736 L200,742 M1005,736 L1005,742 M1000,736 L1000,742" class="hl"/>
+</g>
+<g class="measure-anno m-4">
+<path d="M340,760 L340,780 M860,760 L860,780" class="hl"/>
+<path d="M340,770 L860,770" class="hl" stroke-width="0.5"/>
+<text x="600" y="778" font-family="'DM Sans',sans-serif" font-size="8" fill="#1a4b8c" text-anchor="middle">ANCHO CUERPO PRAL: 24.80 m</text>
+</g>
+<g class="measure-anno m-1">
+<path d="M200,470 L200,510 L195,510" class="hl3"/>
+<text x="255" y="500" font-family="'DM Sans',sans-serif" font-size="8" fill="#e85d2c" text-anchor="start">ALA IZQ: 12.40 m</text>
+</g>
+<g class="measure-anno m-2">
+<path d="M1000,470 L1000,510 L1005,510" class="hl3"/>
+<text x="945" y="500" font-family="'DM Sans',sans-serif" font-size="8" fill="#e85d2c" text-anchor="end">ALA DER: 12.40 m</text>
+</g>
+<g class="measure-anno m-5">
+<path d="M660,130 L660,100" class="hl3"/>
+<text x="670" y="95" font-family="'DM Sans',sans-serif" font-size="8" fill="#e85d2c" text-anchor="start">TORRE: 15.20 m</text>
+</g>
+<g class="measure-anno m-6">
+<path d="M1100,420 L1100,680 L1095,680" class="hl2"/>
+<text x="1108" y="555" font-family="'DM Sans',sans-serif" font-size="8" fill="#1a4b8c" text-anchor="start" transform="rotate(90,1108,555)">ALTURA: 10.80 m</text>
+</g>
+<g class="measure-anno m-7">
+<path d="M105,420 L105,680 L100,680" class="hl2"/>
+<text x="92" y="555" font-family="'DM Sans',sans-serif" font-size="8" fill="#1a4b8c" text-anchor="end" transform="rotate(-90,92,555)">ALTURA TOTAL: 17.80 m</text>
+</g>
+<g class="crane-arm draw-line-slow dl-2">
+<path d="M480,120 L580,120 L680,120" class="hl" stroke-width="2.5"/>
+<path d="M480,120 L480,60" class="hl" stroke-width="2"/>
+<path d="M440,50 L520,50 L480,10 L440,50" class="hl" stroke-width="1.5"/>
+<path d="M480,70 L610,70 L610,30" class="hl2"/>
+<line x1="580" y1="120" x2="580" y2="60" class="hl" stroke-width="1"/>
+</g>
+<g class="crane-line"><line x1="640" y1="120" x2="640" y2="200" stroke="#1a4b8c" stroke-width="0.8" stroke-dasharray="2 2"/><rect x="630" y="200" width="20" height="15" fill="#f5c518" stroke="#1a4b8c" stroke-width="1"/></g>
+<g class="draw-line dl-7">
+<circle cx="490" cy="435" r="3" class="spark" fill="#f5c518" stroke="none" style="animation-delay:0s"/>
+<circle cx="500" cy="428" r="2" class="spark" fill="#f5c518" stroke="none" style="animation-delay:0.3s"/>
+<circle cx="482" cy="430" r="1.5" class="spark" fill="#f5c518" stroke="none" style="animation-delay:0.6s"/>
+<circle cx="505" cy="440" r="1" class="spark" fill="#f5c518" stroke="none" style="animation-delay:0.9s"/>
+</g>
+<g class="draw-line-fast dl-1">
+<circle cx="80" cy="80" r="20" class="hl" stroke-width="0.8"/>
+<polygon points="80,62 76,80 80,75 84,80" fill="#1a4b8c"/>
+<text x="80" y="56" font-family="'DM Sans',sans-serif" font-size="7" fill="#1a4b8c" text-anchor="middle" font-weight="700">N</text>
+</g>
+<g class="draw-line dl-8">
+<rect x="900" y="790" width="260" height="65" class="hl" stroke-width="1"/>
+<line x1="900" y1="810" x2="1160" y2="810" class="hl" stroke-width="0.5"/>
+<text x="1060" y="805" font-family="'Bebas Neue',sans-serif" font-size="10" fill="#1a4b8c" text-anchor="middle">BREYSA CONSTRUCTORA</text>
+<text x="1030" y="825" font-family="'DM Sans',sans-serif" font-size="6" fill="#1a4b8c" text-anchor="start">PROYECTO: RESIDENCIAL LOMAS</text>
+<text x="1030" y="840" font-family="'DM Sans',sans-serif" font-size="6" fill="#1a4b8c" text-anchor="start">DIB: MH</text>
+<text x="1120" y="840" font-family="'DM Sans',sans-serif" font-size="6" fill="#1a4b8c" text-anchor="start">REV: 01</text>
+<text x="1030" y="850" font-family="'DM Sans',sans-serif" font-size="5" fill="#999084" text-anchor="start">ESC: N/A &bull; FECHA: 2026</text>
+</g>
+</svg>
+</div>
+<div class="hero-content">
+<div class="container">
+<h1 class="hero-project-name"><small>Plano de conjunto &bull; Proyecto Residencial</small>LOMAS DEL COUNTRY<br>RESIDENCIAL</h1>
+<div class="hero-metrics">
+<span class="hero-metric"><span class="hero-metric-dim">>></span> <span class="hero-metric-value">1,240 m2</span></span>
+<span class="hero-metric-sep"></span>
+<span class="hero-metric"><svg viewBox="0 0 20 20"><path d="M2 18V7l8-5 8 5v11H2Z" stroke="currentColor" fill="none" stroke-width="1.5"/><path d="M7 18V11h6v7" stroke="currentColor" fill="none" stroke-width="1.5"/></svg> 3 niveles + torre</span>
+<span class="hero-metric-sep"></span>
+<span class="hero-metric"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" stroke="currentColor" fill="none" stroke-width="1.5"/><path d="M10 4v6l4 2" stroke="currentColor" fill="none" stroke-width="1.5"/></svg> 10 meses cronograma</span>
+<span class="hero-metric-sep"></span>
+<span class="hero-metric"><svg viewBox="0 0 20 20"><path d="M10 2L2 6v2l8 4 8-4V6l-8-4Z" stroke="currentColor" fill="none" stroke-width="1.5"/><path d="M2 10v2l8 4 8-4v-2" stroke="currentColor" fill="none" stroke-width="1.5"/></svg> Llave en mano</span>
+</div>
+<div class="hero-measure"><svg viewBox="0 0 16 16"><path d="M2 14L14 2M6 14l2-2M10 10l2-2M14 6l2-2" stroke="currentColor" stroke-width="1.5"/></svg> COTIZACION CON PRECIO CERRADO</div>
+<p class="hero-sub">Presupuesto fijo sin sorpresas. Cronograma garantizado con penalizaci&oacute;n por retraso. Materiales especificados en plano, mano de obra certificada.</p>
+<div class="hero-cta-wrap">
+<a href="#" class="btn btn-stamp" onclick="document.querySelector('.contract').scrollIntoView({behavior:'smooth'});return false">
+<span class="stamp-ring"></span>SOLICITAR PROPUESTA<span class="stamp-approved">* PRESUPUESTO SIN COMPROMISO</span>
+</a>
+<div class="friction-row">
+<span><svg viewBox="0 0 16 16"><path d="M13.5 2.5L8 8M13.5 2.5H10M13.5 2.5V6M4 14l4-4M4 14H2.5M4 14v-1.5" stroke="currentColor" stroke-width="1.5"/></svg> Sin adelanto</span>
+<span><svg viewBox="0 0 16 16"><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5L5 11M11 5l1.5-1.5" stroke="currentColor" stroke-width="1.5"/></svg> Garant&iacute;a 5 a&ntilde;os</span>
+<span><svg viewBox="0 0 16 16"><path d="M2 8h12M8 2v12M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.2"/></svg> Deducible ISR</span>
+</div></div></div></div>
+</section>
+
+<!-- ====== RATING BAR ====== -->
+<section class="section-reveal" style="padding:clamp(1.5rem,4vw,2rem) 0;background:var(--bp-paper-dark)">
+<div class="container">
+<div class="rating-bar"><span style="display:flex;align-items:center;gap:0.375rem"><svg viewBox="0 0 20 20" width="14" height="14"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518" stroke="#f5c518" stroke-width="0.5"/></svg><strong style="font-size:0.875rem">4.8</strong></span><span class="rating-stars"><svg viewBox="0 0 20 20" width="12" height="12"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20" width="12" height="12"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20" width="12" height="12"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20" width="12" height="12"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20" width="12" height="12"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg></span><span class="rating-number">4.8</span><span style="font-size:0.75rem;font-weight:400;color:var(--bp-text-light)">Google &middot; 21 opiniones</span></div>
+</div></section>
+
+<!-- ====== BENEFITS / SPECS ====== -->
+<section class="specs section-diagonal section-reveal" id="servicios">
+<div class="container">
+<div class="section-bp-header">
+<span class="section-bp-tag">ESPECIFICACIONES</span>
+<div class="section-bp-header-line"></div>
+</div>
+<h2 class="section-bp-title section-reveal section-reveal-delay-1">CONSTRUCCI&Oacute;N<br>QUE HABLA POR S&Iacute; MISMA</h2>
+<p class="section-bp-sub section-reveal section-reveal-delay-2">Proyectos residenciales y comerciales en Guadalajara con presupuesto cerrado, cronograma garantizado y calidad certificada.</p>
+<div class="specs-grid" style="margin-top:var(--gap-blk)">
+<div class="spec-item section-reveal section-reveal-delay-1">
+<div class="spec-badge"><i class="fa-solid fa-hard-hat" style="font-size:0.55rem"></i> 01</div>
+<h3 class="spec-item-title">Construcci&oacute;n Residencial</h3>
+<p class="spec-item-desc">Casas unifamiliares, condominios verticales y fraccionamientos con acabados de primera calidad.</p>
+<span class="spec-note"><i class="fa-solid fa-circle-check" style="font-size:0.55rem"></i> Desde 1,200 m2</span>
+</div>
+<div class="spec-item section-reveal section-reveal-delay-2">
+<div class="spec-badge"><i class="fa-solid fa-building" style="font-size:0.55rem"></i> 02</div>
+<h3 class="spec-item-title">Construcci&oacute;n Comercial</h3>
+<p class="spec-item-desc">Naves industriales, bodegas, locales comerciales y centros de distribuci&oacute;n con entregas puntuales.</p>
+<span class="spec-note"><i class="fa-solid fa-circle-check" style="font-size:0.55rem"></i> Presupuesto cerrado</span>
+</div>
+<div class="spec-item section-reveal section-reveal-delay-3">
+<div class="spec-badge"><i class="fa-solid fa-pen-ruler" style="font-size:0.55rem"></i> 03</div>
+<h3 class="spec-item-title">Proyecto Ejecutivo</h3>
+<p class="spec-item-desc">Planos estructurales, instalaciones, acabados y memorias de c&aacute;lculo con ingenier&iacute;a certificada.</p>
+<span class="spec-note"><i class="fa-solid fa-circle-check" style="font-size:0.55rem"></i> Incluye dictamen estructural</span>
+</div>
+<div class="spec-item section-reveal section-reveal-delay-4">
+<div class="spec-badge"><i class="fa-solid fa-trowel-bricks" style="font-size:0.55rem"></i> 04</div>
+<h3 class="spec-item-title">Remodelaci&oacute;n y Ampliaci&oacute;n</h3>
+<p class="spec-item-desc">Renovaci&oacute;n de espacios existentes con m&iacute;nima interrupci&oacute;n para el cliente.</p>
+<span class="spec-note"><i class="fa-solid fa-circle-check" style="font-size:0.55rem"></i> Procesos r&aacute;pidos</span>
+</div>
+<div class="spec-item section-reveal section-reveal-delay-1">
+<div class="spec-badge"><i class="fa-solid fa-file-shield" style="font-size:0.55rem"></i> 05</div>
+<h3 class="spec-item-title">Gesti&oacute;n de Permisos</h3>
+<p class="spec-item-desc">Tramitaci&oacute;n de licencias de construcci&oacute;n, uso de suelo y permisos municipales.</p>
+<span class="spec-note"><i class="fa-solid fa-circle-check" style="font-size:0.55rem"></i> Sin complicaciones</span>
+</div>
+<div class="spec-item section-reveal section-reveal-delay-2">
+<div class="spec-badge"><i class="fa-solid fa-helmet-safety" style="font-size:0.55rem"></i> 06</div>
+<h3 class="spec-item-title">Supervisi&oacute;n de Obra</h3>
+<p class="spec-item-desc">Residencia de obra con bit&aacute;cora digital, reportes semanales y control de calidad.</p>
+<span class="spec-note"><i class="fa-solid fa-circle-check" style="font-size:0.55rem"></i> Reportes cada 7 d&iacute;as</span>
+</div>
+</div></div></section>
+
+<!-- ====== SOCIAL PROOF ====== -->
+<section class="testimonials section-diagonal-offset section-reveal">
+<div class="container">
+<div class="section-bp-header">
+<span class="section-bp-tag">TESTIMONIOS</span>
+<div class="section-bp-header-line"></div>
+</div>
+<h2 class="section-bp-title section-reveal section-reveal-delay-1">LO QUE DICEN<br>NUESTROS CLIENTES</h2>
+<div class="testimonials-grid">
+<article class="testimonial-card section-reveal section-reveal-delay-1">
+<div class="testimonial-stamp"><svg viewBox="0 0 16 16"><path d="M8 1v14M1 8h14M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5"/></svg>VERIFICADO</div>
+<div class="testimonial-stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg></div>
+<blockquote>&ldquo;Entregaron nuestro fraccionamiento antes de lo prometido. La calidad de los acabados es superior a lo que esper&aacute;bamos. Sin duda los recomiendo.&rdquo;</blockquote>
+<div class="testimonial-author">Ing. Roberto Mendoza<span>Desarrollador Inmobiliario</span></div>
+</article>
+<article class="testimonial-card section-reveal section-reveal-delay-2">
+<div class="testimonial-stamp"><svg viewBox="0 0 16 16"><path d="M8 1v14M1 8h14M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5"/></svg>VERIFICADO</div>
+<div class="testimonial-stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg></div>
+<blockquote>&ldquo;Hicieron la nave industrial de 2,500 m2 en tiempo r&eacute;cord. El presupuesto cerrado se respet&oacute; al pie de la letra. Proyecto complejo, ejecuci&oacute;n impecable.&rdquo;</blockquote>
+<div class="testimonial-author">Lic. Martha Gomez<span>Gerente de Operaciones</span></div>
+</article>
+<article class="testimonial-card section-reveal section-reveal-delay-3">
+<div class="testimonial-stamp"><svg viewBox="0 0 16 16"><path d="M8 1v14M1 8h14M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5"/></svg>VERIFICADO</div>
+<div class="testimonial-stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5" fill="#f5c518"/></svg></div>
+<blockquote>&ldquo;Remodelaron nuestras oficinas en tiempo expresa. El equipo es profesional, ordenado y cumplido. La garant&iacute;a de 5 a&ntilde;os nos dio toda la tranquilidad.&rdquo;</blockquote>
+<div class="testimonial-author">Arq. Carlos Sanchez<span>Director de Proyectos</span></div>
+</article>
+</div></div></section>
+
+<!-- ====== HOW IT WORKS / TIMELINE ====== -->
+<section class="timeline section-diagonal section-reveal" id="proceso">
+<div class="container">
+<div class="section-bp-header">
+<span class="section-bp-tag">PROCESO</span>
+<div class="section-bp-header-line"></div>
+</div>
+<h2 class="section-bp-title section-reveal section-reveal-delay-1">C&Oacute;MO<br>TRABAJAMOS</h2>
+<p class="section-bp-sub section-reveal section-reveal-delay-2">Metodolog&iacute;a clara. Cada proyecto sigue un cronograma definido desde la planeaci&oacute;n hasta la entrega.</p>
+<ol class="timeline-gantt" style="margin-top:var(--gap-blk)">
+<li class="gantt-row section-reveal section-reveal-delay-1">
+<span class="gantt-label">Semana 1-2</span>
+<div class="gantt-track"><div class="gantt-dot done"></div><div class="gantt-bar gantt-done" style="width:16%"><span class="gantt-bar-label">Planeaci&oacute;n</span></div></div>
+</li>
+<li class="gantt-row section-reveal section-reveal-delay-2">
+<span class="gantt-label">Semana 3-8</span>
+<div class="gantt-track"><div class="gantt-dot current"></div><div class="gantt-bar gantt-current" style="width:30%"><span class="gantt-bar-label">Cimentaci&oacute;n</span></div></div>
+</li>
+<li class="gantt-row section-reveal section-reveal-delay-3">
+<span class="gantt-label">Semana 9-20</span>
+<div class="gantt-track"><div class="gantt-dot"></div><div class="gantt-bar gantt-done" style="width:40%"><span class="gantt-bar-label">Estructura</span></div></div>
+</li>
+<li class="gantt-row section-reveal section-reveal-delay-4">
+<span class="gantt-label">Semana 21-32</span>
+<div class="gantt-track"><div class="gantt-dot"></div><div class="gantt-bar gantt-future" style="width:30%"><span class="gantt-bar-label">Acabados</span></div></div>
+</li>
+<li class="gantt-row section-reveal section-reveal-delay-1">
+<span class="gantt-label">Semana 33-40</span>
+<div class="gantt-track"><div class="gantt-dot"></div><div class="gantt-bar gantt-future" style="width:20%"><span class="gantt-bar-label">Entrega</span></div></div>
+</li>
+</ol>
+<div class="gantt-weeks"><span class="gantt-week">S1</span><span class="gantt-week">S8</span><span class="gantt-week">S16</span><span class="gantt-week">S24</span><span class="gantt-week">S32</span><span class="gantt-week">S40</span></div>
+</div></section>
+
+<!-- ====== OFFER / CONTRACT ====== -->
+<section class="contract section-diagonal-offset section-reveal" id="propuesta">
+<div class="container">
+<div class="contract-box">
+<div class="contract-header">
+<h2 class="contract-title">PROPUESTA DE<br>CONSTRUCCI&Oacute;N</h2>
+<div class="contract-warranty-stamp"><strong>5 A&Ntilde;OS</strong>GARANT&Iacute;A</div>
+</div>
+<div class="contract-terms">
+<div class="contract-term"><i class="fa-solid fa-file-contract"></i><span><strong>Presupuesto cerrado</strong> &mdash; El precio acordado no cambia durante toda la obra.</span></div>
+<div class="contract-term"><i class="fa-solid fa-calendar-check"></i><span><strong>Cronograma garantizado</strong> &mdash; Penalizaci&oacute;n por retraso especificada en contrato.</span></div>
+<div class="contract-term"><i class="fa-solid fa-shield-halved"></i><span><strong>Garant&iacute;a de 5 a&ntilde;os</strong> &mdash; Todos los trabajos cubiertos por garant&iacute;a escrita.</span></div>
+<div class="contract-term"><i class="fa-solid fa-file-invoice"></i><span><strong>Deducible ISR</strong> &mdash; Facturaci&oacute;n fiscal para personas f&iacute;sicas y morales.</span></div>
+<div class="contract-term"><i class="fa-solid fa-clipboard-list"></i><span><strong>Materiales especificados</strong> &mdash; Marcas y calidades definidas desde la cotizaci&oacute;n.</span></div>
+<div class="contract-term"><i class="fa-solid fa-user-tie"></i><span><strong>Mano de obra certificada</strong> &mdash; Equipo con experiencia comprobable en obra similar.</span></div>
+</div>
+<div class="contract-clause"><strong>Cl&aacute;usula de transparencia:</strong> El cliente recibe acceso semanal a bit&aacute;cora de obra con fotograf&iacute;as, avances y reporte de personal en sitio.</div>
+<div class="contract-cta-wrap">
+<a href="https://wa.me/523310255492?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20BREYSA%20y%20quiero%20solicitar%20una%20propuesta" target="_blank" class="btn btn-stamp" style="font-size:clamp(0.9rem,1.5vw,1.1rem)">
+<span class="stamp-ring"></span><i class="fa-brands fa-whatsapp" style="font-size:1.2em"></i> SOLICITAR PROPUESTA<span class="stamp-approved">* SIN COMPROMISO &middot; RESPUESTA EN 24 HRS</span>
+</a>
+</div></div></div></section>
+
+<!-- ====== FAQ ====== -->
+<section class="faq-section section-diagonal section-reveal" id="faq">
+<div class="container">
+<div class="section-bp-header">
+<span class="section-bp-tag">FAQ</span>
+<div class="section-bp-header-line"></div>
+</div>
+<h2 class="section-bp-title section-reveal section-reveal-delay-1">PREGUNTAS<br>FRECUENTES</h2>
+<div class="faq-list">
+<div class="faq-item section-reveal section-reveal-delay-1">
+<button class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;C&oacute;mo funciona el presupuesto cerrado? <i class="fa-solid fa-plus"></i></button>
+<div class="faq-a"><p>Cotizamos el proyecto completo desde el inicio con base en planos y especificaciones. El precio no cambia salvo que el cliente solicite cambios expresos durante la obra. Esto elimina sorpresas y permite planificar la inversi&oacute;n con certeza.</p></div>
+</div>
+<div class="faq-item section-reveal section-reveal-delay-2">
+<button class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Qu&eacute; incluye la garant&iacute;a de 5 a&ntilde;os? <i class="fa-solid fa-plus"></i></button>
+<div class="faq-a"><p>Cubre vicios ocultos de construcci&oacute;n, defectos estructurales y problemas en instalaciones (el&eacute;ctrica, hidr&aacute;ulica, sanitaria) que se presenten dentro del per&iacute;odo. Est&aacute; respaldada por contrato notariado.</p></div>
+</div>
+<div class="faq-item section-reveal section-reveal-delay-3">
+<button class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Trabajan en toda la ZMG? <i class="fa-solid fa-plus"></i></button>
+<div class="faq-a"><p>S&iacute;, realizamos proyectos en Guadalajara, Zapopan, Tlaquepaque, Tonal&aacute; y El Salto. Tambi&eacute;n hemos trabajado en Puerto Vallarta y Lagos de Moreno para proyectos espec&iacute;ficos.</p></div>
+</div>
+<div class="faq-item section-reveal section-reveal-delay-4">
+<button class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Cu&aacute;nto tiempo toma un proyecto residencial? <i class="fa-solid fa-plus"></i></button>
+<div class="faq-a"><p>Depende de la magnitud. Una casa unifamiliar promedio toma de 4 a 6 meses. Un fraccionamiento o conjunto vertical puede tomar de 10 a 18 meses. Te damos cronograma detallado en la cotizaci&oacute;n.</p></div>
+</div>
+<div class="faq-item section-reveal section-reveal-delay-1">
+<button class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Manejan financiamiento o esquemas de pago? <i class="fa-solid fa-plus"></i></button>
+<div class="faq-a"><p>S&iacute;. Trabajamos con pagos contra avance de obra certificado por un tercero (director responsable de obra). No pedimos adelantos. Cada etapa se paga al concluirse, con factura deducible de ISR.</p></div>
+</div>
+</div></div></section>
+
+<!-- ====== ABOUT / FIRM ====== -->
+<section class="firm section-diagonal-offset section-reveal">
+<div class="container">
+<div class="section-bp-header">
+<span class="section-bp-tag">LA EMPRESA</span>
+<div class="section-bp-header-line"></div>
+</div>
+<div class="firm-grid">
+<div class="firm-drawing section-reveal section-reveal-delay-1">
+<svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="#1a4b8c" stroke-width="1.5" fill="none"><rect x="20" y="20" width="360" height="260" stroke-dasharray="4 2"/><polygon points="200,40 360,140 200,240 40,140" stroke-width="2"/><polygon points="200,70 340,140 200,210 60,140" stroke-dasharray="3 2"/><line x1="200" y1="40" x2="200" y2="240"/><line x1="40" y1="140" x2="360" y2="140"/><circle cx="200" cy="140" r="30"/><circle cx="200" cy="140" r="15"/><polygon points="200,125 210,140 200,155 190,140" fill="#1a4b8c"/></g><text x="200" y="285" font-family="'DM Sans',sans-serif" font-size="8" fill="#1a4b8c" text-anchor="middle" font-weight="600">CERTIFICACI&Oacute;N ISO 9001:2025</text></svg>
+<span class="firm-drawing-label">CALIDAD CERTIFICADA</span>
+</div>
+<div class="firm-text section-reveal section-reveal-delay-2">
+<p><strong>BREYSA CONSTRUCTORA S.A. de C.V.</strong> nace en 2018 con la visi&oacute;n de transformar el paisaje urbano de Guadalajara a trav&eacute;s de construcci&oacute;n de calidad. Desde entonces hemos entregado m&aacute;s de 15 proyectos residenciales y comerciales, siempre con presupuesto cerrado y cronograma cumplido.</p>
+<p>Nuestro equipo est&aacute; integrado por ingenieros civiles, arquitectos, residentes de obra y personal t&eacute;cnico certificado. Trabajamos con transparencia total: bit&aacute;cora digital, reportes semanales y atenci&oacute;n directa del director de obra.</p>
+<div class="firm-metrics">
+<div class="firm-metric"><span class="firm-metric-num">15+</span><span class="firm-metric-label">Proyectos Entregados</span></div>
+<div class="firm-metric"><span class="firm-metric-num">4.8</span><span class="firm-metric-label">Calificaci&oacute;n Google</span></div>
+<div class="firm-metric"><span class="firm-metric-num">40</span><span class="firm-metric-label">Semanas Promedio</span></div>
+<div class="firm-metric"><span class="firm-metric-num">100%</span><span class="firm-metric-label">Presupuestos Cumplidos</span></div>
+</div></div></div></div></section>
+
+<!-- ====== CTA INLINE ====== -->
+<section class="cta-inline section-reveal" style="background:var(--bp-paper-dark)">
+<div class="container">
+<a href="https://wa.me/523310255492?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20BREYSA%20y%20quiero%20solicitar%20una%20cotizaci%C3%B3n" target="_blank" class="btn btn-stamp" style="font-size:clamp(0.9rem,1.5vw,1.1rem)">
+<span class="stamp-ring"></span><i class="fa-brands fa-whatsapp" style="font-size:1.2em"></i> QUIERO COTIZAR MI PROYECTO<span class="stamp-approved">* RESPUESTA EN MENOS DE 24 HORAS</span>
+</a>
+</div></section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="closeout section-reveal">
+<div class="container">
+<div class="closeout-grid">
+<div class="closeout-brand">
+<div class="closeout-name"><i class="fa-solid fa-compass" style="color:var(--bp-yellow);margin-right:0.375rem"></i>BREYSA</div>
+<div class="closeout-legacy">CONSTRUCTORA S.A. DE C.V. &bull; DESDE 2018</div>
+<p>Construcci&oacute;n residencial y comercial en Guadalajara. Presupuesto cerrado, cronograma garantizado, calidad certificada.</p>
+</div>
+<div>
+<h4>Servicios</h4>
+<ul>
+<li><span>Construcci&oacute;n Residencial</span></li>
+<li><span>Construcci&oacute;n Comercial</span></li>
+<li><span>Proyecto Ejecutivo</span></li>
+<li><span>Remodelaciones</span></li>
+<li><span>Supervisi&oacute;n de Obra</span></li>
+</ul>
+</div>
+<div>
+<h4>Contacto</h4>
+<ul class="closeout-contact">
+<li><i class="fa-solid fa-envelope"></i><span>breysa@hotmail.com</span></li>
+<li><i class="fa-solid fa-phone"></i><span>(33) 1025 5492</span></li>
+<li><i class="fa-brands fa-whatsapp"></i><span>(33) 1025 5492</span></li>
+<li><i class="fa-solid fa-location-dot"></i><span>Guadalajara, Jalisco</span></li>
+</ul>
+</div></div>
+<div class="closeout-bottom">&copy; 2026 BREYSA CONSTRUCTORA S.A. de C.V.</div>
+</div></footer>
+
+<!-- ====== WHATSAPP FLOATING ====== -->
+<a href="https://wa.me/523310255492?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20BREYSA%20y%20quiero%20informes" target="_blank" aria-label="WhatsApp" style="position:fixed;bottom:clamp(1rem,3vw,1.75rem);right:clamp(1rem,3vw,1.75rem);z-index:999;width:clamp(3.25rem,6vw,4rem);height:clamp(3.25rem,6vw,4rem);border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.4);transition:transform 0.25s ease,box-shadow 0.25s ease;animation:floatWA 3s ease-in-out infinite" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"><i class="fa-brands fa-whatsapp" style="font-size:clamp(1.5rem,3vw,2rem);color:#FCFAF5"></i></a>
+
+<style>
+@keyframes floatWA{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+</style>
+
+<script>
+// Intersection Observer for scroll reveals
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if(entry.isIntersecting){ entry.target.classList.add('revealed'); }
+});
+}, { threshold: 0.1 });
+document.querySelectorAll('.section-reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
+

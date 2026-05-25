@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fishing Tampico — Pesca Deportiva y Paseos en el Golfo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--ce-bg:oklch(0.97 0.005 85);
+--ce-primary:oklch(0.25 0.06 230);
+--ce-accent:oklch(0.68 0.2 75);
+--ce-surface:oklch(0.93 0.008 80);
+--ce-dark:oklch(0.15 0.02 240);
+--ce-muted:oklch(0.55 0.04 230);
+--ce-white:oklch(1 0 0);
+--ce-ease:cubic-bezier(0.4,0,0.2,1);
+--ce-font-display:'Bebas Neue',sans-serif;
+--ce-font-body:'Inter',sans-serif
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--ce-font-body);color:var(--ce-dark);background:var(--ce-bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+input,button,textarea,select{font-family:var(--ce-font-body)}
+button{cursor:pointer;border:none;background:none}
+input,textarea,select{font-size:1rem}
+.ce__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ce__container{max-width:1120px;margin:0 auto;padding:0 24px}
+.ce__btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 36px;font-family:var(--ce-font-body);font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.35s var(--ce-ease);border-radius:0;position:relative}
+.ce__btn--primary{background:var(--ce-primary);color:var(--ce-white)}
+.ce__btn--primary:hover{background:oklch(0.2 0.06 230);transform:translateY(-2px);box-shadow:0 8px 24px oklch(0.25 0.06 230 / 0.35)}
+.ce__btn--accent{background:var(--ce-accent);color:var(--ce-primary)}
+.ce__btn--accent:hover{background:oklch(0.68 0.18 70);transform:translateY(-2px);box-shadow:0 8px 24px oklch(0.72 0.18 70 / 0.35)}
+.ce__btn--outline{background:transparent;color:var(--ce-white);border:2px solid var(--ce-white)}
+.ce__btn--outline:hover{background:var(--ce-white);color:var(--ce-primary);transform:translateY(-2px)}
+.ce__btn--glow{background:var(--ce-primary);color:var(--ce-white)}
+.ce__btn--glow:hover{background:oklch(0.2 0.06 230);transform:translateY(-2px);box-shadow:0 0 30px oklch(0.72 0.18 70 / 0.25),0 8px 24px oklch(0.25 0.06 230 / 0.3)}
+.ce__section{padding:100px 0}
+.ce__section--dark{background:var(--ce-primary);color:var(--ce-white)}
+.ce__section--cream{background:var(--ce-surface)}
+.ce__section--white{background:var(--ce-white)}
+.ce__label{display:inline-block;font-family:var(--ce-font-body);font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--ce-accent);margin-bottom:12px}
+.ce__heading{font-family:var(--ce-font-display);font-size:2.75rem;line-height:1.12;color:var(--ce-primary)}
+.ce__section--dark .ce__heading{color:var(--ce-white)}
+.ce__gold-line{height:3px;width:0;background:var(--ce-accent);transition:width 0.8s var(--ce-ease)}
+.ce__gold-line--visible{width:80px}
+.ce__gold-line--center{margin:12px auto 0}
+.ce__fade{opacity:0;transform:translateY(36px);transition:opacity 0.7s var(--ce-ease),transform 0.7s var(--ce-ease)}
+.ce__fade--visible{opacity:1;transform:translateY(0)}
+.ce__fade-stagger>*{opacity:0;transform:translateY(28px);transition:opacity 0.6s var(--ce-ease),transform 0.6s var(--ce-ease)}
+.ce__fade-stagger--visible>*{opacity:1;transform:translateY(0)}
+.ce__fade-stagger>*:nth-child(1){transition-delay:0s}
+.ce__fade-stagger>*:nth-child(2){transition-delay:0.12s}
+.ce__fade-stagger>*:nth-child(3){transition-delay:0.24s}
+
+.ce__hero{position:relative;min-height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ce__hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1600&q=80') center/cover no-repeat;transform:scale(1.08);will-change:transform}
+.ce__hero-overlay{position:absolute;inset:0;background:linear-gradient(140deg,oklch(0.25 0.06 230 / 0.88) 0%,oklch(0.2 0.05 240 / 0.55) 50%,oklch(0.25 0.06 230 / 0.8) 100%)}
+.ce__hero-content{position:relative;z-index:2;text-align:center;padding:24px;width:100%;max-width:900px}
+.ce__hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--ce-font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--ce-accent);border:1px solid var(--ce-accent);padding:6px 18px;margin-bottom:20px;background:oklch(0 0 0 / 0.2)}
+.ce__hero-badge svg{width:14px;height:14px;fill:currentColor}
+.ce__hero-title{font-family:var(--ce-font-display);font-size:clamp(3rem,9vw,5rem);line-height:1.05;color:var(--ce-white);margin:0 0 16px;letter-spacing:-0.01em}
+.ce__hero-desc{font-family:var(--ce-font-body);font-size:1.125rem;font-weight:400;color:oklch(0.88 0.015 85 / 0.9);margin-bottom:32px;letter-spacing:0.02em}
+.ce__hero-line{margin:0 auto 28px}
+.ce__hero-form{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:680px;margin:0 auto 32px}
+.ce__hero-field{position:relative;flex:1 1 160px}
+.ce__hero-field input,.ce__hero-field select{width:100%;padding:14px 16px;font-size:0.9rem;background:oklch(1 1 1 / 0.12);border:1px solid oklch(1 1 1 / 0.2);color:var(--ce-white);outline:none;transition:all 0.3s var(--ce-ease);border-radius:0}
+.ce__hero-field input::placeholder{color:oklch(0.85 0.02 85 / 0.55)}
+.ce__hero-field input:focus,.ce__hero-field select:focus{border-color:var(--ce-accent);background:oklch(1 1 1 / 0.18)}
+.ce__hero-field select option{color:var(--ce-dark);background:var(--ce-white)}
+.ce__hero-form-submit{padding:14px 32px;flex:0 0 auto;font-size:0.75rem}
+.ce__hero-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:28px;margin-top:8px}
+.ce__hero-trust-item{display:flex;align-items:center;gap:8px;font-size:0.8rem;font-weight:600;color:oklch(0.88 0.015 85 / 0.85);letter-spacing:0.04em}
+.ce__hero-trust-item svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+.ce__hero-trust-stars{color:var(--ce-accent);font-size:0.9rem;letter-spacing:2px}
+
+.ce__proof{padding:64px 0;background:var(--ce-white)}
+.ce__proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.ce__proof-item{text-align:center;padding:32px 20px;position:relative}
+.ce__proof-item+.ce__proof-item{border-left:1px solid oklch(0.88 0.01 85)}
+.ce__proof-icon{width:44px;height:44px;margin:0 auto 16px;color:var(--ce-accent);display:flex;align-items:center;justify-content:center}
+.ce__proof-icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ce__proof-number{font-family:var(--ce-font-display);font-size:2.75rem;line-height:1;color:var(--ce-primary);margin-bottom:6px}
+.ce__proof-label{font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ce-muted)}
+
+.ce__packages{padding:100px 0;background:var(--ce-surface)}
+.ce__packages-header{text-align:center;margin-bottom:56px}
+.ce__packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.ce__package-card{position:relative;min-height:460px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border-left:4px solid var(--ce-accent);transition:transform 0.5s var(--ce-ease),box-shadow 0.5s var(--ce-ease);background:var(--ce-white);box-shadow:0 2px 12px oklch(0 0 0 / 0.06)}
+.ce__package-card:hover{transform:translateY(-8px);box-shadow:0 16px 40px oklch(0 0 0 / 0.12)}
+.ce__package-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.7s var(--ce-ease);z-index:0}
+.ce__package-card:hover .ce__package-bg{transform:scale(1.08)}
+.ce__package-overlay{position:absolute;inset:0;background:linear-gradient(0deg,oklch(0 0 0 / 0.82) 0%,oklch(0 0 0 / 0.15) 65%,transparent 100%);z-index:1}
+.ce__package-body{position:relative;z-index:2;padding:32px 28px;color:var(--ce-white)}
+.ce__package-name{font-family:var(--ce-font-display);font-size:1.65rem;color:var(--ce-white);margin-bottom:4px}
+.ce__package-price{font-family:var(--ce-font-body);font-size:1rem;font-weight:700;color:var(--ce-accent);letter-spacing:0.04em;margin-bottom:16px}
+.ce__package-tag{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ce-accent);border:1px solid var(--ce-accent);padding:3px 10px;margin-bottom:12px}
+.ce__package-features{list-style:none;margin-bottom:20px}
+.ce__package-features li{font-size:0.85rem;color:oklch(0.85 0.02 85 / 0.85);padding:4px 0;display:flex;align-items:center;gap:8px}
+.ce__package-features li::before{content:'';width:4px;height:4px;background:var(--ce-accent);flex-shrink:0}
+.ce__package-action{display:flex}
+.ce__package-action .ce__btn{padding:12px 28px;font-size:0.75rem}
+
+.ce__gallery{padding:100px 0;background:var(--ce-primary)}
+.ce__gallery-header{text-align:center;margin-bottom:56px}
+.ce__gallery-header .ce__label{color:var(--ce-accent)}
+.ce__gallery-header .ce__heading{color:var(--ce-white)}
+.ce__gallery-header .ce__gold-line{margin:12px auto 0}
+.ce__gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.ce__gallery-fig{position:relative;transition:transform 0.5s var(--ce-ease);will-change:transform}
+.ce__gallery-fig-inner{background:var(--ce-white);padding:10px 10px 40px;box-shadow:0 6px 28px oklch(0 0 0 / 0.2);position:relative;overflow:hidden;transition:transform 0.4s var(--ce-ease)}
+.ce__gallery-fig:hover .ce__gallery-fig-inner{transform:translateY(-4px)}
+.ce__gallery-fig img{width:100%;display:block;transition:transform 0.7s var(--ce-ease);aspect-ratio:4/3;object-fit:cover}
+.ce__gallery-fig:hover img{transform:scale(1.04)}
+.ce__gallery-cap{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:var(--ce-font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ce-muted);padding:0 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.ce__faq{padding:100px 0;background:var(--ce-white)}
+.ce__faq-header{text-align:center;margin-bottom:56px}
+.ce__faq-list{max-width:720px;margin:0 auto}
+.ce__faq-item{border-bottom:1px solid oklch(0.88 0.01 85)}
+.ce__faq-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:22px 0;font-family:var(--ce-font-body);font-size:1.05rem;font-weight:600;text-align:left;color:var(--ce-dark);transition:color 0.3s var(--ce-ease);background:none;gap:16px;border:none;cursor:pointer}
+.ce__faq-btn[aria-expanded="true"]{color:var(--ce-primary)}
+.ce__faq-icon{flex-shrink:0;width:20px;height:20px;transition:transform 0.35s var(--ce-ease);color:var(--ce-accent)}
+.ce__faq-icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round}
+.ce__faq-btn[aria-expanded="true"] .ce__faq-icon{transform:rotate(45deg)}
+.ce__faq-answer{max-height:0;overflow:hidden;transition:max-height 0.45s var(--ce-ease),padding 0.45s var(--ce-ease);padding:0}
+.ce__faq-answer-inner{padding:0 0 22px;font-size:0.95rem;line-height:1.75;color:var(--ce-muted)}
+.ce__faq-answer--open{max-height:400px}
+
+.ce__contact{padding:100px 0;background:var(--ce-bg)}
+.ce__contact-header{text-align:center;margin-bottom:48px}
+.ce__contact-box{max-width:520px;margin:0 auto;background:var(--ce-white);padding:48px 40px;box-shadow:0 4px 24px oklch(0 0 0 / 0.06)}
+.ce__field{margin-bottom:20px}
+.ce__field label{display:block;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ce-muted);margin-bottom:6px}
+.ce__field input,.ce__field textarea{width:100%;padding:14px 16px;font-size:0.95rem;background:var(--ce-bg);border:1px solid oklch(0.88 0.01 85);border-radius:0;outline:none;transition:all 0.3s var(--ce-ease);color:var(--ce-dark)}
+.ce__field input:focus,.ce__field textarea:focus{border-color:var(--ce-primary);box-shadow:0 0 0 3px oklch(0.25 0.06 230 / 0.1);background:var(--ce-white)}
+.ce__field textarea{resize:vertical;min-height:110px}
+.ce__contact-submit{width:100%;padding:16px;font-size:0.85rem;margin-top:8px}
+.ce__contact-whatsapp{text-align:center;margin-top:28px}
+.ce__contact-whatsapp a{display:inline-flex;align-items:center;gap:10px;font-size:0.9rem;font-weight:600;color:var(--ce-primary);padding:12px 28px;border:1px solid var(--ce-primary);transition:all 0.3s var(--ce-ease)}
+.ce__contact-whatsapp a:hover{background:var(--ce-primary);color:var(--ce-white);transform:translateY(-2px)}
+.ce__contact-whatsapp svg{width:18px;height:18px;flex-shrink:0}
+
+.ce__footer{padding:48px 0;background:var(--ce-primary);color:oklch(0.7 0.03 230);text-align:center;font-size:0.85rem}
+.ce__footer-brand{font-family:var(--ce-font-display);font-size:1.3rem;color:var(--ce-white);margin-bottom:4px}
+.ce__footer-location{display:block;margin-bottom:12px;font-size:0.8rem;letter-spacing:0.06em}
+.ce__footer-line{width:40px;height:2px;background:var(--ce-accent);margin:16px auto}
+.ce__footer-socials{display:flex;justify-content:center;gap:16px;margin-bottom:16px}
+.ce__footer-socials a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid oklch(0.7 0.03 230 / 0.3);transition:all 0.3s var(--ce-ease);color:oklch(0.7 0.03 230)}
+.ce__footer-socials a:hover{border-color:var(--ce-accent);color:var(--ce-accent);background:oklch(1 1 1 / 0.06);transform:translateY(-2px)}
+.ce__footer-socials svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ce__footer-copy{font-size:0.7rem;color:oklch(0.7 0.03 230 / 0.55)}
+
+@media(max-width:1024px){
+.ce__section{padding:80px 0}
+.ce__heading{font-size:2.25rem}
+.ce__packages-grid{gap:20px}
+.ce__gallery-grid{gap:20px}
+}
+@media(max-width:768px){
+.ce__section{padding:60px 0}
+.ce__heading{font-size:2rem}
+.ce__hero-title{font-size:clamp(2.5rem,11vw,3.5rem)}
+.ce__hero-desc{font-size:1rem}
+.ce__hero-form{flex-direction:column;align-items:stretch;max-width:400px}
+.ce__hero-field{flex:1 1 auto}
+.ce__hero-form-submit{width:100%}
+.ce__packages-grid{grid-template-columns:1fr}
+.ce__package-card{min-height:380px}
+.ce__proof-grid{grid-template-columns:1fr}
+.ce__proof-item+.ce__proof-item{border-left:none;border-top:1px solid oklch(0.88 0.01 85)}
+.ce__proof-number{font-size:2.25rem}
+.ce__gallery-grid{grid-template-columns:1fr}
+.ce__contact-box{padding:32px 24px}
+.ce__faq-btn{font-size:0.95rem}
+}
+@media(max-width:480px){
+.ce__section{padding:48px 0}
+.ce__heading{font-size:1.75rem}
+.ce__hero-title{font-size:clamp(1.8rem,13vw,2.8rem)}
+.ce__hero-desc{font-size:0.9rem;margin-bottom:24px}
+.ce__hero-form{gap:10px}
+.ce__hero-trust{gap:16px}
+.ce__hero-trust-item{font-size:0.7rem}
+.ce__container{padding:0 16px}
+.ce__package-card{min-height:340px}
+.ce__package-body{padding:24px 20px}
+.ce__package-name{font-size:1.35rem}
+.ce__proof-item{padding:24px 16px}
+.ce__proof-number{font-size:2rem}
+.ce__proof-icon{width:36px;height:36px}
+.ce__contact-box{padding:24px 16px}
+}
+</style>
+</head>
+<body>
+
+<section class="ce__hero" aria-label="Hero Fishing Tampico">
+  <div class="ce__hero-bg" role="img" aria-label="Amanecer en el Golfo de Mexico"></div>
+  <div class="ce__hero-overlay"></div>
+  <div class="ce__hero-content">
+    <div class="ce__hero-badge">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Fishing Tampico
+    </div>
+    <h1 class="ce__hero-title">Pesca en Tampico</h1>
+    <p class="ce__hero-desc">Paseos y pesca deportiva en el Golfo de Mexico</p>
+    <div class="ce__hero-line ce__gold-line" id="ce-hero-line"></div>
+    <form class="ce__hero-form" aria-label="Formulario de reserva rapida">
+      <div class="ce__hero-field">
+        <label for="hero-nombre" class="ce__sr-only">Nombre</label>
+        <input type="text" id="hero-nombre" name="nombre" placeholder="Nombre" aria-label="Tu nombre" required>
+      </div>
+      <div class="ce__hero-field">
+        <label for="hero-fecha" class="ce__sr-only">Fecha</label>
+        <input type="date" id="hero-fecha" name="fecha" aria-label="Fecha del paseo" required>
+      </div>
+      <div class="ce__hero-field">
+        <label for="hero-personas" class="ce__sr-only">Personas</label>
+        <select id="hero-personas" name="personas" aria-label="Numero de personas">
+          <option value="1">1 Persona</option>
+          <option value="2" selected>2 Personas</option>
+          <option value="3">3 Personas</option>
+          <option value="4">4 Personas</option>
+          <option value="5">5 Personas</option>
+          <option value="6">6+ Personas</option>
+        </select>
+      </div>
+      <button type="submit" class="ce__btn ce__btn--accent ce__hero-form-submit" aria-label="Reservar ahora">RESERVAR</button>
+    </form>
+    <div class="ce__hero-trust" aria-label="Indicadores de confianza">
+      <span class="ce__hero-trust-item">
+        <span class="ce__hero-trust-stars">4.9</span>
+        5.0
+      </span>
+      <span class="ce__hero-trust-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        10+ Anos
+      </span>
+      <span class="ce__hero-trust-item">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        500+ Clientes
+      </span>
+    </div>
+  </div>
+</section>
+
+<section class="ce__section ce__packages" aria-label="Paquetes disponibles">
+  <div class="ce__container">
+    <div class="ce__packages-header ce__fade">
+      <span class="ce__label">Elige tu experiencia</span>
+      <h2 class="ce__heading">Nuestros Paquetes</h2>
+      <div class="ce__gold-line ce__gold-line--center" data-goldline></div>
+    </div>
+    <div class="ce__packages-grid">
+      <article class="ce__package-card ce__fade" style="transition-delay:0.1s" aria-label="Paquete Paseo en Lancha">
+        <div class="ce__package-bg" style="background-image:url('https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?w=800&q=80')"></div>
+        <div class="ce__package-overlay"></div>
+        <div class="ce__package-body">
+          <span class="ce__package-tag">Desde</span>
+          <h3 class="ce__package-name">Paseo en Lancha</h3>
+          <p class="ce__package-price">$1,500 MXN por persona</p>
+          <ul class="ce__package-features">
+            <li>Recorrido de 3 horas por la costa</li>
+            <li>Equipo de seguridad incluido</li>
+            <li>Snacks y bebidas a bordo</li>
+            <li>Guia local bilingue</li>
+          </ul>
+          <div class="ce__package-action"><a href="#" class="ce__btn ce__btn--accent" aria-label="Reservar Paseo en Lancha">RESERVAR</a></div>
+        </div>
+      </article>
+      <article class="ce__package-card ce__fade" style="transition-delay:0.2s" aria-label="Paquete Pesca Deportiva">
+        <div class="ce__package-bg" style="background-image:url('https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=800&q=80')"></div>
+        <div class="ce__package-overlay"></div>
+        <div class="ce__package-body">
+          <span class="ce__package-tag">Popular</span>
+          <h3 class="ce__package-name">Pesca Deportiva</h3>
+          <p class="ce__package-price">$2,500 MXN por persona</p>
+          <ul class="ce__package-features">
+            <li>Jornada de 5 horas en altamar</li>
+            <li>Equipo profesional de pesca</li>
+            <li>Captain con 15 anos de experiencia</li>
+            <li>Llevate tu pescado a casa</li>
+          </ul>
+          <div class="ce__package-action"><a href="#" class="ce__btn ce__btn--accent" aria-label="Reservar Pesca Deportiva">RESERVAR</a></div>
+        </div>
+      </article>
+      <article class="ce__package-card ce__fade" style="transition-delay:0.3s" aria-label="Paquete Tour Completo">
+        <div class="ce__package-bg" style="background-image:url('https://images.unsplash.com/photo-1506953823976-52c39d3f3b0d?w=800&q=80')"></div>
+        <div class="ce__package-overlay"></div>
+        <div class="ce__package-body">
+          <span class="ce__package-tag">Premium</span>
+          <h3 class="ce__package-name">Tour Completo</h3>
+          <p class="ce__package-price">$4,000 MXN por persona</p>
+          <ul class="ce__package-features">
+            <li>Dia completo de 8 horas</li>
+            <li>Pesca + paseo + comida a bordo</li>
+            <li>Fotografia profesional incluida</li>
+            <li>Transporte ida y vuelta al hotel</li>
+          </ul>
+          <div class="ce__package-action"><a href="#" class="ce__btn ce__btn--accent" aria-label="Reservar Tour Completo">RESERVAR</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ce__proof" aria-label="Prueba social">
+  <div class="ce__container">
+    <div class="ce__proof-grid ce__fade-stagger" id="ce-proof-grid">
+      <div class="ce__proof-item">
+        <div class="ce__proof-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="ce__proof-number"><span class="ce__proof-count" data-target="10">0</span><span class="ce__proof-suffix">+</span></div>
+        <div class="ce__proof-label">Anos experiencia</div>
+      </div>
+      <div class="ce__proof-item">
+        <div class="ce__proof-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="ce__proof-number"><span class="ce__proof-count" data-target="500">0</span><span class="ce__proof-suffix">+</span></div>
+        <div class="ce__proof-label">Viajes realizados</div>
+      </div>
+      <div class="ce__proof-item">
+        <div class="ce__proof-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="ce__proof-number"><span class="ce__proof-count" data-target="98">0</span><span class="ce__proof-suffix">%</span></div>
+        <div class="ce__proof-label">Clientes felices</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ce__section ce__gallery" aria-label="Galeria de imagenes">
+  <div class="ce__container">
+    <div class="ce__gallery-header ce__fade">
+      <span class="ce__label">Galeria</span>
+      <h2 class="ce__heading">Vive la Experiencia</h2>
+      <div class="ce__gold-line ce__gold-line--center" data-goldline></div>
+    </div>
+    <div class="ce__gallery-grid" id="ce-gallery-grid">
+      <figure class="ce__gallery-fig" data-parallax="1">
+        <div class="ce__gallery-fig-inner">
+          <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?w=800&q=80" alt="Vista aerea de la costa de Tampico" loading="lazy">
+          <figcaption class="ce__gallery-cap">Costa de Tampico</figcaption>
+        </div>
+      </figure>
+      <figure class="ce__gallery-fig" data-parallax="0.6">
+        <div class="ce__gallery-fig-inner">
+          <img src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=800&q=80" alt="Barco de pesca en el Golfo" loading="lazy">
+          <figcaption class="ce__gallery-cap">Jornada en Altamar</figcaption>
+        </div>
+      </figure>
+      <figure class="ce__gallery-fig" data-parallax="0.8">
+        <div class="ce__gallery-fig-inner">
+          <img src="https://images.unsplash.com/photo-1506953823976-52c39d3f3b0d?w=800&q=80" alt="Atardecer en el Golfo de Mexico" loading="lazy">
+          <figcaption class="ce__gallery-cap">Atardecer en el Golfo</figcaption>
+        </div>
+      </figure>
+      <figure class="ce__gallery-fig" data-parallax="1.3">
+        <div class="ce__gallery-fig-inner">
+          <img src="https://images.unsplash.com/photo-1564419261600-ec4087cb42c6?w=800&q=80" alt="Lancha navegando en la costa" loading="lazy">
+          <figcaption class="ce__gallery-cap">Navegando la Costa</figcaption>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="ce__section ce__faq" aria-label="Preguntas frecuentes">
+  <div class="ce__container">
+    <div class="ce__faq-header ce__fade">
+      <span class="ce__label">FAQ</span>
+      <h2 class="ce__heading">Preguntas Frecuentes</h2>
+      <div class="ce__gold-line ce__gold-line--center" data-goldline></div>
+    </div>
+    <div class="ce__faq-list">
+      <div class="ce__faq-item ce__fade" style="transition-delay:0.1s">
+        <button class="ce__faq-btn" aria-expanded="false" aria-controls="faq-1" id="faq-btn-1" aria-label="Abrir respuesta: Como hago una reservacion?">
+          <span>Como hago una reservacion?</span>
+          <span class="ce__faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="ce__faq-answer" id="faq-1" role="region" aria-labelledby="faq-btn-1">
+          <div class="ce__faq-answer-inner">Puedes reservar directamente en linea usando el formulario al inicio de la pagina, llamarnos por telefono o escribirnos por WhatsApp. Confirmamos tu reservacion en menos de 2 horas. Aceptamos pago en efectivo, transferencia y tarjetas.</div>
+        </div>
+      </div>
+      <div class="ce__faq-item ce__fade" style="transition-delay:0.18s">
+        <button class="ce__faq-btn" aria-expanded="false" aria-controls="faq-2" id="faq-btn-2" aria-label="Abrir respuesta: Que equipo se incluye?">
+          <span>Que equipo se incluye?</span>
+          <span class="ce__faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="ce__faq-answer" id="faq-2" role="region" aria-labelledby="faq-btn-2">
+          <div class="ce__faq-answer-inner">Todos los paquetes incluyen cañas y carretes profesionales, anzuelos, senuelos, chaleco salvavidas y equipo de seguridad certificado. Solo trae ropa comoda, protector solar, gorra y muchas ganas de pescar. Nosotros ponemos el resto.</div>
+        </div>
+      </div>
+      <div class="ce__faq-item ce__fade" style="transition-delay:0.26s">
+        <button class="ce__faq-btn" aria-expanded="false" aria-controls="faq-3" id="faq-btn-3" aria-label="Abrir respuesta: Es seguro navegar con ustedes?">
+          <span>Es seguro navegar con ustedes?</span>
+          <span class="ce__faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="ce__faq-answer" id="faq-3" role="region" aria-labelledby="faq-btn-3">
+          <div class="ce__faq-answer-inner">La seguridad es nuestra prioridad. Todas nuestras embarcaciones cuentan con equipo de salvavidas, radio VHF, GPS y botiquin. Nuestros capitanes estan certificados por la SEMAR y tienen minimo 10 anos de experiencia en el Golfo.</div>
+        </div>
+      </div>
+      <div class="ce__faq-item ce__fade" style="transition-delay:0.34s">
+        <button class="ce__faq-btn" aria-expanded="false" aria-controls="faq-4" id="faq-btn-4" aria-label="Abrir respuesta: Que pasa si hay mal clima?">
+          <span>Que pasa si hay mal clima?</span>
+          <span class="ce__faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="ce__faq-answer" id="faq-4" role="region" aria-labelledby="faq-btn-4">
+          <div class="ce__faq-answer-inner">Si el clima no es seguro, cancelamos el viaje y te reembolsamos el 100% o reagendamos sin costo. Monitoreamos las condiciones 24 horas antes. En caso de lluvia ligera el paseo continua, tu decides si quieres cancelar sin penalizacion.</div>
+        </div>
+      </div>
+      <div class="ce__faq-item ce__fade" style="transition-delay:0.42s">
+        <button class="ce__faq-btn" aria-expanded="false" aria-controls="faq-5" id="faq-btn-5" aria-label="Abrir respuesta: Donde nos reunimos para salir?">
+          <span>Donde nos reunimos para salir?</span>
+          <span class="ce__faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="ce__faq-answer" id="faq-5" role="region" aria-labelledby="faq-btn-5">
+          <div class="ce__faq-answer-inner">Salimos desde el embarcadero de la Laguna del Carpintero en Tampico, a 10 minutos del centro. Te enviamos la ubicacion exacta al confirmar tu reservacion. Si necesitas transporte, podemos coordinarlo desde tu hotel sin costo adicional.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ce__section ce__contact" aria-label="Contacto">
+  <div class="ce__container">
+    <div class="ce__contact-header ce__fade">
+      <span class="ce__label">Contacto</span>
+      <h2 class="ce__heading">Reserva tu Aventura</h2>
+      <div class="ce__gold-line ce__gold-line--center" data-goldline></div>
+    </div>
+    <div class="ce__contact-box ce__fade">
+      <form aria-label="Formulario de contacto">
+        <div class="ce__field">
+          <label for="ct-nombre">Nombre</label>
+          <input type="text" id="ct-nombre" name="nombre" required placeholder="Tu nombre completo" aria-required="true">
+        </div>
+        <div class="ce__field">
+          <label for="ct-email">Email</label>
+          <input type="email" id="ct-email" name="email" required placeholder="tu@correo.com" aria-required="true">
+        </div>
+        <div class="ce__field">
+          <label for="ct-fecha">Fecha preferida</label>
+          <input type="date" id="ct-fecha" name="fecha">
+        </div>
+        <div class="ce__field">
+          <label for="ct-mensaje">Mensaje</label>
+          <textarea id="ct-mensaje" name="mensaje" rows="4" placeholder="Cuentanos que buscas..."></textarea>
+        </div>
+        <button type="submit" class="ce__btn ce__btn--glow ce__contact-submit" aria-label="Enviar mensaje">ENVIAR</button>
+      </form>
+      <div class="ce__contact-whatsapp">
+        <a href="https://wa.me/528331234567" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          833 123 4567
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="ce__footer" aria-label="Pie de pagina">
+  <div class="ce__container">
+    <div class="ce__footer-brand">Fishing Tampico</div>
+    <span class="ce__footer-location">Tampico, Tamaulipas</span>
+    <div class="ce__footer-line"></div>
+    <div class="ce__footer-socials">
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      </a>
+    </div>
+    <p class="ce__footer-copy">&copy; 2026 Fishing Tampico. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+var ease = 'cubic-bezier(0.4,0,0.2,1)';
+
+function observeEls(selector, cls, threshold) {
+  var els = document.querySelectorAll(selector);
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add(cls);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: threshold || 0.12 });
+  els.forEach(function(el) { obs.observe(el); });
+}
+
+function animateCounters() {
+  var counters = document.querySelectorAll('.ce__proof-count');
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var duration = 1400;
+        var startTime = null;
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target);
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = target;
+          }
+        }
+        requestAnimationFrame(step);
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+  counters.forEach(function(el) { obs.observe(el); });
+}
+
+function setupAccordion() {
+  var btns = document.querySelectorAll('.ce__faq-btn');
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      var answer = document.getElementById(btn.getAttribute('aria-controls'));
+      if (expanded) {
+        btn.setAttribute('aria-expanded', 'false');
+        answer.classList.remove('ce__faq-answer--open');
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        answer.classList.add('ce__faq-answer--open');
+      }
+    });
+  });
+}
+
+function setupParallax() {
+  var items = document.querySelectorAll('[data-parallax]');
+  if (items.length === 0) return;
+  var ticking = false;
+  function update() {
+    var vh = window.innerHeight;
+    var vc = vh / 2;
+    items.forEach(function(item) {
+      var rect = item.getBoundingClientRect();
+      var ic = rect.top + rect.height / 2;
+      var dist = (ic - vc) / vc;
+      var speed = parseFloat(item.getAttribute('data-parallax')) || 1;
+      var offset = dist * speed * 20;
+      item.style.transform = 'translateY(' + offset.toFixed(1) + 'px)';
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+  update();
+}
+
+function animateHeroLine() {
+  var line = document.getElementById('ce-hero-line');
+  if (line) {
+    setTimeout(function() {
+      line.style.transition = 'width 1.2s ' + ease;
+      line.style.width = '80px';
+    }, 500);
+  }
+}
+
+function init() {
+  animateHeroLine();
+  observeEls('.ce__fade', 'ce__fade--visible', 0.12);
+  observeEls('.ce__fade-stagger', 'ce__fade-stagger--visible', 0.15);
+  observeEls('[data-goldline]', 'ce__gold-line--visible', 0.2);
+  animateCounters();
+  setupAccordion();
+  setupParallax();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+})();
+</script>
+
+</body>
+</html>

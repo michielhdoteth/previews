@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BORIS — Yate de Lujo & Pesca Deportiva en Tampico</title>
+<meta name="description" content="Boris Fishing Charters. Paseos en yate, pesca deportiva y eventos privados en el Golfo de Mexico. Tripulacion certificada, 15 anos de experiencia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Space Grotesk',sans-serif;color:#1a1a1a;background:#fcf9f3;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}a{text-decoration:none;color:inherit}ul{list-style:none}
+:root{
+  --ink:oklch(0.15 0.04 255);
+  --ink-soft:oklch(0.35 0.04 255);
+  --ink-faint:oklch(0.55 0.03 255);
+  --coral:oklch(0.58 0.18 30);
+  --coral-dim:oklch(0.48 0.15 30);
+  --cream:oklch(0.96 0.006 85);
+  --white:oklch(0.995 0 0);
+  --teal:oklch(0.5 0.1 200);
+  --line:oklch(0.15 0.04 255 / 0.06);
+  --max-w:1200px;
+  --font-h:'Syne',sans-serif;
+  --font-b:'Space Grotesk',sans-serif;
+}
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 clamp(1.5rem,4vw,2.5rem)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* GRADIENT NOISE */
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100dvh;z-index:-1;background:radial-gradient(ellipse 80% 60% at 50% 0%,oklch(0.5 0.1 200 / 0.06),transparent),radial-gradient(ellipse 60% 40% at 80% 100%,oklch(0.58 0.18 30 / 0.04),transparent);pointer-events:none}
+
+/* NAV — clean no-line */
+nav{position:sticky;top:0;z-index:100;padding:1rem 0;background:var(--white);transition:box-shadow 0.3s}
+nav.scrolled{box-shadow:0 1px 0 oklch(0 0 0 / 0.06)}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:0.75rem}
+.nav-brand svg{width:2rem;height:2rem;flex-shrink:0}
+.nav-brand span{font-family:var(--font-h);font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--ink)}
+.nav-links{display:flex;align-items:center;gap:0.25rem}
+.nav-links a{padding:0.5rem 1rem;border-radius:8px;font-size:0.8rem;font-weight:500;color:var(--ink-soft);transition:all 0.2s}
+.nav-links a:hover{background:var(--line);color:var(--ink)}
+.nav-links a.nav-cta{background:var(--coral);color:var(--white);font-weight:600;padding:0.6rem 1.25rem;border-radius:100px}
+.nav-links a.nav-cta:hover{background:var(--coral-dim);transform:translateY(-1px)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.5rem;color:var(--ink)}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);flex-direction:column;padding:0.75rem;gap:0.25rem;border-radius:0 0 16px 16px;box-shadow:0 8px 24px oklch(0 0 0 / 0.06)}.nav-links.open{display:flex}.nav-links a{padding:0.75rem 1rem;width:100%}.nav-toggle{display:block}
+}
+
+/* HERO */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:flex-end;overflow:hidden;background:var(--ink)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.55}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,var(--ink) 0%,transparent 45%,transparent 70%,var(--ink) 100%)}
+.hero-content{position:relative;z-index:2;width:100%;padding:clamp(3rem,6vw,5rem) 0 clamp(2rem,4vw,3rem)}
+.hero-content .container{display:grid;grid-template-columns:1fr 0.4fr;gap:3rem}
+@media(max-width:768px){.hero-content .container{grid-template-columns:1fr;gap:1rem}}
+.hero-main{opacity:0;transform:translateY(24px);animation:heroIn 0.8s 0.2s ease forwards}
+@keyframes heroIn{to{opacity:1;transform:translateY(0)}}
+.hero h1{font-family:var(--font-h);font-size:clamp(2.5rem,7vw,5rem);font-weight:800;line-height:0.95;color:var(--white);letter-spacing:-0.03em;margin-bottom:0.25rem}
+.hero h1 span{display:block;font-size:clamp(0.65rem,1vw,0.85rem);font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:oklch(1 0 0 / 0.4);margin-bottom:0.5rem;font-family:var(--font-b)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;margin:1rem 0;align-items:center}
+.hero-meta span{font-size:clamp(0.7rem,0.9vw,0.8rem);color:oklch(1 0 0 / 0.5);font-weight:400}
+.hero-meta strong{font-weight:600;font-size:clamp(1.1rem,1.5vw,1.3rem);color:var(--white)}
+.hero p{font-size:clamp(0.9rem,1.2vw,1.05rem);color:oklch(1 0 0 / 0.5);max-width:28rem;line-height:1.6;margin-bottom:1.5rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:0.75rem}
+.hero-side{opacity:0;animation:heroIn 0.8s 0.4s ease forwards;align-self:end}
+.hero-side .pill-group{display:flex;flex-direction:column;gap:0.5rem}
+.pill-tag{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border-radius:100px;font-size:0.7rem;font-weight:500;color:var(--white);background:oklch(1 0 0 / 0.08);backdrop-filter:blur(4px);border:1px solid oklch(1 0 0 / 0.1)}
+.pill-tag strong{color:var(--white);font-weight:600}
+@media(max-width:768px){.hero-side{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;font-family:var(--font-b);font-weight:600;font-size:clamp(0.85rem,1vw,0.95rem);height:clamp(2.75rem,4.5vw,3.25rem);padding:0 1.75rem;border:none;cursor:pointer;transition:all 0.25s;white-space:nowrap;border-radius:100px}
+.btn-primary{background:var(--coral);color:var(--white)}
+.btn-primary:hover{background:var(--coral-dim);transform:translateY(-2px);box-shadow:0 8px 24px oklch(0.58 0.18 30 / 0.35)}
+.btn-outline-light{background:transparent;border:1.5px solid oklch(1 0 0 / 0.25);color:var(--white)}
+.btn-outline-light:hover{background:oklch(1 0 0 / 0.1);border-color:oklch(1 0 0 / 0.5);transform:translateY(-1px)}
+
+/* SECTION PATTERN */
+.sec{padding:clamp(3rem,8vw,6rem) 0}
+.sec-header{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
+.sec-header-line{width:2rem;height:2px;background:var(--coral);flex-shrink:0}
+.sec-tag{font-family:var(--font-h);font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--coral)}
+.sec-title{font-family:var(--font-h);font-size:clamp(1.75rem,4vw,2.8rem);font-weight:700;line-height:1.05;color:var(--ink);letter-spacing:-0.02em;margin-bottom:0.5rem}
+.sec-sub{font-size:clamp(0.85rem,1.2vw,1rem);color:var(--ink-faint);max-width:28rem;line-height:1.55}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(32px);transition:opacity 0.7s,transform 0.7s}.r.v{opacity:1;transform:translateY(0)}
+.r-1{transition-delay:0.1s}.r-2{transition-delay:0.2s}.r-3{transition-delay:0.3s}.r-4{transition-delay:0.4s}.r-5{transition-delay:0.5s}
+
+/* METRICS STRIP */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-radius:16px;overflow:hidden}
+.metric-card{padding:clamp(1.25rem,3vw,2rem);background:var(--white);text-align:center}
+.metric-card .num{font-family:var(--font-h);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1;color:var(--ink);margin-bottom:0.25rem}
+.metric-card .label{font-size:clamp(0.6rem,0.8vw,0.75rem);font-weight:500;color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.06em}
+@media(max-width:640px){.metrics{grid-template-columns:repeat(2,1fr)}}
+
+/* SERVICES — minimal */
+.services{display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.75rem,2vw,1.25rem)}
+.service-card{padding:clamp(1.5rem,3vw,2rem);background:var(--cream);border-radius:16px;transition:all 0.3s;position:relative}
+.service-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px oklch(0 0 0 / 0.04)}
+.service-card:nth-child(3){grid-column:1/3}
+@media(max-width:640px){.services{grid-template-columns:1fr}.service-card:nth-child(3){grid-column:1}}
+.sc-icon{width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;border-radius:12px;background:var(--ink);color:var(--white);margin-bottom:1rem}
+.sc-icon svg{width:1.25rem;height:1.25rem}
+.service-card h3{font-family:var(--font-h);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:0.375rem;letter-spacing:-0.01em}
+.service-card p{font-size:0.85rem;color:var(--ink-faint);line-height:1.6;margin-bottom:0.75rem}
+.sc-cta{display:inline-flex;align-items:center;gap:0.375rem;font-size:0.8rem;font-weight:600;color:var(--coral);transition:gap 0.2s}
+.sc-cta:hover{gap:0.625rem}
+
+/* DIVIDER */
+.divider{height:65vh;min-height:400px;position:relative;overflow:hidden}
+.divider img{width:100%;height:100%;object-fit:cover;position:absolute}
+.divider .overlay{position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,transparent 50%),linear-gradient(0deg,var(--ink) 0%,transparent 30%)}
+.divider .quote{position:absolute;bottom:clamp(2rem,5vw,3rem);left:clamp(1.5rem,5vw,3rem);max-width:520px;z-index:1}
+.divider .quote blockquote{font-family:var(--font-h);font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:500;line-height:1.3;color:var(--white);letter-spacing:-0.01em;margin-bottom:0.5rem}
+.divider .quote cite{font-style:normal;font-size:0.7rem;font-weight:500;color:oklch(1 0 0 / 0.35);letter-spacing:0.06em;text-transform:uppercase}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:clamp(0.5rem,1.5vw,0.75rem)}
+.gal-item{overflow:hidden;border-radius:12px;aspect-ratio:4/3;cursor:pointer;background:var(--ink)}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item:first-child{grid-row:1/3;aspect-ratio:auto}
+.gal-item:nth-child(4),.gal-item:nth-child(5){display:none}
+@media(min-width:640px){.gal-item:nth-child(4),.gal-item:nth-child(5){display:block}}
+@media(max-width:640px){.gal{grid-template-columns:1fr 1fr}.gal-item:first-child{grid-row:auto;grid-column:1/3;aspect-ratio:4/3}.gal-item:nth-child(4),.gal-item:nth-child(5){display:none}}
+
+/* TESTIMONIALS */
+.tests{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(0.75rem,2vw,1.25rem)}
+@media(max-width:768px){.tests{grid-template-columns:1fr}}
+.t-card{padding:clamp(1.25rem,2.5vw,1.75rem);background:var(--cream);border-radius:16px}
+.t-stars{display:flex;gap:2px;margin-bottom:0.75rem}
+.t-stars svg{width:0.85rem;height:0.85rem;fill:#e8a317;stroke:#e8a317}
+.t-card blockquote{font-size:0.85rem;color:var(--ink-soft);line-height:1.65;margin-bottom:0.75rem}
+.t-auth{display:flex;align-items:center;gap:0.75rem}
+.t-auth-avatar{width:2.5rem;height:2.5rem;border-radius:50%;background:var(--ink);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;font-size:0.8rem;flex-shrink:0}
+.t-auth-info .name{font-size:0.8rem;font-weight:600;color:var(--ink)}
+.t-auth-info .src{font-size:0.65rem;color:var(--ink-faint)}
+
+/* CONTACT */
+.contact-g{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(1.5rem,4vw,2.5rem);align-items:start}
+@media(max-width:768px){.contact-g{grid-template-columns:1fr}}
+.ci h3{font-family:var(--font-h);font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;letter-spacing:-0.01em}
+.ci p{font-size:0.9rem;color:var(--ink-faint);line-height:1.6;margin-bottom:1rem}
+.ci-list{display:grid;gap:0.75rem}
+.ci-item{display:flex;align-items:flex-start;gap:0.75rem}
+.ci-item svg{width:1.15rem;height:1.15rem;color:var(--coral);flex-shrink:0;margin-top:2px}
+.ci-item .l{font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-faint);display:block;margin-bottom:0.05rem}
+.ci-item .v{font-size:0.85rem;color:var(--ink-soft);font-weight:500}
+.ci-item .v a{color:var(--coral);font-weight:600}
+.cf{display:flex;flex-direction:column;gap:0.75rem;padding:1.5rem;background:var(--cream);border-radius:16px}
+.cf .rw{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+.cf input,.cf textarea,.cf select{width:100%;padding:0.75rem 1rem;border-radius:10px;border:1.5px solid oklch(0 0 0 / 0.08);background:var(--white);font-family:var(--font-b);font-size:0.85rem;color:var(--ink);transition:border-color 0.25s}
+.cf input:focus,.cf textarea:focus{border-color:var(--ink);outline:none}
+.cf textarea{min-height:80px;resize:vertical}
+.cf button{width:100%;justify-content:center;border-radius:10px}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--white);padding:clamp(2.5rem,6vw,4rem) 0 1.5rem;margin-top:2rem}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:clamp(1.5rem,4vw,2.5rem)}
+@media(max-width:640px){.fg{grid-template-columns:1fr 1fr}}
+.fb .fn{font-family:var(--font-h);font-size:1.2rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.2rem}
+.fb .fs{font-size:0.65rem;font-weight:500;text-transform:uppercase;letter-spacing:0.15em;color:oklch(1 0 0 / 0.3);margin-bottom:0.5rem}
+.fb p{font-size:0.75rem;color:oklch(1 0 0 / 0.35);line-height:1.5;max-width:18rem}
+.fcol h4{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(1 0 0 / 0.3);margin-bottom:0.75rem}
+.fcol li{margin-bottom:0.35rem}
+.fcol li a{font-size:0.8rem;color:oklch(1 0 0 / 0.55);transition:color 0.2s}
+.fcol li a:hover{color:var(--white)}
+.fbott{border-top:1px solid oklch(1 0 0 / 0.06);margin-top:1.5rem;padding-top:1rem;text-align:center;font-size:0.7rem;color:oklch(1 0 0 / 0.25)}
+</style>
+</head>
+<body>
+
+<nav role="navigation" aria-label="Navegacion principal">
+<div class="container">
+<div class="nav-brand">
+<svg viewBox="0 0 32 32" fill="none">
+<path d="M16 4L4 16h6v12h12V16h6L16 4z" fill="#1a4b8c"/>
+<circle cx="16" cy="16" r="4" fill="#fcf9f3"/>
+<path d="M16 2v4M16 26v4M2 16h4M26 16h4" stroke="#1a4b8c" stroke-width="1.5"/>
+</svg>
+<span>BORIS</span>
+</div>
+<button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Abrir menu">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+</button>
+<ul class="nav-links" id="navLinks">
+<li><a href="#servicios">Servicios</a></li>
+<li><a href="#galeria">Galeria</a></li>
+<li><a href="#testimonios">Resenas</a></li>
+<li><a href="#contacto" class="nav-cta">Reservar</a></li>
+</ul>
+</div>
+</nav>
+
+<section class="hero" role="banner">
+<div class="hero-bg">
+<img src="https://images.unsplash.com/photo-1530878902700-0db0045e25b3?w=1600&q=85" alt="Yate navegando en el Golfo de Mexico" loading="lazy">
+</div>
+<div class="hero-content">
+<div class="container">
+<div class="hero-main">
+<h1><span>Yate de lujo &middot; Tampico</span>EL MAR<br>TE ESPERA</h1>
+<div class="hero-meta">
+<strong>4.9</strong>
+<span>Estrellas</span>
+<span>&middot;</span>
+<span>15 anos</span>
+<span>&middot;</span>
+<span>20 pax max.</span>
+</div>
+<p>Paseos privados, pesca deportiva y eventos a bordo. La experiencia marina mas exclusiva del Golfo de Mexico.</p>
+<div class="hero-actions">
+<a href="#contacto" class="btn btn-primary">Reservar experiencia</a>
+<a href="#servicios" class="btn btn-outline-light">Ver paquetes</a>
+</div>
+</div>
+<div class="hero-side">
+<div class="pill-group">
+<span class="pill-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Salidas <strong>365 dias</strong></span>
+<span class="pill-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Seguro de viajero <strong>incluido</strong></span>
+<span class="pill-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg> Hasta <strong>20 pasajeros</strong></span>
+</div>
+</div>
+</div></div>
+</section>
+
+<section class="sec" style="padding-top:0">
+<div class="container">
+<div class="metrics r" style="margin-top:-2rem">
+<div class="metric-card"><div class="num">15</div><div class="label">Anos navegando</div></div>
+<div class="metric-card"><div class="num">3</div><div class="label">Yates disponibles</div></div>
+<div class="metric-card"><div class="num">4.9</div><div class="label">Calificacion</div></div>
+<div class="metric-card"><div class="num">2K+</div><div class="label">Pasajeros felices</div></div>
+</div>
+</div></section>
+
+<section class="sec" id="servicios">
+<div class="container">
+<div class="sec-header r"><div class="sec-header-line"></div><span class="sec-tag">Experiencias</span></div>
+<h2 class="sec-title r r-1">TRES FORMAS<br>DE VIVIR EL MAR</h2>
+<p class="sec-sub r r-2">Cada servicio disenado para crear momentos unicos en el Golfo de Mexico.</p>
+<div class="services" style="margin-top:1.5rem">
+<div class="service-card r r-3">
+<div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+<h3>Paseos en Yate</h3>
+<p>Navega la Laguna del Chairel y el litoral de Tampico. Paseos al atardecer, romaticos, familiares. Barra, musica, comida a bordo.</p>
+<a href="#contacto" class="sc-cta">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+<div class="service-card r r-3">
+<div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.562.562 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg></div>
+<h3>Pesca Deportiva</h3>
+<p>Equipo profesional, capitanes con 15 anos de experiencia. Huachinango, robalo, sierra. Temporada de marlin y pez vela. Captura y liberacion.</p>
+<a href="#contacto" class="sc-cta">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+<div class="service-card r r-4" style="display:grid;grid-template-columns:auto 1fr;gap:0.75rem 1.5rem;position:relative">
+<div class="sc-icon" style="grid-row:1/3;margin-bottom:0">3</div>
+<div><h3>Eventos a Bordo</h3><p>Cumpleanos, corporativos, despedidas, aniversarios. Catering premium, barra, musica, decoracion tematica. Hasta 20 invitados.</p><a href="#contacto" class="sc-cta">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+</div>
+</div></div></section>
+
+<div class="divider">
+<img src="https://images.unsplash.com/photo-1591025207163-942350e47db2?w=1600&q=85" alt="" loading="lazy">
+<div class="overlay"></div>
+<div class="quote r">
+<blockquote>"El mar no se entrega a cualquiera. Pero a los que saben tratarlo, les da lo mejor de si."</blockquote>
+<cite>&mdash; Boris, Capitan &bull; 15 anos en el Golfo</cite>
+</div>
+</div>
+
+<section class="sec" id="galeria">
+<div class="container">
+<div class="sec-header r"><div class="sec-header-line"></div><span class="sec-tag">Galeria</span></div>
+<h2 class="sec-title r r-1">MOMENTOS<br>EN EL MAR</h2>
+<div class="gal" style="margin-top:1.5rem">
+<div class="gal-item r r-2"><img src="https://images.unsplash.com/photo-1564419320464-68773ca5f48f?w=800&q=80" alt="Yate de lujo" loading="lazy"></div>
+<div class="gal-item r r-2"><img src="https://images.unsplash.com/photo-1570362653866-c04bade68c1b?w=600&q=80" alt="Pesca deportiva" loading="lazy"></div>
+<div class="gal-item r r-2"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80" alt="Evento en yate" loading="lazy"></div>
+<div class="gal-item r r-3"><img src="https://images.unsplash.com/photo-1530878902700-0db0045e25b3?w=600&q=80" alt="Navegacion" loading="lazy"></div>
+<div class="gal-item r r-3"><img src="https://images.unsplash.com/photo-1563897539633-7374c2b35cb8?w=600&q=80" alt="Pesca de altura" loading="lazy"></div>
+</div></div></section>
+
+<section class="sec" id="testimonios" style="background:var(--cream)">
+<div class="container">
+<div class="sec-header r"><div class="sec-header-line"></div><span class="sec-tag">Resenas</span></div>
+<h2 class="sec-title r r-1">LO QUE DICEN<br>NUESTROS HUESPEDES</h2>
+<div class="tests" style="margin-top:1.5rem">
+<div class="t-card r r-2">
+<div class="t-stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg></div>
+<blockquote>"El paseo al atardecer fue inolvidable. Yate impecable, tripulacion increible. La mejor experiencia en Tampico."</blockquote>
+<div class="t-auth"><div class="t-auth-avatar">AG</div><div class="t-auth-info"><div class="name">Ana Gutierrez</div><div class="src">Google &middot; 5 estrellas</div></div></div>
+</div>
+<div class="t-card r r-3">
+<div class="t-stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg></div>
+<blockquote>"Excelente atencion, el equipo de pesca de primera. Atrapamos huachinango, robalo. Repetimos sin dudar."</blockquote>
+<div class="t-auth"><div class="t-auth-avatar">RM</div><div class="t-auth-info"><div class="name">Ricardo Mendez</div><div class="src">Pesca Deportiva &middot; 4 hrs</div></div></div>
+</div>
+<div class="t-card r r-4">
+<div class="t-stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 20,7.5 14,12 16,19 10,14.5 4,19 6,12 0,7.5 7.5,7.5"/></svg></div>
+<blockquote>"Evento corporativo de 18 personas. Todo perfecto: catering, musica, atencion. Todos fascinados."</blockquote>
+<div class="t-auth"><div class="t-auth-avatar">PL</div><div class="t-auth-info"><div class="name">Pablo Lozano</div><div class="src">Evento &middot; 18 pax</div></div></div>
+</div>
+</div></div></section>
+
+<section class="sec" id="contacto">
+<div class="container">
+<div class="sec-header r"><div class="sec-header-line"></div><span class="sec-tag">Contacto</span></div>
+<h2 class="sec-title r r-1">RESERVA TU<br>EXPERIENCIA</h2>
+<p class="sec-sub r r-2">Respuesta en menos de 24 horas. WhatsApp es el canal mas rapido.</p>
+<div class="contact-g" style="margin-top:1.5rem">
+<div class="ci r r-3">
+<h3>Informacion</h3>
+<p>Estamos disponibles los 365 dias del ano. Salidas en horario matutino, vespertino y atardecer.</p>
+<div class="ci-list">
+<div class="ci-item">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+<div><span class="l">WhatsApp</span><span class="v"><a href="https://wa.me/528331557036" target="_blank" rel="noopener">+52 833 155 7036</a></span></div>
+</div>
+<div class="ci-item">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+<div><span class="l">Correo</span><span class="v"><a href="mailto:info@borisfishingcharters.com">info@borisfishingcharters.com</a></span></div>
+</div>
+<div class="ci-item">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+<div><span class="l">Puerto de Salida</span><span class="v">Escollera de Tampico &middot; Tamaulipas</span></div>
+</div>
+<div class="ci-item">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+<div><span class="l">Horarios de Salida</span><span class="v">6 AM &middot; 10 AM &middot; 2 PM &middot; 6 PM</span></div>
+</div>
+</div>
+</div>
+<form class="cf r r-4" action="#" method="POST" aria-label="Formulario de reserva">
+<div class="rw"><input type="text" name="name" placeholder="Nombre" aria-label="Nombre" required><input type="tel" name="phone" placeholder="WhatsApp" aria-label="Telefono" required></div>
+<input type="email" name="email" placeholder="Correo electronico" aria-label="Correo" required>
+<div class="rw"><input type="date" name="date" aria-label="Fecha"><select name="guests" aria-label="Personas"><option value="">Personas</option><option>2</option><option>4</option><option>6</option><option>8</option><option>10</option><option>15</option><option>20</option></select></div>
+<textarea name="message" placeholder="Mensaje o solicitudes especiales" aria-label="Mensaje"></textarea>
+<button type="submit" class="btn btn-primary">Enviar solicitud</button>
+</form>
+</div></div></section>
+
+<footer>
+<div class="container">
+<div class="fg">
+<div class="fb">
+<div class="fn">BORIS</div>
+<div class="fs">Yate de lujo &middot; Pesca &middot; Eventos</div>
+<p>Navegando el Golfo de Mexico desde 2011. Tripulacion certificada, yates impecables, experiencias inolvidables.</p>
+</div>
+<div class="fcol">
+<h4>Experiencias</h4>
+<ul><li><a href="#servicios">Paseos en Yate</a></li><li><a href="#servicios">Pesca Deportiva</a></li><li><a href="#servicios">Eventos a Bordo</a></li></ul>
+</div>
+<div class="fcol">
+<h4>Contacto</h4>
+<ul><li><a href="https://wa.me/528331557036" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:info@borisfishingcharters.com">Correo</a></li><li><a href="#contacto">Reservar</a></li></ul>
+</div>
+</div>
+<div class="fbott">&copy; 2026 Boris Fishing Charters &middot; Tampico, Tamaulipas, Mexico</div>
+</div></footer>
+
+<script>
+document.getElementById('navToggle').addEventListener('click',function(){
+  const l=document.getElementById('navLinks');
+  const o=l.classList.toggle('open');
+  this.setAttribute('aria-expanded',o);
+});
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('navToggle').setAttribute('aria-expanded','false');
+}));
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').classList.toggle('scrolled',window.scrollY>40);
+});
+const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.08});
+document.querySelectorAll('.r').forEach(e=>obs.observe(e));
+</script>
+</body>
+</html>
